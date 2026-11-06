@@ -14,6 +14,8 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
+// Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
+//
 // ## Example Usage
 //
 // > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -31,18 +33,48 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewAlert(ctx, "alert", &snowflake.AlertArgs{
-//				Database:  pulumi.String("database"),
-//				Schema:    pulumi.String("schema"),
-//				Name:      pulumi.String("alert"),
-//				Warehouse: pulumi.String("warehouse"),
+//			//# Basic resource (serverless, on a schedule)
+//			_, err := snowflake.NewAlert(ctx, "basic", &snowflake.AlertArgs{
+//				Database: pulumi.String("database"),
+//				Schema:   pulumi.String("schema"),
+//				Name:     pulumi.String("alert"),
 //				AlertSchedule: &snowflake.AlertAlertScheduleArgs{
 //					Interval: pulumi.Int(10),
 //				},
 //				Condition: pulumi.String("select 1 as c"),
 //				Action:    pulumi.String("select 1 as c"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			//# Complete resource
+//			_, err = snowflake.NewAlert(ctx, "complete", &snowflake.AlertArgs{
+//				Database:  pulumi.String("database"),
+//				Schema:    pulumi.String("schema"),
+//				Name:      pulumi.String("alert"),
+//				Warehouse: pulumi.String("warehouse"),
+//				AlertSchedule: &snowflake.AlertAlertScheduleArgs{
+//					Cron: &snowflake.AlertAlertScheduleCronArgs{
+//						Expression: pulumi.String("0 * * * *"),
+//						TimeZone:   pulumi.String("UTC"),
+//					},
+//				},
+//				Condition: pulumi.String("select 1 as c"),
+//				Action:    pulumi.String("select 1 as c"),
 //				Enabled:   pulumi.Bool(true),
 //				Comment:   pulumi.String("my alert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			//# Alert on new data (no schedule); the condition table needs change tracking
+//			_, err = snowflake.NewAlert(ctx, "on_new_data", &snowflake.AlertArgs{
+//				Database:  pulumi.String("database"),
+//				Schema:    pulumi.String("schema"),
+//				Name:      pulumi.String("alert_on_new_data"),
+//				Warehouse: pulumi.String("warehouse"),
+//				Condition: pulumi.String("select * from database.schema.table"),
+//				Action:    pulumi.String("select 1 as c"),
 //			})
 //			if err != nil {
 //				return err
@@ -57,34 +89,36 @@ import (
 //
 // ## Import
 //
-// format is database name | schema name | alert name
-//
 // ```sh
-// $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+// $ pulumi import snowflake:index/alert:Alert example '"<database_name>"."<schema_name>"."<alert_name>"'
 // ```
 type Alert struct {
 	pulumi.CustomResourceState
 
 	// The SQL statement that should be executed if the condition returns one or more rows.
 	Action pulumi.StringOutput `pulumi:"action"`
-	// The schedule for periodically running an alert.
+	// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 	AlertSchedule AlertAlertSchedulePtrOutput `pulumi:"alertSchedule"`
 	// Specifies a comment for the alert.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
 	Condition pulumi.StringOutput `pulumi:"condition"`
-	// The database in which to create the alert.
+	// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// Outputs the result of `DESCRIBE ALERT` for the given alert.
+	DescribeOutputs AlertDescribeOutputArrayOutput `pulumi:"describeOutputs"`
+	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+	// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the alert.
+	// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// The warehouse the alert will use.
-	Warehouse pulumi.StringOutput `pulumi:"warehouse"`
+	// Outputs the result of `SHOW ALERTS` for the given alert.
+	ShowOutputs AlertShowOutputArrayOutput `pulumi:"showOutputs"`
+	// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 }
 
 // NewAlert registers a new resource with the given unique name, arguments, and options.
@@ -105,9 +139,6 @@ func NewAlert(ctx *pulumi.Context,
 	}
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
-	}
-	if args.Warehouse == nil {
-		return nil, errors.New("invalid value for required argument 'Warehouse'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alert
@@ -134,46 +165,54 @@ func GetAlert(ctx *pulumi.Context,
 type alertState struct {
 	// The SQL statement that should be executed if the condition returns one or more rows.
 	Action *string `pulumi:"action"`
-	// The schedule for periodically running an alert.
+	// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 	AlertSchedule *AlertAlertSchedule `pulumi:"alertSchedule"`
 	// Specifies a comment for the alert.
 	Comment *string `pulumi:"comment"`
 	// The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
 	Condition *string `pulumi:"condition"`
-	// The database in which to create the alert.
+	// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
-	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// Outputs the result of `DESCRIBE ALERT` for the given alert.
+	DescribeOutputs []AlertDescribeOutput `pulumi:"describeOutputs"`
+	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+	// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the alert.
+	// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
-	// The warehouse the alert will use.
+	// Outputs the result of `SHOW ALERTS` for the given alert.
+	ShowOutputs []AlertShowOutput `pulumi:"showOutputs"`
+	// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
 	Warehouse *string `pulumi:"warehouse"`
 }
 
 type AlertState struct {
 	// The SQL statement that should be executed if the condition returns one or more rows.
 	Action pulumi.StringPtrInput
-	// The schedule for periodically running an alert.
+	// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 	AlertSchedule AlertAlertSchedulePtrInput
 	// Specifies a comment for the alert.
 	Comment pulumi.StringPtrInput
 	// The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
 	Condition pulumi.StringPtrInput
-	// The database in which to create the alert.
+	// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
-	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// Outputs the result of `DESCRIBE ALERT` for the given alert.
+	DescribeOutputs AlertDescribeOutputArrayInput
+	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+	// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the alert.
+	// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
-	// The warehouse the alert will use.
+	// Outputs the result of `SHOW ALERTS` for the given alert.
+	ShowOutputs AlertShowOutputArrayInput
+	// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
 	Warehouse pulumi.StringPtrInput
 }
 
@@ -190,44 +229,44 @@ func AlertExists(ctx *pulumi.Context,
 type alertArgs struct {
 	// The SQL statement that should be executed if the condition returns one or more rows.
 	Action string `pulumi:"action"`
-	// The schedule for periodically running an alert.
+	// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 	AlertSchedule *AlertAlertSchedule `pulumi:"alertSchedule"`
 	// Specifies a comment for the alert.
 	Comment *string `pulumi:"comment"`
 	// The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
 	Condition string `pulumi:"condition"`
-	// The database in which to create the alert.
+	// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+	// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the alert.
+	// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// The warehouse the alert will use.
-	Warehouse string `pulumi:"warehouse"`
+	// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+	Warehouse *string `pulumi:"warehouse"`
 }
 
 // The set of arguments for constructing a Alert resource.
 type AlertArgs struct {
 	// The SQL statement that should be executed if the condition returns one or more rows.
 	Action pulumi.StringInput
-	// The schedule for periodically running an alert.
+	// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 	AlertSchedule AlertAlertSchedulePtrInput
 	// Specifies a comment for the alert.
 	Comment pulumi.StringPtrInput
 	// The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
 	Condition pulumi.StringInput
-	// The database in which to create the alert.
+	// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrInput
-	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+	// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the alert.
+	// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// The warehouse the alert will use.
-	Warehouse pulumi.StringInput
+	// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+	Warehouse pulumi.StringPtrInput
 }
 
 func (AlertArgs) ElementType() reflect.Type {
@@ -322,7 +361,7 @@ func (o AlertOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The schedule for periodically running an alert.
+// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
 func (o AlertOutput) AlertSchedule() AlertAlertSchedulePtrOutput {
 	return o.ApplyT(func(v *Alert) AlertAlertSchedulePtrOutput { return v.AlertSchedule }).(AlertAlertSchedulePtrOutput)
 }
@@ -337,12 +376,17 @@ func (o AlertOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Condition }).(pulumi.StringOutput)
 }
 
-// The database in which to create the alert.
+// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AlertOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+// Outputs the result of `DESCRIBE ALERT` for the given alert.
+func (o AlertOutput) DescribeOutputs() AlertDescribeOutputArrayOutput {
+	return o.ApplyT(func(v *Alert) AlertDescribeOutputArrayOutput { return v.DescribeOutputs }).(AlertDescribeOutputArrayOutput)
+}
+
+// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 func (o AlertOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Alert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -352,19 +396,24 @@ func (o AlertOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the alert.
+// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AlertOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The warehouse the alert will use.
-func (o AlertOutput) Warehouse() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Warehouse }).(pulumi.StringOutput)
+// Outputs the result of `SHOW ALERTS` for the given alert.
+func (o AlertOutput) ShowOutputs() AlertShowOutputArrayOutput {
+	return o.ApplyT(func(v *Alert) AlertShowOutputArrayOutput { return v.ShowOutputs }).(AlertShowOutputArrayOutput)
+}
+
+// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+func (o AlertOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alert) pulumi.StringPtrOutput { return v.Warehouse }).(pulumi.StringPtrOutput)
 }
 
 type AlertArrayOutput struct{ *pulumi.OutputState }

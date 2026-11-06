@@ -25,29 +25,28 @@ class AlertArgs:
                  condition: pulumi.Input[_builtins.str],
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 warehouse: pulumi.Input[_builtins.str],
                  alert_schedule: pulumi.Input[Optional['AlertAlertScheduleArgs']] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alert resource.
 
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
-        :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert.
-        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use.
-        :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
-        :param pulumi.Input[_builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        :param pulumi.Input[_builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "warehouse", warehouse)
         if alert_schedule is not None:
             pulumi.set(__self__, "alert_schedule", alert_schedule)
         if comment is not None:
@@ -56,6 +55,8 @@ class AlertArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
 
     @_builtins.property
     @pulumi.getter
@@ -85,7 +86,7 @@ class AlertArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database in which to create the alert.
+        The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -97,7 +98,7 @@ class AlertArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema in which to create the alert.
+        The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -106,22 +107,10 @@ class AlertArgs:
         pulumi.set(self, "schema", value)
 
     @_builtins.property
-    @pulumi.getter
-    def warehouse(self) -> pulumi.Input[_builtins.str]:
-        """
-        The warehouse the alert will use.
-        """
-        return pulumi.get(self, "warehouse")
-
-    @warehouse.setter
-    def warehouse(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "warehouse", value)
-
-    @_builtins.property
     @pulumi.getter(name="alertSchedule")
     def alert_schedule(self) -> pulumi.Input[Optional['AlertAlertScheduleArgs']]:
         """
-        The schedule for periodically running an alert.
+        The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         """
         return pulumi.get(self, "alert_schedule")
 
@@ -145,7 +134,7 @@ class AlertArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 
@@ -157,13 +146,25 @@ class AlertArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+        """
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse", value)
 
 
 @pulumi.input_type
@@ -174,24 +175,28 @@ class _AlertState:
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertDescribeOutputArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertShowOutputArgs']]]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Alert resources.
 
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
-        :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[_builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[_builtins.str] database: The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE ALERT` for the given alert.
+        :param pulumi.Input[_builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert.
-        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ALERTS` for the given alert.
+        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -203,6 +208,8 @@ class _AlertState:
             pulumi.set(__self__, "condition", condition)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if fully_qualified_name is not None:
@@ -211,6 +218,8 @@ class _AlertState:
             pulumi.set(__self__, "name", name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
         if warehouse is not None:
             pulumi.set(__self__, "warehouse", warehouse)
 
@@ -230,7 +239,7 @@ class _AlertState:
     @pulumi.getter(name="alertSchedule")
     def alert_schedule(self) -> pulumi.Input[Optional['AlertAlertScheduleArgs']]:
         """
-        The schedule for periodically running an alert.
+        The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         """
         return pulumi.get(self, "alert_schedule")
 
@@ -266,7 +275,7 @@ class _AlertState:
     @pulumi.getter
     def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The database in which to create the alert.
+        The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -275,10 +284,22 @@ class _AlertState:
         pulumi.set(self, "database", value)
 
     @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE ALERT` for the given alert.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 
@@ -302,7 +323,7 @@ class _AlertState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -314,7 +335,7 @@ class _AlertState:
     @pulumi.getter
     def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The schema in which to create the alert.
+        The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -323,10 +344,22 @@ class _AlertState:
         pulumi.set(self, "schema", value)
 
     @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW ALERTS` for the given alert.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
+
+    @_builtins.property
     @pulumi.getter
     def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The warehouse the alert will use.
+        The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         return pulumi.get(self, "warehouse")
 
@@ -354,6 +387,8 @@ class Alert(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
+
         ## Example Usage
 
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -363,42 +398,62 @@ class Alert(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        alert = snowflake.Alert("alert",
+        ## Basic resource (serverless, on a schedule)
+        basic = snowflake.Alert("basic",
+            database="database",
+            schema="schema",
+            name="alert",
+            alert_schedule={
+                "interval": 10,
+            },
+            condition="select 1 as c",
+            action="select 1 as c")
+        ## Complete resource
+        complete = snowflake.Alert("complete",
             database="database",
             schema="schema",
             name="alert",
             warehouse="warehouse",
             alert_schedule={
-                "interval": 10,
+                "cron": {
+                    "expression": "0 * * * *",
+                    "time_zone": "UTC",
+                },
             },
             condition="select 1 as c",
             action="select 1 as c",
             enabled=True,
             comment="my alert")
+        ## Alert on new data (no schedule); the condition table needs change tracking
+        on_new_data = snowflake.Alert("on_new_data",
+            database="database",
+            schema="schema",
+            name="alert_on_new_data",
+            warehouse="warehouse",
+            condition="select * from database.schema.table",
+            action="select 1 as c")
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
         ## Import
 
-        format is database name | schema name | alert name
-
         ```sh
-        $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+        $ pulumi import snowflake:index/alert:Alert example '"<database_name>"."<schema_name>"."<alert_name>"'
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
-        :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[_builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert.
-        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         ...
     @overload
@@ -409,6 +464,8 @@ class Alert(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
+
         ## Example Usage
 
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -418,28 +475,48 @@ class Alert(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        alert = snowflake.Alert("alert",
+        ## Basic resource (serverless, on a schedule)
+        basic = snowflake.Alert("basic",
+            database="database",
+            schema="schema",
+            name="alert",
+            alert_schedule={
+                "interval": 10,
+            },
+            condition="select 1 as c",
+            action="select 1 as c")
+        ## Complete resource
+        complete = snowflake.Alert("complete",
             database="database",
             schema="schema",
             name="alert",
             warehouse="warehouse",
             alert_schedule={
-                "interval": 10,
+                "cron": {
+                    "expression": "0 * * * *",
+                    "time_zone": "UTC",
+                },
             },
             condition="select 1 as c",
             action="select 1 as c",
             enabled=True,
             comment="my alert")
+        ## Alert on new data (no schedule); the condition table needs change tracking
+        on_new_data = snowflake.Alert("on_new_data",
+            database="database",
+            schema="schema",
+            name="alert_on_new_data",
+            warehouse="warehouse",
+            condition="select * from database.schema.table",
+            action="select 1 as c")
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
         ## Import
 
-        format is database name | schema name | alert name
-
         ```sh
-        $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+        $ pulumi import snowflake:index/alert:Alert example '"<database_name>"."<schema_name>"."<alert_name>"'
         ```
 
 
@@ -492,10 +569,10 @@ class Alert(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            if warehouse is None and not opts.urn:
-                raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(Alert, __self__).__init__(
             'snowflake:index/alert:Alert',
             resource_name,
@@ -511,10 +588,12 @@ class Alert(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             condition: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDescribeOutputArgs', 'AlertDescribeOutputArgsDict', 'outputs.AlertDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertShowOutputArgs', 'AlertShowOutputArgsDict', 'outputs.AlertShowOutput']]]]] = None,
             warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'Alert':
         """
         Get an existing Alert resource's state with the given name, id, and optional extra
@@ -524,15 +603,17 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
-        :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[_builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[_builtins.str] database: The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDescribeOutputArgs', 'AlertDescribeOutputArgsDict', 'outputs.AlertDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE ALERT` for the given alert.
+        :param pulumi.Input[_builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert.
-        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertShowOutputArgs', 'AlertShowOutputArgsDict', 'outputs.AlertShowOutput']]]] show_outputs: Outputs the result of `SHOW ALERTS` for the given alert.
+        :param pulumi.Input[_builtins.str] warehouse: The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -543,10 +624,12 @@ class Alert(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["condition"] = condition
         __props__.__dict__["database"] = database
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["show_outputs"] = show_outputs
         __props__.__dict__["warehouse"] = warehouse
         return Alert(resource_name, opts=opts, __props__=__props__)
 
@@ -558,10 +641,12 @@ class Alert(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             condition: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDescribeOutputArgs', 'AlertDescribeOutputArgsDict', 'outputs.AlertDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertShowOutputArgs', 'AlertShowOutputArgsDict', 'outputs.AlertShowOutput']]]]] = None,
             warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["action"] = action
@@ -569,10 +654,12 @@ class Alert(pulumi.CustomResource):
         __props__["comment"] = comment
         __props__["condition"] = condition
         __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
         __props__["enabled"] = enabled
         __props__["fullyQualifiedName"] = fully_qualified_name
         __props__["name"] = name
         __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
         __props__["warehouse"] = warehouse
         return pulumi.runtime.exists_resource(None, 'snowflake:index/alert:Alert', id, __props__, opts or pulumi.ResourceOptions())
 
@@ -588,7 +675,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter(name="alertSchedule")
     def alert_schedule(self) -> pulumi.Output[Optional['outputs.AlertAlertSchedule']]:
         """
-        The schedule for periodically running an alert.
+        The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         """
         return pulumi.get(self, "alert_schedule")
 
@@ -612,15 +699,23 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[_builtins.str]:
         """
-        The database in which to create the alert.
+        The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.AlertDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE ALERT` for the given alert.
+        """
+        return pulumi.get(self, "describe_outputs")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 
@@ -636,7 +731,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -644,15 +739,23 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[_builtins.str]:
         """
-        The schema in which to create the alert.
+        The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @_builtins.property
-    @pulumi.getter
-    def warehouse(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.AlertShowOutput']]:
         """
-        The warehouse the alert will use.
+        Outputs the result of `SHOW ALERTS` for the given alert.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @_builtins.property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         """
         return pulumi.get(self, "warehouse")
 

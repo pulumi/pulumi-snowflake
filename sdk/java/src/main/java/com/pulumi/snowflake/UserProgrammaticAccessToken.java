@@ -181,14 +181,14 @@ public class UserProgrammaticAccessToken extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.disabled);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. A positive value greater than the existing token&#39;s remaining lifetime is capped at that lifetime, rounded down to a whole hour. When less than one hour remains, a positive value is omitted so the existing secret keeps its current expiry. You can set this to a value of 0 to expire the current token secret immediately.
      * 
      */
     @Export(name="expireRotatedTokenAfterHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> expireRotatedTokenAfterHours;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. A positive value greater than the existing token&#39;s remaining lifetime is capped at that lifetime, rounded down to a whole hour. When less than one hour remains, a positive value is omitted so the existing secret keeps its current expiry. You can set this to a value of 0 to expire the current token secret immediately.
      * 
      */
     public Output<Optional<Integer>> expireRotatedTokenAfterHours() {

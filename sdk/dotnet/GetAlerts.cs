@@ -14,26 +14,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetAlerts.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Alerts`.
         /// </summary>
         public static Task<GetAlertsResult> InvokeAsync(GetAlertsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertsResult>("snowflake:index/getAlerts:getAlerts", args ?? new GetAlertsArgs(), options.WithDefaults());
@@ -41,26 +22,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetAlerts.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Alerts`.
         /// </summary>
         public static Output<GetAlertsResult> Invoke(GetAlertsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsResult>("snowflake:index/getAlerts:getAlerts", args ?? new GetAlertsInvokeArgs(), options.WithDefaults());
@@ -68,26 +30,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetAlerts.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Alerts`.
         /// </summary>
         public static Output<GetAlertsResult> Invoke(GetAlertsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsResult>("snowflake:index/getAlerts:getAlerts", args ?? new GetAlertsInvokeArgs(), options.WithDefaults());
@@ -97,22 +40,34 @@ namespace Pulumi.Snowflake
     public sealed class GetAlertsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the alerts from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database")]
-        public string? Database { get; set; }
+        [Input("in")]
+        public Inputs.GetAlertsInArgs? In { get; set; }
 
         /// <summary>
-        /// Filters the command output by object name.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("pattern")]
-        public string? Pattern { get; set; }
+        [Input("like")]
+        public string? Like { get; set; }
 
         /// <summary>
-        /// The schema from which to return the alerts from.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
-        [Input("schema")]
-        public string? Schema { get; set; }
+        [Input("limit")]
+        public Inputs.GetAlertsLimitArgs? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public string? StartsWith { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
 
         public GetAlertsArgs()
         {
@@ -123,22 +78,34 @@ namespace Pulumi.Snowflake
     public sealed class GetAlertsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the alerts from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database")]
-        public Input<string>? Database { get; set; }
+        [Input("in")]
+        public Input<Inputs.GetAlertsInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// Filters the command output by object name.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("pattern")]
-        public Input<string>? Pattern { get; set; }
+        [Input("like")]
+        public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// The schema from which to return the alerts from.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
-        [Input("schema")]
-        public Input<string>? Schema { get; set; }
+        [Input("limit")]
+        public Input<Inputs.GetAlertsLimitInputArgs>? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public Input<string>? StartsWith { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
 
         public GetAlertsInvokeArgs()
         {
@@ -151,43 +118,57 @@ namespace Pulumi.Snowflake
     public sealed class GetAlertsResult
     {
         /// <summary>
-        /// Lists alerts for the current/specified database or schema, or across the entire account.
+        /// Holds the aggregated output of all alert details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertsAlertResult> Alerts;
-        /// <summary>
-        /// The database from which to return the alerts from.
-        /// </summary>
-        public readonly string? Database;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Filters the command output by object name.
+        /// IN clause to filter the list of objects
         /// </summary>
-        public readonly string? Pattern;
+        public readonly Outputs.GetAlertsInResult? In;
         /// <summary>
-        /// The schema from which to return the alerts from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        public readonly string? Schema;
+        public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
+        /// </summary>
+        public readonly Outputs.GetAlertsLimitResult? Limit;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        public readonly string? StartsWith;
+        /// <summary>
+        /// (Default: `True`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetAlertsResult(
             ImmutableArray<Outputs.GetAlertsAlertResult> alerts,
 
-            string? database,
-
             string id,
 
-            string? pattern,
+            Outputs.GetAlertsInResult? @in,
 
-            string? schema)
+            string? like,
+
+            Outputs.GetAlertsLimitResult? limit,
+
+            string? startsWith,
+
+            bool? withDescribe)
         {
             Alerts = alerts;
-            Database = database;
             Id = id;
-            Pattern = pattern;
-            Schema = schema;
+            In = @in;
+            Like = like;
+            Limit = limit;
+            StartsWith = startsWith;
+            WithDescribe = withDescribe;
         }
     }
 }

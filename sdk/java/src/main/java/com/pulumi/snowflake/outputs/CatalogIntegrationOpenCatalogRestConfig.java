@@ -18,7 +18,7 @@ public final class CatalogIntegrationOpenCatalogRestConfig {
      */
     private @Nullable String accessDelegationMode;
     /**
-     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     private @Nullable String catalogApiType;
@@ -42,7 +42,7 @@ public final class CatalogIntegrationOpenCatalogRestConfig {
         return Optional.ofNullable(this.accessDelegationMode);
     }
     /**
-     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     public Optional<String> catalogApiType() {

@@ -119,6 +119,12 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.DatabaseParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
         /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Output("quotedIdentifiersIgnoreCase")]
@@ -465,6 +471,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("parameters")]
+        private InputList<Inputs.DatabaseParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+        /// </summary>
+        public InputList<Inputs.DatabaseParameterGetArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.DatabaseParameterGetArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).

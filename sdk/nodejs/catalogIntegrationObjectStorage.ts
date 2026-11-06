@@ -86,7 +86,7 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly catalogSource: pulumi.Output<string>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
@@ -102,7 +102,7 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
      */
     declare public readonly refreshIntervalSeconds: pulumi.Output<number | undefined>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.CatalogIntegrationObjectStorageShowOutput[]>;
     /**
@@ -172,7 +172,7 @@ export interface CatalogIntegrationObjectStorageState {
      */
     catalogSource?: pulumi.Input<string | undefined>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface CatalogIntegrationObjectStorageState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface CatalogIntegrationObjectStorageState {
      */
     refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationObjectStorageShowOutput>[] | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface CatalogIntegrationObjectStorageState {
  */
 export interface CatalogIntegrationObjectStorageArgs {
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface CatalogIntegrationObjectStorageArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

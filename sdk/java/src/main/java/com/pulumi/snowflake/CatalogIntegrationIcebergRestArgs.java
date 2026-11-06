@@ -53,14 +53,14 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
     }
 
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the catalog integration.
+     * @return Specifies a comment for the catalog integration.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -83,14 +83,14 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * @return Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -232,7 +232,7 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the catalog integration.
+         * @param comment Specifies a comment for the catalog integration.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the catalog integration.
+         * @param comment Specifies a comment for the catalog integration.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+         * @param name Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class CatalogIntegrationIcebergRestArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+         * @param name Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

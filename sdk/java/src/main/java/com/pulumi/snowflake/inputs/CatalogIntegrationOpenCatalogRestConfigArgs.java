@@ -32,14 +32,14 @@ public final class CatalogIntegrationOpenCatalogRestConfigArgs extends com.pulum
     }
 
     /**
-     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     @Import(name="catalogApiType")
     private @Nullable Output<String> catalogApiType;
 
     /**
-     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * @return Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     public Optional<Output<String>> catalogApiType() {
@@ -125,7 +125,7 @@ public final class CatalogIntegrationOpenCatalogRestConfigArgs extends com.pulum
         }
 
         /**
-         * @param catalogApiType Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+         * @param catalogApiType Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CatalogIntegrationOpenCatalogRestConfigArgs extends com.pulum
         }
 
         /**
-         * @param catalogApiType Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+         * @param catalogApiType Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
          * 
          * @return builder
          * 

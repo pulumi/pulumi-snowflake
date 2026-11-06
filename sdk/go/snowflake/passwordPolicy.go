@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewPasswordPolicy(ctx, "basic", &snowflake.PasswordPolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -39,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewPasswordPolicy(ctx, "complete", &snowflake.PasswordPolicyArgs{
 //				Database:          pulumi.String("database_name"),
 //				Schema:            pulumi.String("schema_name"),

@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
+    /// Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
+    /// 
     /// ## Example Usage
     /// 
     /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -25,7 +27,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alert = new Snowflake.Alert("alert", new()
+    ///     //# Basic resource (serverless, on a schedule)
+    ///     var basic = new Snowflake.Alert("basic", new()
+    ///     {
+    ///         Database = "database",
+    ///         Schema = "schema",
+    ///         Name = "alert",
+    ///         AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs
+    ///         {
+    ///             Interval = 10,
+    ///         },
+    ///         Condition = "select 1 as c",
+    ///         Action = "select 1 as c",
+    ///     });
+    /// 
+    ///     //# Complete resource
+    ///     var complete = new Snowflake.Alert("complete", new()
     ///     {
     ///         Database = "database",
     ///         Schema = "schema",
@@ -33,12 +50,27 @@ namespace Pulumi.Snowflake
     ///         Warehouse = "warehouse",
     ///         AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs
     ///         {
-    ///             Interval = 10,
+    ///             Cron = new Snowflake.Inputs.AlertAlertScheduleCronArgs
+    ///             {
+    ///                 Expression = "0 * * * *",
+    ///                 TimeZone = "UTC",
+    ///             },
     ///         },
     ///         Condition = "select 1 as c",
     ///         Action = "select 1 as c",
     ///         Enabled = true,
     ///         Comment = "my alert",
+    ///     });
+    /// 
+    ///     //# Alert on new data (no schedule); the condition table needs change tracking
+    ///     var onNewData = new Snowflake.Alert("on_new_data", new()
+    ///     {
+    ///         Database = "database",
+    ///         Schema = "schema",
+    ///         Name = "alert_on_new_data",
+    ///         Warehouse = "warehouse",
+    ///         Condition = "select * from database.schema.table",
+    ///         Action = "select 1 as c",
     ///     });
     /// 
     /// });
@@ -48,10 +80,8 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | alert name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+    /// $ pulumi import snowflake:index/alert:Alert example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;alert_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/alert:Alert")]
@@ -64,7 +94,7 @@ namespace Pulumi.Snowflake
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule for periodically running an alert.
+        /// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         /// </summary>
         [Output("alertSchedule")]
         public Output<Outputs.AlertAlertSchedule?> AlertSchedule { get; private set; } = null!;
@@ -82,13 +112,19 @@ namespace Pulumi.Snowflake
         public Output<string> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the alert.
+        /// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `False`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Outputs the result of `DESCRIBE ALERT` for the given alert.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.AlertDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -100,22 +136,28 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        /// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the alert.
+        /// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// The warehouse the alert will use.
+        /// Outputs the result of `SHOW ALERTS` for the given alert.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.AlertShowOutput>> ShowOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         /// </summary>
         [Output("warehouse")]
-        public Output<string> Warehouse { get; private set; } = null!;
+        public Output<string?> Warehouse { get; private set; } = null!;
 
 
         /// <summary>
@@ -170,7 +212,7 @@ namespace Pulumi.Snowflake
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// The schedule for periodically running an alert.
+        /// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         /// </summary>
         [Input("alertSchedule")]
         public Input<Inputs.AlertAlertScheduleArgs>? AlertSchedule { get; set; }
@@ -188,34 +230,34 @@ namespace Pulumi.Snowflake
         public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
-        /// The database in which to create the alert.
+        /// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `False`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        /// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the alert.
+        /// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// The warehouse the alert will use.
+        /// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         /// </summary>
-        [Input("warehouse", required: true)]
-        public Input<string> Warehouse { get; set; } = null!;
+        [Input("warehouse")]
+        public Input<string>? Warehouse { get; set; }
 
         public AlertArgs()
         {
@@ -232,7 +274,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The schedule for periodically running an alert.
+        /// The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
         /// </summary>
         [Input("alertSchedule")]
         public Input<Inputs.AlertAlertScheduleGetArgs>? AlertSchedule { get; set; }
@@ -250,13 +292,25 @@ namespace Pulumi.Snowflake
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// The database in which to create the alert.
+        /// The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
+        [Input("describeOutputs")]
+        private InputList<Inputs.AlertDescribeOutputGetArgs>? _describeOutputs;
+
         /// <summary>
-        /// (Default: `False`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Outputs the result of `DESCRIBE ALERT` for the given alert.
+        /// </summary>
+        public InputList<Inputs.AlertDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.AlertDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
+
+        /// <summary>
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -268,19 +322,31 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+        /// Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the alert.
+        /// The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
+        [Input("showOutputs")]
+        private InputList<Inputs.AlertShowOutputGetArgs>? _showOutputs;
+
         /// <summary>
-        /// The warehouse the alert will use.
+        /// Outputs the result of `SHOW ALERTS` for the given alert.
+        /// </summary>
+        public InputList<Inputs.AlertShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.AlertShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
+
+        /// <summary>
+        /// The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }

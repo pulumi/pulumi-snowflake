@@ -14,6 +14,10 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class AuthenticationPolicyPatPolicy
     {
         /// <summary>
+        /// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+        /// </summary>
+        public readonly ImmutableArray<string> BlockedRolesLists;
+        /// <summary>
         /// Specifies the default expiration time (in days) for a programmatic access token.
         /// </summary>
         public readonly int? DefaultExpiryInDays;
@@ -26,23 +30,33 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? NetworkPolicyEvaluation;
         /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        public readonly string? RequireRoleRestrictionForPersonUsers;
+        /// <summary>
         /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         public readonly string? RequireRoleRestrictionForServiceUsers;
 
         [OutputConstructor]
         private AuthenticationPolicyPatPolicy(
+            ImmutableArray<string> blockedRolesLists,
+
             int? defaultExpiryInDays,
 
             int? maxExpiryInDays,
 
             string? networkPolicyEvaluation,
 
+            string? requireRoleRestrictionForPersonUsers,
+
             string? requireRoleRestrictionForServiceUsers)
         {
+            BlockedRolesLists = blockedRolesLists;
             DefaultExpiryInDays = defaultExpiryInDays;
             MaxExpiryInDays = maxExpiryInDays;
             NetworkPolicyEvaluation = networkPolicyEvaluation;
+            RequireRoleRestrictionForPersonUsers = requireRoleRestrictionForPersonUsers;
             RequireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
         }
     }

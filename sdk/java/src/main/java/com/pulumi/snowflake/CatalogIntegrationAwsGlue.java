@@ -114,14 +114,14 @@ public class CatalogIntegrationAwsGlue extends com.pulumi.resources.CustomResour
         return this.catalogSource;
     }
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the catalog integration.
+     * @return Specifies a comment for the catalog integration.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -212,14 +212,14 @@ public class CatalogIntegrationAwsGlue extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.glueRegion);
     }
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * @return Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -240,14 +240,14 @@ public class CatalogIntegrationAwsGlue extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.refreshIntervalSeconds);
     }
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
      * 
      */
     @Export(name="showOutputs", refs={List.class,CatalogIntegrationAwsGlueShowOutput.class}, tree="[0,1]")
     private Output<List<CatalogIntegrationAwsGlueShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
      * 
      */
     public Output<List<CatalogIntegrationAwsGlueShowOutput>> showOutputs() {

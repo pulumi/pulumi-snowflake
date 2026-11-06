@@ -10,10 +10,12 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.DatabaseArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.DatabaseState;
+import com.pulumi.snowflake.outputs.DatabaseParameter;
 import com.pulumi.snowflake.outputs.DatabaseReplication;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -245,6 +247,20 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     * 
+     */
+    @Export(name="parameters", refs={List.class,DatabaseParameter.class}, tree="[0,1]")
+    private Output<List<DatabaseParameter>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     * 
+     */
+    public Output<List<DatabaseParameter>> parameters() {
+        return this.parameters;
     }
     /**
      * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).

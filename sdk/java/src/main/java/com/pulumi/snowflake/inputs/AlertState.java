@@ -6,8 +6,11 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;
+import com.pulumi.snowflake.inputs.AlertDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.AlertShowOutputArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,14 +36,14 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     @Import(name="alertSchedule")
     private @Nullable Output<AlertAlertScheduleArgs> alertSchedule;
 
     /**
-     * @return The schedule for periodically running an alert.
+     * @return The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     public Optional<Output<AlertAlertScheduleArgs>> alertSchedule() {
@@ -78,14 +81,14 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the alert.
+     * @return The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -93,14 +96,29 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * Outputs the result of `DESCRIBE ALERT` for the given alert.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<AlertDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE ALERT` for the given alert.
+     * 
+     */
+    public Optional<Output<List<AlertDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
+    }
+
+    /**
+     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -123,14 +141,14 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * @return Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,14 +156,14 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the alert.
+     * @return The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -153,14 +171,29 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The warehouse the alert will use.
+     * Outputs the result of `SHOW ALERTS` for the given alert.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<AlertShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW ALERTS` for the given alert.
+     * 
+     */
+    public Optional<Output<List<AlertShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
+    }
+
+    /**
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
     @Import(name="warehouse")
     private @Nullable Output<String> warehouse;
 
     /**
-     * @return The warehouse the alert will use.
+     * @return The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
     public Optional<Output<String>> warehouse() {
@@ -175,10 +208,12 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.condition = $.condition;
         this.database = $.database;
+        this.describeOutputs = $.describeOutputs;
         this.enabled = $.enabled;
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.schema = $.schema;
+        this.showOutputs = $.showOutputs;
         this.warehouse = $.warehouse;
     }
 
@@ -222,7 +257,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertSchedule The schedule for periodically running an alert.
+         * @param alertSchedule The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
          * 
          * @return builder
          * 
@@ -233,7 +268,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertSchedule The schedule for periodically running an alert.
+         * @param alertSchedule The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
          * 
          * @return builder
          * 
@@ -285,7 +320,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the alert.
+         * @param database The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -296,7 +331,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the alert.
+         * @param database The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -306,7 +341,38 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param describeOutputs Outputs the result of `DESCRIBE ALERT` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<AlertDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE ALERT` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<AlertDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE ALERT` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(AlertDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -317,7 +383,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -348,7 +414,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+         * @param name Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -359,7 +425,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+         * @param name Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -369,7 +435,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the alert.
+         * @param schema The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -380,7 +446,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the alert.
+         * @param schema The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -390,7 +456,38 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse The warehouse the alert will use.
+         * @param showOutputs Outputs the result of `SHOW ALERTS` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<AlertShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW ALERTS` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<AlertShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW ALERTS` for the given alert.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(AlertShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
+        }
+
+        /**
+         * @param warehouse The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
          * 
          * @return builder
          * 
@@ -401,7 +498,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse The warehouse the alert will use.
+         * @param warehouse The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
          * 
          * @return builder
          * 

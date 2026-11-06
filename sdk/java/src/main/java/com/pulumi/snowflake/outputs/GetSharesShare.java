@@ -5,74 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetSharesShareDescribeOutput;
+import com.pulumi.snowflake.outputs.GetSharesShareShowOutput;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetSharesShare {
     /**
-     * @return The comment on the share.
+     * @return Holds the output of DESCRIBE SHARE: a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. A share that cannot be described (for example because of missing privileges) is reported with a warning and has an empty output.
      * 
      */
-    private String comment;
+    private List<GetSharesShareDescribeOutput> describeOutputs;
     /**
-     * @return The kind of the share.
+     * @return Holds the output of SHOW SHARES. SHOW SHARES lists at most three accounts of an outbound share, so for a share with more accounts the full list of `to` is read from `SNOWFLAKE.ACCOUNT_USAGE.SHARES` (it needs `SELECT` on that view and a warehouse in the connection, and the view can be up to 3 hours behind). If that fails, a warning is reported and `to` holds the accounts listed by SHOW SHARES. `toTotal` is the number of accounts reported by SHOW SHARES.
      * 
      */
-    private String kind;
-    /**
-     * @return Identifier for the share.
-     * 
-     */
-    private String name;
-    /**
-     * @return The owner of the share.
-     * 
-     */
-    private String owner;
-    /**
-     * @return For the OUTBOUND share, list of consumers.
-     * 
-     */
-    private List<Object> tos;
+    private List<GetSharesShareShowOutput> showOutputs;
 
     private GetSharesShare() {}
     /**
-     * @return The comment on the share.
+     * @return Holds the output of DESCRIBE SHARE: a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. A share that cannot be described (for example because of missing privileges) is reported with a warning and has an empty output.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public List<GetSharesShareDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
-     * @return The kind of the share.
+     * @return Holds the output of SHOW SHARES. SHOW SHARES lists at most three accounts of an outbound share, so for a share with more accounts the full list of `to` is read from `SNOWFLAKE.ACCOUNT_USAGE.SHARES` (it needs `SELECT` on that view and a warehouse in the connection, and the view can be up to 3 hours behind). If that fails, a warning is reported and `to` holds the accounts listed by SHOW SHARES. `toTotal` is the number of accounts reported by SHOW SHARES.
      * 
      */
-    public String kind() {
-        return this.kind;
-    }
-    /**
-     * @return Identifier for the share.
-     * 
-     */
-    public String name() {
-        return this.name;
-    }
-    /**
-     * @return The owner of the share.
-     * 
-     */
-    public String owner() {
-        return this.owner;
-    }
-    /**
-     * @return For the OUTBOUND share, list of consumers.
-     * 
-     */
-    public List<Object> tos() {
-        return this.tos;
+    public List<GetSharesShareShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -84,71 +48,41 @@ public final class GetSharesShare {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String kind;
-        private String name;
-        private String owner;
-        private List<Object> tos;
+        private List<GetSharesShareDescribeOutput> describeOutputs;
+        private List<GetSharesShareShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetSharesShare defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.kind = defaults.kind;
-    	      this.name = defaults.name;
-    	      this.owner = defaults.owner;
-    	      this.tos = defaults.tos;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetSharesShare", "comment");
+        public Builder describeOutputs(List<GetSharesShareDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetSharesShare", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
+        }
+        public Builder describeOutputs(GetSharesShareDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder kind(String kind) {
-            if (kind == null) {
-              throw new MissingRequiredPropertyException("GetSharesShare", "kind");
+        public Builder showOutputs(List<GetSharesShareShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetSharesShare", "showOutputs");
             }
-            this.kind = kind;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetSharesShare", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder owner(String owner) {
-            if (owner == null) {
-              throw new MissingRequiredPropertyException("GetSharesShare", "owner");
-            }
-            this.owner = owner;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tos(List<Object> tos) {
-            if (tos == null) {
-              throw new MissingRequiredPropertyException("GetSharesShare", "tos");
-            }
-            this.tos = tos;
-            return this;
-        }
-        public Builder tos(Object... tos) {
-            return tos(List.of(tos));
+        public Builder showOutputs(GetSharesShareShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetSharesShare build() {
             final var _resultValue = new GetSharesShare();
-            _resultValue.comment = comment;
-            _resultValue.kind = kind;
-            _resultValue.name = name;
-            _resultValue.owner = owner;
-            _resultValue.tos = tos;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

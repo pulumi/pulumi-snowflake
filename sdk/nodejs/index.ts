@@ -110,6 +110,11 @@ export type AuthenticationPolicy = import("./authenticationPolicy").Authenticati
 export const AuthenticationPolicy: typeof import("./authenticationPolicy").AuthenticationPolicy = null as any;
 utilities.lazyLoad(exports, ["AuthenticationPolicy"], () => require("./authenticationPolicy"));
 
+export { BackupPolicyArgs, BackupPolicyState } from "./backupPolicy";
+export type BackupPolicy = import("./backupPolicy").BackupPolicy;
+export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
+
 export { CatalogIntegrationAwsGlueArgs, CatalogIntegrationAwsGlueState } from "./catalogIntegrationAwsGlue";
 export type CatalogIntegrationAwsGlue = import("./catalogIntegrationAwsGlue").CatalogIntegrationAwsGlue;
 export const CatalogIntegrationAwsGlue: typeof import("./catalogIntegrationAwsGlue").CatalogIntegrationAwsGlue = null as any;
@@ -129,6 +134,11 @@ export { CatalogIntegrationOpenCatalogArgs, CatalogIntegrationOpenCatalogState }
 export type CatalogIntegrationOpenCatalog = import("./catalogIntegrationOpenCatalog").CatalogIntegrationOpenCatalog;
 export const CatalogIntegrationOpenCatalog: typeof import("./catalogIntegrationOpenCatalog").CatalogIntegrationOpenCatalog = null as any;
 utilities.lazyLoad(exports, ["CatalogIntegrationOpenCatalog"], () => require("./catalogIntegrationOpenCatalog"));
+
+export { CodeBundleArgs, CodeBundleState } from "./codeBundle";
+export type CodeBundle = import("./codeBundle").CodeBundle;
+export const CodeBundle: typeof import("./codeBundle").CodeBundle = null as any;
+utilities.lazyLoad(exports, ["CodeBundle"], () => require("./codeBundle"));
 
 export { ComputePoolArgs, ComputePoolState } from "./computePool";
 export type ComputePool = import("./computePool").ComputePool;
@@ -295,10 +305,20 @@ export const getAuthenticationPolicies: typeof import("./getAuthenticationPolici
 export const getAuthenticationPoliciesOutput: typeof import("./getAuthenticationPolicies").getAuthenticationPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthenticationPolicies","getAuthenticationPoliciesOutput"], () => require("./getAuthenticationPolicies"));
 
+export { GetBackupPoliciesArgs, GetBackupPoliciesResult, GetBackupPoliciesOutputArgs } from "./getBackupPolicies";
+export const getBackupPolicies: typeof import("./getBackupPolicies").getBackupPolicies = null as any;
+export const getBackupPoliciesOutput: typeof import("./getBackupPolicies").getBackupPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupPolicies","getBackupPoliciesOutput"], () => require("./getBackupPolicies"));
+
 export { GetCatalogIntegrationsArgs, GetCatalogIntegrationsResult, GetCatalogIntegrationsOutputArgs } from "./getCatalogIntegrations";
 export const getCatalogIntegrations: typeof import("./getCatalogIntegrations").getCatalogIntegrations = null as any;
 export const getCatalogIntegrationsOutput: typeof import("./getCatalogIntegrations").getCatalogIntegrationsOutput = null as any;
 utilities.lazyLoad(exports, ["getCatalogIntegrations","getCatalogIntegrationsOutput"], () => require("./getCatalogIntegrations"));
+
+export { GetCodeBundlesArgs, GetCodeBundlesResult, GetCodeBundlesOutputArgs } from "./getCodeBundles";
+export const getCodeBundles: typeof import("./getCodeBundles").getCodeBundles = null as any;
+export const getCodeBundlesOutput: typeof import("./getCodeBundles").getCodeBundlesOutput = null as any;
+utilities.lazyLoad(exports, ["getCodeBundles","getCodeBundlesOutput"], () => require("./getCodeBundles"));
 
 export { GetComputePoolsArgs, GetComputePoolsResult, GetComputePoolsOutputArgs } from "./getComputePools";
 export const getComputePools: typeof import("./getComputePools").getComputePools = null as any;
@@ -485,10 +505,25 @@ export const getPipes: typeof import("./getPipes").getPipes = null as any;
 export const getPipesOutput: typeof import("./getPipes").getPipesOutput = null as any;
 utilities.lazyLoad(exports, ["getPipes","getPipesOutput"], () => require("./getPipes"));
 
+export { GetPostgresMirrorsArgs, GetPostgresMirrorsResult, GetPostgresMirrorsOutputArgs } from "./getPostgresMirrors";
+export const getPostgresMirrors: typeof import("./getPostgresMirrors").getPostgresMirrors = null as any;
+export const getPostgresMirrorsOutput: typeof import("./getPostgresMirrors").getPostgresMirrorsOutput = null as any;
+utilities.lazyLoad(exports, ["getPostgresMirrors","getPostgresMirrorsOutput"], () => require("./getPostgresMirrors"));
+
 export { GetProceduresArgs, GetProceduresResult, GetProceduresOutputArgs } from "./getProcedures";
 export const getProcedures: typeof import("./getProcedures").getProcedures = null as any;
 export const getProceduresOutput: typeof import("./getProcedures").getProceduresOutput = null as any;
 utilities.lazyLoad(exports, ["getProcedures","getProceduresOutput"], () => require("./getProcedures"));
+
+export { GetProjectionPoliciesArgs, GetProjectionPoliciesResult, GetProjectionPoliciesOutputArgs } from "./getProjectionPolicies";
+export const getProjectionPolicies: typeof import("./getProjectionPolicies").getProjectionPolicies = null as any;
+export const getProjectionPoliciesOutput: typeof import("./getProjectionPolicies").getProjectionPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectionPolicies","getProjectionPoliciesOutput"], () => require("./getProjectionPolicies"));
+
+export { GetReplicationGroupsArgs, GetReplicationGroupsResult, GetReplicationGroupsOutputArgs } from "./getReplicationGroups";
+export const getReplicationGroups: typeof import("./getReplicationGroups").getReplicationGroups = null as any;
+export const getReplicationGroupsOutput: typeof import("./getReplicationGroups").getReplicationGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationGroups","getReplicationGroupsOutput"], () => require("./getReplicationGroups"));
 
 export { GetResourceMonitorsArgs, GetResourceMonitorsResult, GetResourceMonitorsOutputArgs } from "./getResourceMonitors";
 export const getResourceMonitors: typeof import("./getResourceMonitors").getResourceMonitors = null as any;
@@ -810,6 +845,11 @@ export type PostgresInstance = import("./postgresInstance").PostgresInstance;
 export const PostgresInstance: typeof import("./postgresInstance").PostgresInstance = null as any;
 utilities.lazyLoad(exports, ["PostgresInstance"], () => require("./postgresInstance"));
 
+export { PostgresMirrorArgs, PostgresMirrorState } from "./postgresMirror";
+export type PostgresMirror = import("./postgresMirror").PostgresMirror;
+export const PostgresMirror: typeof import("./postgresMirror").PostgresMirror = null as any;
+utilities.lazyLoad(exports, ["PostgresMirror"], () => require("./postgresMirror"));
+
 export { PrimaryConnectionArgs, PrimaryConnectionState } from "./primaryConnection";
 export type PrimaryConnection = import("./primaryConnection").PrimaryConnection;
 export const PrimaryConnection: typeof import("./primaryConnection").PrimaryConnection = null as any;
@@ -840,8 +880,23 @@ export type ProcedureSql = import("./procedureSql").ProcedureSql;
 export const ProcedureSql: typeof import("./procedureSql").ProcedureSql = null as any;
 utilities.lazyLoad(exports, ["ProcedureSql"], () => require("./procedureSql"));
 
+export { ProjectionPolicyArgs, ProjectionPolicyState } from "./projectionPolicy";
+export type ProjectionPolicy = import("./projectionPolicy").ProjectionPolicy;
+export const ProjectionPolicy: typeof import("./projectionPolicy").ProjectionPolicy = null as any;
+utilities.lazyLoad(exports, ["ProjectionPolicy"], () => require("./projectionPolicy"));
+
 export * from "./provider";
 import { Provider } from "./provider";
+
+export { ReplicationGroupArgs, ReplicationGroupState } from "./replicationGroup";
+export type ReplicationGroup = import("./replicationGroup").ReplicationGroup;
+export const ReplicationGroup: typeof import("./replicationGroup").ReplicationGroup = null as any;
+utilities.lazyLoad(exports, ["ReplicationGroup"], () => require("./replicationGroup"));
+
+export { ReplicationGroupSecondaryArgs, ReplicationGroupSecondaryState } from "./replicationGroupSecondary";
+export type ReplicationGroupSecondary = import("./replicationGroupSecondary").ReplicationGroupSecondary;
+export const ReplicationGroupSecondary: typeof import("./replicationGroupSecondary").ReplicationGroupSecondary = null as any;
+utilities.lazyLoad(exports, ["ReplicationGroupSecondary"], () => require("./replicationGroupSecondary"));
 
 export { ResourceMonitorArgs, ResourceMonitorState } from "./resourceMonitor";
 export type ResourceMonitor = import("./resourceMonitor").ResourceMonitor;
@@ -1154,6 +1209,8 @@ const _module = {
                 return new ApiIntegrationGoogleCloudApiGateway(name, <any>undefined, { urn })
             case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
                 return new AuthenticationPolicy(name, <any>undefined, { urn })
+            case "snowflake:index/backupPolicy:BackupPolicy":
+                return new BackupPolicy(name, <any>undefined, { urn })
             case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
                 return new CatalogIntegrationAwsGlue(name, <any>undefined, { urn })
             case "snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest":
@@ -1162,6 +1219,8 @@ const _module = {
                 return new CatalogIntegrationObjectStorage(name, <any>undefined, { urn })
             case "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog":
                 return new CatalogIntegrationOpenCatalog(name, <any>undefined, { urn })
+            case "snowflake:index/codeBundle:CodeBundle":
+                return new CodeBundle(name, <any>undefined, { urn })
             case "snowflake:index/computePool:ComputePool":
                 return new ComputePool(name, <any>undefined, { urn })
             case "snowflake:index/cortexAgent:CortexAgent":
@@ -1294,6 +1353,8 @@ const _module = {
                 return new Pipe(name, <any>undefined, { urn })
             case "snowflake:index/postgresInstance:PostgresInstance":
                 return new PostgresInstance(name, <any>undefined, { urn })
+            case "snowflake:index/postgresMirror:PostgresMirror":
+                return new PostgresMirror(name, <any>undefined, { urn })
             case "snowflake:index/primaryConnection:PrimaryConnection":
                 return new PrimaryConnection(name, <any>undefined, { urn })
             case "snowflake:index/procedureJava:ProcedureJava":
@@ -1306,6 +1367,12 @@ const _module = {
                 return new ProcedureScala(name, <any>undefined, { urn })
             case "snowflake:index/procedureSql:ProcedureSql":
                 return new ProcedureSql(name, <any>undefined, { urn })
+            case "snowflake:index/projectionPolicy:ProjectionPolicy":
+                return new ProjectionPolicy(name, <any>undefined, { urn })
+            case "snowflake:index/replicationGroup:ReplicationGroup":
+                return new ReplicationGroup(name, <any>undefined, { urn })
+            case "snowflake:index/replicationGroupSecondary:ReplicationGroupSecondary":
+                return new ReplicationGroupSecondary(name, <any>undefined, { urn })
             case "snowflake:index/resourceMonitor:ResourceMonitor":
                 return new ResourceMonitor(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
@@ -1434,10 +1501,12 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepos
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepositoryToken", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGoogleCloudApiGateway", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/backupPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationAwsGlue", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationIcebergRest", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationObjectStorage", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationOpenCatalog", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/codeBundle", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/computePool", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexAgent", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
@@ -1504,12 +1573,16 @@ pulumi.runtime.registerResourceModule("snowflake", "index/openflowRuntime", _mod
 pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/postgresInstance", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/postgresMirror", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/primaryConnection", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureJava", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureJavascript", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedurePython", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureScala", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureSql", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/projectionPolicy", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/replicationGroup", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/replicationGroupSecondary", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/saml2Integration", _module)

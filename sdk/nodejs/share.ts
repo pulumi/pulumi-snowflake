@@ -2,18 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * > **Note** When adding or updating accounts in the `accounts` field, the provider creates a temporary database as a workaround for a Snowflake race condition. This is because accounts cannot be added to a share until after a database has been granted to the share, but database grants depend on the share existing first.
+ * > **Note** When accounts are added to a share that has no database granted yet (on create or on update), the provider creates a temporary database as a workaround for a Snowflake race condition: accounts cannot be added to a share until a database has been granted to it, but database grants depend on the share existing first.
  * The provider automatically:
  * 1. Creates a temporary database (named `TEMP_<share_name>_<timestamp>`)
  * 2. Grants `USAGE` and `REFERENCE_USAGE` privileges on the temporary database to the share
  * 3. Adds the specified accounts to the share
  * 4. Revokes the privileges and drops the temporary database
- *    This process is fully automated during the creation.
+ *
+ * > **Shares with more than three accounts** `SHOW SHARES` lists at most three accounts of a share. For a share with more than three accounts, the provider reads the full list from the `SNOWFLAKE.ACCOUNT_USAGE.SHARES` view. This requires a warehouse in the connection (set a `DEFAULT_WAREHOUSE` for the user or specify a warehouse in the provider configuration) and `SELECT` on that view for the role used by the provider (for example through `IMPORTED PRIVILEGES` on the `SNOWFLAKE` database). The view can be up to 3 hours behind, so for up to 3 hours after accounts are added or removed outside the three listed by `SHOW SHARES`, a plan can still show them as changes; applying it does not alter the share. Without the warehouse or the privilege, the provider reports a warning and only the listed accounts are known.
+ *
+ * Resource used to manage share objects. For more information, check [share documentation](https://docs.snowflake.com/en/sql-reference/sql/create-share).
  *
  * ## Example Usage
  *
@@ -24,13 +29,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const test = new snowflake.Share("test", {
- *     name: "share_name",
- *     comment: "cool comment",
+ * // basic resource
+ * const basic = new snowflake.Share("basic", {name: "SHARE_NAME"});
+ * // complete resource
+ * const complete = new snowflake.Share("complete", {
+ *     name: "SHARE_NAME",
+ *     comment: "A share.",
  *     accounts: ["organizationName.accountName"],
+ *     secureObjectsOnly: "false",
  * });
  * const example = new snowflake.Database("example", {name: "test"}, {
- *     dependsOn: [test],
+ *     dependsOn: [complete],
  * });
  * ```
  *
@@ -39,8 +48,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/share:Share example name
+ * $ pulumi import snowflake:index/share:Share example '"<share_name>"'
  * ```
+ *
+ * > **Note** Only a share created in your account (`kind = OUTBOUND`) can be imported; importing a share provided by another account (`kind = INBOUND`) fails. The import sets `secureObjectsOnly` to the value of the share. Because the field is ForceNew, a configuration that omits it while the share has `secureObjectsOnly = true` plans a replacement of the share after the import; set the field to the value of the share, or enable the `IMPORT_PERMISSIVE_MODE` experiment to get an empty plan.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -82,21 +93,33 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+     * A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      */
     declare public readonly accounts: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies a comment for the managed account.
+     * Specifies a comment for the share.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+     */
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ShareDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    declare public readonly secureObjectsOnly: pulumi.Output<string | undefined>;
+    /**
+     * Outputs the result of `SHOW SHARES` for the given share.
+     */
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ShareShowOutput[]>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -113,14 +136,20 @@ export class Share extends pulumi.CustomResource {
             const state = argsOrState as ShareState | undefined;
             resourceInputs["accounts"] = state?.accounts;
             resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["name"] = state?.name;
+            resourceInputs["secureObjectsOnly"] = state?.secureObjectsOnly;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ShareArgs | undefined;
             resourceInputs["accounts"] = args?.accounts;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["name"] = args?.name;
+            resourceInputs["secureObjectsOnly"] = args?.secureObjectsOnly;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Share.__pulumiType, name, resourceInputs, opts);
@@ -132,21 +161,33 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+     * A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      */
     accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Specifies a comment for the managed account.
+     * Specifies a comment for the share.
      */
     comment?: pulumi.Input<string | undefined>;
+    /**
+     * Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ShareDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    secureObjectsOnly?: pulumi.Input<string | undefined>;
+    /**
+     * Outputs the result of `SHOW SHARES` for the given share.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ShareShowOutput>[] | undefined>;
 }
 
 /**
@@ -154,15 +195,19 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+     * A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      */
     accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Specifies a comment for the managed account.
+     * Specifies a comment for the share.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    secureObjectsOnly?: pulumi.Input<string | undefined>;
 }

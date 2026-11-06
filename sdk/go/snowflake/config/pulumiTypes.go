@@ -18,6 +18,8 @@ type TokenAccessor struct {
 	ClientId string `pulumi:"clientId"`
 	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 	ClientSecret string `pulumi:"clientSecret"`
+	// Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
 	RedirectUri string `pulumi:"redirectUri"`
 	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
@@ -42,6 +44,8 @@ type TokenAccessorArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
 	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
 	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
@@ -84,6 +88,11 @@ func (o TokenAccessorOutput) ClientId() pulumi.StringOutput {
 // The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 func (o TokenAccessorOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+func (o TokenAccessorOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenAccessor) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.

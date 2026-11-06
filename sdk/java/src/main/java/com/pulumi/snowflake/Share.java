@@ -10,6 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.ShareArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ShareState;
+import com.pulumi.snowflake.outputs.ShareDescribeOutput;
+import com.pulumi.snowflake.outputs.ShareShowOutput;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -18,13 +20,16 @@ import javax.annotation.Nullable;
 /**
  * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  * 
- * &gt; **Note** When adding or updating accounts in the `accounts` field, the provider creates a temporary database as a workaround for a Snowflake race condition. This is because accounts cannot be added to a share until after a database has been granted to the share, but database grants depend on the share existing first.
+ * &gt; **Note** When accounts are added to a share that has no database granted yet (on create or on update), the provider creates a temporary database as a workaround for a Snowflake race condition: accounts cannot be added to a share until a database has been granted to it, but database grants depend on the share existing first.
  * The provider automatically:
  * 1. Creates a temporary database (named `TEMP_&lt;share_name&gt;_&lt;timestamp&gt;`)
  * 2. Grants `USAGE` and `REFERENCE_USAGE` privileges on the temporary database to the share
  * 3. Adds the specified accounts to the share
  * 4. Revokes the privileges and drops the temporary database
- *    This process is fully automated during the creation.
+ * 
+ * &gt; **Shares with more than three accounts** `SHOW SHARES` lists at most three accounts of a share. For a share with more than three accounts, the provider reads the full list from the `SNOWFLAKE.ACCOUNT_USAGE.SHARES` view. This requires a warehouse in the connection (set a `DEFAULT_WAREHOUSE` for the user or specify a warehouse in the provider configuration) and `SELECT` on that view for the role used by the provider (for example through `IMPORTED PRIVILEGES` on the `SNOWFLAKE` database). The view can be up to 3 hours behind, so for up to 3 hours after accounts are added or removed outside the three listed by `SHOW SHARES`, a plan can still show them as changes; applying it does not alter the share. Without the warehouse or the privilege, the provider reports a warning and only the listed accounts are known.
+ * 
+ * Resource used to manage share objects. For more information, check [share documentation](https://docs.snowflake.com/en/sql-reference/sql/create-share).
  * 
  * ## Example Usage
  * 
@@ -56,16 +61,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Share("test", ShareArgs.builder()
- *             .name("share_name")
- *             .comment("cool comment")
+ *         // basic resource
+ *         var basic = new Share("basic", ShareArgs.builder()
+ *             .name("SHARE_NAME")
+ *             .build());
+ * 
+ *         // complete resource
+ *         var complete = new Share("complete", ShareArgs.builder()
+ *             .name("SHARE_NAME")
+ *             .comment("A share.")
  *             .accounts("organizationName.accountName")
+ *             .secureObjectsOnly("false")
  *             .build());
  * 
  *         var example = new Database("example", DatabaseArgs.builder()
  *             .name("test")
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
+ *                 .dependsOn(complete)
  *                 .build());
  * 
  *     }
@@ -78,39 +90,55 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/share:Share example name
+ * $ pulumi import snowflake:index/share:Share example &#39;&#34;&lt;share_name&gt;&#34;&#39;
  * ```
+ * 
+ * &gt; **Note** Only a share created in your account (`kind = OUTBOUND`) can be imported; importing a share provided by another account (`kind = INBOUND`) fails. The import sets `secureObjectsOnly` to the value of the share. Because the field is ForceNew, a configuration that omits it while the share has `secureObjectsOnly = true` plans a replacement of the share after the import; set the field to the value of the share, or enable the `IMPORT_PERMISSIVE_MODE` experiment to get an empty plan.
  * 
  */
 @ResourceType(type="snowflake:index/share:Share")
 public class Share extends com.pulumi.resources.CustomResource {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      * 
      */
     @Export(name="accounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accounts;
 
     /**
-     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * @return A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      * 
      */
     public Output<Optional<List<String>>> accounts() {
         return Codegen.optional(this.accounts);
     }
     /**
-     * Specifies a comment for the managed account.
+     * Specifies a comment for the share.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the managed account.
+     * @return Specifies a comment for the share.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
+    }
+    /**
+     * Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,ShareDescribeOutput.class}, tree="[0,1]")
+    private Output<List<ShareDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+     * 
+     */
+    public Output<List<ShareDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -127,18 +155,46 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * @return Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="secureObjectsOnly", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> secureObjectsOnly;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> secureObjectsOnly() {
+        return Codegen.optional(this.secureObjectsOnly);
+    }
+    /**
+     * Outputs the result of `SHOW SHARES` for the given share.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,ShareShowOutput.class}, tree="[0,1]")
+    private Output<List<ShareShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW SHARES` for the given share.
+     * 
+     */
+    public Output<List<ShareShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

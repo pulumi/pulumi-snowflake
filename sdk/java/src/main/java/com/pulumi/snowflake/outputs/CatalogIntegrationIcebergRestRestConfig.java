@@ -18,7 +18,7 @@ public final class CatalogIntegrationIcebergRestRestConfig {
      */
     private @Nullable String accessDelegationMode;
     /**
-     * @return Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * @return Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     private @Nullable String catalogApiType;
@@ -47,7 +47,7 @@ public final class CatalogIntegrationIcebergRestRestConfig {
         return Optional.ofNullable(this.accessDelegationMode);
     }
     /**
-     * @return Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * @return Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      * 
      */
     public Optional<String> catalogApiType() {

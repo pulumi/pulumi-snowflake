@@ -14,14 +14,12 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
+// Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
 //
 // ## Import
 //
-// format is database name | schema name | pipe name
-//
 // ```sh
-// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+// $ pulumi import snowflake:index/pipe:Pipe example '"<database_name>"."<schema_name>"."<pipe_name>"'
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState
@@ -34,22 +32,36 @@ type Pipe struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Specifies the copy statement for the pipe.
 	CopyStatement pulumi.StringOutput `pulumi:"copyStatement"`
-	// The database in which to create the pipe.
+	// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+	DescribeOutputs PipeDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrOutput `pulumi:"integration"`
-	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	LogEventLevel pulumi.StringOutput `pulumi:"logEventLevel"`
+	// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
 	NotificationChannel pulumi.StringOutput `pulumi:"notificationChannel"`
 	// Name of the role that owns the pipe.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The schema in which to create the pipe.
+	// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+	Parameters PipeParameterArrayOutput `pulumi:"parameters"`
+	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+	PipeExecutionPaused pulumi.BoolOutput `pulumi:"pipeExecutionPaused"`
+	// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Outputs the result of `SHOW PIPES` for the given pipe.
+	ShowOutputs PipeShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
 // NewPipe registers a new resource with the given unique name, arguments, and options.
@@ -99,22 +111,36 @@ type pipeState struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies the copy statement for the pipe.
 	CopyStatement *string `pulumi:"copyStatement"`
-	// The database in which to create the pipe.
+	// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
+	// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+	DescribeOutputs []PipeDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
-	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	LogEventLevel *string `pulumi:"logEventLevel"`
+	// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
 	NotificationChannel *string `pulumi:"notificationChannel"`
 	// Name of the role that owns the pipe.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
 	Owner *string `pulumi:"owner"`
-	// The schema in which to create the pipe.
+	// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+	Parameters []PipeParameter `pulumi:"parameters"`
+	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+	PipeExecutionPaused *bool `pulumi:"pipeExecutionPaused"`
+	// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
+	// Outputs the result of `SHOW PIPES` for the given pipe.
+	ShowOutputs []PipeShowOutput `pulumi:"showOutputs"`
 }
 
 type PipeState struct {
@@ -126,22 +152,36 @@ type PipeState struct {
 	Comment pulumi.StringPtrInput
 	// Specifies the copy statement for the pipe.
 	CopyStatement pulumi.StringPtrInput
-	// The database in which to create the pipe.
+	// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
+	// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+	DescribeOutputs PipeDescribeOutputArrayInput
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
-	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	LogEventLevel pulumi.StringPtrInput
+	// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
 	NotificationChannel pulumi.StringPtrInput
 	// Name of the role that owns the pipe.
+	//
+	// Deprecated: Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
 	Owner pulumi.StringPtrInput
-	// The schema in which to create the pipe.
+	// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+	Parameters PipeParameterArrayInput
+	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+	PipeExecutionPaused pulumi.BoolPtrInput
+	// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
+	// Outputs the result of `SHOW PIPES` for the given pipe.
+	ShowOutputs PipeShowOutputArrayInput
 }
 
 func (PipeState) ElementType() reflect.Type {
@@ -163,15 +203,19 @@ type pipeArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies the copy statement for the pipe.
 	CopyStatement string `pulumi:"copyStatement"`
-	// The database in which to create the pipe.
+	// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration *string `pulumi:"errorIntegration"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
-	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	LogEventLevel *string `pulumi:"logEventLevel"`
+	// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the pipe.
+	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+	PipeExecutionPaused *bool `pulumi:"pipeExecutionPaused"`
+	// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
 }
 
@@ -185,15 +229,19 @@ type PipeArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies the copy statement for the pipe.
 	CopyStatement pulumi.StringInput
-	// The database in which to create the pipe.
+	// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
-	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	LogEventLevel pulumi.StringPtrInput
+	// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the pipe.
+	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+	PipeExecutionPaused pulumi.BoolPtrInput
+	// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
 }
 
@@ -304,9 +352,14 @@ func (o PipeOutput) CopyStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.CopyStatement }).(pulumi.StringOutput)
 }
 
-// The database in which to create the pipe.
+// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o PipeOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+func (o PipeOutput) DescribeOutputs() PipeDescribeOutputArrayOutput {
+	return o.ApplyT(func(v *Pipe) PipeDescribeOutputArrayOutput { return v.DescribeOutputs }).(PipeDescribeOutputArrayOutput)
 }
 
 // Specifies the name of the notification integration used for error notifications.
@@ -324,24 +377,48 @@ func (o PipeOutput) Integration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Integration }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+func (o PipeOutput) LogEventLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.LogEventLevel }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o PipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+//
+// Deprecated: Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
 func (o PipeOutput) NotificationChannel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.NotificationChannel }).(pulumi.StringOutput)
 }
 
 // Name of the role that owns the pipe.
+//
+// Deprecated: Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
 func (o PipeOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the pipe.
+// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+func (o PipeOutput) Parameters() PipeParameterArrayOutput {
+	return o.ApplyT(func(v *Pipe) PipeParameterArrayOutput { return v.Parameters }).(PipeParameterArrayOutput)
+}
+
+// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+func (o PipeOutput) PipeExecutionPaused() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.BoolOutput { return v.PipeExecutionPaused }).(pulumi.BoolOutput)
+}
+
+// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o PipeOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `SHOW PIPES` for the given pipe.
+func (o PipeOutput) ShowOutputs() PipeShowOutputArrayOutput {
+	return o.ApplyT(func(v *Pipe) PipeShowOutputArrayOutput { return v.ShowOutputs }).(PipeShowOutputArrayOutput)
 }
 
 type PipeArrayOutput struct{ *pulumi.OutputState }

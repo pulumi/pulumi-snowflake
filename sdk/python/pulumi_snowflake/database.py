@@ -429,6 +429,7 @@ class _DatabaseState:
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterArgs']]]] = None,
                  quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
                  replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
                  replication: pulumi.Input[Optional['DatabaseReplicationArgs']] = None,
@@ -457,6 +458,7 @@ class _DatabaseState:
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input['DatabaseReplicationArgs'] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -498,6 +500,8 @@ class _DatabaseState:
             pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if quoted_identifiers_ignore_case is not None:
             pulumi.set(__self__, "quoted_identifiers_ignore_case", quoted_identifiers_ignore_case)
         if replace_invalid_characters is not None:
@@ -698,6 +702,18 @@ class _DatabaseState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterArgs']]]]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
@@ -991,6 +1007,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["user_task_minimum_trigger_interval_in_seconds"] = user_task_minimum_trigger_interval_in_seconds
             __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["parameters"] = None
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
             resource_name,
@@ -1016,6 +1033,7 @@ class Database(pulumi.CustomResource):
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseParameterArgs', 'DatabaseParameterArgsDict', 'outputs.DatabaseParameter']]]]] = None,
             quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
             replication: pulumi.Input[Optional[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict', 'outputs.DatabaseReplication']]] = None,
@@ -1048,6 +1066,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseParameterArgs', 'DatabaseParameterArgsDict', 'outputs.DatabaseParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict', 'outputs.DatabaseReplication']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -1078,6 +1097,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["max_data_extension_time_in_days"] = max_data_extension_time_in_days
         __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
         __props__.__dict__["quoted_identifiers_ignore_case"] = quoted_identifiers_ignore_case
         __props__.__dict__["replace_invalid_characters"] = replace_invalid_characters
         __props__.__dict__["replication"] = replication
@@ -1108,6 +1128,7 @@ class Database(pulumi.CustomResource):
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseParameterArgs', 'DatabaseParameterArgsDict', 'outputs.DatabaseParameter']]]]] = None,
             quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
             replication: pulumi.Input[Optional[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict', 'outputs.DatabaseReplication']]] = None,
@@ -1134,6 +1155,7 @@ class Database(pulumi.CustomResource):
         __props__["logLevel"] = log_level
         __props__["maxDataExtensionTimeInDays"] = max_data_extension_time_in_days
         __props__["name"] = name
+        __props__["parameters"] = parameters
         __props__["quotedIdentifiersIgnoreCase"] = quoted_identifiers_ignore_case
         __props__["replaceInvalidCharacters"] = replace_invalid_characters
         __props__["replication"] = replication
@@ -1265,6 +1287,14 @@ class Database(pulumi.CustomResource):
         Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Sequence['outputs.DatabaseParameter']]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")

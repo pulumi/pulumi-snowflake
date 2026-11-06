@@ -35,7 +35,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewFileFormatCsv(ctx, "basic", &snowflake.FileFormatCsvArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -44,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewFileFormatCsv(ctx, "complete", &snowflake.FileFormatCsvArgs{
 //				Database:                  pulumi.String("database_name"),
 //				Schema:                    pulumi.String("schema_name"),

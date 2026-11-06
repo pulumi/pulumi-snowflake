@@ -106,7 +106,7 @@ type WarehouseInteractive struct {
 	MaxConcurrencyLevel pulumi.IntOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrOutput `pulumi:"minClusterCount"`
-	// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given interactive warehouse.
 	Parameters WarehouseInteractiveParameterArrayOutput `pulumi:"parameters"`
@@ -174,7 +174,7 @@ type warehouseInteractiveState struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given interactive warehouse.
 	Parameters []WarehouseInteractiveParameter `pulumi:"parameters"`
@@ -213,7 +213,7 @@ type WarehouseInteractiveState struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given interactive warehouse.
 	Parameters WarehouseInteractiveParameterArrayInput
@@ -260,7 +260,7 @@ type warehouseInteractiveArgs struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the interactive warehouse. For more information about this resource, see docs.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
@@ -292,7 +292,7 @@ type WarehouseInteractiveArgs struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the interactive warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrInput
@@ -438,7 +438,7 @@ func (o WarehouseInteractiveOutput) MinClusterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.IntPtrOutput { return v.MinClusterCount }).(pulumi.IntPtrOutput)
 }
 
-// Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o WarehouseInteractiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

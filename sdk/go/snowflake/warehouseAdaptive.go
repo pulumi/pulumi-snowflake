@@ -71,7 +71,7 @@ type WarehouseAdaptive struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
 	MaxQueryPerformanceLevel pulumi.StringPtrOutput `pulumi:"maxQueryPerformanceLevel"`
-	// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
 	Parameters WarehouseAdaptiveParameterArrayOutput `pulumi:"parameters"`
@@ -125,7 +125,7 @@ type warehouseAdaptiveState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
 	MaxQueryPerformanceLevel *string `pulumi:"maxQueryPerformanceLevel"`
-	// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
 	Parameters []WarehouseAdaptiveParameter `pulumi:"parameters"`
@@ -150,7 +150,7 @@ type WarehouseAdaptiveState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
 	MaxQueryPerformanceLevel pulumi.StringPtrInput
-	// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
 	Parameters WarehouseAdaptiveParameterArrayInput
@@ -183,7 +183,7 @@ type warehouseAdaptiveArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
 	MaxQueryPerformanceLevel *string `pulumi:"maxQueryPerformanceLevel"`
-	// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier *int `pulumi:"queryThroughputMultiplier"`
@@ -201,7 +201,7 @@ type WarehouseAdaptiveArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
 	MaxQueryPerformanceLevel pulumi.StringPtrInput
-	// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier pulumi.IntPtrInput
@@ -315,7 +315,7 @@ func (o WarehouseAdaptiveOutput) MaxQueryPerformanceLevel() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.StringPtrOutput { return v.MaxQueryPerformanceLevel }).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o WarehouseAdaptiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

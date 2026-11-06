@@ -13,37 +13,7 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetShares(ctx, &snowflake.GetSharesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetShares(ctx, &snowflake.GetSharesArgs{
-//				Pattern: pulumi.StringRef("usage"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
+// Data source used to get details of filtered shares. Filtering is aligned with the current possibilities for [SHOW SHARES](https://docs.snowflake.com/en/sql-reference/sql/show-shares) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `shares`.
 func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOption) (*GetSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSharesResult
@@ -56,18 +26,30 @@ func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getShares.
 type GetSharesArgs struct {
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetSharesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getShares.
 type GetSharesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
-	// List of all the shares available in the system.
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetSharesLimit `pulumi:"limit"`
+	// Holds the aggregated output of all shares details queries.
 	Shares []GetSharesShare `pulumi:"shares"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulumi.InvokeOption) GetSharesResultOutput {
@@ -77,8 +59,14 @@ func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getShares.
 type GetSharesOutputArgs struct {
-	// Filters the command output by object name.
-	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetSharesLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetSharesOutputArgs) ElementType() reflect.Type {
@@ -105,14 +93,29 @@ func (o GetSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the command output by object name.
-func (o GetSharesResultOutput) Pattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetSharesResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetSharesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSharesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// List of all the shares available in the system.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetSharesResultOutput) Limit() GetSharesLimitPtrOutput {
+	return o.ApplyT(func(v GetSharesResult) *GetSharesLimit { return v.Limit }).(GetSharesLimitPtrOutput)
+}
+
+// Holds the aggregated output of all shares details queries.
 func (o GetSharesResultOutput) Shares() GetSharesShareArrayOutput {
 	return o.ApplyT(func(v GetSharesResult) []GetSharesShare { return v.Shares }).(GetSharesShareArrayOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetSharesResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSharesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+func (o GetSharesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSharesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

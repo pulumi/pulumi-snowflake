@@ -5,42 +5,49 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetPipesIn;
 import com.pulumi.snowflake.outputs.GetPipesPipe;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPipesResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The pipes in the schema
+     * @return IN clause to filter the list of objects
+     * 
+     */
+    private @Nullable GetPipesIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all pipe details queries.
      * 
      */
     private List<GetPipesPipe> pipes;
     /**
-     * @return The schema from which to return the pipes from.
+     * @return (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
      * 
      */
-    private String schema;
+    private @Nullable Boolean withDescribe;
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withParameters;
 
     private GetPipesResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    public String database() {
-        return this.database;
-    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,18 +56,39 @@ public final class GetPipesResult {
         return this.id;
     }
     /**
-     * @return The pipes in the schema
+     * @return IN clause to filter the list of objects
+     * 
+     */
+    public Optional<GetPipesIn> in() {
+        return Optional.ofNullable(this.in);
+    }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all pipe details queries.
      * 
      */
     public List<GetPipesPipe> pipes() {
         return this.pipes;
     }
     /**
-     * @return The schema from which to return the pipes from.
+     * @return (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     public static Builder builder() {
@@ -72,33 +100,41 @@ public final class GetPipesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private String id;
+        private @Nullable GetPipesIn in;
+        private @Nullable String like;
         private List<GetPipesPipe> pipes;
-        private String schema;
+        private @Nullable Boolean withDescribe;
+        private @Nullable Boolean withParameters;
         public Builder() {}
         public Builder(GetPipesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
     	      this.pipes = defaults.pipes;
-    	      this.schema = defaults.schema;
+    	      this.withDescribe = defaults.withDescribe;
+    	      this.withParameters = defaults.withParameters;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetPipesResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetPipesResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder in(@Nullable GetPipesIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -113,19 +149,25 @@ public final class GetPipesResult {
             return pipes(List.of(pipes));
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetPipesResult", "schema");
-            }
-            this.schema = schema;
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withParameters(@Nullable Boolean withParameters) {
+
+            this.withParameters = withParameters;
             return this;
         }
         public GetPipesResult build() {
             final var _resultValue = new GetPipesResult();
-            _resultValue.database = database;
             _resultValue.id = id;
+            _resultValue.in = in;
+            _resultValue.like = like;
             _resultValue.pipes = pipes;
-            _resultValue.schema = schema;
+            _resultValue.withDescribe = withDescribe;
+            _resultValue.withParameters = withParameters;
             return _resultValue;
         }
     }

@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			// The referenced network rule has to be created with mode = "EGRESS".
 //			_, err := snowflake.NewExternalAccessIntegration(ctx, "basic", &snowflake.ExternalAccessIntegrationArgs{
 //				Name:    pulumi.String("external_access_integration_name"),
@@ -44,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewExternalAccessIntegration(ctx, "complete", &snowflake.ExternalAccessIntegrationArgs{
 //				Name:    pulumi.String("external_access_integration_name"),
 //				Enabled: pulumi.Bool(true),
@@ -67,7 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Allowing every secret in the account
+//			//# Allowing every secret in the account
 //			_, err = snowflake.NewExternalAccessIntegration(ctx, "all_secrets", &snowflake.ExternalAccessIntegrationArgs{
 //				Name:    pulumi.String("external_access_integration_name"),
 //				Enabled: pulumi.Bool(true),
@@ -81,7 +81,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Explicitly allowing no secrets and no API authentication integrations
+//			//# Explicitly allowing no secrets and no API authentication integrations
 //			_, err = snowflake.NewExternalAccessIntegration(ctx, "none_allowed", &snowflake.ExternalAccessIntegrationArgs{
 //				Name:    pulumi.String("external_access_integration_name"),
 //				Enabled: pulumi.Bool(true),

@@ -98,14 +98,14 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      * 
      */
     @Import(name="describeOutputs")
     private @Nullable Output<List<AuthenticationPolicyDescribeOutputArgs>> describeOutputs;
 
     /**
-     * @return Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * @return Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      * 
      */
     public Optional<Output<List<AuthenticationPolicyDescribeOutputArgs>>> describeOutputs() {
@@ -128,7 +128,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      * 
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      * 
@@ -138,7 +138,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
     private @Nullable Output<List<String>> mfaAuthenticationMethods;
 
     /**
-     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      * 
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      * 
@@ -179,14 +179,14 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -239,14 +239,14 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<AuthenticationPolicyShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * @return Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      * 
      */
     public Optional<Output<List<AuthenticationPolicyShowOutputArgs>>> showOutputs() {
@@ -443,7 +443,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+         * @param describeOutputs Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+         * @param mfaAuthenticationMethods A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+         * @param showOutputs Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
          * 
          * @return builder
          * 

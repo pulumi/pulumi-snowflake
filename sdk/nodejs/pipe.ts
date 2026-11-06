@@ -2,19 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
+ * Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
  *
  * ## Import
  *
- * format is database name | schema name | pipe name
- *
  * ```sh
- * $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+ * $ pulumi import snowflake:index/pipe:Pipe example '"<database_name>"."<schema_name>"."<pipe_name>"'
  * ```
  */
 export class Pipe extends pulumi.CustomResource {
@@ -73,9 +73,13 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly copyStatement: pulumi.Output<string>;
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly database: pulumi.Output<string>;
+    /**
+     * Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     */
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.PipeDescribeOutput[]>;
     /**
      * Specifies the name of the notification integration used for error notifications.
      */
@@ -89,21 +93,41 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly integration: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+     *
+     * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
      */
     declare public /*out*/ readonly notificationChannel: pulumi.Output<string>;
     /**
      * Name of the role that owns the pipe.
+     *
+     * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
      */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
-     * The schema in which to create the pipe.
+     * Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     */
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.PipeParameter[]>;
+    /**
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     */
+    declare public readonly pipeExecutionPaused: pulumi.Output<boolean>;
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly schema: pulumi.Output<string>;
+    /**
+     * Outputs the result of `SHOW PIPES` for the given pipe.
+     */
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.PipeShowOutput[]>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -123,13 +147,18 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["comment"] = state?.comment;
             resourceInputs["copyStatement"] = state?.copyStatement;
             resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["errorIntegration"] = state?.errorIntegration;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["integration"] = state?.integration;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["name"] = state?.name;
             resourceInputs["notificationChannel"] = state?.notificationChannel;
             resourceInputs["owner"] = state?.owner;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["pipeExecutionPaused"] = state?.pipeExecutionPaused;
             resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as PipeArgs | undefined;
             if (args?.copyStatement === undefined && !opts.urn) {
@@ -148,11 +177,16 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["database"] = args?.database;
             resourceInputs["errorIntegration"] = args?.errorIntegration;
             resourceInputs["integration"] = args?.integration;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["name"] = args?.name;
+            resourceInputs["pipeExecutionPaused"] = args?.pipeExecutionPaused;
             resourceInputs["schema"] = args?.schema;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["notificationChannel"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pipe.__pulumiType, name, resourceInputs, opts);
@@ -180,9 +214,13 @@ export interface PipeState {
      */
     copyStatement?: pulumi.Input<string | undefined>;
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string | undefined>;
+    /**
+     * Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.PipeDescribeOutput>[] | undefined>;
     /**
      * Specifies the name of the notification integration used for error notifications.
      */
@@ -196,21 +234,41 @@ export interface PipeState {
      */
     integration?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
+     *
+     * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
      */
     notificationChannel?: pulumi.Input<string | undefined>;
     /**
      * Name of the role that owns the pipe.
+     *
+     * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
      */
     owner?: pulumi.Input<string | undefined>;
     /**
-     * The schema in which to create the pipe.
+     * Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.PipeParameter>[] | undefined>;
+    /**
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     */
+    pipeExecutionPaused?: pulumi.Input<boolean | undefined>;
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string | undefined>;
+    /**
+     * Outputs the result of `SHOW PIPES` for the given pipe.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.PipeShowOutput>[] | undefined>;
 }
 
 /**
@@ -234,7 +292,7 @@ export interface PipeArgs {
      */
     copyStatement: pulumi.Input<string>;
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
@@ -246,11 +304,19 @@ export interface PipeArgs {
      */
     integration?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The schema in which to create the pipe.
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     */
+    pipeExecutionPaused?: pulumi.Input<boolean | undefined>;
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
 }

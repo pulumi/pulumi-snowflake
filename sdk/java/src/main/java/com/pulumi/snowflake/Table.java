@@ -201,14 +201,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
-     * The database in which to create the table.
+     * The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the table.
+     * @return The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -229,14 +229,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * @return Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -274,14 +274,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.primaryKey);
     }
     /**
-     * The schema in which to create the table.
+     * The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the table.
+     * @return The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {

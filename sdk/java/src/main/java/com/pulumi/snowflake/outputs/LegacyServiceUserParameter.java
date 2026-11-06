@@ -5,28 +5,35 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterAbortDetachedQuery;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterActivePythonProfiler;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterAutocommit;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterBinaryInputFormat;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterBinaryOutputFormat;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameter;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientMemoryLimit;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientMetadataUseSessionDatabase;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientPrefetchThread;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientResultChunkSize;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientSessionKeepAlife;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterClientTimestampTypeMapping;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterCsvTimestampFormat;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterDateInputFormat;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterDateOutputFormat;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterErrorOnNondeterministicMerge;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterGeographyOutputFormat;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterGeometryOutputFormat;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterHybridTableLockTimeout;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJdbcUseSessionTimezone;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJsTreatIntegerAsBigint;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJsonIndent;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterLockTimeout;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterLogEventLevel;
@@ -36,6 +43,8 @@ import com.pulumi.snowflake.outputs.LegacyServiceUserParameterNetworkPolicy;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterNoorderSequenceAsDefault;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterPreventUnloadToInternalStage;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterPythonProfilerModule;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterPythonProfilerTargetStage;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterQueryTag;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterRowsPerResultset;
@@ -70,28 +79,35 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LegacyServiceUserParameter {
     private @Nullable List<LegacyServiceUserParameterAbortDetachedQuery> abortDetachedQueries;
+    private @Nullable List<LegacyServiceUserParameterActivePythonProfiler> activePythonProfilers;
     private @Nullable List<LegacyServiceUserParameterAutocommit> autocommits;
     private @Nullable List<LegacyServiceUserParameterBinaryInputFormat> binaryInputFormats;
     private @Nullable List<LegacyServiceUserParameterBinaryOutputFormat> binaryOutputFormats;
+    private @Nullable List<LegacyServiceUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters;
     private @Nullable List<LegacyServiceUserParameterClientMemoryLimit> clientMemoryLimits;
     private @Nullable List<LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes;
+    private @Nullable List<LegacyServiceUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases;
     private @Nullable List<LegacyServiceUserParameterClientPrefetchThread> clientPrefetchThreads;
     private @Nullable List<LegacyServiceUserParameterClientResultChunkSize> clientResultChunkSizes;
     private @Nullable List<LegacyServiceUserParameterClientResultColumnCaseInsensitive> clientResultColumnCaseInsensitives;
     private @Nullable List<LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency> clientSessionKeepAliveHeartbeatFrequencies;
     private @Nullable List<LegacyServiceUserParameterClientSessionKeepAlife> clientSessionKeepAlives;
     private @Nullable List<LegacyServiceUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings;
+    private @Nullable List<LegacyServiceUserParameterCsvTimestampFormat> csvTimestampFormats;
     private @Nullable List<LegacyServiceUserParameterDateInputFormat> dateInputFormats;
     private @Nullable List<LegacyServiceUserParameterDateOutputFormat> dateOutputFormats;
+    private @Nullable List<LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases;
     private @Nullable List<LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations;
     private @Nullable List<LegacyServiceUserParameterEnableUnredactedQuerySyntaxError> enableUnredactedQuerySyntaxErrors;
     private @Nullable List<LegacyServiceUserParameterErrorOnNondeterministicMerge> errorOnNondeterministicMerges;
     private @Nullable List<LegacyServiceUserParameterErrorOnNondeterministicUpdate> errorOnNondeterministicUpdates;
     private @Nullable List<LegacyServiceUserParameterGeographyOutputFormat> geographyOutputFormats;
     private @Nullable List<LegacyServiceUserParameterGeometryOutputFormat> geometryOutputFormats;
+    private @Nullable List<LegacyServiceUserParameterHybridTableLockTimeout> hybridTableLockTimeouts;
     private @Nullable List<LegacyServiceUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts;
     private @Nullable List<LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc> jdbcTreatTimestampNtzAsUtcs;
     private @Nullable List<LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
+    private @Nullable List<LegacyServiceUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints;
     private @Nullable List<LegacyServiceUserParameterJsonIndent> jsonIndents;
     private @Nullable List<LegacyServiceUserParameterLockTimeout> lockTimeouts;
     private @Nullable List<LegacyServiceUserParameterLogEventLevel> logEventLevels;
@@ -101,6 +117,8 @@ public final class LegacyServiceUserParameter {
     private @Nullable List<LegacyServiceUserParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
     private @Nullable List<LegacyServiceUserParameterOdbcTreatDecimalAsInt> odbcTreatDecimalAsInts;
     private @Nullable List<LegacyServiceUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages;
+    private @Nullable List<LegacyServiceUserParameterPythonProfilerModule> pythonProfilerModules;
+    private @Nullable List<LegacyServiceUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages;
     private @Nullable List<LegacyServiceUserParameterQueryTag> queryTags;
     private @Nullable List<LegacyServiceUserParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
     private @Nullable List<LegacyServiceUserParameterRowsPerResultset> rowsPerResultsets;
@@ -133,6 +151,9 @@ public final class LegacyServiceUserParameter {
     public List<LegacyServiceUserParameterAbortDetachedQuery> abortDetachedQueries() {
         return this.abortDetachedQueries == null ? List.of() : this.abortDetachedQueries;
     }
+    public List<LegacyServiceUserParameterActivePythonProfiler> activePythonProfilers() {
+        return this.activePythonProfilers == null ? List.of() : this.activePythonProfilers;
+    }
     public List<LegacyServiceUserParameterAutocommit> autocommits() {
         return this.autocommits == null ? List.of() : this.autocommits;
     }
@@ -142,11 +163,17 @@ public final class LegacyServiceUserParameter {
     public List<LegacyServiceUserParameterBinaryOutputFormat> binaryOutputFormats() {
         return this.binaryOutputFormats == null ? List.of() : this.binaryOutputFormats;
     }
+    public List<LegacyServiceUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters() {
+        return this.clientEnableLogInfoStatementParameters == null ? List.of() : this.clientEnableLogInfoStatementParameters;
+    }
     public List<LegacyServiceUserParameterClientMemoryLimit> clientMemoryLimits() {
         return this.clientMemoryLimits == null ? List.of() : this.clientMemoryLimits;
     }
     public List<LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes() {
         return this.clientMetadataRequestUseConnectionCtxes == null ? List.of() : this.clientMetadataRequestUseConnectionCtxes;
+    }
+    public List<LegacyServiceUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases() {
+        return this.clientMetadataUseSessionDatabases == null ? List.of() : this.clientMetadataUseSessionDatabases;
     }
     public List<LegacyServiceUserParameterClientPrefetchThread> clientPrefetchThreads() {
         return this.clientPrefetchThreads == null ? List.of() : this.clientPrefetchThreads;
@@ -166,11 +193,17 @@ public final class LegacyServiceUserParameter {
     public List<LegacyServiceUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings() {
         return this.clientTimestampTypeMappings == null ? List.of() : this.clientTimestampTypeMappings;
     }
+    public List<LegacyServiceUserParameterCsvTimestampFormat> csvTimestampFormats() {
+        return this.csvTimestampFormats == null ? List.of() : this.csvTimestampFormats;
+    }
     public List<LegacyServiceUserParameterDateInputFormat> dateInputFormats() {
         return this.dateInputFormats == null ? List.of() : this.dateInputFormats;
     }
     public List<LegacyServiceUserParameterDateOutputFormat> dateOutputFormats() {
         return this.dateOutputFormats == null ? List.of() : this.dateOutputFormats;
+    }
+    public List<LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases() {
+        return this.enableGetDdlUseDataTypeAliases == null ? List.of() : this.enableGetDdlUseDataTypeAliases;
     }
     public List<LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations() {
         return this.enableUnloadPhysicalTypeOptimizations == null ? List.of() : this.enableUnloadPhysicalTypeOptimizations;
@@ -190,6 +223,9 @@ public final class LegacyServiceUserParameter {
     public List<LegacyServiceUserParameterGeometryOutputFormat> geometryOutputFormats() {
         return this.geometryOutputFormats == null ? List.of() : this.geometryOutputFormats;
     }
+    public List<LegacyServiceUserParameterHybridTableLockTimeout> hybridTableLockTimeouts() {
+        return this.hybridTableLockTimeouts == null ? List.of() : this.hybridTableLockTimeouts;
+    }
     public List<LegacyServiceUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts() {
         return this.jdbcTreatDecimalAsInts == null ? List.of() : this.jdbcTreatDecimalAsInts;
     }
@@ -198,6 +234,9 @@ public final class LegacyServiceUserParameter {
     }
     public List<LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones() {
         return this.jdbcUseSessionTimezones == null ? List.of() : this.jdbcUseSessionTimezones;
+    }
+    public List<LegacyServiceUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints() {
+        return this.jsTreatIntegerAsBigints == null ? List.of() : this.jsTreatIntegerAsBigints;
     }
     public List<LegacyServiceUserParameterJsonIndent> jsonIndents() {
         return this.jsonIndents == null ? List.of() : this.jsonIndents;
@@ -225,6 +264,12 @@ public final class LegacyServiceUserParameter {
     }
     public List<LegacyServiceUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages() {
         return this.preventUnloadToInternalStages == null ? List.of() : this.preventUnloadToInternalStages;
+    }
+    public List<LegacyServiceUserParameterPythonProfilerModule> pythonProfilerModules() {
+        return this.pythonProfilerModules == null ? List.of() : this.pythonProfilerModules;
+    }
+    public List<LegacyServiceUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages() {
+        return this.pythonProfilerTargetStages == null ? List.of() : this.pythonProfilerTargetStages;
     }
     public List<LegacyServiceUserParameterQueryTag> queryTags() {
         return this.queryTags == null ? List.of() : this.queryTags;
@@ -318,28 +363,35 @@ public final class LegacyServiceUserParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<LegacyServiceUserParameterAbortDetachedQuery> abortDetachedQueries;
+        private @Nullable List<LegacyServiceUserParameterActivePythonProfiler> activePythonProfilers;
         private @Nullable List<LegacyServiceUserParameterAutocommit> autocommits;
         private @Nullable List<LegacyServiceUserParameterBinaryInputFormat> binaryInputFormats;
         private @Nullable List<LegacyServiceUserParameterBinaryOutputFormat> binaryOutputFormats;
+        private @Nullable List<LegacyServiceUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters;
         private @Nullable List<LegacyServiceUserParameterClientMemoryLimit> clientMemoryLimits;
         private @Nullable List<LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes;
+        private @Nullable List<LegacyServiceUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases;
         private @Nullable List<LegacyServiceUserParameterClientPrefetchThread> clientPrefetchThreads;
         private @Nullable List<LegacyServiceUserParameterClientResultChunkSize> clientResultChunkSizes;
         private @Nullable List<LegacyServiceUserParameterClientResultColumnCaseInsensitive> clientResultColumnCaseInsensitives;
         private @Nullable List<LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency> clientSessionKeepAliveHeartbeatFrequencies;
         private @Nullable List<LegacyServiceUserParameterClientSessionKeepAlife> clientSessionKeepAlives;
         private @Nullable List<LegacyServiceUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings;
+        private @Nullable List<LegacyServiceUserParameterCsvTimestampFormat> csvTimestampFormats;
         private @Nullable List<LegacyServiceUserParameterDateInputFormat> dateInputFormats;
         private @Nullable List<LegacyServiceUserParameterDateOutputFormat> dateOutputFormats;
+        private @Nullable List<LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases;
         private @Nullable List<LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations;
         private @Nullable List<LegacyServiceUserParameterEnableUnredactedQuerySyntaxError> enableUnredactedQuerySyntaxErrors;
         private @Nullable List<LegacyServiceUserParameterErrorOnNondeterministicMerge> errorOnNondeterministicMerges;
         private @Nullable List<LegacyServiceUserParameterErrorOnNondeterministicUpdate> errorOnNondeterministicUpdates;
         private @Nullable List<LegacyServiceUserParameterGeographyOutputFormat> geographyOutputFormats;
         private @Nullable List<LegacyServiceUserParameterGeometryOutputFormat> geometryOutputFormats;
+        private @Nullable List<LegacyServiceUserParameterHybridTableLockTimeout> hybridTableLockTimeouts;
         private @Nullable List<LegacyServiceUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts;
         private @Nullable List<LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc> jdbcTreatTimestampNtzAsUtcs;
         private @Nullable List<LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
+        private @Nullable List<LegacyServiceUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints;
         private @Nullable List<LegacyServiceUserParameterJsonIndent> jsonIndents;
         private @Nullable List<LegacyServiceUserParameterLockTimeout> lockTimeouts;
         private @Nullable List<LegacyServiceUserParameterLogEventLevel> logEventLevels;
@@ -349,6 +401,8 @@ public final class LegacyServiceUserParameter {
         private @Nullable List<LegacyServiceUserParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
         private @Nullable List<LegacyServiceUserParameterOdbcTreatDecimalAsInt> odbcTreatDecimalAsInts;
         private @Nullable List<LegacyServiceUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages;
+        private @Nullable List<LegacyServiceUserParameterPythonProfilerModule> pythonProfilerModules;
+        private @Nullable List<LegacyServiceUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages;
         private @Nullable List<LegacyServiceUserParameterQueryTag> queryTags;
         private @Nullable List<LegacyServiceUserParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
         private @Nullable List<LegacyServiceUserParameterRowsPerResultset> rowsPerResultsets;
@@ -380,28 +434,35 @@ public final class LegacyServiceUserParameter {
         public Builder(LegacyServiceUserParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.abortDetachedQueries = defaults.abortDetachedQueries;
+    	      this.activePythonProfilers = defaults.activePythonProfilers;
     	      this.autocommits = defaults.autocommits;
     	      this.binaryInputFormats = defaults.binaryInputFormats;
     	      this.binaryOutputFormats = defaults.binaryOutputFormats;
+    	      this.clientEnableLogInfoStatementParameters = defaults.clientEnableLogInfoStatementParameters;
     	      this.clientMemoryLimits = defaults.clientMemoryLimits;
     	      this.clientMetadataRequestUseConnectionCtxes = defaults.clientMetadataRequestUseConnectionCtxes;
+    	      this.clientMetadataUseSessionDatabases = defaults.clientMetadataUseSessionDatabases;
     	      this.clientPrefetchThreads = defaults.clientPrefetchThreads;
     	      this.clientResultChunkSizes = defaults.clientResultChunkSizes;
     	      this.clientResultColumnCaseInsensitives = defaults.clientResultColumnCaseInsensitives;
     	      this.clientSessionKeepAliveHeartbeatFrequencies = defaults.clientSessionKeepAliveHeartbeatFrequencies;
     	      this.clientSessionKeepAlives = defaults.clientSessionKeepAlives;
     	      this.clientTimestampTypeMappings = defaults.clientTimestampTypeMappings;
+    	      this.csvTimestampFormats = defaults.csvTimestampFormats;
     	      this.dateInputFormats = defaults.dateInputFormats;
     	      this.dateOutputFormats = defaults.dateOutputFormats;
+    	      this.enableGetDdlUseDataTypeAliases = defaults.enableGetDdlUseDataTypeAliases;
     	      this.enableUnloadPhysicalTypeOptimizations = defaults.enableUnloadPhysicalTypeOptimizations;
     	      this.enableUnredactedQuerySyntaxErrors = defaults.enableUnredactedQuerySyntaxErrors;
     	      this.errorOnNondeterministicMerges = defaults.errorOnNondeterministicMerges;
     	      this.errorOnNondeterministicUpdates = defaults.errorOnNondeterministicUpdates;
     	      this.geographyOutputFormats = defaults.geographyOutputFormats;
     	      this.geometryOutputFormats = defaults.geometryOutputFormats;
+    	      this.hybridTableLockTimeouts = defaults.hybridTableLockTimeouts;
     	      this.jdbcTreatDecimalAsInts = defaults.jdbcTreatDecimalAsInts;
     	      this.jdbcTreatTimestampNtzAsUtcs = defaults.jdbcTreatTimestampNtzAsUtcs;
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
+    	      this.jsTreatIntegerAsBigints = defaults.jsTreatIntegerAsBigints;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
     	      this.logEventLevels = defaults.logEventLevels;
@@ -411,6 +472,8 @@ public final class LegacyServiceUserParameter {
     	      this.noorderSequenceAsDefaults = defaults.noorderSequenceAsDefaults;
     	      this.odbcTreatDecimalAsInts = defaults.odbcTreatDecimalAsInts;
     	      this.preventUnloadToInternalStages = defaults.preventUnloadToInternalStages;
+    	      this.pythonProfilerModules = defaults.pythonProfilerModules;
+    	      this.pythonProfilerTargetStages = defaults.pythonProfilerTargetStages;
     	      this.queryTags = defaults.queryTags;
     	      this.quotedIdentifiersIgnoreCases = defaults.quotedIdentifiersIgnoreCases;
     	      this.rowsPerResultsets = defaults.rowsPerResultsets;
@@ -450,6 +513,15 @@ public final class LegacyServiceUserParameter {
             return abortDetachedQueries(List.of(abortDetachedQueries));
         }
         @CustomType.Setter
+        public Builder activePythonProfilers(@Nullable List<LegacyServiceUserParameterActivePythonProfiler> activePythonProfilers) {
+
+            this.activePythonProfilers = activePythonProfilers;
+            return this;
+        }
+        public Builder activePythonProfilers(LegacyServiceUserParameterActivePythonProfiler... activePythonProfilers) {
+            return activePythonProfilers(List.of(activePythonProfilers));
+        }
+        @CustomType.Setter
         public Builder autocommits(@Nullable List<LegacyServiceUserParameterAutocommit> autocommits) {
 
             this.autocommits = autocommits;
@@ -477,6 +549,15 @@ public final class LegacyServiceUserParameter {
             return binaryOutputFormats(List.of(binaryOutputFormats));
         }
         @CustomType.Setter
+        public Builder clientEnableLogInfoStatementParameters(@Nullable List<LegacyServiceUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters) {
+
+            this.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
+            return this;
+        }
+        public Builder clientEnableLogInfoStatementParameters(LegacyServiceUserParameterClientEnableLogInfoStatementParameter... clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(List.of(clientEnableLogInfoStatementParameters));
+        }
+        @CustomType.Setter
         public Builder clientMemoryLimits(@Nullable List<LegacyServiceUserParameterClientMemoryLimit> clientMemoryLimits) {
 
             this.clientMemoryLimits = clientMemoryLimits;
@@ -493,6 +574,15 @@ public final class LegacyServiceUserParameter {
         }
         public Builder clientMetadataRequestUseConnectionCtxes(LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx... clientMetadataRequestUseConnectionCtxes) {
             return clientMetadataRequestUseConnectionCtxes(List.of(clientMetadataRequestUseConnectionCtxes));
+        }
+        @CustomType.Setter
+        public Builder clientMetadataUseSessionDatabases(@Nullable List<LegacyServiceUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases) {
+
+            this.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
+            return this;
+        }
+        public Builder clientMetadataUseSessionDatabases(LegacyServiceUserParameterClientMetadataUseSessionDatabase... clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(List.of(clientMetadataUseSessionDatabases));
         }
         @CustomType.Setter
         public Builder clientPrefetchThreads(@Nullable List<LegacyServiceUserParameterClientPrefetchThread> clientPrefetchThreads) {
@@ -549,6 +639,15 @@ public final class LegacyServiceUserParameter {
             return clientTimestampTypeMappings(List.of(clientTimestampTypeMappings));
         }
         @CustomType.Setter
+        public Builder csvTimestampFormats(@Nullable List<LegacyServiceUserParameterCsvTimestampFormat> csvTimestampFormats) {
+
+            this.csvTimestampFormats = csvTimestampFormats;
+            return this;
+        }
+        public Builder csvTimestampFormats(LegacyServiceUserParameterCsvTimestampFormat... csvTimestampFormats) {
+            return csvTimestampFormats(List.of(csvTimestampFormats));
+        }
+        @CustomType.Setter
         public Builder dateInputFormats(@Nullable List<LegacyServiceUserParameterDateInputFormat> dateInputFormats) {
 
             this.dateInputFormats = dateInputFormats;
@@ -565,6 +664,15 @@ public final class LegacyServiceUserParameter {
         }
         public Builder dateOutputFormats(LegacyServiceUserParameterDateOutputFormat... dateOutputFormats) {
             return dateOutputFormats(List.of(dateOutputFormats));
+        }
+        @CustomType.Setter
+        public Builder enableGetDdlUseDataTypeAliases(@Nullable List<LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases) {
+
+            this.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
+            return this;
+        }
+        public Builder enableGetDdlUseDataTypeAliases(LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias... enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(List.of(enableGetDdlUseDataTypeAliases));
         }
         @CustomType.Setter
         public Builder enableUnloadPhysicalTypeOptimizations(@Nullable List<LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations) {
@@ -621,6 +729,15 @@ public final class LegacyServiceUserParameter {
             return geometryOutputFormats(List.of(geometryOutputFormats));
         }
         @CustomType.Setter
+        public Builder hybridTableLockTimeouts(@Nullable List<LegacyServiceUserParameterHybridTableLockTimeout> hybridTableLockTimeouts) {
+
+            this.hybridTableLockTimeouts = hybridTableLockTimeouts;
+            return this;
+        }
+        public Builder hybridTableLockTimeouts(LegacyServiceUserParameterHybridTableLockTimeout... hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(List.of(hybridTableLockTimeouts));
+        }
+        @CustomType.Setter
         public Builder jdbcTreatDecimalAsInts(@Nullable List<LegacyServiceUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts) {
 
             this.jdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
@@ -646,6 +763,15 @@ public final class LegacyServiceUserParameter {
         }
         public Builder jdbcUseSessionTimezones(LegacyServiceUserParameterJdbcUseSessionTimezone... jdbcUseSessionTimezones) {
             return jdbcUseSessionTimezones(List.of(jdbcUseSessionTimezones));
+        }
+        @CustomType.Setter
+        public Builder jsTreatIntegerAsBigints(@Nullable List<LegacyServiceUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints) {
+
+            this.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
+            return this;
+        }
+        public Builder jsTreatIntegerAsBigints(LegacyServiceUserParameterJsTreatIntegerAsBigint... jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(List.of(jsTreatIntegerAsBigints));
         }
         @CustomType.Setter
         public Builder jsonIndents(@Nullable List<LegacyServiceUserParameterJsonIndent> jsonIndents) {
@@ -727,6 +853,24 @@ public final class LegacyServiceUserParameter {
         }
         public Builder preventUnloadToInternalStages(LegacyServiceUserParameterPreventUnloadToInternalStage... preventUnloadToInternalStages) {
             return preventUnloadToInternalStages(List.of(preventUnloadToInternalStages));
+        }
+        @CustomType.Setter
+        public Builder pythonProfilerModules(@Nullable List<LegacyServiceUserParameterPythonProfilerModule> pythonProfilerModules) {
+
+            this.pythonProfilerModules = pythonProfilerModules;
+            return this;
+        }
+        public Builder pythonProfilerModules(LegacyServiceUserParameterPythonProfilerModule... pythonProfilerModules) {
+            return pythonProfilerModules(List.of(pythonProfilerModules));
+        }
+        @CustomType.Setter
+        public Builder pythonProfilerTargetStages(@Nullable List<LegacyServiceUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages) {
+
+            this.pythonProfilerTargetStages = pythonProfilerTargetStages;
+            return this;
+        }
+        public Builder pythonProfilerTargetStages(LegacyServiceUserParameterPythonProfilerTargetStage... pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(List.of(pythonProfilerTargetStages));
         }
         @CustomType.Setter
         public Builder queryTags(@Nullable List<LegacyServiceUserParameterQueryTag> queryTags) {
@@ -974,28 +1118,35 @@ public final class LegacyServiceUserParameter {
         public LegacyServiceUserParameter build() {
             final var _resultValue = new LegacyServiceUserParameter();
             _resultValue.abortDetachedQueries = abortDetachedQueries;
+            _resultValue.activePythonProfilers = activePythonProfilers;
             _resultValue.autocommits = autocommits;
             _resultValue.binaryInputFormats = binaryInputFormats;
             _resultValue.binaryOutputFormats = binaryOutputFormats;
+            _resultValue.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
             _resultValue.clientMemoryLimits = clientMemoryLimits;
             _resultValue.clientMetadataRequestUseConnectionCtxes = clientMetadataRequestUseConnectionCtxes;
+            _resultValue.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
             _resultValue.clientPrefetchThreads = clientPrefetchThreads;
             _resultValue.clientResultChunkSizes = clientResultChunkSizes;
             _resultValue.clientResultColumnCaseInsensitives = clientResultColumnCaseInsensitives;
             _resultValue.clientSessionKeepAliveHeartbeatFrequencies = clientSessionKeepAliveHeartbeatFrequencies;
             _resultValue.clientSessionKeepAlives = clientSessionKeepAlives;
             _resultValue.clientTimestampTypeMappings = clientTimestampTypeMappings;
+            _resultValue.csvTimestampFormats = csvTimestampFormats;
             _resultValue.dateInputFormats = dateInputFormats;
             _resultValue.dateOutputFormats = dateOutputFormats;
+            _resultValue.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
             _resultValue.enableUnloadPhysicalTypeOptimizations = enableUnloadPhysicalTypeOptimizations;
             _resultValue.enableUnredactedQuerySyntaxErrors = enableUnredactedQuerySyntaxErrors;
             _resultValue.errorOnNondeterministicMerges = errorOnNondeterministicMerges;
             _resultValue.errorOnNondeterministicUpdates = errorOnNondeterministicUpdates;
             _resultValue.geographyOutputFormats = geographyOutputFormats;
             _resultValue.geometryOutputFormats = geometryOutputFormats;
+            _resultValue.hybridTableLockTimeouts = hybridTableLockTimeouts;
             _resultValue.jdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
             _resultValue.jdbcTreatTimestampNtzAsUtcs = jdbcTreatTimestampNtzAsUtcs;
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
+            _resultValue.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
             _resultValue.logEventLevels = logEventLevels;
@@ -1005,6 +1156,8 @@ public final class LegacyServiceUserParameter {
             _resultValue.noorderSequenceAsDefaults = noorderSequenceAsDefaults;
             _resultValue.odbcTreatDecimalAsInts = odbcTreatDecimalAsInts;
             _resultValue.preventUnloadToInternalStages = preventUnloadToInternalStages;
+            _resultValue.pythonProfilerModules = pythonProfilerModules;
+            _resultValue.pythonProfilerTargetStages = pythonProfilerTargetStages;
             _resultValue.queryTags = queryTags;
             _resultValue.quotedIdentifiersIgnoreCases = quotedIdentifiersIgnoreCases;
             _resultValue.rowsPerResultsets = rowsPerResultsets;

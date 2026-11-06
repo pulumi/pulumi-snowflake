@@ -171,14 +171,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -321,14 +321,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
      * 
      */
     @Import(name="warehouseType")
     private @Nullable Output<String> warehouseType;
 
     /**
-     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
      * 
      */
     public Optional<Output<String>> warehouseType() {
@@ -590,7 +590,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
          * 
          * @return builder
          * 

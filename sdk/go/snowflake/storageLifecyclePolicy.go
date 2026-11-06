@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewStorageLifecyclePolicy(ctx, "basic", &snowflake.StorageLifecyclePolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete
+//			//# Complete
 //			_, err = snowflake.NewStorageLifecyclePolicy(ctx, "complete", &snowflake.StorageLifecyclePolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),

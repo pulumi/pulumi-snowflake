@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ShareArgs', 'Share']
 
@@ -21,13 +23,15 @@ class ShareArgs:
     def __init__(__self__, *,
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
-        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the share.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] secure_objects_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -35,12 +39,14 @@ class ShareArgs:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure_objects_only is not None:
+            pulumi.set(__self__, "secure_objects_only", secure_objects_only)
 
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
         """
         return pulumi.get(self, "accounts")
 
@@ -52,7 +58,7 @@ class ShareArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a comment for the managed account.
+        Specifies a comment for the share.
         """
         return pulumi.get(self, "comment")
 
@@ -64,7 +70,7 @@ class ShareArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the share; must be unique for the account in which the share is created.
+        Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -72,36 +78,60 @@ class ShareArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="secureObjectsOnly")
+    def secure_objects_only(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "secure_objects_only")
+
+    @secure_objects_only.setter
+    def secure_objects_only(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secure_objects_only", value)
+
 
 @pulumi.input_type
 class _ShareState:
     def __init__(__self__, *,
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ShareDescribeOutputArgs']]]] = None,
                  fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ShareShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Share resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
-        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the share.
+        :param pulumi.Input[Sequence[pulumi.Input['ShareDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] secure_objects_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[Sequence[pulumi.Input['ShareShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SHARES` for the given share.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure_objects_only is not None:
+            pulumi.set(__self__, "secure_objects_only", secure_objects_only)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
         """
         return pulumi.get(self, "accounts")
 
@@ -113,13 +143,25 @@ class _ShareState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a comment for the managed account.
+        Specifies a comment for the share.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
     def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ShareDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ShareDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
@@ -137,13 +179,37 @@ class _ShareState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the share; must be unique for the account in which the share is created.
+        Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secureObjectsOnly")
+    def secure_objects_only(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "secure_objects_only")
+
+    @secure_objects_only.setter
+    def secure_objects_only(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secure_objects_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ShareShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW SHARES` for the given share.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ShareShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 @pulumi.type_token("snowflake:index/share:Share")
@@ -155,17 +221,21 @@ class Share(pulumi.CustomResource):
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Note** When adding or updating accounts in the `accounts` field, the provider creates a temporary database as a workaround for a Snowflake race condition. This is because accounts cannot be added to a share until after a database has been granted to the share, but database grants depend on the share existing first.
+        > **Note** When accounts are added to a share that has no database granted yet (on create or on update), the provider creates a temporary database as a workaround for a Snowflake race condition: accounts cannot be added to a share until a database has been granted to it, but database grants depend on the share existing first.
         The provider automatically:
         1. Creates a temporary database (named `TEMP_<share_name>_<timestamp>`)
         2. Grants `USAGE` and `REFERENCE_USAGE` privileges on the temporary database to the share
         3. Adds the specified accounts to the share
         4. Revokes the privileges and drops the temporary database
-           This process is fully automated during the creation.
+
+        > **Shares with more than three accounts** `SHOW SHARES` lists at most three accounts of a share. For a share with more than three accounts, the provider reads the full list from the `SNOWFLAKE.ACCOUNT_USAGE.SHARES` view. This requires a warehouse in the connection (set a `DEFAULT_WAREHOUSE` for the user or specify a warehouse in the provider configuration) and `SELECT` on that view for the role used by the provider (for example through `IMPORTED PRIVILEGES` on the `SNOWFLAKE` database). The view can be up to 3 hours behind, so for up to 3 hours after accounts are added or removed outside the three listed by `SHOW SHARES`, a plan can still show them as changes; applying it does not alter the share. Without the warehouse or the privilege, the provider reports a warning and only the listed accounts are known.
+
+        Resource used to manage share objects. For more information, check [share documentation](https://docs.snowflake.com/en/sql-reference/sql/create-share).
 
         ## Example Usage
 
@@ -176,12 +246,16 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Share("test",
-            name="share_name",
-            comment="cool comment",
-            accounts=["organizationName.accountName"])
+        # basic resource
+        basic = snowflake.Share("basic", name="SHARE_NAME")
+        # complete resource
+        complete = snowflake.Share("complete",
+            name="SHARE_NAME",
+            comment="A share.",
+            accounts=["organizationName.accountName"],
+            secure_objects_only="false")
         example = snowflake.Database("example", name="test",
-        opts = pulumi.ResourceOptions(depends_on=[test]))
+        opts = pulumi.ResourceOptions(depends_on=[complete]))
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -189,15 +263,18 @@ class Share(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/share:Share example name
+        $ pulumi import snowflake:index/share:Share example '"<share_name>"'
         ```
+
+        > **Note** Only a share created in your account (`kind = OUTBOUND`) can be imported; importing a share provided by another account (`kind = INBOUND`) fails. The import sets `secure_objects_only` to the value of the share. Because the field is ForceNew, a configuration that omits it while the share has `secure_objects_only = true` plans a replacement of the share after the import; set the field to the value of the share, or enable the `IMPORT_PERMISSIVE_MODE` experiment to get an empty plan.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
-        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the share.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] secure_objects_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         ...
     @overload
@@ -208,13 +285,16 @@ class Share(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Note** When adding or updating accounts in the `accounts` field, the provider creates a temporary database as a workaround for a Snowflake race condition. This is because accounts cannot be added to a share until after a database has been granted to the share, but database grants depend on the share existing first.
+        > **Note** When accounts are added to a share that has no database granted yet (on create or on update), the provider creates a temporary database as a workaround for a Snowflake race condition: accounts cannot be added to a share until a database has been granted to it, but database grants depend on the share existing first.
         The provider automatically:
         1. Creates a temporary database (named `TEMP_<share_name>_<timestamp>`)
         2. Grants `USAGE` and `REFERENCE_USAGE` privileges on the temporary database to the share
         3. Adds the specified accounts to the share
         4. Revokes the privileges and drops the temporary database
-           This process is fully automated during the creation.
+
+        > **Shares with more than three accounts** `SHOW SHARES` lists at most three accounts of a share. For a share with more than three accounts, the provider reads the full list from the `SNOWFLAKE.ACCOUNT_USAGE.SHARES` view. This requires a warehouse in the connection (set a `DEFAULT_WAREHOUSE` for the user or specify a warehouse in the provider configuration) and `SELECT` on that view for the role used by the provider (for example through `IMPORTED PRIVILEGES` on the `SNOWFLAKE` database). The view can be up to 3 hours behind, so for up to 3 hours after accounts are added or removed outside the three listed by `SHOW SHARES`, a plan can still show them as changes; applying it does not alter the share. Without the warehouse or the privilege, the provider reports a warning and only the listed accounts are known.
+
+        Resource used to manage share objects. For more information, check [share documentation](https://docs.snowflake.com/en/sql-reference/sql/create-share).
 
         ## Example Usage
 
@@ -225,12 +305,16 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test = snowflake.Share("test",
-            name="share_name",
-            comment="cool comment",
-            accounts=["organizationName.accountName"])
+        # basic resource
+        basic = snowflake.Share("basic", name="SHARE_NAME")
+        # complete resource
+        complete = snowflake.Share("complete",
+            name="SHARE_NAME",
+            comment="A share.",
+            accounts=["organizationName.accountName"],
+            secure_objects_only="false")
         example = snowflake.Database("example", name="test",
-        opts = pulumi.ResourceOptions(depends_on=[test]))
+        opts = pulumi.ResourceOptions(depends_on=[complete]))
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -238,8 +322,10 @@ class Share(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/share:Share example name
+        $ pulumi import snowflake:index/share:Share example '"<share_name>"'
         ```
+
+        > **Note** Only a share created in your account (`kind = OUTBOUND`) can be imported; importing a share provided by another account (`kind = INBOUND`) fails. The import sets `secure_objects_only` to the value of the share. Because the field is ForceNew, a configuration that omits it while the share has `secure_objects_only = true` plans a replacement of the share after the import; set the field to the value of the share, or enable the `IMPORT_PERMISSIVE_MODE` experiment to get an empty plan.
 
 
         :param str resource_name: The name of the resource.
@@ -260,6 +346,7 @@ class Share(pulumi.CustomResource):
                  accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,7 +359,10 @@ class Share(pulumi.CustomResource):
             __props__.__dict__["accounts"] = accounts
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
+            __props__.__dict__["secure_objects_only"] = secure_objects_only
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(Share, __self__).__init__(
             'snowflake:index/share:Share',
             resource_name,
@@ -285,8 +375,11 @@ class Share(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareDescribeOutputArgs', 'ShareDescribeOutputArgsDict', 'outputs.ShareDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
-            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Share':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareShowOutputArgs', 'ShareShowOutputArgsDict', 'outputs.ShareShowOutput']]]]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -294,10 +387,13 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
-        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareDescribeOutputArgs', 'ShareDescribeOutputArgsDict', 'outputs.ShareDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] secure_objects_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareShowOutputArgs', 'ShareShowOutputArgsDict', 'outputs.ShareShowOutput']]]] show_outputs: Outputs the result of `SHOW SHARES` for the given share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,8 +401,11 @@ class Share(pulumi.CustomResource):
 
         __props__.__dict__["accounts"] = accounts
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["secure_objects_only"] = secure_objects_only
+        __props__.__dict__["show_outputs"] = show_outputs
         return Share(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -314,20 +413,26 @@ class Share(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareDescribeOutputArgs', 'ShareDescribeOutputArgsDict', 'outputs.ShareDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
-            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_objects_only: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareShowOutputArgs', 'ShareShowOutputArgsDict', 'outputs.ShareShowOutput']]]]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["accounts"] = accounts
         __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
         __props__["fullyQualifiedName"] = fully_qualified_name
         __props__["name"] = name
+        __props__["secureObjectsOnly"] = secure_objects_only
+        __props__["showOutputs"] = show_outputs
         return pulumi.runtime.exists_resource(None, 'snowflake:index/share:Share', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
         """
         return pulumi.get(self, "accounts")
 
@@ -335,9 +440,17 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies a comment for the managed account.
+        Specifies a comment for the share.
         """
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.ShareDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE SHARE` for the given share. DESCRIBE SHARE returns a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. In order to see the rows, the role must have a privilege on the share.
+        """
+        return pulumi.get(self, "describe_outputs")
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
@@ -351,7 +464,23 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the share; must be unique for the account in which the share is created.
+        Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="secureObjectsOnly")
+    def secure_objects_only(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "secure_objects_only")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.ShareShowOutput']]:
+        """
+        Outputs the result of `SHOW SHARES` for the given share.
+        """
+        return pulumi.get(self, "show_outputs")
 

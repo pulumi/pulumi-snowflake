@@ -73,6 +73,35 @@ export interface AlertAlertScheduleCron {
     timeZone: pulumi.Input<string>;
 }
 
+export interface AlertDescribeOutput {
+    action?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schedule?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    warehouse?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertShowOutput {
+    action?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schedule?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    warehouse?: pulumi.Input<string | undefined>;
+}
+
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput {
     authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType>[] | undefined>;
     comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment>[] | undefined>;
@@ -565,7 +594,7 @@ export interface ApiIntegrationGoogleCloudApiGatewayShowOutput {
 
 export interface AuthenticationPolicyClientPolicy {
     /**
-     * The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+     * The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
      */
     clientType: pulumi.Input<string>;
     /**
@@ -601,6 +630,10 @@ export interface AuthenticationPolicyMfaPolicy {
 
 export interface AuthenticationPolicyPatPolicy {
     /**
+     * Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     */
+    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Specifies the default expiration time (in days) for a programmatic access token.
      */
     defaultExpiryInDays?: pulumi.Input<number | undefined>;
@@ -612,6 +645,10 @@ export interface AuthenticationPolicyPatPolicy {
      * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      */
     networkPolicyEvaluation?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    requireRoleRestrictionForPersonUsers?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
@@ -648,6 +685,47 @@ export interface AuthenticationPolicyWorkloadIdentityPolicy {
      * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface BackupPolicyDescribeOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    expireAfterDays?: pulumi.Input<number | undefined>;
+    hasRetentionLock?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schedule?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface BackupPolicySchedule {
+    /**
+     * Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+     */
+    hours?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+     */
+    minutes?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+     */
+    usingCron?: pulumi.Input<string | undefined>;
+}
+
+export interface BackupPolicyShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    expireAfterDays?: pulumi.Input<number | undefined>;
+    hasRetentionLock?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schedule?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationAwsGlueDescribeOutput {
@@ -742,7 +820,7 @@ export interface CatalogIntegrationIcebergRestRestConfig {
      */
     accessDelegationMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      */
     catalogApiType?: pulumi.Input<string | undefined>;
     /**
@@ -851,7 +929,7 @@ export interface CatalogIntegrationOpenCatalogRestConfig {
      */
     accessDelegationMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      */
     catalogApiType?: pulumi.Input<string | undefined>;
     /**
@@ -871,6 +949,39 @@ export interface CatalogIntegrationOpenCatalogShowOutput {
     enabled?: pulumi.Input<boolean | undefined>;
     name?: pulumi.Input<string | undefined>;
     type?: pulumi.Input<string | undefined>;
+}
+
+export interface CodeBundleDescribeOutput {
+    comment?: pulumi.Input<string | undefined>;
+    containerDatabase?: pulumi.Input<string | undefined>;
+    containerName?: pulumi.Input<string | undefined>;
+    containerSchema?: pulumi.Input<string | undefined>;
+    containerType?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    defaultVersion?: pulumi.Input<string | undefined>;
+    defaultVersionAlias?: pulumi.Input<string | undefined>;
+    defaultVersionGitCommitHash?: pulumi.Input<string | undefined>;
+    defaultVersionLocationUri?: pulumi.Input<string | undefined>;
+    defaultVersionName?: pulumi.Input<string | undefined>;
+    defaultVersionSourceLocationUri?: pulumi.Input<string | undefined>;
+    lastVersionAlias?: pulumi.Input<string | undefined>;
+    lastVersionGitCommitHash?: pulumi.Input<string | undefined>;
+    lastVersionLocationUri?: pulumi.Input<string | undefined>;
+    lastVersionName?: pulumi.Input<string | undefined>;
+    lastVersionSourceLocationUri?: pulumi.Input<string | undefined>;
+    liveVersionLocationUri?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    ownerRole?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+}
+
+export interface CodeBundleShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface ComputePoolDescribeOutput {
@@ -1019,6 +1130,180 @@ export interface CurrentOrganizationAccountShowOutput {
     organizationOldUrlLastUsed?: pulumi.Input<string | undefined>;
     organizationOldUrlSavedOn?: pulumi.Input<string | undefined>;
     snowflakeRegion?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameter {
+    catalogs?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterCatalog>[] | undefined>;
+    dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterDataRetentionTimeInDay>[] | undefined>;
+    defaultDdlCollations?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterDefaultDdlCollation>[] | undefined>;
+    defaultNotebookComputePoolCpus?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterDefaultNotebookComputePoolCpus>[] | undefined>;
+    defaultNotebookComputePoolGpus?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterDefaultNotebookComputePoolGpus>[] | undefined>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterEnableConsoleOutput>[] | undefined>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterExternalVolume>[] | undefined>;
+    logEventLevels?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterLogEventLevel>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterLogLevel>[] | undefined>;
+    maxDataExtensionTimeInDays?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterMaxDataExtensionTimeInDay>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterReplaceInvalidCharacter>[] | undefined>;
+    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterStorageSerializationPolicy>[] | undefined>;
+    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterSuspendTaskAfterNumFailure>[] | undefined>;
+    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterTaskAutoRetryAttempt>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterTraceLevel>[] | undefined>;
+    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterUserTaskManagedInitialWarehouseSize>[] | undefined>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterUserTaskMinimumTriggerIntervalInSecond>[] | undefined>;
+    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.DatabaseParameterUserTaskTimeoutM>[] | undefined>;
+}
+
+export interface DatabaseParameterCatalog {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterDataRetentionTimeInDay {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterDefaultDdlCollation {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterDefaultNotebookComputePoolCpus {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterDefaultNotebookComputePoolGpus {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterEnableConsoleOutput {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterExternalVolume {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterLogEventLevel {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterLogLevel {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterMaxDataExtensionTimeInDay {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterReplaceInvalidCharacter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterStorageSerializationPolicy {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterSuspendTaskAfterNumFailure {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterTaskAutoRetryAttempt {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterTraceLevel {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterUserTaskManagedInitialWarehouseSize {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface DatabaseParameterUserTaskTimeoutM {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface DatabaseReplication {
@@ -2122,6 +2407,74 @@ export interface FunctionSqlShowOutput {
     validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
+export interface GetAlertsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetAlertsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAlertsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetAlertsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetAuthenticationPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -2210,6 +2563,104 @@ export interface GetAuthenticationPoliciesOnArgs {
      * Returns records for the specified user.
      */
     user?: pulumi.Input<string | undefined>;
+}
+
+export interface GetBackupPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetBackupPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetBackupPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetBackupPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetCodeBundlesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetCodeBundlesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetComputePoolsLimit {
@@ -3322,6 +3773,104 @@ export interface GetPasswordPoliciesOnArgs {
     user?: pulumi.Input<string | undefined>;
 }
 
+export interface GetPipesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetPipesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetProjectionPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetProjectionPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetProjectionPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetProjectionPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetRowAccessPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -3696,6 +4245,28 @@ export interface GetSessionPoliciesOnArgs {
      * Returns records for the specified user.
      */
     user?: pulumi.Input<string | undefined>;
+}
+
+export interface GetSharesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSharesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
 }
 
 export interface GetStagesIn {
@@ -4229,7 +4800,7 @@ export interface GrantOwnershipOnFuture {
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
-     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited | undefined>;
     /**
@@ -4259,7 +4830,7 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaInherited | undefined>;
     /**
@@ -4289,7 +4860,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited | undefined>;
     /**
@@ -4349,7 +4920,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<string | undefined>;
     /**
@@ -4368,7 +4939,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited | undefined>;
     /**
@@ -5585,28 +6156,35 @@ export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
 
 export interface LegacyServiceUserParameter {
     abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAbortDetachedQuery>[] | undefined>;
+    activePythonProfilers?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterActivePythonProfiler>[] | undefined>;
     autocommits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAutocommit>[] | undefined>;
     binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryInputFormat>[] | undefined>;
     binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryOutputFormat>[] | undefined>;
+    clientEnableLogInfoStatementParameters?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameter>[] | undefined>;
     clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMemoryLimit>[] | undefined>;
     clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientMetadataUseSessionDatabases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMetadataUseSessionDatabase>[] | undefined>;
     clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientPrefetchThread>[] | undefined>;
     clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultChunkSize>[] | undefined>;
     clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive>[] | undefined>;
     clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
     clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAlife>[] | undefined>;
     clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientTimestampTypeMapping>[] | undefined>;
+    csvTimestampFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterCsvTimestampFormat>[] | undefined>;
     dateInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateInputFormat>[] | undefined>;
     dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateOutputFormat>[] | undefined>;
+    enableGetDdlUseDataTypeAliases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias>[] | undefined>;
     enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
     enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
     errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicMerge>[] | undefined>;
     errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate>[] | undefined>;
     geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeographyOutputFormat>[] | undefined>;
     geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeometryOutputFormat>[] | undefined>;
+    hybridTableLockTimeouts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterHybridTableLockTimeout>[] | undefined>;
     jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt>[] | undefined>;
     jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
     jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsTreatIntegerAsBigints?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJsTreatIntegerAsBigint>[] | undefined>;
     jsonIndents?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJsonIndent>[] | undefined>;
     lockTimeouts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLockTimeout>[] | undefined>;
     logEventLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLogEventLevel>[] | undefined>;
@@ -5616,6 +6194,8 @@ export interface LegacyServiceUserParameter {
     noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNoorderSequenceAsDefault>[] | undefined>;
     odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt>[] | undefined>;
     preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPreventUnloadToInternalStage>[] | undefined>;
+    pythonProfilerModules?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPythonProfilerModule>[] | undefined>;
+    pythonProfilerTargetStages?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPythonProfilerTargetStage>[] | undefined>;
     queryTags?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQueryTag>[] | undefined>;
     quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
     rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterRowsPerResultset>[] | undefined>;
@@ -5653,6 +6233,14 @@ export interface LegacyServiceUserParameterAbortDetachedQuery {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface LegacyServiceUserParameterActivePythonProfiler {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface LegacyServiceUserParameterAutocommit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -5677,6 +6265,14 @@ export interface LegacyServiceUserParameterBinaryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface LegacyServiceUserParameterClientEnableLogInfoStatementParameter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface LegacyServiceUserParameterClientMemoryLimit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -5686,6 +6282,14 @@ export interface LegacyServiceUserParameterClientMemoryLimit {
 }
 
 export interface LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface LegacyServiceUserParameterClientMetadataUseSessionDatabase {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -5741,6 +6345,14 @@ export interface LegacyServiceUserParameterClientTimestampTypeMapping {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface LegacyServiceUserParameterCsvTimestampFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface LegacyServiceUserParameterDateInputFormat {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -5750,6 +6362,14 @@ export interface LegacyServiceUserParameterDateInputFormat {
 }
 
 export interface LegacyServiceUserParameterDateOutputFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -5805,6 +6425,14 @@ export interface LegacyServiceUserParameterGeometryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface LegacyServiceUserParameterHybridTableLockTimeout {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface LegacyServiceUserParameterJdbcTreatDecimalAsInt {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -5822,6 +6450,14 @@ export interface LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface LegacyServiceUserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface LegacyServiceUserParameterJsTreatIntegerAsBigint {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -5894,6 +6530,22 @@ export interface LegacyServiceUserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface LegacyServiceUserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface LegacyServiceUserParameterPythonProfilerModule {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface LegacyServiceUserParameterPythonProfilerTargetStage {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -6942,6 +7594,61 @@ export interface PasswordPolicyShowOutput {
     schemaName?: pulumi.Input<string | undefined>;
 }
 
+export interface PipeDescribeOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    definition?: pulumi.Input<string | undefined>;
+    errorIntegration?: pulumi.Input<string | undefined>;
+    integration?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    notificationChannel?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    pattern?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface PipeParameter {
+    logEventLevels?: pulumi.Input<pulumi.Input<inputs.PipeParameterLogEventLevel>[] | undefined>;
+    pipeExecutionPauseds?: pulumi.Input<pulumi.Input<inputs.PipeParameterPipeExecutionPaused>[] | undefined>;
+}
+
+export interface PipeParameterLogEventLevel {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface PipeParameterPipeExecutionPaused {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface PipeShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    definition?: pulumi.Input<string | undefined>;
+    errorIntegration?: pulumi.Input<string | undefined>;
+    integration?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    notificationChannel?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    pattern?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
 export interface PostgresInstanceDescribeOutput {
     authenticationAuthority?: pulumi.Input<string | undefined>;
     comment?: pulumi.Input<string | undefined>;
@@ -6985,6 +7692,48 @@ export interface PostgresInstanceShowOutput {
     storageSize?: pulumi.Input<number | undefined>;
     type?: pulumi.Input<string | undefined>;
     updatedOn?: pulumi.Input<string | undefined>;
+}
+
+export interface PostgresMirrorDescribeOutput {
+    applyLagBytes?: pulumi.Input<number | undefined>;
+    applyLagOperations?: pulumi.Input<number | undefined>;
+    applyLagSeconds?: pulumi.Input<number | undefined>;
+    catalogIntegrationName?: pulumi.Input<string | undefined>;
+    errorMessage?: pulumi.Input<string | undefined>;
+    externalVolume?: pulumi.Input<string | undefined>;
+    feedOnly?: pulumi.Input<boolean | undefined>;
+    lastAppliedCommitLsn?: pulumi.Input<string | undefined>;
+    lastAppliedCommitTime?: pulumi.Input<string | undefined>;
+    lastApplyTime?: pulumi.Input<string | undefined>;
+    lastOperationId?: pulumi.Input<number | undefined>;
+    lastOperationTime?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    postgresDatabase?: pulumi.Input<string | undefined>;
+    postgresInstance?: pulumi.Input<string | undefined>;
+    postgresSchemas?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    postgresStatus?: pulumi.Input<string | undefined>;
+    postgresTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    recentQueryDurations?: pulumi.Input<string | undefined>;
+    refreshInterval?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    targetDatabase?: pulumi.Input<string | undefined>;
+    targetTableType?: pulumi.Input<string | undefined>;
+    warehouse?: pulumi.Input<string | undefined>;
+}
+
+export interface PostgresMirrorRefreshInterval {
+    /**
+     * Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+     */
+    hours?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+     */
+    minutes?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+     */
+    seconds?: pulumi.Input<number | undefined>;
 }
 
 export interface PrimaryConnectionShowOutput {
@@ -7500,6 +8249,25 @@ export interface ProcedureSqlShowOutput {
     validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
+export interface ProjectionPolicyDescribeOutput {
+    body?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    returnType?: pulumi.Input<string | undefined>;
+    signature?: pulumi.Input<string | undefined>;
+}
+
+export interface ProjectionPolicyShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
 export interface ProviderTokenAccessor {
     /**
      * The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
@@ -7509,6 +8277,10 @@ export interface ProviderTokenAccessor {
      * The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
      */
     clientSecret: pulumi.Input<string>;
+    /**
+     * Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+     */
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
      */
@@ -7521,6 +8293,48 @@ export interface ProviderTokenAccessor {
      * The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
      */
     tokenEndpoint: pulumi.Input<string>;
+}
+
+export interface ReplicationGroupSecondaryShowOutput {
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    allowedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    isListingAutoFulfillmentGroup?: pulumi.Input<boolean | undefined>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nextScheduledRefresh?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    primary?: pulumi.Input<string | undefined>;
+    readOnly?: pulumi.Input<boolean | undefined>;
+    regionGroup?: pulumi.Input<string | undefined>;
+    replicationSchedule?: pulumi.Input<string | undefined>;
+    secondaryState?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface ReplicationGroupShowOutput {
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    allowedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    isListingAutoFulfillmentGroup?: pulumi.Input<boolean | undefined>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nextScheduledRefresh?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    primary?: pulumi.Input<string | undefined>;
+    readOnly?: pulumi.Input<boolean | undefined>;
+    regionGroup?: pulumi.Input<string | undefined>;
+    replicationSchedule?: pulumi.Input<string | undefined>;
+    secondaryState?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ResourceMonitorShowOutput {
@@ -8489,28 +9303,35 @@ export interface ServiceUserDefaultWorkloadIdentityOidc {
 
 export interface ServiceUserParameter {
     abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAbortDetachedQuery>[] | undefined>;
+    activePythonProfilers?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterActivePythonProfiler>[] | undefined>;
     autocommits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAutocommit>[] | undefined>;
     binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryInputFormat>[] | undefined>;
     binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryOutputFormat>[] | undefined>;
+    clientEnableLogInfoStatementParameters?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientEnableLogInfoStatementParameter>[] | undefined>;
     clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMemoryLimit>[] | undefined>;
     clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientMetadataUseSessionDatabases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMetadataUseSessionDatabase>[] | undefined>;
     clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientPrefetchThread>[] | undefined>;
     clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultChunkSize>[] | undefined>;
     clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultColumnCaseInsensitive>[] | undefined>;
     clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
     clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAlife>[] | undefined>;
     clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientTimestampTypeMapping>[] | undefined>;
+    csvTimestampFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterCsvTimestampFormat>[] | undefined>;
     dateInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateInputFormat>[] | undefined>;
     dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateOutputFormat>[] | undefined>;
+    enableGetDdlUseDataTypeAliases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableGetDdlUseDataTypeAlias>[] | undefined>;
     enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
     enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
     errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicMerge>[] | undefined>;
     errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicUpdate>[] | undefined>;
     geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeographyOutputFormat>[] | undefined>;
     geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeometryOutputFormat>[] | undefined>;
+    hybridTableLockTimeouts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterHybridTableLockTimeout>[] | undefined>;
     jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatDecimalAsInt>[] | undefined>;
     jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
     jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsTreatIntegerAsBigints?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJsTreatIntegerAsBigint>[] | undefined>;
     jsonIndents?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJsonIndent>[] | undefined>;
     lockTimeouts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLockTimeout>[] | undefined>;
     logEventLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLogEventLevel>[] | undefined>;
@@ -8520,6 +9341,8 @@ export interface ServiceUserParameter {
     noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNoorderSequenceAsDefault>[] | undefined>;
     odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterOdbcTreatDecimalAsInt>[] | undefined>;
     preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPreventUnloadToInternalStage>[] | undefined>;
+    pythonProfilerModules?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPythonProfilerModule>[] | undefined>;
+    pythonProfilerTargetStages?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPythonProfilerTargetStage>[] | undefined>;
     queryTags?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQueryTag>[] | undefined>;
     quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
     rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterRowsPerResultset>[] | undefined>;
@@ -8557,6 +9380,14 @@ export interface ServiceUserParameterAbortDetachedQuery {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface ServiceUserParameterActivePythonProfiler {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface ServiceUserParameterAutocommit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -8581,6 +9412,14 @@ export interface ServiceUserParameterBinaryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface ServiceUserParameterClientEnableLogInfoStatementParameter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface ServiceUserParameterClientMemoryLimit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -8590,6 +9429,14 @@ export interface ServiceUserParameterClientMemoryLimit {
 }
 
 export interface ServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface ServiceUserParameterClientMetadataUseSessionDatabase {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -8645,6 +9492,14 @@ export interface ServiceUserParameterClientTimestampTypeMapping {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface ServiceUserParameterCsvTimestampFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface ServiceUserParameterDateInputFormat {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -8654,6 +9509,14 @@ export interface ServiceUserParameterDateInputFormat {
 }
 
 export interface ServiceUserParameterDateOutputFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface ServiceUserParameterEnableGetDdlUseDataTypeAlias {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -8709,6 +9572,14 @@ export interface ServiceUserParameterGeometryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface ServiceUserParameterHybridTableLockTimeout {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface ServiceUserParameterJdbcTreatDecimalAsInt {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -8726,6 +9597,14 @@ export interface ServiceUserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface ServiceUserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface ServiceUserParameterJsTreatIntegerAsBigint {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -8798,6 +9677,22 @@ export interface ServiceUserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface ServiceUserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface ServiceUserParameterPythonProfilerModule {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface ServiceUserParameterPythonProfilerTargetStage {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -9105,6 +10000,26 @@ export interface SessionPolicyShowOutput {
     ownerRoleType?: pulumi.Input<string | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
     targetScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface ShareDescribeOutput {
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sharedOn?: pulumi.Input<string | undefined>;
+}
+
+export interface ShareShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    listingGlobalName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerAccount?: pulumi.Input<string | undefined>;
+    secureObjectsOnly?: pulumi.Input<boolean | undefined>;
+    toTotal?: pulumi.Input<number | undefined>;
+    tos?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface StageExternalAzureCredentials {
@@ -12687,28 +13602,35 @@ export interface TaskTargetCompletionInterval {
 
 export interface UserParameter {
     abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.UserParameterAbortDetachedQuery>[] | undefined>;
+    activePythonProfilers?: pulumi.Input<pulumi.Input<inputs.UserParameterActivePythonProfiler>[] | undefined>;
     autocommits?: pulumi.Input<pulumi.Input<inputs.UserParameterAutocommit>[] | undefined>;
     binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryInputFormat>[] | undefined>;
     binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryOutputFormat>[] | undefined>;
+    clientEnableLogInfoStatementParameters?: pulumi.Input<pulumi.Input<inputs.UserParameterClientEnableLogInfoStatementParameter>[] | undefined>;
     clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMemoryLimit>[] | undefined>;
     clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientMetadataUseSessionDatabases?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMetadataUseSessionDatabase>[] | undefined>;
     clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.UserParameterClientPrefetchThread>[] | undefined>;
     clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultChunkSize>[] | undefined>;
     clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultColumnCaseInsensitive>[] | undefined>;
     clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
     clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAlife>[] | undefined>;
     clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterClientTimestampTypeMapping>[] | undefined>;
+    csvTimestampFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterCsvTimestampFormat>[] | undefined>;
     dateInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateInputFormat>[] | undefined>;
     dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateOutputFormat>[] | undefined>;
+    enableGetDdlUseDataTypeAliases?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableGetDdlUseDataTypeAlias>[] | undefined>;
     enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
     enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
     errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicMerge>[] | undefined>;
     errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicUpdate>[] | undefined>;
     geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeographyOutputFormat>[] | undefined>;
     geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeometryOutputFormat>[] | undefined>;
+    hybridTableLockTimeouts?: pulumi.Input<pulumi.Input<inputs.UserParameterHybridTableLockTimeout>[] | undefined>;
     jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatDecimalAsInt>[] | undefined>;
     jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
     jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsTreatIntegerAsBigints?: pulumi.Input<pulumi.Input<inputs.UserParameterJsTreatIntegerAsBigint>[] | undefined>;
     jsonIndents?: pulumi.Input<pulumi.Input<inputs.UserParameterJsonIndent>[] | undefined>;
     lockTimeouts?: pulumi.Input<pulumi.Input<inputs.UserParameterLockTimeout>[] | undefined>;
     logEventLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterLogEventLevel>[] | undefined>;
@@ -12718,6 +13640,8 @@ export interface UserParameter {
     noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.UserParameterNoorderSequenceAsDefault>[] | undefined>;
     odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterOdbcTreatDecimalAsInt>[] | undefined>;
     preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.UserParameterPreventUnloadToInternalStage>[] | undefined>;
+    pythonProfilerModules?: pulumi.Input<pulumi.Input<inputs.UserParameterPythonProfilerModule>[] | undefined>;
+    pythonProfilerTargetStages?: pulumi.Input<pulumi.Input<inputs.UserParameterPythonProfilerTargetStage>[] | undefined>;
     queryTags?: pulumi.Input<pulumi.Input<inputs.UserParameterQueryTag>[] | undefined>;
     quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.UserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
     rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.UserParameterRowsPerResultset>[] | undefined>;
@@ -12755,6 +13679,14 @@ export interface UserParameterAbortDetachedQuery {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface UserParameterActivePythonProfiler {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface UserParameterAutocommit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -12779,6 +13711,14 @@ export interface UserParameterBinaryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface UserParameterClientEnableLogInfoStatementParameter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface UserParameterClientMemoryLimit {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -12788,6 +13728,14 @@ export interface UserParameterClientMemoryLimit {
 }
 
 export interface UserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface UserParameterClientMetadataUseSessionDatabase {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -12843,6 +13791,14 @@ export interface UserParameterClientTimestampTypeMapping {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface UserParameterCsvTimestampFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface UserParameterDateInputFormat {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -12852,6 +13808,14 @@ export interface UserParameterDateInputFormat {
 }
 
 export interface UserParameterDateOutputFormat {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface UserParameterEnableGetDdlUseDataTypeAlias {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -12907,6 +13871,14 @@ export interface UserParameterGeometryOutputFormat {
     value?: pulumi.Input<string | undefined>;
 }
 
+export interface UserParameterHybridTableLockTimeout {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
 export interface UserParameterJdbcTreatDecimalAsInt {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
@@ -12924,6 +13896,14 @@ export interface UserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface UserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface UserParameterJsTreatIntegerAsBigint {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -12996,6 +13976,22 @@ export interface UserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface UserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface UserParameterPythonProfilerModule {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface UserParameterPythonProfilerTargetStage {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;

@@ -12,6 +12,18 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class AuthenticationPolicyPatPolicyGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("blockedRolesLists")]
+        private InputList<string>? _blockedRolesLists;
+
+        /// <summary>
+        /// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+        /// </summary>
+        public InputList<string> BlockedRolesLists
+        {
+            get => _blockedRolesLists ?? (_blockedRolesLists = new InputList<string>());
+            set => _blockedRolesLists = value;
+        }
+
         /// <summary>
         /// Specifies the default expiration time (in days) for a programmatic access token.
         /// </summary>
@@ -29,6 +41,12 @@ namespace Pulumi.Snowflake.Inputs
         /// </summary>
         [Input("networkPolicyEvaluation")]
         public Input<string>? NetworkPolicyEvaluation { get; set; }
+
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        [Input("requireRoleRestrictionForPersonUsers")]
+        public Input<string>? RequireRoleRestrictionForPersonUsers { get; set; }
 
         /// <summary>
         /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

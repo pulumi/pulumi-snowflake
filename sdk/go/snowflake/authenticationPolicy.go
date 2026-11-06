@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewAuthenticationPolicy(ctx, "basic", &snowflake.AuthenticationPolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewAuthenticationPolicy(ctx, "complete", &snowflake.AuthenticationPolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -64,9 +64,15 @@ import (
 //					EnforceMfaOnExternalAuthentication: pulumi.String("ALL"),
 //				},
 //				PatPolicy: &snowflake.AuthenticationPolicyPatPolicyArgs{
-//					DefaultExpiryInDays:     pulumi.Int(1),
-//					MaxExpiryInDays:         pulumi.Int(30),
-//					NetworkPolicyEvaluation: pulumi.String("NOT_ENFORCED"),
+//					BlockedRolesLists: pulumi.StringArray{
+//						pulumi.String("ACCOUNTADMIN"),
+//						pulumi.String("SYSADMIN"),
+//					},
+//					DefaultExpiryInDays:                   pulumi.Int(1),
+//					MaxExpiryInDays:                       pulumi.Int(30),
+//					NetworkPolicyEvaluation:               pulumi.String("NOT_ENFORCED"),
+//					RequireRoleRestrictionForPersonUsers:  pulumi.String("true"),
+//					RequireRoleRestrictionForServiceUsers: pulumi.String("false"),
 //				},
 //				WorkloadIdentityPolicy: &snowflake.AuthenticationPolicyWorkloadIdentityPolicyArgs{
 //					AllowedProviders: pulumi.StringArray{
@@ -118,11 +124,11 @@ type AuthenticationPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
 	DescribeOutputs AuthenticationPolicyDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 	//
 	// Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 	MfaAuthenticationMethods pulumi.StringArrayOutput `pulumi:"mfaAuthenticationMethods"`
@@ -130,7 +136,7 @@ type AuthenticationPolicy struct {
 	MfaEnrollment pulumi.StringPtrOutput `pulumi:"mfaEnrollment"`
 	// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
 	MfaPolicy AuthenticationPolicyMfaPolicyPtrOutput `pulumi:"mfaPolicy"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the policy for programmatic access tokens.
 	PatPolicy AuthenticationPolicyPatPolicyPtrOutput `pulumi:"patPolicy"`
@@ -138,7 +144,7 @@ type AuthenticationPolicy struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
 	SecurityIntegrations pulumi.StringArrayOutput `pulumi:"securityIntegrations"`
-	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
 	ShowOutputs AuthenticationPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
 	// Specifies the policy for workload identity federation.
 	WorkloadIdentityPolicy AuthenticationPolicyWorkloadIdentityPolicyPtrOutput `pulumi:"workloadIdentityPolicy"`
@@ -190,11 +196,11 @@ type authenticationPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
-	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
 	DescribeOutputs []AuthenticationPolicyDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 	//
 	// Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 	MfaAuthenticationMethods []string `pulumi:"mfaAuthenticationMethods"`
@@ -202,7 +208,7 @@ type authenticationPolicyState struct {
 	MfaEnrollment *string `pulumi:"mfaEnrollment"`
 	// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
 	MfaPolicy *AuthenticationPolicyMfaPolicy `pulumi:"mfaPolicy"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the policy for programmatic access tokens.
 	PatPolicy *AuthenticationPolicyPatPolicy `pulumi:"patPolicy"`
@@ -210,7 +216,7 @@ type authenticationPolicyState struct {
 	Schema *string `pulumi:"schema"`
 	// A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
 	SecurityIntegrations []string `pulumi:"securityIntegrations"`
-	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
 	ShowOutputs []AuthenticationPolicyShowOutput `pulumi:"showOutputs"`
 	// Specifies the policy for workload identity federation.
 	WorkloadIdentityPolicy *AuthenticationPolicyWorkloadIdentityPolicy `pulumi:"workloadIdentityPolicy"`
@@ -227,11 +233,11 @@ type AuthenticationPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
-	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
 	DescribeOutputs AuthenticationPolicyDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 	//
 	// Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 	MfaAuthenticationMethods pulumi.StringArrayInput
@@ -239,7 +245,7 @@ type AuthenticationPolicyState struct {
 	MfaEnrollment pulumi.StringPtrInput
 	// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
 	MfaPolicy AuthenticationPolicyMfaPolicyPtrInput
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the policy for programmatic access tokens.
 	PatPolicy AuthenticationPolicyPatPolicyPtrInput
@@ -247,7 +253,7 @@ type AuthenticationPolicyState struct {
 	Schema pulumi.StringPtrInput
 	// A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
 	SecurityIntegrations pulumi.StringArrayInput
-	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
 	ShowOutputs AuthenticationPolicyShowOutputArrayInput
 	// Specifies the policy for workload identity federation.
 	WorkloadIdentityPolicy AuthenticationPolicyWorkloadIdentityPolicyPtrInput
@@ -274,7 +280,7 @@ type authenticationPolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 	//
 	// Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 	MfaAuthenticationMethods []string `pulumi:"mfaAuthenticationMethods"`
@@ -282,7 +288,7 @@ type authenticationPolicyArgs struct {
 	MfaEnrollment *string `pulumi:"mfaEnrollment"`
 	// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
 	MfaPolicy *AuthenticationPolicyMfaPolicy `pulumi:"mfaPolicy"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the policy for programmatic access tokens.
 	PatPolicy *AuthenticationPolicyPatPolicy `pulumi:"patPolicy"`
@@ -306,7 +312,7 @@ type AuthenticationPolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 	//
 	// Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 	MfaAuthenticationMethods pulumi.StringArrayInput
@@ -314,7 +320,7 @@ type AuthenticationPolicyArgs struct {
 	MfaEnrollment pulumi.StringPtrInput
 	// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
 	MfaPolicy AuthenticationPolicyMfaPolicyPtrInput
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the policy for programmatic access tokens.
 	PatPolicy AuthenticationPolicyPatPolicyPtrInput
@@ -438,7 +444,7 @@ func (o AuthenticationPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
 func (o AuthenticationPolicyOutput) DescribeOutputs() AuthenticationPolicyDescribeOutputArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) AuthenticationPolicyDescribeOutputArrayOutput { return v.DescribeOutputs }).(AuthenticationPolicyDescribeOutputArrayOutput)
 }
@@ -448,7 +454,7 @@ func (o AuthenticationPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
 //
 // Deprecated: This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
 func (o AuthenticationPolicyOutput) MfaAuthenticationMethods() pulumi.StringArrayOutput {
@@ -465,7 +471,7 @@ func (o AuthenticationPolicyOutput) MfaPolicy() AuthenticationPolicyMfaPolicyPtr
 	return o.ApplyT(func(v *AuthenticationPolicy) AuthenticationPolicyMfaPolicyPtrOutput { return v.MfaPolicy }).(AuthenticationPolicyMfaPolicyPtrOutput)
 }
 
-// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AuthenticationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -485,7 +491,7 @@ func (o AuthenticationPolicyOutput) SecurityIntegrations() pulumi.StringArrayOut
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.SecurityIntegrations }).(pulumi.StringArrayOutput)
 }
 
-// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
 func (o AuthenticationPolicyOutput) ShowOutputs() AuthenticationPolicyShowOutputArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) AuthenticationPolicyShowOutputArrayOutput { return v.ShowOutputs }).(AuthenticationPolicyShowOutputArrayOutput)
 }

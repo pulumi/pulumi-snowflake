@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AuthenticationPolicyPatPolicyArgs Empty = new AuthenticationPolicyPatPolicyArgs();
+
+    /**
+     * Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     * 
+     */
+    @Import(name="blockedRolesLists")
+    private @Nullable Output<List<String>> blockedRolesLists;
+
+    /**
+     * @return Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     * 
+     */
+    public Optional<Output<List<String>>> blockedRolesLists() {
+        return Optional.ofNullable(this.blockedRolesLists);
+    }
 
     /**
      * Specifies the default expiration time (in days) for a programmatic access token.
@@ -62,6 +78,21 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
     }
 
     /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="requireRoleRestrictionForPersonUsers")
+    private @Nullable Output<String> requireRoleRestrictionForPersonUsers;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> requireRoleRestrictionForPersonUsers() {
+        return Optional.ofNullable(this.requireRoleRestrictionForPersonUsers);
+    }
+
+    /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
@@ -79,9 +110,11 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
     private AuthenticationPolicyPatPolicyArgs() {}
 
     private AuthenticationPolicyPatPolicyArgs(AuthenticationPolicyPatPolicyArgs $) {
+        this.blockedRolesLists = $.blockedRolesLists;
         this.defaultExpiryInDays = $.defaultExpiryInDays;
         this.maxExpiryInDays = $.maxExpiryInDays;
         this.networkPolicyEvaluation = $.networkPolicyEvaluation;
+        this.requireRoleRestrictionForPersonUsers = $.requireRoleRestrictionForPersonUsers;
         this.requireRoleRestrictionForServiceUsers = $.requireRoleRestrictionForServiceUsers;
     }
 
@@ -101,6 +134,37 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
 
         public Builder(AuthenticationPolicyPatPolicyArgs defaults) {
             $ = new AuthenticationPolicyPatPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param blockedRolesLists Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRolesLists(@Nullable Output<List<String>> blockedRolesLists) {
+            $.blockedRolesLists = blockedRolesLists;
+            return this;
+        }
+
+        /**
+         * @param blockedRolesLists Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRolesLists(List<String> blockedRolesLists) {
+            return blockedRolesLists(Output.of(blockedRolesLists));
+        }
+
+        /**
+         * @param blockedRolesLists Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedRolesLists(String... blockedRolesLists) {
+            return blockedRolesLists(List.of(blockedRolesLists));
         }
 
         /**
@@ -164,6 +228,27 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
          */
         public Builder networkPolicyEvaluation(String networkPolicyEvaluation) {
             return networkPolicyEvaluation(Output.of(networkPolicyEvaluation));
+        }
+
+        /**
+         * @param requireRoleRestrictionForPersonUsers (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireRoleRestrictionForPersonUsers(@Nullable Output<String> requireRoleRestrictionForPersonUsers) {
+            $.requireRoleRestrictionForPersonUsers = requireRoleRestrictionForPersonUsers;
+            return this;
+        }
+
+        /**
+         * @param requireRoleRestrictionForPersonUsers (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireRoleRestrictionForPersonUsers(String requireRoleRestrictionForPersonUsers) {
+            return requireRoleRestrictionForPersonUsers(Output.of(requireRoleRestrictionForPersonUsers));
         }
 
         /**

@@ -36,9 +36,9 @@ class CatalogIntegrationAwsGlueArgs:
         :param pulumi.Input[_builtins.str] glue_aws_role_arn: Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to assume.
         :param pulumi.Input[_builtins.str] glue_catalog_id: Specifies the ID of your AWS account.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[_builtins.str] glue_region: Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -107,7 +107,7 @@ class CatalogIntegrationAwsGlueArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -131,7 +131,7 @@ class CatalogIntegrationAwsGlueArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -172,16 +172,16 @@ class _CatalogIntegrationAwsGlueState:
 
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationAwsGlueDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] glue_aws_role_arn: Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to assume.
         :param pulumi.Input[_builtins.str] glue_catalog_id: Specifies the ID of your AWS account.
         :param pulumi.Input[_builtins.str] glue_region: Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationAwsGlueShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationAwsGlueShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         """
         if catalog_namespace is not None:
             pulumi.set(__self__, "catalog_namespace", catalog_namespace)
@@ -236,7 +236,7 @@ class _CatalogIntegrationAwsGlueState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -320,7 +320,7 @@ class _CatalogIntegrationAwsGlueState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -344,7 +344,7 @@ class _CatalogIntegrationAwsGlueState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationAwsGlueShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -410,12 +410,12 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] glue_aws_role_arn: Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to assume.
         :param pulumi.Input[_builtins.str] glue_catalog_id: Specifies the ID of your AWS account.
         :param pulumi.Input[_builtins.str] glue_region: Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         """
         ...
@@ -544,16 +544,16 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueDescribeOutputArgs', 'CatalogIntegrationAwsGlueDescribeOutputArgsDict', 'outputs.CatalogIntegrationAwsGlueDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] glue_aws_role_arn: Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to assume.
         :param pulumi.Input[_builtins.str] glue_catalog_id: Specifies the ID of your AWS account.
         :param pulumi.Input[_builtins.str] glue_region: Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueShowOutputArgs', 'CatalogIntegrationAwsGlueShowOutputArgsDict', 'outputs.CatalogIntegrationAwsGlueShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueShowOutputArgs', 'CatalogIntegrationAwsGlueShowOutputArgsDict', 'outputs.CatalogIntegrationAwsGlueShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -623,7 +623,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -679,7 +679,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -695,7 +695,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.CatalogIntegrationAwsGlueShowOutput']]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         """
         return pulumi.get(self, "show_outputs")
 

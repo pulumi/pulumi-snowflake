@@ -95,7 +95,7 @@ export class NetworkRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
      */
     declare public readonly mode: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export interface NetworkRuleState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
      */
     mode?: pulumi.Input<string | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface NetworkRuleArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
      */
     mode: pulumi.Input<string>;
     /**

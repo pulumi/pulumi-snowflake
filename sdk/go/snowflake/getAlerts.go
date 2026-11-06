@@ -13,34 +13,7 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetAlerts(ctx, &snowflake.GetAlertsArgs{
-//				Database: pulumi.StringRef("MYDB"),
-//				Schema:   pulumi.StringRef("MYSCHEMA"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
+// Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `alerts`.
 func GetAlerts(ctx *pulumi.Context, args *GetAlertsArgs, opts ...pulumi.InvokeOption) (*GetAlertsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertsResult
@@ -53,26 +26,34 @@ func GetAlerts(ctx *pulumi.Context, args *GetAlertsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAlerts.
 type GetAlertsArgs struct {
-	// The database from which to return the alerts from.
-	Database *string `pulumi:"database"`
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
-	// The schema from which to return the alerts from.
-	Schema *string `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In *GetAlertsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetAlertsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getAlerts.
 type GetAlertsResult struct {
-	// Lists alerts for the current/specified database or schema, or across the entire account.
+	// Holds the aggregated output of all alert details queries.
 	Alerts []GetAlertsAlert `pulumi:"alerts"`
-	// The database from which to return the alerts from.
-	Database *string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
-	// The schema from which to return the alerts from.
-	Schema *string `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In *GetAlertsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetAlertsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetAlertsOutput(ctx *pulumi.Context, args GetAlertsOutputArgs, opts ...pulumi.InvokeOption) GetAlertsResultOutput {
@@ -82,12 +63,16 @@ func GetAlertsOutput(ctx *pulumi.Context, args GetAlertsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAlerts.
 type GetAlertsOutputArgs struct {
-	// The database from which to return the alerts from.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Filters the command output by object name.
-	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
-	// The schema from which to return the alerts from.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In GetAlertsInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetAlertsLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetAlertsOutputArgs) ElementType() reflect.Type {
@@ -109,14 +94,9 @@ func (o GetAlertsResultOutput) ToGetAlertsResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// Lists alerts for the current/specified database or schema, or across the entire account.
+// Holds the aggregated output of all alert details queries.
 func (o GetAlertsResultOutput) Alerts() GetAlertsAlertArrayOutput {
 	return o.ApplyT(func(v GetAlertsResult) []GetAlertsAlert { return v.Alerts }).(GetAlertsAlertArrayOutput)
-}
-
-// The database from which to return the alerts from.
-func (o GetAlertsResultOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAlertsResult) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -124,14 +104,29 @@ func (o GetAlertsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the command output by object name.
-func (o GetAlertsResultOutput) Pattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAlertsResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+// IN clause to filter the list of objects
+func (o GetAlertsResultOutput) In() GetAlertsInPtrOutput {
+	return o.ApplyT(func(v GetAlertsResult) *GetAlertsIn { return v.In }).(GetAlertsInPtrOutput)
 }
 
-// The schema from which to return the alerts from.
-func (o GetAlertsResultOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAlertsResult) *string { return v.Schema }).(pulumi.StringPtrOutput)
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetAlertsResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAlertsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetAlertsResultOutput) Limit() GetAlertsLimitPtrOutput {
+	return o.ApplyT(func(v GetAlertsResult) *GetAlertsLimit { return v.Limit }).(GetAlertsLimitPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetAlertsResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAlertsResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+func (o GetAlertsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAlertsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

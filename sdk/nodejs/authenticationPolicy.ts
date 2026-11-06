@@ -42,9 +42,15 @@ import * as utilities from "./utilities";
  *         enforceMfaOnExternalAuthentication: "ALL",
  *     },
  *     patPolicy: {
+ *         blockedRolesLists: [
+ *             "ACCOUNTADMIN",
+ *             "SYSADMIN",
+ *         ],
  *         defaultExpiryInDays: 1,
  *         maxExpiryInDays: 30,
  *         networkPolicyEvaluation: "NOT_ENFORCED",
+ *         requireRoleRestrictionForPersonUsers: "true",
+ *         requireRoleRestrictionForServiceUsers: "false",
  *     },
  *     workloadIdentityPolicy: {
  *         allowedProviders: ["ALL"],
@@ -129,7 +135,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
      */
     declare public readonly database: pulumi.Output<string>;
     /**
-     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      */
     declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.AuthenticationPolicyDescribeOutput[]>;
     /**
@@ -137,7 +143,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      *
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      */
@@ -151,7 +157,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
      */
     declare public readonly mfaPolicy: pulumi.Output<outputs.AuthenticationPolicyMfaPolicy | undefined>;
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -167,7 +173,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
      */
     declare public readonly securityIntegrations: pulumi.Output<string[] | undefined>;
     /**
-     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.AuthenticationPolicyShowOutput[]>;
     /**
@@ -259,7 +265,7 @@ export interface AuthenticationPolicyState {
      */
     database?: pulumi.Input<string | undefined>;
     /**
-     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyDescribeOutput>[] | undefined>;
     /**
@@ -267,7 +273,7 @@ export interface AuthenticationPolicyState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      *
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      */
@@ -281,7 +287,7 @@ export interface AuthenticationPolicyState {
      */
     mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy | undefined>;
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -297,7 +303,7 @@ export interface AuthenticationPolicyState {
      */
     securityIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyShowOutput>[] | undefined>;
     /**
@@ -331,7 +337,7 @@ export interface AuthenticationPolicyArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      *
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      */
@@ -345,7 +351,7 @@ export interface AuthenticationPolicyArgs {
      */
     mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy | undefined>;
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

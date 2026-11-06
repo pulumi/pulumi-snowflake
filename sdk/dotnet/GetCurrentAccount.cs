@@ -122,7 +122,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The Snowflake URL.
+        /// The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
         /// </summary>
         public readonly string Url;
 

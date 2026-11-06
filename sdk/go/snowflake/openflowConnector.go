@@ -12,15 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
 // > **Note** Every mutating statement is asynchronous and the provider waits for the connector to settle before returning, so applies take minutes rather than seconds. If you encounter timeout errors, use a `timeouts` block to set higher limits for your environment.
 //
 // > **Note** `from` is create-only and is not read back. Snowflake resolves a connector definition whichever source the connector was created from, so a value read from `SHOW` could not be told apart from a configured one; `show_output.connector_definition` reports what Snowflake resolved. External changes to the block are therefore not detected, and after `pulumi import` the block is absent from state, so the first plan asks to replace the connector.
 //
-// > **Note** Starting, stopping and version management are operational actions rather than desired state, so they are not exposed here. The connector's current status is reported in `showOutput`.
+// > **Note** Starting and stopping are operational actions rather than desired state, so they are not exposed here, although the provider may execute such commands when altering the object. The connector's current status is reported in `showOutput`.
 //
-// Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting, stopping and version management are operational actions and are not exposed here; the connector's state is reported in `showOutput`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
+// Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting and stopping are operational actions and are not exposed here, although the provider may execute such commands when altering the object; the connector's state is reported in `showOutput`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
 //
 // ## Example Usage
 //
@@ -66,6 +64,7 @@ import (
 //					Stage: pulumi.Any(exampleSnowflakeStage.FullyQualifiedName),
 //					Path:  pulumi.String("connectors/postgres"),
 //				},
+//				VersionTrigger: pulumi.String("1"),
 //			})
 //			if err != nil {
 //				return err
@@ -200,6 +199,8 @@ type OpenflowConnector struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
 	ShowOutputs OpenflowConnectorShowOutputArrayOutput `pulumi:"showOutputs"`
+	// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+	VersionTrigger pulumi.StringPtrOutput `pulumi:"versionTrigger"`
 }
 
 // NewOpenflowConnector registers a new resource with the given unique name, arguments, and options.
@@ -264,6 +265,8 @@ type openflowConnectorState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
 	ShowOutputs []OpenflowConnectorShowOutput `pulumi:"showOutputs"`
+	// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+	VersionTrigger *string `pulumi:"versionTrigger"`
 }
 
 type OpenflowConnectorState struct {
@@ -287,6 +290,8 @@ type OpenflowConnectorState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
 	ShowOutputs OpenflowConnectorShowOutputArrayInput
+	// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+	VersionTrigger pulumi.StringPtrInput
 }
 
 func (OpenflowConnectorState) ElementType() reflect.Type {
@@ -314,6 +319,8 @@ type openflowConnectorArgs struct {
 	Runtime string `pulumi:"runtime"`
 	// The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
+	// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+	VersionTrigger *string `pulumi:"versionTrigger"`
 }
 
 // The set of arguments for constructing a OpenflowConnector resource.
@@ -332,6 +339,8 @@ type OpenflowConnectorArgs struct {
 	Runtime pulumi.StringInput
 	// The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
+	// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+	VersionTrigger pulumi.StringPtrInput
 }
 
 func (OpenflowConnectorArgs) ElementType() reflect.Type {
@@ -469,6 +478,11 @@ func (o OpenflowConnectorOutput) Schema() pulumi.StringOutput {
 // Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
 func (o OpenflowConnectorOutput) ShowOutputs() OpenflowConnectorShowOutputArrayOutput {
 	return o.ApplyT(func(v *OpenflowConnector) OpenflowConnectorShowOutputArrayOutput { return v.ShowOutputs }).(OpenflowConnectorShowOutputArrayOutput)
+}
+
+// An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+func (o OpenflowConnectorOutput) VersionTrigger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenflowConnector) pulumi.StringPtrOutput { return v.VersionTrigger }).(pulumi.StringPtrOutput)
 }
 
 type OpenflowConnectorArrayOutput struct{ *pulumi.OutputState }

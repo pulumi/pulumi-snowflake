@@ -17,14 +17,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     public static final ShareArgs Empty = new ShareArgs();
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      * 
      */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
     /**
-     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * @return A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -32,14 +32,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a comment for the managed account.
+     * Specifies a comment for the share.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Specifies a comment for the managed account.
+     * @return Specifies a comment for the share.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -47,18 +47,33 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the share; must be unique for the account in which the share is created.
+     * @return Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="secureObjectsOnly")
+    private @Nullable Output<String> secureObjectsOnly;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> secureObjectsOnly() {
+        return Optional.ofNullable(this.secureObjectsOnly);
     }
 
     private ShareArgs() {}
@@ -67,6 +82,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         this.accounts = $.accounts;
         this.comment = $.comment;
         this.name = $.name;
+        this.secureObjectsOnly = $.secureObjectsOnly;
     }
 
     public static Builder builder() {
@@ -88,7 +104,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
          * 
          * @return builder
          * 
@@ -99,7 +115,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
          * 
          * @return builder
          * 
@@ -109,7 +125,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A set of accounts the share is available to, in the form `organization_name.account_name` (not the account locator). The provider reads the recipients from Snowflake, so accounts added outside of Terraform are removed on the next apply.
          * 
          * @return builder
          * 
@@ -119,7 +135,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Specifies a comment for the managed account.
+         * @param comment Specifies a comment for the share.
          * 
          * @return builder
          * 
@@ -130,7 +146,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Specifies a comment for the managed account.
+         * @param comment Specifies a comment for the share.
          * 
          * @return builder
          * 
@@ -140,7 +156,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the share; must be unique for the account in which the share is created.
+         * @param name Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -151,13 +167,34 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the share; must be unique for the account in which the share is created.
+         * @param name Specifies the identifier for the share; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param secureObjectsOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureObjectsOnly(@Nullable Output<String> secureObjectsOnly) {
+            $.secureObjectsOnly = secureObjectsOnly;
+            return this;
+        }
+
+        /**
+         * @param secureObjectsOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether only secure objects can be added to the share. Once set to false, it cannot be set back to true. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureObjectsOnly(String secureObjectsOnly) {
+            return secureObjectsOnly(Output.of(secureObjectsOnly));
         }
 
         public ShareArgs build() {

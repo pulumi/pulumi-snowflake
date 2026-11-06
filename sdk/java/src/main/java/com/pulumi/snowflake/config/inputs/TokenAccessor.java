@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TokenAccessor {
@@ -20,6 +22,11 @@ public final class TokenAccessor {
      * 
      */
     private String clientSecret;
+    /**
+     * @return Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+     * 
+     */
+    private @Nullable String minTlsVersion;
     /**
      * @return The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
      * 
@@ -50,6 +57,13 @@ public final class TokenAccessor {
      */
     public String clientSecret() {
         return this.clientSecret;
+    }
+    /**
+     * @return Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+     * 
+     */
+    public Optional<String> minTlsVersion() {
+        return Optional.ofNullable(this.minTlsVersion);
     }
     /**
      * @return The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
@@ -84,6 +98,7 @@ public final class TokenAccessor {
     public static final class Builder {
         private String clientId;
         private String clientSecret;
+        private @Nullable String minTlsVersion;
         private String redirectUri;
         private String refreshToken;
         private String tokenEndpoint;
@@ -92,6 +107,7 @@ public final class TokenAccessor {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
+    	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.redirectUri = defaults.redirectUri;
     	      this.refreshToken = defaults.refreshToken;
     	      this.tokenEndpoint = defaults.tokenEndpoint;
@@ -111,6 +127,12 @@ public final class TokenAccessor {
               throw new MissingRequiredPropertyException("TokenAccessor", "clientSecret");
             }
             this.clientSecret = clientSecret;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minTlsVersion(@Nullable String minTlsVersion) {
+
+            this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
@@ -141,6 +163,7 @@ public final class TokenAccessor {
             final var _resultValue = new TokenAccessor();
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
+            _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.redirectUri = redirectUri;
             _resultValue.refreshToken = refreshToken;
             _resultValue.tokenEndpoint = tokenEndpoint;

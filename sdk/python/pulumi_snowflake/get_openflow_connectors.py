@@ -130,8 +130,6 @@ def get_openflow_connectors(in_: Optional[Union['GetOpenflowConnectorsInArgs', '
                             with_describe: Optional[_builtins.bool] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenflowConnectorsResult:
     """
-    > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
     Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflow_connectors`.
 
     ## Example Usage
@@ -192,8 +190,6 @@ def get_openflow_connectors_output(in_: pulumi.Input[Optional[Optional[Union['Ge
                                    with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenflowConnectorsResult]:
     """
-    > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
     Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflow_connectors`.
 
     ## Example Usage

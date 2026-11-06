@@ -31,14 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewNetworkPolicy(ctx, "basic", &snowflake.NetworkPolicyArgs{
 //				Name: pulumi.String("network_policy_name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewNetworkPolicy(ctx, "complete", &snowflake.NetworkPolicyArgs{
 //				Name: pulumi.String("network_policy_name"),
 //				AllowedNetworkRuleLists: pulumi.StringArray{

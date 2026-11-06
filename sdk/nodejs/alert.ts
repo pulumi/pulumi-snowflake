@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
+ * Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
+ *
  * ## Example Usage
  *
  * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -18,18 +20,42 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const alert = new snowflake.Alert("alert", {
+ * //# Basic resource (serverless, on a schedule)
+ * const basic = new snowflake.Alert("basic", {
  *     database: "database",
  *     schema: "schema",
  *     name: "alert",
- *     warehouse: "warehouse",
  *     alertSchedule: {
  *         interval: 10,
  *     },
  *     condition: "select 1 as c",
  *     action: "select 1 as c",
+ * });
+ * //# Complete resource
+ * const complete = new snowflake.Alert("complete", {
+ *     database: "database",
+ *     schema: "schema",
+ *     name: "alert",
+ *     warehouse: "warehouse",
+ *     alertSchedule: {
+ *         cron: {
+ *             expression: "0 * * * *",
+ *             timeZone: "UTC",
+ *         },
+ *     },
+ *     condition: "select 1 as c",
+ *     action: "select 1 as c",
  *     enabled: true,
  *     comment: "my alert",
+ * });
+ * //# Alert on new data (no schedule); the condition table needs change tracking
+ * const onNewData = new snowflake.Alert("on_new_data", {
+ *     database: "database",
+ *     schema: "schema",
+ *     name: "alert_on_new_data",
+ *     warehouse: "warehouse",
+ *     condition: "select * from database.schema.table",
+ *     action: "select 1 as c",
  * });
  * ```
  *
@@ -37,10 +63,8 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | alert name
- *
  * ```sh
- * $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+ * $ pulumi import snowflake:index/alert:Alert example '"<database_name>"."<schema_name>"."<alert_name>"'
  * ```
  */
 export class Alert extends pulumi.CustomResource {
@@ -87,7 +111,7 @@ export class Alert extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      */
     declare public readonly alertSchedule: pulumi.Output<outputs.AlertAlertSchedule | undefined>;
     /**
@@ -99,11 +123,15 @@ export class Alert extends pulumi.CustomResource {
      */
     declare public readonly condition: pulumi.Output<string>;
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly database: pulumi.Output<string>;
     /**
-     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * Outputs the result of `DESCRIBE ALERT` for the given alert.
+     */
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.AlertDescribeOutput[]>;
+    /**
+     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
@@ -111,17 +139,21 @@ export class Alert extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly schema: pulumi.Output<string>;
     /**
-     * The warehouse the alert will use.
+     * Outputs the result of `SHOW ALERTS` for the given alert.
      */
-    declare public readonly warehouse: pulumi.Output<string>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.AlertShowOutput[]>;
+    /**
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
+     */
+    declare public readonly warehouse: pulumi.Output<string | undefined>;
 
     /**
      * Create a Alert resource with the given unique name, arguments, and options.
@@ -141,10 +173,12 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["comment"] = state?.comment;
             resourceInputs["condition"] = state?.condition;
             resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["name"] = state?.name;
             resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
             resourceInputs["warehouse"] = state?.warehouse;
         } else {
             const args = argsOrState as AlertArgs | undefined;
@@ -160,9 +194,6 @@ export class Alert extends pulumi.CustomResource {
             if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if (args?.warehouse === undefined && !opts.urn) {
-                throw new Error("Missing required property 'warehouse'");
-            }
             resourceInputs["action"] = args?.action;
             resourceInputs["alertSchedule"] = args?.alertSchedule;
             resourceInputs["comment"] = args?.comment;
@@ -172,7 +203,9 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["schema"] = args?.schema;
             resourceInputs["warehouse"] = args?.warehouse;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Alert.__pulumiType, name, resourceInputs, opts);
@@ -188,7 +221,7 @@ export interface AlertState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      */
     alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule | undefined>;
     /**
@@ -200,11 +233,15 @@ export interface AlertState {
      */
     condition?: pulumi.Input<string | undefined>;
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string | undefined>;
     /**
-     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * Outputs the result of `DESCRIBE ALERT` for the given alert.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.AlertDescribeOutput>[] | undefined>;
+    /**
+     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -212,15 +249,19 @@ export interface AlertState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string | undefined>;
     /**
-     * The warehouse the alert will use.
+     * Outputs the result of `SHOW ALERTS` for the given alert.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.AlertShowOutput>[] | undefined>;
+    /**
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      */
     warehouse?: pulumi.Input<string | undefined>;
 }
@@ -234,7 +275,7 @@ export interface AlertArgs {
      */
     action: pulumi.Input<string>;
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      */
     alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule | undefined>;
     /**
@@ -246,23 +287,23 @@ export interface AlertArgs {
      */
     condition: pulumi.Input<string>;
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     /**
-     * The warehouse the alert will use.
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      */
-    warehouse: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }

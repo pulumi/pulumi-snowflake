@@ -102,7 +102,7 @@ namespace Pulumi.Snowflake
         public Output<string> CatalogSource { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.CatalogIntegrationOpenCatalogRestConfig> RestConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.CatalogIntegrationOpenCatalogShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CatalogNamespace { get; set; }
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Snowflake
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CatalogSource { get; set; }
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.CatalogIntegrationOpenCatalogShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
         /// </summary>
         public InputList<Inputs.CatalogIntegrationOpenCatalogShowOutputGetArgs> ShowOutputs
         {

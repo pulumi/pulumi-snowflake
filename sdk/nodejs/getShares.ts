@@ -9,25 +9,16 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const _this = snowflake.getShares({});
- * const ad = snowflake.getShares({
- *     pattern: "usage",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered shares. Filtering is aligned with the current possibilities for [SHOW SHARES](https://docs.snowflake.com/en/sql-reference/sql/show-shares) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `shares`.
  */
 export function getShares(args?: GetSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetSharesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getShares:getShares", {
-        "pattern": args.pattern,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -36,9 +27,21 @@ export function getShares(args?: GetSharesArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetSharesArgs {
     /**
-     * Filters the command output by object name.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    pattern?: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetSharesLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: string;
+    /**
+     * (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -50,36 +53,39 @@ export interface GetSharesResult {
      */
     readonly id: string;
     /**
-     * Filters the command output by object name.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    readonly pattern?: string;
+    readonly like?: string;
     /**
-     * List of all the shares available in the system.
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetSharesLimit;
+    /**
+     * Holds the aggregated output of all shares details queries.
      */
     readonly shares: outputs.GetSharesShare[];
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    readonly startsWith?: string;
+    /**
+     * (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    readonly withDescribe?: boolean;
 }
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const _this = snowflake.getShares({});
- * const ad = snowflake.getShares({
- *     pattern: "usage",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered shares. Filtering is aligned with the current possibilities for [SHOW SHARES](https://docs.snowflake.com/en/sql-reference/sql/show-shares) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `shares`.
  */
 export function getSharesOutput(args?: GetSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getShares:getShares", {
-        "pattern": args.pattern,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -88,7 +94,19 @@ export function getSharesOutput(args?: GetSharesOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetSharesOutputArgs {
     /**
-     * Filters the command output by object name.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    pattern?: pulumi.Input<string | undefined>;
+    like?: pulumi.Input<string | undefined>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetSharesLimitArgs | undefined>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

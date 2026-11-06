@@ -11,13 +11,18 @@ import com.pulumi.snowflake.AlertArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AlertState;
 import com.pulumi.snowflake.outputs.AlertAlertSchedule;
+import com.pulumi.snowflake.outputs.AlertDescribeOutput;
+import com.pulumi.snowflake.outputs.AlertShowOutput;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * Resource used to manage alert objects. For more information, check [alert documentation](https://docs.snowflake.com/en/sql-reference/sql/create-alert).
  * 
  * ## Example Usage
  * 
@@ -34,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.snowflake.Alert;
  * import com.pulumi.snowflake.AlertArgs;
  * import com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;
+ * import com.pulumi.snowflake.inputs.AlertAlertScheduleCronArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -47,18 +53,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alert = new Alert("alert", AlertArgs.builder()
+ *         //# Basic resource (serverless, on a schedule)
+ *         var basic = new Alert("basic", AlertArgs.builder()
  *             .database("database")
  *             .schema("schema")
  *             .name("alert")
- *             .warehouse("warehouse")
  *             .alertSchedule(AlertAlertScheduleArgs.builder()
  *                 .interval(10)
  *                 .build())
  *             .condition("select 1 as c")
  *             .action("select 1 as c")
+ *             .build());
+ * 
+ *         //# Complete resource
+ *         var complete = new Alert("complete", AlertArgs.builder()
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("alert")
+ *             .warehouse("warehouse")
+ *             .alertSchedule(AlertAlertScheduleArgs.builder()
+ *                 .cron(AlertAlertScheduleCronArgs.builder()
+ *                     .expression("0 * * * *")
+ *                     .timeZone("UTC")
+ *                     .build())
+ *                 .build())
+ *             .condition("select 1 as c")
+ *             .action("select 1 as c")
  *             .enabled(true)
  *             .comment("my alert")
+ *             .build());
+ * 
+ *         //# Alert on new data (no schedule); the condition table needs change tracking
+ *         var onNewData = new Alert("onNewData", AlertArgs.builder()
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("alert_on_new_data")
+ *             .warehouse("warehouse")
+ *             .condition("select * from database.schema.table")
+ *             .action("select 1 as c")
  *             .build());
  * 
  *     }
@@ -70,10 +102,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database name | schema name | alert name
- * 
  * ```sh
- * $ pulumi import snowflake:index/alert:Alert example &#39;dbName|schemaName|alertName&#39;
+ * $ pulumi import snowflake:index/alert:Alert example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;alert_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -94,14 +124,14 @@ public class Alert extends com.pulumi.resources.CustomResource {
         return this.action;
     }
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     @Export(name="alertSchedule", refs={AlertAlertSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertAlertSchedule> alertSchedule;
 
     /**
-     * @return The schedule for periodically running an alert.
+     * @return The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     public Output<Optional<AlertAlertSchedule>> alertSchedule() {
@@ -136,28 +166,42 @@ public class Alert extends com.pulumi.resources.CustomResource {
         return this.condition;
     }
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the alert.
+     * @return The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * Outputs the result of `DESCRIBE ALERT` for the given alert.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,AlertDescribeOutput.class}, tree="[0,1]")
+    private Output<List<AlertDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE ALERT` for the given alert.
+     * 
+     */
+    public Output<List<AlertDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
+     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -178,46 +222,60 @@ public class Alert extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * @return Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the alert.
+     * @return The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * The warehouse the alert will use.
+     * Outputs the result of `SHOW ALERTS` for the given alert.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,AlertShowOutput.class}, tree="[0,1]")
+    private Output<List<AlertShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW ALERTS` for the given alert.
+     * 
+     */
+    public Output<List<AlertShowOutput>> showOutputs() {
+        return this.showOutputs;
+    }
+    /**
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
     @Export(name="warehouse", refs={String.class}, tree="[0]")
-    private Output<String> warehouse;
+    private Output</* @Nullable */ String> warehouse;
 
     /**
-     * @return The warehouse the alert will use.
+     * @return The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
-    public Output<String> warehouse() {
-        return this.warehouse;
+    public Output<Optional<String>> warehouse() {
+        return Codegen.optional(this.warehouse);
     }
 
     /**

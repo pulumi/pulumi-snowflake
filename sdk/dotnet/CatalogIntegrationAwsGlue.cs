@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         public Output<string> CatalogSource { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Snowflake
         public Output<string?> GlueRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Snowflake
         public Output<int?> RefreshIntervalSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.CatalogIntegrationAwsGlueShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CatalogNamespace { get; set; }
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
         public Input<string>? GlueRegion { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CatalogSource { get; set; }
 
         /// <summary>
-        /// (Default: ``) Specifies a comment for the catalog integration.
+        /// Specifies a comment for the catalog integration.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Snowflake
         public Input<string>? GlueRegion { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        /// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.CatalogIntegrationAwsGlueShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        /// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
         /// </summary>
         public InputList<Inputs.CatalogIntegrationAwsGlueShowOutputGetArgs> ShowOutputs
         {

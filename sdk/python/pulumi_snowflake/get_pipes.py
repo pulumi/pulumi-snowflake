@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetPipesResult',
@@ -27,27 +28,25 @@ class GetPipesResult:
     """
     A collection of values returned by getPipes.
     """
-    def __init__(__self__, database=None, id=None, pipes=None, schema=None):
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
+    def __init__(__self__, id=None, in_=None, like=None, pipes=None, with_describe=None, with_parameters=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
         if pipes and not isinstance(pipes, list):
             raise TypeError("Expected argument 'pipes' to be a list")
         pulumi.set(__self__, "pipes", pipes)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
-
-    @_builtins.property
-    @pulumi.getter
-    def database(self) -> _builtins.str:
-        """
-        The database from which to return the schemas from.
-        """
-        return pulumi.get(self, "database")
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
+        if with_parameters and not isinstance(with_parameters, bool):
+            raise TypeError("Expected argument 'with_parameters' to be a bool")
+        pulumi.set(__self__, "with_parameters", with_parameters)
 
     @_builtins.property
     @pulumi.getter
@@ -58,20 +57,44 @@ class GetPipesResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetPipesInResult']:
+        """
+        IN clause to filter the list of objects
+        """
+        return pulumi.get(self, "in_")
+
+    @_builtins.property
+    @pulumi.getter
+    def like(self) -> Optional[_builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
+        return pulumi.get(self, "like")
+
+    @_builtins.property
     @pulumi.getter
     def pipes(self) -> Sequence['outputs.GetPipesPipeResult']:
         """
-        The pipes in the schema
+        Holds the aggregated output of all pipe details queries.
         """
         return pulumi.get(self, "pipes")
 
     @_builtins.property
-    @pulumi.getter
-    def schema(self) -> _builtins.str:
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[_builtins.bool]:
         """
-        The schema from which to return the pipes from.
+        (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describe_output field. By default this value is set to true.
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "with_describe")
+
+    @_builtins.property
+    @pulumi.getter(name="withParameters")
+    def with_parameters(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_parameters")
 
 
 class AwaitableGetPipesResult(GetPipesResult):
@@ -80,74 +103,72 @@ class AwaitableGetPipesResult(GetPipesResult):
         if False:
             yield self
         return GetPipesResult(
-            database=self.database,
             id=self.id,
+            in_=self.in_,
+            like=self.like,
             pipes=self.pipes,
-            schema=self.schema)
+            with_describe=self.with_describe,
+            with_parameters=self.with_parameters)
 
 
-def get_pipes(database: Optional[_builtins.str] = None,
-              schema: Optional[_builtins.str] = None,
+def get_pipes(in_: Optional[Union['GetPipesInArgs', 'GetPipesInArgsDict', 'outputs.GetPipesInResult']] = None,
+              like: Optional[_builtins.str] = None,
+              with_describe: Optional[_builtins.bool] = None,
+              with_parameters: Optional[_builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipesResult:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_pipes(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`like` and `in`, including `application` and `application_package`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `pipes`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the pipes from.
+    :param Union['GetPipesInArgs', 'GetPipesInArgsDict', 'outputs.GetPipesInResult'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describe_output field. By default this value is set to true.
+    :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getPipes:getPipes', __args__, opts=opts, typ=GetPipesResult).value
 
     return AwaitableGetPipesResult(
-        database=pulumi.get(__ret__, 'database'),
         id=pulumi.get(__ret__, 'id'),
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
         pipes=pulumi.get(__ret__, 'pipes'),
-        schema=pulumi.get(__ret__, 'schema'))
-def get_pipes_output(database: pulumi.Input[Optional[_builtins.str]] = None,
-                     schema: pulumi.Input[Optional[_builtins.str]] = None,
+        with_describe=pulumi.get(__ret__, 'with_describe'),
+        with_parameters=pulumi.get(__ret__, 'with_parameters'))
+def get_pipes_output(in_: pulumi.Input[Optional[Optional[Union['GetPipesInArgs', 'GetPipesInArgsDict', 'outputs.GetPipesInResult']]]] = None,
+                     like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipesResult]:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_pipes(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`like` and `in`, including `application` and `application_package`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `pipes`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the pipes from.
+    :param Union['GetPipesInArgs', 'GetPipesInArgsDict', 'outputs.GetPipesInResult'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describe_output field. By default this value is set to true.
+    :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getPipes:getPipes', __args__, opts=opts, typ=GetPipesResult)
     return __ret__.apply(lambda __response__: GetPipesResult(
-        database=pulumi.get(__response__, 'database'),
         id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
         pipes=pulumi.get(__response__, 'pipes'),
-        schema=pulumi.get(__response__, 'schema')))
+        with_describe=pulumi.get(__response__, 'with_describe'),
+        with_parameters=pulumi.get(__response__, 'with_parameters')))

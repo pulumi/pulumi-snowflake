@@ -12,14 +12,12 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
-    /// &gt; **Note** Right now, changes for the `Integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the ReplaceTriggeredBy HCL meta-argument.
+    /// Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | pipe name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+    /// $ pulumi import snowflake:index/pipe:Pipe example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;pipe_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/pipe:Pipe")]
@@ -50,10 +48,16 @@ namespace Pulumi.Snowflake
         public Output<string> CopyStatement { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the pipe.
+        /// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.PipeDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the notification integration used for error notifications.
@@ -74,7 +78,13 @@ namespace Pulumi.Snowflake
         public Output<string?> Integration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Output("logEventLevel")]
+        public Output<string> LogEventLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,10 +102,28 @@ namespace Pulumi.Snowflake
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the pipe.
+        /// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.PipeParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        /// </summary>
+        [Output("pipeExecutionPaused")]
+        public Output<bool> PipeExecutionPaused { get; private set; } = null!;
+
+        /// <summary>
+        /// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PIPES` for the given pipe.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.PipeShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,7 +196,7 @@ namespace Pulumi.Snowflake
         public Input<string> CopyStatement { get; set; } = null!;
 
         /// <summary>
-        /// The database in which to create the pipe.
+        /// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -186,13 +214,25 @@ namespace Pulumi.Snowflake
         public Input<string>? Integration { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the pipe.
+        /// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        /// </summary>
+        [Input("pipeExecutionPaused")]
+        public Input<bool>? PipeExecutionPaused { get; set; }
+
+        /// <summary>
+        /// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -230,10 +270,22 @@ namespace Pulumi.Snowflake
         public Input<string>? CopyStatement { get; set; }
 
         /// <summary>
-        /// The database in which to create the pipe.
+        /// The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.PipeDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE PIPE` for the given pipe.
+        /// </summary>
+        public InputList<Inputs.PipeDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.PipeDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
 
         /// <summary>
         /// Specifies the name of the notification integration used for error notifications.
@@ -254,7 +306,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Integration { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -271,11 +329,41 @@ namespace Pulumi.Snowflake
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        [Input("parameters")]
+        private InputList<Inputs.PipeParameterGetArgs>? _parameters;
+
         /// <summary>
-        /// The schema in which to create the pipe.
+        /// Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        /// </summary>
+        public InputList<Inputs.PipeParameterGetArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.PipeParameterGetArgs>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        /// </summary>
+        [Input("pipeExecutionPaused")]
+        public Input<bool>? PipeExecutionPaused { get; set; }
+
+        /// <summary>
+        /// The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.PipeShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PIPES` for the given pipe.
+        /// </summary>
+        public InputList<Inputs.PipeShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.PipeShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public PipeState()
         {

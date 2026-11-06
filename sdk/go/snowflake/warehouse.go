@@ -46,7 +46,7 @@ type Warehouse struct {
 	MaxConcurrencyLevel pulumi.IntOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrOutput `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters WarehouseParameterArrayOutput `pulumi:"parameters"`
@@ -66,7 +66,7 @@ type Warehouse struct {
 	StatementTimeoutInSeconds pulumi.IntOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrOutput `pulumi:"warehouseSize"`
-	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 	WarehouseType pulumi.StringPtrOutput `pulumi:"warehouseType"`
 }
 
@@ -120,7 +120,7 @@ type warehouseState struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters []WarehouseParameter `pulumi:"parameters"`
@@ -140,7 +140,7 @@ type warehouseState struct {
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize *string `pulumi:"warehouseSize"`
-	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 	WarehouseType *string `pulumi:"warehouseType"`
 }
 
@@ -165,7 +165,7 @@ type WarehouseState struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters WarehouseParameterArrayInput
@@ -185,7 +185,7 @@ type WarehouseState struct {
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrInput
-	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 	WarehouseType pulumi.StringPtrInput
 }
 
@@ -218,7 +218,7 @@ type warehouseArgs struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
@@ -234,7 +234,7 @@ type warehouseArgs struct {
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize *string `pulumi:"warehouseSize"`
-	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 	WarehouseType *string `pulumi:"warehouseType"`
 }
 
@@ -258,7 +258,7 @@ type WarehouseArgs struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
@@ -274,7 +274,7 @@ type WarehouseArgs struct {
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrInput
-	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+	// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 	WarehouseType pulumi.StringPtrInput
 }
 
@@ -415,7 +415,7 @@ func (o WarehouseOutput) MinClusterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.MinClusterCount }).(pulumi.IntPtrOutput)
 }
 
-// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o WarehouseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -465,7 +465,7 @@ func (o WarehouseOutput) WarehouseSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.WarehouseSize }).(pulumi.StringPtrOutput)
 }
 
-// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+// Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
 func (o WarehouseOutput) WarehouseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.WarehouseType }).(pulumi.StringPtrOutput)
 }

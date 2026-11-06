@@ -5,6 +5,8 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.GetSharesLimitArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,24 +18,72 @@ public final class GetSharesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSharesArgs Empty = new GetSharesArgs();
 
     /**
-     * Filters the command output by object name.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<String> pattern;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<Output<String>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Output<GetSharesLimitArgs> limit;
+
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    public Optional<Output<GetSharesLimitArgs>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    @Import(name="startsWith")
+    private @Nullable Output<String> startsWith;
+
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<Output<String>> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+
+    /**
+     * (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
+
+    /**
+     * @return (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetSharesArgs() {}
 
     private GetSharesArgs(GetSharesArgs $) {
-        this.pattern = $.pattern;
+        this.like = $.like;
+        this.limit = $.limit;
+        this.startsWith = $.startsWith;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -55,24 +105,87 @@ public final class GetSharesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<String> pattern) {
-            $.pattern = pattern;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder like(String like) {
+            return like(Output.of(like));
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Output<GetSharesLimitArgs> limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(GetSharesLimitArgs limit) {
+            return limit(Output.of(limit));
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(@Nullable Output<String> startsWith) {
+            $.startsWith = startsWith;
+            return this;
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(String startsWith) {
+            return startsWith(Output.of(startsWith));
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
+            return this;
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
         }
 
         public GetSharesArgs build() {

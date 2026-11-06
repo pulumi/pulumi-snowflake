@@ -6,6 +6,9 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetAlertsAlert;
+import com.pulumi.snowflake.outputs.GetAlertsIn;
+import com.pulumi.snowflake.outputs.GetAlertsLimit;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,45 +18,48 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAlertsResult {
     /**
-     * @return Lists alerts for the current/specified database or schema, or across the entire account.
+     * @return Holds the aggregated output of all alert details queries.
      * 
      */
     private List<GetAlertsAlert> alerts;
-    /**
-     * @return The database from which to return the alerts from.
-     * 
-     */
-    private @Nullable String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return Filters the command output by object name.
+     * @return IN clause to filter the list of objects
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable GetAlertsIn in;
     /**
-     * @return The schema from which to return the alerts from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    private @Nullable String schema;
+    private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    private @Nullable GetAlertsLimit limit;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
 
     private GetAlertsResult() {}
     /**
-     * @return Lists alerts for the current/specified database or schema, or across the entire account.
+     * @return Holds the aggregated output of all alert details queries.
      * 
      */
     public List<GetAlertsAlert> alerts() {
         return this.alerts;
-    }
-    /**
-     * @return The database from which to return the alerts from.
-     * 
-     */
-    public Optional<String> database() {
-        return Optional.ofNullable(this.database);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -63,18 +69,39 @@ public final class GetAlertsResult {
         return this.id;
     }
     /**
-     * @return Filters the command output by object name.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<GetAlertsIn> in() {
+        return Optional.ofNullable(this.in);
     }
     /**
-     * @return The schema from which to return the alerts from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<String> schema() {
-        return Optional.ofNullable(this.schema);
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    public Optional<GetAlertsLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -87,18 +114,22 @@ public final class GetAlertsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAlertsAlert> alerts;
-        private @Nullable String database;
         private String id;
-        private @Nullable String pattern;
-        private @Nullable String schema;
+        private @Nullable GetAlertsIn in;
+        private @Nullable String like;
+        private @Nullable GetAlertsLimit limit;
+        private @Nullable String startsWith;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetAlertsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alerts = defaults.alerts;
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
-    	      this.schema = defaults.schema;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
+    	      this.startsWith = defaults.startsWith;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
         @CustomType.Setter
@@ -113,12 +144,6 @@ public final class GetAlertsResult {
             return alerts(List.of(alerts));
         }
         @CustomType.Setter
-        public Builder database(@Nullable String database) {
-
-            this.database = database;
-            return this;
-        }
-        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetAlertsResult", "id");
@@ -127,24 +152,44 @@ public final class GetAlertsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(@Nullable String pattern) {
+        public Builder in(@Nullable GetAlertsIn in) {
 
-            this.pattern = pattern;
+            this.in = in;
             return this;
         }
         @CustomType.Setter
-        public Builder schema(@Nullable String schema) {
+        public Builder like(@Nullable String like) {
 
-            this.schema = schema;
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetAlertsLimit limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+
+            this.startsWith = startsWith;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
             return this;
         }
         public GetAlertsResult build() {
             final var _resultValue = new GetAlertsResult();
             _resultValue.alerts = alerts;
-            _resultValue.database = database;
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
-            _resultValue.schema = schema;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
+            _resultValue.startsWith = startsWith;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

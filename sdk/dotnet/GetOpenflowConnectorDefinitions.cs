@@ -12,8 +12,6 @@ namespace Pulumi.Snowflake
     public static class GetOpenflowConnectorDefinitions
     {
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
         /// 
         /// ## Example Usage
@@ -54,8 +52,6 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenflowConnectorDefinitionsResult>("snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions", args ?? new GetOpenflowConnectorDefinitionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
         /// 
         /// ## Example Usage
@@ -96,8 +92,6 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenflowConnectorDefinitionsResult>("snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions", args ?? new GetOpenflowConnectorDefinitionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
         /// 
         /// ## Example Usage

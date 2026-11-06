@@ -25,9 +25,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// #################################
-//			// ## SHOW GRANTS ON ...
-//			// #################################
+//			//#################################
+//			//## SHOW GRANTS ON ...
+//			//#################################
 //			// account
 //			_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOn: snowflake.GetGrantsGrantsOn{

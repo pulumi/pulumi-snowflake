@@ -213,6 +213,8 @@ class ObjectParameter(pulumi.CustomResource):
 
         > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
 
+        > **Note** A new `OBJECT_PARAMETER_PARSE_ON_SET` experimental feature is available for this resource. When enabled, covered parameters are parsed with the same rules as the provider's typed parameter fields, instead of sending `value` as a raw SQL token. String values are quoted by the provider, and a value that does not match the parameter fails in the provider. Covered today: account-level (`on_account = true`) parameters and Database, Schema, Warehouse, User, Task, Service, Hybrid Table, and Iceberg Table. Anything not covered yet keeps the previous behavior. This includes enum values added by Snowflake before the provider catalog recognizes them; the provider logs a warning before falling back. To enable the experiment, add `OBJECT_PARAMETER_PARSE_ON_SET` to the `experimental_features_enabled` provider field. See the migration guide for details.
+
         ## Example Usage
 
         ```python
@@ -293,6 +295,8 @@ class ObjectParameter(pulumi.CustomResource):
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`. More details in the CurrentAccount resource documentation.
 
         > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+
+        > **Note** A new `OBJECT_PARAMETER_PARSE_ON_SET` experimental feature is available for this resource. When enabled, covered parameters are parsed with the same rules as the provider's typed parameter fields, instead of sending `value` as a raw SQL token. String values are quoted by the provider, and a value that does not match the parameter fails in the provider. Covered today: account-level (`on_account = true`) parameters and Database, Schema, Warehouse, User, Task, Service, Hybrid Table, and Iceberg Table. Anything not covered yet keeps the previous behavior. This includes enum values added by Snowflake before the provider catalog recognizes them; the provider logs a warning before falling back. To enable the experiment, add `OBJECT_PARAMETER_PARSE_ON_SET` to the `experimental_features_enabled` provider field. See the migration guide for details.
 
         ## Example Usage
 

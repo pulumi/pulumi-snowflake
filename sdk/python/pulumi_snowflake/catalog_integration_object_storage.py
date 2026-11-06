@@ -31,8 +31,8 @@ class CatalogIntegrationObjectStorageArgs:
 
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -72,7 +72,7 @@ class CatalogIntegrationObjectStorageArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -84,7 +84,7 @@ class CatalogIntegrationObjectStorageArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -121,13 +121,13 @@ class _CatalogIntegrationObjectStorageState:
         Input properties used for looking up and filtering CatalogIntegrationObjectStorage resources.
 
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationObjectStorageDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationObjectStorageShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationObjectStorageShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
         """
         if catalog_source is not None:
@@ -165,7 +165,7 @@ class _CatalogIntegrationObjectStorageState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -213,7 +213,7 @@ class _CatalogIntegrationObjectStorageState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -237,7 +237,7 @@ class _CatalogIntegrationObjectStorageState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationObjectStorageShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -307,9 +307,9 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
         """
@@ -423,13 +423,13 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -483,7 +483,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -515,7 +515,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration object storage; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -531,7 +531,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.CatalogIntegrationObjectStorageShowOutput']]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration object storage.
         """
         return pulumi.get(self, "show_outputs")
 

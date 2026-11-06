@@ -75,7 +75,7 @@ namespace Pulumi.Snowflake
         public Output<string?> MaxQueryPerformanceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaxQueryPerformanceLevel { get; set; }
 
         /// <summary>
-        /// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaxQueryPerformanceLevel { get; set; }
 
         /// <summary>
-        /// Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

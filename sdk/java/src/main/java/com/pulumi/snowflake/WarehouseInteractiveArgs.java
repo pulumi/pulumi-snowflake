@@ -139,14 +139,14 @@ public final class WarehouseInteractiveArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -434,7 +434,7 @@ public final class WarehouseInteractiveArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class WarehouseInteractiveArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

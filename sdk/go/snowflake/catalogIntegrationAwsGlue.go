@@ -75,7 +75,7 @@ type CatalogIntegrationAwsGlue struct {
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationAwsGlueDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -89,11 +89,11 @@ type CatalogIntegrationAwsGlue struct {
 	GlueCatalogId pulumi.StringOutput `pulumi:"glueCatalogId"`
 	// Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
 	GlueRegion pulumi.StringPtrOutput `pulumi:"glueRegion"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrOutput `pulumi:"refreshIntervalSeconds"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
 	ShowOutputs CatalogIntegrationAwsGlueShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
@@ -140,7 +140,7 @@ type catalogIntegrationAwsGlueState struct {
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource *string `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs []CatalogIntegrationAwsGlueDescribeOutput `pulumi:"describeOutputs"`
@@ -154,11 +154,11 @@ type catalogIntegrationAwsGlueState struct {
 	GlueCatalogId *string `pulumi:"glueCatalogId"`
 	// Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
 	GlueRegion *string `pulumi:"glueRegion"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds *int `pulumi:"refreshIntervalSeconds"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
 	ShowOutputs []CatalogIntegrationAwsGlueShowOutput `pulumi:"showOutputs"`
 }
 
@@ -167,7 +167,7 @@ type CatalogIntegrationAwsGlueState struct {
 	CatalogNamespace pulumi.StringPtrInput
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationAwsGlueDescribeOutputArrayInput
@@ -181,11 +181,11 @@ type CatalogIntegrationAwsGlueState struct {
 	GlueCatalogId pulumi.StringPtrInput
 	// Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
 	GlueRegion pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrInput
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
 	ShowOutputs CatalogIntegrationAwsGlueShowOutputArrayInput
 }
 
@@ -202,7 +202,7 @@ func CatalogIntegrationAwsGlueExists(ctx *pulumi.Context,
 type catalogIntegrationAwsGlueArgs struct {
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled bool `pulumi:"enabled"`
@@ -212,7 +212,7 @@ type catalogIntegrationAwsGlueArgs struct {
 	GlueCatalogId string `pulumi:"glueCatalogId"`
 	// Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
 	GlueRegion *string `pulumi:"glueRegion"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds *int `pulumi:"refreshIntervalSeconds"`
@@ -222,7 +222,7 @@ type catalogIntegrationAwsGlueArgs struct {
 type CatalogIntegrationAwsGlueArgs struct {
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled pulumi.BoolInput
@@ -232,7 +232,7 @@ type CatalogIntegrationAwsGlueArgs struct {
 	GlueCatalogId pulumi.StringInput
 	// Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
 	GlueRegion pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrInput
@@ -335,7 +335,7 @@ func (o CatalogIntegrationAwsGlueOutput) CatalogSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
-// (Default: “) Specifies a comment for the catalog integration.
+// Specifies a comment for the catalog integration.
 func (o CatalogIntegrationAwsGlueOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -372,7 +372,7 @@ func (o CatalogIntegrationAwsGlueOutput) GlueRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringPtrOutput { return v.GlueRegion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+// Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o CatalogIntegrationAwsGlueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -382,7 +382,7 @@ func (o CatalogIntegrationAwsGlueOutput) RefreshIntervalSeconds() pulumi.IntPtrO
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.IntPtrOutput { return v.RefreshIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
 func (o CatalogIntegrationAwsGlueOutput) ShowOutputs() CatalogIntegrationAwsGlueShowOutputArrayOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) CatalogIntegrationAwsGlueShowOutputArrayOutput {
 		return v.ShowOutputs

@@ -5,6 +5,9 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.GetAlertsInArgs;
+import com.pulumi.snowflake.inputs.GetAlertsLimitArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,56 +19,88 @@ public final class GetAlertsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAlertsArgs Empty = new GetAlertsArgs();
 
     /**
-     * The database from which to return the alerts from.
+     * IN clause to filter the list of objects
      * 
      */
-    @Import(name="database")
-    private @Nullable Output<String> database;
+    @Import(name="in")
+    private @Nullable Output<GetAlertsInArgs> in;
 
     /**
-     * @return The database from which to return the alerts from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public Optional<Output<String>> database() {
-        return Optional.ofNullable(this.database);
+    public Optional<Output<GetAlertsInArgs>> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * Filters the command output by object name.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<String> pattern;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<Output<String>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
     }
 
     /**
-     * The schema from which to return the alerts from.
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      * 
      */
-    @Import(name="schema")
-    private @Nullable Output<String> schema;
+    @Import(name="limit")
+    private @Nullable Output<GetAlertsLimitArgs> limit;
 
     /**
-     * @return The schema from which to return the alerts from.
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      * 
      */
-    public Optional<Output<String>> schema() {
-        return Optional.ofNullable(this.schema);
+    public Optional<Output<GetAlertsLimitArgs>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    @Import(name="startsWith")
+    private @Nullable Output<String> startsWith;
+
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<Output<String>> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+
+    /**
+     * (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
+
+    /**
+     * @return (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetAlertsArgs() {}
 
     private GetAlertsArgs(GetAlertsArgs $) {
-        this.database = $.database;
-        this.pattern = $.pattern;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.limit = $.limit;
+        this.startsWith = $.startsWith;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -87,66 +122,108 @@ public final class GetAlertsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param database The database from which to return the alerts from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(@Nullable Output<String> database) {
-            $.database = database;
+        public Builder in(@Nullable Output<GetAlertsInArgs> in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param database The database from which to return the alerts from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            return database(Output.of(database));
+        public Builder in(GetAlertsInArgs in) {
+            return in(Output.of(in));
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<String> pattern) {
-            $.pattern = pattern;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder like(String like) {
+            return like(Output.of(like));
         }
 
         /**
-         * @param schema The schema from which to return the alerts from.
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
          * 
          * @return builder
          * 
          */
-        public Builder schema(@Nullable Output<String> schema) {
-            $.schema = schema;
+        public Builder limit(@Nullable Output<GetAlertsLimitArgs> limit) {
+            $.limit = limit;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the alerts from.
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            return schema(Output.of(schema));
+        public Builder limit(GetAlertsLimitArgs limit) {
+            return limit(Output.of(limit));
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(@Nullable Output<String> startsWith) {
+            $.startsWith = startsWith;
+            return this;
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(String startsWith) {
+            return startsWith(Output.of(startsWith));
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
+            return this;
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
         }
 
         public GetAlertsArgs build() {

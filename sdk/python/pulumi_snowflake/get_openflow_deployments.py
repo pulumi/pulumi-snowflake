@@ -130,8 +130,6 @@ def get_openflow_deployments(like: Optional[_builtins.str] = None,
                              with_parameters: Optional[_builtins.bool] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenflowDeploymentsResult:
     """
-    > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
     Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `show_output` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflow_deployments`.
 
     ## Example Usage
@@ -189,8 +187,6 @@ def get_openflow_deployments_output(like: pulumi.Input[Optional[Optional[_builti
                                     with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenflowDeploymentsResult]:
     """
-    > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
     Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `show_output` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflow_deployments`.
 
     ## Example Usage

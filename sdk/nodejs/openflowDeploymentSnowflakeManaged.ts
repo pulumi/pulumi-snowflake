@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
  * > **Note** Every mutating statement is asynchronous and the provider waits for the deployment to settle before returning, so applies take minutes rather than seconds. If you encounter timeout errors, use a `timeouts` block to set higher limits for your environment.
  *
  * Resource used to manage Snowflake-managed Openflow deployments. A deployment is the account-level container that Openflow runtimes are created in. Snowflake runs it, so creation is complete once the deployment reaches the ACTIVE state, which takes several minutes. For more information, check [Openflow deployment documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-deployment).

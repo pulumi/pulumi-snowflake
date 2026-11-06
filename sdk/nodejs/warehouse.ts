@@ -100,7 +100,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     declare public readonly minClusterCount: pulumi.Output<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     declare public readonly warehouseSize: pulumi.Output<string | undefined>;
     /**
-     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
      */
     declare public readonly warehouseType: pulumi.Output<string | undefined>;
 
@@ -252,7 +252,7 @@ export interface WarehouseState {
      */
     minClusterCount?: pulumi.Input<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface WarehouseState {
      */
     warehouseSize?: pulumi.Input<string | undefined>;
     /**
-     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
      */
     warehouseType?: pulumi.Input<string | undefined>;
 }
@@ -338,7 +338,7 @@ export interface WarehouseArgs {
      */
     minClusterCount?: pulumi.Input<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -370,7 +370,7 @@ export interface WarehouseArgs {
      */
     warehouseSize?: pulumi.Input<string | undefined>;
     /**
-     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed. When not set, the provider creates the warehouse as `STANDARD` (instead of relying on the Snowflake default type, which is changing to `ADAPTIVE`), and removing the field from the configuration sets the type to `STANDARD` instead of unsetting it. A warehouse whose type was changed outside of Terraform to `ADAPTIVE` is updated back in place, and one changed to `INTERACTIVE` is recreated.
      */
     warehouseType?: pulumi.Input<string | undefined>;
 }

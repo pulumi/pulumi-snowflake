@@ -14,43 +14,22 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetSharesShareResult
     {
         /// <summary>
-        /// The comment on the share.
+        /// Holds the output of DESCRIBE SHARE: a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. A share that cannot be described (for example because of missing privileges) is reported with a warning and has an empty output.
         /// </summary>
-        public readonly string Comment;
+        public readonly ImmutableArray<Outputs.GetSharesShareDescribeOutputResult> DescribeOutputs;
         /// <summary>
-        /// The kind of the share.
+        /// Holds the output of SHOW SHARES. SHOW SHARES lists at most three accounts of an outbound share, so for a share with more accounts the full list of `To` is read from `SNOWFLAKE.ACCOUNT_USAGE.SHARES` (it needs `SELECT` on that view and a warehouse in the connection, and the view can be up to 3 hours behind). If that fails, a warning is reported and `To` holds the accounts listed by SHOW SHARES. `ToTotal` is the number of accounts reported by SHOW SHARES.
         /// </summary>
-        public readonly string Kind;
-        /// <summary>
-        /// Identifier for the share.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The owner of the share.
-        /// </summary>
-        public readonly string Owner;
-        /// <summary>
-        /// For the OUTBOUND share, list of consumers.
-        /// </summary>
-        public readonly ImmutableArray<object> Tos;
+        public readonly ImmutableArray<Outputs.GetSharesShareShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetSharesShareResult(
-            string comment,
+            ImmutableArray<Outputs.GetSharesShareDescribeOutputResult> describeOutputs,
 
-            string kind,
-
-            string name,
-
-            string owner,
-
-            ImmutableArray<object> tos)
+            ImmutableArray<Outputs.GetSharesShareShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Kind = kind;
-            Name = name;
-            Owner = owner;
-            Tos = tos;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

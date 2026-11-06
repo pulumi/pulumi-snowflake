@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PipeArgs', 'Pipe']
 
@@ -27,19 +29,23 @@ class PipeArgs:
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  error_integration: pulumi.Input[Optional[_builtins.str]] = None,
                  integration: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Pipe resource.
 
         :param pulumi.Input[_builtins.str] copy_statement: Specifies the copy statement for the pipe.
-        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[_builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[_builtins.str] integration: Specifies an integration for the pipe.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
         """
         pulumi.set(__self__, "copy_statement", copy_statement)
         pulumi.set(__self__, "database", database)
@@ -54,8 +60,12 @@ class PipeArgs:
             pulumi.set(__self__, "error_integration", error_integration)
         if integration is not None:
             pulumi.set(__self__, "integration", integration)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pipe_execution_paused is not None:
+            pulumi.set(__self__, "pipe_execution_paused", pipe_execution_paused)
 
     @_builtins.property
     @pulumi.getter(name="copyStatement")
@@ -73,7 +83,7 @@ class PipeArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database in which to create the pipe.
+        The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -85,7 +95,7 @@ class PipeArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema in which to create the pipe.
+        The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -154,16 +164,40 @@ class PipeArgs:
         pulumi.set(self, "integration", value)
 
     @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipeExecutionPaused")
+    def pipe_execution_paused(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        """
+        return pulumi.get(self, "pipe_execution_paused")
+
+    @pipe_execution_paused.setter
+    def pipe_execution_paused(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "pipe_execution_paused", value)
 
 
 @pulumi.input_type
@@ -174,13 +208,18 @@ class _PipeState:
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['PipeDescribeOutputArgs']]]] = None,
                  error_integration: pulumi.Input[Optional[_builtins.str]] = None,
                  fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
                  integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema: pulumi.Input[Optional[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterArgs']]]] = None,
+                 pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['PipeShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
 
@@ -188,14 +227,19 @@ class _PipeState:
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[_builtins.str] copy_statement: Specifies the copy statement for the pipe.
-        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE PIPE` for the given pipe.
         :param pulumi.Input[_builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] integration: Specifies an integration for the pipe.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
         :param pulumi.Input[_builtins.str] owner: Name of the role that owns the pipe.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeShowOutputArgs']]] show_outputs: Outputs the result of `SHOW PIPES` for the given pipe.
         """
         if auto_ingest is not None:
             pulumi.set(__self__, "auto_ingest", auto_ingest)
@@ -207,20 +251,36 @@ class _PipeState:
             pulumi.set(__self__, "copy_statement", copy_statement)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if error_integration is not None:
             pulumi.set(__self__, "error_integration", error_integration)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if integration is not None:
             pulumi.set(__self__, "integration", integration)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_channel is not None:
+            warnings.warn("""Use the `show_output` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.""", DeprecationWarning)
+            pulumi.log.warn("""notification_channel is deprecated: Use the `show_output` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.""")
+        if notification_channel is not None:
             pulumi.set(__self__, "notification_channel", notification_channel)
         if owner is not None:
+            warnings.warn("""Use the `show_output` field instead (`show_output.0.owner`). It will be removed in the next major version.""", DeprecationWarning)
+            pulumi.log.warn("""owner is deprecated: Use the `show_output` field instead (`show_output.0.owner`). It will be removed in the next major version.""")
+        if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if pipe_execution_paused is not None:
+            pulumi.set(__self__, "pipe_execution_paused", pipe_execution_paused)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @_builtins.property
     @pulumi.getter(name="autoIngest")
@@ -274,13 +334,25 @@ class _PipeState:
     @pulumi.getter
     def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The database in which to create the pipe.
+        The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
     def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE PIPE` for the given pipe.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipeDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="errorIntegration")
@@ -319,10 +391,22 @@ class _PipeState:
         pulumi.set(self, "integration", value)
 
     @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -332,6 +416,7 @@ class _PipeState:
 
     @_builtins.property
     @pulumi.getter(name="notificationChannel")
+    @_utilities.deprecated("""Use the `show_output` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.""")
     def notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -344,6 +429,7 @@ class _PipeState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the `show_output` field instead (`show_output.0.owner`). It will be removed in the next major version.""")
     def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role that owns the pipe.
@@ -356,15 +442,51 @@ class _PipeState:
 
     @_builtins.property
     @pulumi.getter
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterArgs']]]]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipeExecutionPaused")
+    def pipe_execution_paused(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        """
+        return pulumi.get(self, "pipe_execution_paused")
+
+    @pipe_execution_paused.setter
+    def pipe_execution_paused(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "pipe_execution_paused", value)
+
+    @_builtins.property
+    @pulumi.getter
     def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The schema in which to create the pipe.
+        The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
     def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW PIPES` for the given pipe.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipeShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 @pulumi.type_token("snowflake:index/pipe:Pipe")
@@ -380,20 +502,20 @@ class Pipe(pulumi.CustomResource):
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  error_integration: pulumi.Input[Optional[_builtins.str]] = None,
                  integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
+        Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
 
         ## Import
 
-        format is database name | schema name | pipe name
-
         ```sh
-        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        $ pulumi import snowflake:index/pipe:Pipe example '"<database_name>"."<schema_name>"."<pipe_name>"'
         ```
 
 
@@ -403,11 +525,13 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[_builtins.str] copy_statement: Specifies the copy statement for the pipe.
-        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[_builtins.str] integration: Specifies an integration for the pipe.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -418,14 +542,12 @@ class Pipe(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
+        Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
 
         ## Import
 
-        format is database name | schema name | pipe name
-
         ```sh
-        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        $ pulumi import snowflake:index/pipe:Pipe example '"<database_name>"."<schema_name>"."<pipe_name>"'
         ```
 
 
@@ -451,7 +573,9 @@ class Pipe(pulumi.CustomResource):
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  error_integration: pulumi.Input[Optional[_builtins.str]] = None,
                  integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -473,13 +597,18 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["error_integration"] = error_integration
             __props__.__dict__["integration"] = integration
+            __props__.__dict__["log_event_level"] = log_event_level
             __props__.__dict__["name"] = name
+            __props__.__dict__["pipe_execution_paused"] = pipe_execution_paused
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["notification_channel"] = None
             __props__.__dict__["owner"] = None
+            __props__.__dict__["parameters"] = None
+            __props__.__dict__["show_outputs"] = None
         super(Pipe, __self__).__init__(
             'snowflake:index/pipe:Pipe',
             resource_name,
@@ -495,13 +624,18 @@ class Pipe(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeDescribeOutputArgs', 'PipeDescribeOutputArgsDict', 'outputs.PipeDescribeOutput']]]]] = None,
             error_integration: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             integration: pulumi.Input[Optional[_builtins.str]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
-            schema: pulumi.Input[Optional[_builtins.str]] = None) -> 'Pipe':
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeParameterArgs', 'PipeParameterArgsDict', 'outputs.PipeParameter']]]]] = None,
+            pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeShowOutputArgs', 'PipeShowOutputArgsDict', 'outputs.PipeShowOutput']]]]] = None) -> 'Pipe':
         """
         Get an existing Pipe resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -513,14 +647,19 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[_builtins.str] copy_statement: Specifies the copy statement for the pipe.
-        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipeDescribeOutputArgs', 'PipeDescribeOutputArgsDict', 'outputs.PipeDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE PIPE` for the given pipe.
         :param pulumi.Input[_builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] integration: Specifies an integration for the pipe.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
         :param pulumi.Input[_builtins.str] owner: Name of the role that owns the pipe.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipeParameterArgs', 'PipeParameterArgsDict', 'outputs.PipeParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipeShowOutputArgs', 'PipeShowOutputArgsDict', 'outputs.PipeShowOutput']]]] show_outputs: Outputs the result of `SHOW PIPES` for the given pipe.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -531,13 +670,18 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["copy_statement"] = copy_statement
         __props__.__dict__["database"] = database
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["error_integration"] = error_integration
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["integration"] = integration
+        __props__.__dict__["log_event_level"] = log_event_level
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_channel"] = notification_channel
         __props__.__dict__["owner"] = owner
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["pipe_execution_paused"] = pipe_execution_paused
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["show_outputs"] = show_outputs
         return Pipe(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -548,26 +692,36 @@ class Pipe(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeDescribeOutputArgs', 'PipeDescribeOutputArgsDict', 'outputs.PipeDescribeOutput']]]]] = None,
             error_integration: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             integration: pulumi.Input[Optional[_builtins.str]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
-            schema: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeParameterArgs', 'PipeParameterArgsDict', 'outputs.PipeParameter']]]]] = None,
+            pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipeShowOutputArgs', 'PipeShowOutputArgsDict', 'outputs.PipeShowOutput']]]]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["autoIngest"] = auto_ingest
         __props__["awsSnsTopicArn"] = aws_sns_topic_arn
         __props__["comment"] = comment
         __props__["copyStatement"] = copy_statement
         __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
         __props__["errorIntegration"] = error_integration
         __props__["fullyQualifiedName"] = fully_qualified_name
         __props__["integration"] = integration
+        __props__["logEventLevel"] = log_event_level
         __props__["name"] = name
         __props__["notificationChannel"] = notification_channel
         __props__["owner"] = owner
+        __props__["parameters"] = parameters
+        __props__["pipeExecutionPaused"] = pipe_execution_paused
         __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
         return pulumi.runtime.exists_resource(None, 'snowflake:index/pipe:Pipe', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
@@ -606,9 +760,17 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[_builtins.str]:
         """
-        The database in which to create the pipe.
+        The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.PipeDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE PIPE` for the given pipe.
+        """
+        return pulumi.get(self, "describe_outputs")
 
     @_builtins.property
     @pulumi.getter(name="errorIntegration")
@@ -635,15 +797,24 @@ class Pipe(pulumi.CustomResource):
         return pulumi.get(self, "integration")
 
     @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+        Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationChannel")
+    @_utilities.deprecated("""Use the `show_output` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.""")
     def notification_channel(self) -> pulumi.Output[_builtins.str]:
         """
         Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -652,6 +823,7 @@ class Pipe(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use the `show_output` field instead (`show_output.0.owner`). It will be removed in the next major version.""")
     def owner(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the role that owns the pipe.
@@ -660,9 +832,33 @@ class Pipe(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def parameters(self) -> pulumi.Output[Sequence['outputs.PipeParameter']]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="pipeExecutionPaused")
+    def pipe_execution_paused(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+        """
+        return pulumi.get(self, "pipe_execution_paused")
+
+    @_builtins.property
+    @pulumi.getter
     def schema(self) -> pulumi.Output[_builtins.str]:
         """
-        The schema in which to create the pipe.
+        The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.PipeShowOutput']]:
+        """
+        Outputs the result of `SHOW PIPES` for the given pipe.
+        """
+        return pulumi.get(self, "show_outputs")
 
