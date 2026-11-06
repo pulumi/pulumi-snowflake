@@ -741,6 +741,320 @@ func (o AlertAlertScheduleCronPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AlertDescribeOutput struct {
+	Action       *string `pulumi:"action"`
+	Comment      *string `pulumi:"comment"`
+	Condition    *string `pulumi:"condition"`
+	CreatedOn    *string `pulumi:"createdOn"`
+	DatabaseName *string `pulumi:"databaseName"`
+	Name         *string `pulumi:"name"`
+	Owner        *string `pulumi:"owner"`
+	Schedule     *string `pulumi:"schedule"`
+	SchemaName   *string `pulumi:"schemaName"`
+	State        *string `pulumi:"state"`
+	Warehouse    *string `pulumi:"warehouse"`
+}
+
+// AlertDescribeOutputInput is an input type that accepts AlertDescribeOutputArgs and AlertDescribeOutputOutput values.
+// You can construct a concrete instance of `AlertDescribeOutputInput` via:
+//
+//	AlertDescribeOutputArgs{...}
+type AlertDescribeOutputInput interface {
+	pulumi.Input
+
+	ToAlertDescribeOutputOutput() AlertDescribeOutputOutput
+	ToAlertDescribeOutputOutputWithContext(context.Context) AlertDescribeOutputOutput
+}
+
+type AlertDescribeOutputArgs struct {
+	Action       pulumi.StringPtrInput `pulumi:"action"`
+	Comment      pulumi.StringPtrInput `pulumi:"comment"`
+	Condition    pulumi.StringPtrInput `pulumi:"condition"`
+	CreatedOn    pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Owner        pulumi.StringPtrInput `pulumi:"owner"`
+	Schedule     pulumi.StringPtrInput `pulumi:"schedule"`
+	SchemaName   pulumi.StringPtrInput `pulumi:"schemaName"`
+	State        pulumi.StringPtrInput `pulumi:"state"`
+	Warehouse    pulumi.StringPtrInput `pulumi:"warehouse"`
+}
+
+func (AlertDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDescribeOutput)(nil)).Elem()
+}
+
+func (i AlertDescribeOutputArgs) ToAlertDescribeOutputOutput() AlertDescribeOutputOutput {
+	return i.ToAlertDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i AlertDescribeOutputArgs) ToAlertDescribeOutputOutputWithContext(ctx context.Context) AlertDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDescribeOutputOutput)
+}
+
+// AlertDescribeOutputArrayInput is an input type that accepts AlertDescribeOutputArray and AlertDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `AlertDescribeOutputArrayInput` via:
+//
+//	AlertDescribeOutputArray{ AlertDescribeOutputArgs{...} }
+type AlertDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToAlertDescribeOutputArrayOutput() AlertDescribeOutputArrayOutput
+	ToAlertDescribeOutputArrayOutputWithContext(context.Context) AlertDescribeOutputArrayOutput
+}
+
+type AlertDescribeOutputArray []AlertDescribeOutputInput
+
+func (AlertDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertDescribeOutput)(nil)).Elem()
+}
+
+func (i AlertDescribeOutputArray) ToAlertDescribeOutputArrayOutput() AlertDescribeOutputArrayOutput {
+	return i.ToAlertDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i AlertDescribeOutputArray) ToAlertDescribeOutputArrayOutputWithContext(ctx context.Context) AlertDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDescribeOutputArrayOutput)
+}
+
+type AlertDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (AlertDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDescribeOutput)(nil)).Elem()
+}
+
+func (o AlertDescribeOutputOutput) ToAlertDescribeOutputOutput() AlertDescribeOutputOutput {
+	return o
+}
+
+func (o AlertDescribeOutputOutput) ToAlertDescribeOutputOutputWithContext(ctx context.Context) AlertDescribeOutputOutput {
+	return o
+}
+
+func (o AlertDescribeOutputOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertDescribeOutputOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDescribeOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
+}
+
+type AlertDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertDescribeOutput)(nil)).Elem()
+}
+
+func (o AlertDescribeOutputArrayOutput) ToAlertDescribeOutputArrayOutput() AlertDescribeOutputArrayOutput {
+	return o
+}
+
+func (o AlertDescribeOutputArrayOutput) ToAlertDescribeOutputArrayOutputWithContext(ctx context.Context) AlertDescribeOutputArrayOutput {
+	return o
+}
+
+func (o AlertDescribeOutputArrayOutput) Index(i pulumi.IntInput) AlertDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertDescribeOutput {
+		return vs[0].([]AlertDescribeOutput)[vs[1].(int)]
+	}).(AlertDescribeOutputOutput)
+}
+
+type AlertShowOutput struct {
+	Action        *string `pulumi:"action"`
+	Comment       *string `pulumi:"comment"`
+	Condition     *string `pulumi:"condition"`
+	CreatedOn     *string `pulumi:"createdOn"`
+	DatabaseName  *string `pulumi:"databaseName"`
+	Name          *string `pulumi:"name"`
+	Owner         *string `pulumi:"owner"`
+	OwnerRoleType *string `pulumi:"ownerRoleType"`
+	Schedule      *string `pulumi:"schedule"`
+	SchemaName    *string `pulumi:"schemaName"`
+	State         *string `pulumi:"state"`
+	Warehouse     *string `pulumi:"warehouse"`
+}
+
+// AlertShowOutputInput is an input type that accepts AlertShowOutputArgs and AlertShowOutputOutput values.
+// You can construct a concrete instance of `AlertShowOutputInput` via:
+//
+//	AlertShowOutputArgs{...}
+type AlertShowOutputInput interface {
+	pulumi.Input
+
+	ToAlertShowOutputOutput() AlertShowOutputOutput
+	ToAlertShowOutputOutputWithContext(context.Context) AlertShowOutputOutput
+}
+
+type AlertShowOutputArgs struct {
+	Action        pulumi.StringPtrInput `pulumi:"action"`
+	Comment       pulumi.StringPtrInput `pulumi:"comment"`
+	Condition     pulumi.StringPtrInput `pulumi:"condition"`
+	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Owner         pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Schedule      pulumi.StringPtrInput `pulumi:"schedule"`
+	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+	State         pulumi.StringPtrInput `pulumi:"state"`
+	Warehouse     pulumi.StringPtrInput `pulumi:"warehouse"`
+}
+
+func (AlertShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertShowOutput)(nil)).Elem()
+}
+
+func (i AlertShowOutputArgs) ToAlertShowOutputOutput() AlertShowOutputOutput {
+	return i.ToAlertShowOutputOutputWithContext(context.Background())
+}
+
+func (i AlertShowOutputArgs) ToAlertShowOutputOutputWithContext(ctx context.Context) AlertShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertShowOutputOutput)
+}
+
+// AlertShowOutputArrayInput is an input type that accepts AlertShowOutputArray and AlertShowOutputArrayOutput values.
+// You can construct a concrete instance of `AlertShowOutputArrayInput` via:
+//
+//	AlertShowOutputArray{ AlertShowOutputArgs{...} }
+type AlertShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToAlertShowOutputArrayOutput() AlertShowOutputArrayOutput
+	ToAlertShowOutputArrayOutputWithContext(context.Context) AlertShowOutputArrayOutput
+}
+
+type AlertShowOutputArray []AlertShowOutputInput
+
+func (AlertShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertShowOutput)(nil)).Elem()
+}
+
+func (i AlertShowOutputArray) ToAlertShowOutputArrayOutput() AlertShowOutputArrayOutput {
+	return i.ToAlertShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i AlertShowOutputArray) ToAlertShowOutputArrayOutputWithContext(ctx context.Context) AlertShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertShowOutputArrayOutput)
+}
+
+type AlertShowOutputOutput struct{ *pulumi.OutputState }
+
+func (AlertShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertShowOutput)(nil)).Elem()
+}
+
+func (o AlertShowOutputOutput) ToAlertShowOutputOutput() AlertShowOutputOutput {
+	return o
+}
+
+func (o AlertShowOutputOutput) ToAlertShowOutputOutputWithContext(ctx context.Context) AlertShowOutputOutput {
+	return o
+}
+
+func (o AlertShowOutputOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertShowOutputOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertShowOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
+}
+
+type AlertShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertShowOutput)(nil)).Elem()
+}
+
+func (o AlertShowOutputArrayOutput) ToAlertShowOutputArrayOutput() AlertShowOutputArrayOutput {
+	return o
+}
+
+func (o AlertShowOutputArrayOutput) ToAlertShowOutputArrayOutputWithContext(ctx context.Context) AlertShowOutputArrayOutput {
+	return o
+}
+
+func (o AlertShowOutputArrayOutput) Index(i pulumi.IntInput) AlertShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertShowOutput {
+		return vs[0].([]AlertShowOutput)[vs[1].(int)]
+	}).(AlertShowOutputOutput)
+}
+
 type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput struct {
 	AuthTypes                   []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType                   `pulumi:"authTypes"`
 	Comments                    []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment                    `pulumi:"comments"`
@@ -7958,7 +8272,7 @@ func (o ApiIntegrationGoogleCloudApiGatewayShowOutputArrayOutput) Index(i pulumi
 }
 
 type AuthenticationPolicyClientPolicy struct {
-	// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+	// The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
 	ClientType string `pulumi:"clientType"`
 	// Minimum allowed version for this client/driver type (e.g. '1.14.1').
 	MinimumVersion string `pulumi:"minimumVersion"`
@@ -7976,7 +8290,7 @@ type AuthenticationPolicyClientPolicyInput interface {
 }
 
 type AuthenticationPolicyClientPolicyArgs struct {
-	// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+	// The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
 	ClientType pulumi.StringInput `pulumi:"clientType"`
 	// Minimum allowed version for this client/driver type (e.g. '1.14.1').
 	MinimumVersion pulumi.StringInput `pulumi:"minimumVersion"`
@@ -8033,7 +8347,7 @@ func (o AuthenticationPolicyClientPolicyOutput) ToAuthenticationPolicyClientPoli
 	return o
 }
 
-// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+// The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
 func (o AuthenticationPolicyClientPolicyOutput) ClientType() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthenticationPolicyClientPolicy) string { return v.ClientType }).(pulumi.StringOutput)
 }
@@ -8374,12 +8688,16 @@ func (o AuthenticationPolicyMfaPolicyPtrOutput) EnforceMfaOnExternalAuthenticati
 }
 
 type AuthenticationPolicyPatPolicy struct {
+	// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies the default expiration time (in days) for a programmatic access token.
 	DefaultExpiryInDays *int `pulumi:"defaultExpiryInDays"`
 	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
 	MaxExpiryInDays *int `pulumi:"maxExpiryInDays"`
 	// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 	NetworkPolicyEvaluation *string `pulumi:"networkPolicyEvaluation"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	RequireRoleRestrictionForPersonUsers *string `pulumi:"requireRoleRestrictionForPersonUsers"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	RequireRoleRestrictionForServiceUsers *string `pulumi:"requireRoleRestrictionForServiceUsers"`
 }
@@ -8396,12 +8714,16 @@ type AuthenticationPolicyPatPolicyInput interface {
 }
 
 type AuthenticationPolicyPatPolicyArgs struct {
+	// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+	BlockedRolesLists pulumi.StringArrayInput `pulumi:"blockedRolesLists"`
 	// Specifies the default expiration time (in days) for a programmatic access token.
 	DefaultExpiryInDays pulumi.IntPtrInput `pulumi:"defaultExpiryInDays"`
 	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
 	MaxExpiryInDays pulumi.IntPtrInput `pulumi:"maxExpiryInDays"`
 	// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 	NetworkPolicyEvaluation pulumi.StringPtrInput `pulumi:"networkPolicyEvaluation"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	RequireRoleRestrictionForPersonUsers pulumi.StringPtrInput `pulumi:"requireRoleRestrictionForPersonUsers"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	RequireRoleRestrictionForServiceUsers pulumi.StringPtrInput `pulumi:"requireRoleRestrictionForServiceUsers"`
 }
@@ -8483,6 +8805,11 @@ func (o AuthenticationPolicyPatPolicyOutput) ToAuthenticationPolicyPatPolicyPtrO
 	}).(AuthenticationPolicyPatPolicyPtrOutput)
 }
 
+// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyOutput) BlockedRolesLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) []string { return v.BlockedRolesLists }).(pulumi.StringArrayOutput)
+}
+
 // Specifies the default expiration time (in days) for a programmatic access token.
 func (o AuthenticationPolicyPatPolicyOutput) DefaultExpiryInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *int { return v.DefaultExpiryInDays }).(pulumi.IntPtrOutput)
@@ -8496,6 +8823,11 @@ func (o AuthenticationPolicyPatPolicyOutput) MaxExpiryInDays() pulumi.IntPtrOutp
 // Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 func (o AuthenticationPolicyPatPolicyOutput) NetworkPolicyEvaluation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *string { return v.NetworkPolicyEvaluation }).(pulumi.StringPtrOutput)
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o AuthenticationPolicyPatPolicyOutput) RequireRoleRestrictionForPersonUsers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *string { return v.RequireRoleRestrictionForPersonUsers }).(pulumi.StringPtrOutput)
 }
 
 // (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -8527,6 +8859,16 @@ func (o AuthenticationPolicyPatPolicyPtrOutput) Elem() AuthenticationPolicyPatPo
 	}).(AuthenticationPolicyPatPolicyOutput)
 }
 
+// Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyPtrOutput) BlockedRolesLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedRolesLists
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies the default expiration time (in days) for a programmatic access token.
 func (o AuthenticationPolicyPatPolicyPtrOutput) DefaultExpiryInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *int {
@@ -8554,6 +8896,16 @@ func (o AuthenticationPolicyPatPolicyPtrOutput) NetworkPolicyEvaluation() pulumi
 			return nil
 		}
 		return v.NetworkPolicyEvaluation
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o AuthenticationPolicyPatPolicyPtrOutput) RequireRoleRestrictionForPersonUsers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequireRoleRestrictionForPersonUsers
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8907,6 +9259,477 @@ func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedProviders() 
 		}
 		return v.AllowedProviders
 	}).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyDescribeOutput struct {
+	Comment          *string `pulumi:"comment"`
+	CreatedOn        *string `pulumi:"createdOn"`
+	DatabaseName     *string `pulumi:"databaseName"`
+	ExpireAfterDays  *int    `pulumi:"expireAfterDays"`
+	HasRetentionLock *bool   `pulumi:"hasRetentionLock"`
+	Name             *string `pulumi:"name"`
+	Owner            *string `pulumi:"owner"`
+	OwnerRoleType    *string `pulumi:"ownerRoleType"`
+	Schedule         *string `pulumi:"schedule"`
+	SchemaName       *string `pulumi:"schemaName"`
+}
+
+// BackupPolicyDescribeOutputInput is an input type that accepts BackupPolicyDescribeOutputArgs and BackupPolicyDescribeOutputOutput values.
+// You can construct a concrete instance of `BackupPolicyDescribeOutputInput` via:
+//
+//	BackupPolicyDescribeOutputArgs{...}
+type BackupPolicyDescribeOutputInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDescribeOutputOutput() BackupPolicyDescribeOutputOutput
+	ToBackupPolicyDescribeOutputOutputWithContext(context.Context) BackupPolicyDescribeOutputOutput
+}
+
+type BackupPolicyDescribeOutputArgs struct {
+	Comment          pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn        pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName     pulumi.StringPtrInput `pulumi:"databaseName"`
+	ExpireAfterDays  pulumi.IntPtrInput    `pulumi:"expireAfterDays"`
+	HasRetentionLock pulumi.BoolPtrInput   `pulumi:"hasRetentionLock"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Owner            pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType    pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Schedule         pulumi.StringPtrInput `pulumi:"schedule"`
+	SchemaName       pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (BackupPolicyDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i BackupPolicyDescribeOutputArgs) ToBackupPolicyDescribeOutputOutput() BackupPolicyDescribeOutputOutput {
+	return i.ToBackupPolicyDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDescribeOutputArgs) ToBackupPolicyDescribeOutputOutputWithContext(ctx context.Context) BackupPolicyDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDescribeOutputOutput)
+}
+
+// BackupPolicyDescribeOutputArrayInput is an input type that accepts BackupPolicyDescribeOutputArray and BackupPolicyDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyDescribeOutputArrayInput` via:
+//
+//	BackupPolicyDescribeOutputArray{ BackupPolicyDescribeOutputArgs{...} }
+type BackupPolicyDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDescribeOutputArrayOutput() BackupPolicyDescribeOutputArrayOutput
+	ToBackupPolicyDescribeOutputArrayOutputWithContext(context.Context) BackupPolicyDescribeOutputArrayOutput
+}
+
+type BackupPolicyDescribeOutputArray []BackupPolicyDescribeOutputInput
+
+func (BackupPolicyDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i BackupPolicyDescribeOutputArray) ToBackupPolicyDescribeOutputArrayOutput() BackupPolicyDescribeOutputArrayOutput {
+	return i.ToBackupPolicyDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDescribeOutputArray) ToBackupPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) BackupPolicyDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDescribeOutputArrayOutput)
+}
+
+type BackupPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o BackupPolicyDescribeOutputOutput) ToBackupPolicyDescribeOutputOutput() BackupPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o BackupPolicyDescribeOutputOutput) ToBackupPolicyDescribeOutputOutputWithContext(ctx context.Context) BackupPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o BackupPolicyDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) ExpireAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *int { return v.ExpireAfterDays }).(pulumi.IntPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) HasRetentionLock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *bool { return v.HasRetentionLock }).(pulumi.BoolPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o BackupPolicyDescribeOutputArrayOutput) ToBackupPolicyDescribeOutputArrayOutput() BackupPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDescribeOutputArrayOutput) ToBackupPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) BackupPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) BackupPolicyDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyDescribeOutput {
+		return vs[0].([]BackupPolicyDescribeOutput)[vs[1].(int)]
+	}).(BackupPolicyDescribeOutputOutput)
+}
+
+type BackupPolicySchedule struct {
+	// Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+	Hours *int `pulumi:"hours"`
+	// Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+	Minutes *int `pulumi:"minutes"`
+	// Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+	UsingCron *string `pulumi:"usingCron"`
+}
+
+// BackupPolicyScheduleInput is an input type that accepts BackupPolicyScheduleArgs and BackupPolicyScheduleOutput values.
+// You can construct a concrete instance of `BackupPolicyScheduleInput` via:
+//
+//	BackupPolicyScheduleArgs{...}
+type BackupPolicyScheduleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyScheduleOutput() BackupPolicyScheduleOutput
+	ToBackupPolicyScheduleOutputWithContext(context.Context) BackupPolicyScheduleOutput
+}
+
+type BackupPolicyScheduleArgs struct {
+	// Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
+	// Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+	// Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+	UsingCron pulumi.StringPtrInput `pulumi:"usingCron"`
+}
+
+func (BackupPolicyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicySchedule)(nil)).Elem()
+}
+
+func (i BackupPolicyScheduleArgs) ToBackupPolicyScheduleOutput() BackupPolicyScheduleOutput {
+	return i.ToBackupPolicyScheduleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyScheduleArgs) ToBackupPolicyScheduleOutputWithContext(ctx context.Context) BackupPolicyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyScheduleOutput)
+}
+
+func (i BackupPolicyScheduleArgs) ToBackupPolicySchedulePtrOutput() BackupPolicySchedulePtrOutput {
+	return i.ToBackupPolicySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyScheduleArgs) ToBackupPolicySchedulePtrOutputWithContext(ctx context.Context) BackupPolicySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyScheduleOutput).ToBackupPolicySchedulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicySchedulePtrInput is an input type that accepts BackupPolicyScheduleArgs, BackupPolicySchedulePtr and BackupPolicySchedulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicySchedulePtrInput` via:
+//
+//	        BackupPolicyScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicySchedulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicySchedulePtrOutput() BackupPolicySchedulePtrOutput
+	ToBackupPolicySchedulePtrOutputWithContext(context.Context) BackupPolicySchedulePtrOutput
+}
+
+type backupPolicySchedulePtrType BackupPolicyScheduleArgs
+
+func BackupPolicySchedulePtr(v *BackupPolicyScheduleArgs) BackupPolicySchedulePtrInput {
+	return (*backupPolicySchedulePtrType)(v)
+}
+
+func (*backupPolicySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicySchedule)(nil)).Elem()
+}
+
+func (i *backupPolicySchedulePtrType) ToBackupPolicySchedulePtrOutput() BackupPolicySchedulePtrOutput {
+	return i.ToBackupPolicySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicySchedulePtrType) ToBackupPolicySchedulePtrOutputWithContext(ctx context.Context) BackupPolicySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicySchedulePtrOutput)
+}
+
+type BackupPolicyScheduleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicySchedule)(nil)).Elem()
+}
+
+func (o BackupPolicyScheduleOutput) ToBackupPolicyScheduleOutput() BackupPolicyScheduleOutput {
+	return o
+}
+
+func (o BackupPolicyScheduleOutput) ToBackupPolicyScheduleOutputWithContext(ctx context.Context) BackupPolicyScheduleOutput {
+	return o
+}
+
+func (o BackupPolicyScheduleOutput) ToBackupPolicySchedulePtrOutput() BackupPolicySchedulePtrOutput {
+	return o.ToBackupPolicySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyScheduleOutput) ToBackupPolicySchedulePtrOutputWithContext(ctx context.Context) BackupPolicySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicySchedule) *BackupPolicySchedule {
+		return &v
+	}).(BackupPolicySchedulePtrOutput)
+}
+
+// Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+func (o BackupPolicyScheduleOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupPolicySchedule) *int { return v.Hours }).(pulumi.IntPtrOutput)
+}
+
+// Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+func (o BackupPolicyScheduleOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupPolicySchedule) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+func (o BackupPolicyScheduleOutput) UsingCron() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicySchedule) *string { return v.UsingCron }).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicySchedule)(nil)).Elem()
+}
+
+func (o BackupPolicySchedulePtrOutput) ToBackupPolicySchedulePtrOutput() BackupPolicySchedulePtrOutput {
+	return o
+}
+
+func (o BackupPolicySchedulePtrOutput) ToBackupPolicySchedulePtrOutputWithContext(ctx context.Context) BackupPolicySchedulePtrOutput {
+	return o
+}
+
+func (o BackupPolicySchedulePtrOutput) Elem() BackupPolicyScheduleOutput {
+	return o.ApplyT(func(v *BackupPolicySchedule) BackupPolicySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicySchedule
+		return ret
+	}).(BackupPolicyScheduleOutput)
+}
+
+// Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+func (o BackupPolicySchedulePtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+func (o BackupPolicySchedulePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+func (o BackupPolicySchedulePtrOutput) UsingCron() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsingCron
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicyShowOutput struct {
+	Comment          *string `pulumi:"comment"`
+	CreatedOn        *string `pulumi:"createdOn"`
+	DatabaseName     *string `pulumi:"databaseName"`
+	ExpireAfterDays  *int    `pulumi:"expireAfterDays"`
+	HasRetentionLock *bool   `pulumi:"hasRetentionLock"`
+	Name             *string `pulumi:"name"`
+	Owner            *string `pulumi:"owner"`
+	OwnerRoleType    *string `pulumi:"ownerRoleType"`
+	Schedule         *string `pulumi:"schedule"`
+	SchemaName       *string `pulumi:"schemaName"`
+}
+
+// BackupPolicyShowOutputInput is an input type that accepts BackupPolicyShowOutputArgs and BackupPolicyShowOutputOutput values.
+// You can construct a concrete instance of `BackupPolicyShowOutputInput` via:
+//
+//	BackupPolicyShowOutputArgs{...}
+type BackupPolicyShowOutputInput interface {
+	pulumi.Input
+
+	ToBackupPolicyShowOutputOutput() BackupPolicyShowOutputOutput
+	ToBackupPolicyShowOutputOutputWithContext(context.Context) BackupPolicyShowOutputOutput
+}
+
+type BackupPolicyShowOutputArgs struct {
+	Comment          pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn        pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName     pulumi.StringPtrInput `pulumi:"databaseName"`
+	ExpireAfterDays  pulumi.IntPtrInput    `pulumi:"expireAfterDays"`
+	HasRetentionLock pulumi.BoolPtrInput   `pulumi:"hasRetentionLock"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Owner            pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType    pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Schedule         pulumi.StringPtrInput `pulumi:"schedule"`
+	SchemaName       pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (BackupPolicyShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyShowOutput)(nil)).Elem()
+}
+
+func (i BackupPolicyShowOutputArgs) ToBackupPolicyShowOutputOutput() BackupPolicyShowOutputOutput {
+	return i.ToBackupPolicyShowOutputOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyShowOutputArgs) ToBackupPolicyShowOutputOutputWithContext(ctx context.Context) BackupPolicyShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyShowOutputOutput)
+}
+
+// BackupPolicyShowOutputArrayInput is an input type that accepts BackupPolicyShowOutputArray and BackupPolicyShowOutputArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyShowOutputArrayInput` via:
+//
+//	BackupPolicyShowOutputArray{ BackupPolicyShowOutputArgs{...} }
+type BackupPolicyShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyShowOutputArrayOutput() BackupPolicyShowOutputArrayOutput
+	ToBackupPolicyShowOutputArrayOutputWithContext(context.Context) BackupPolicyShowOutputArrayOutput
+}
+
+type BackupPolicyShowOutputArray []BackupPolicyShowOutputInput
+
+func (BackupPolicyShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyShowOutput)(nil)).Elem()
+}
+
+func (i BackupPolicyShowOutputArray) ToBackupPolicyShowOutputArrayOutput() BackupPolicyShowOutputArrayOutput {
+	return i.ToBackupPolicyShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyShowOutputArray) ToBackupPolicyShowOutputArrayOutputWithContext(ctx context.Context) BackupPolicyShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyShowOutputArrayOutput)
+}
+
+type BackupPolicyShowOutputOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyShowOutput)(nil)).Elem()
+}
+
+func (o BackupPolicyShowOutputOutput) ToBackupPolicyShowOutputOutput() BackupPolicyShowOutputOutput {
+	return o
+}
+
+func (o BackupPolicyShowOutputOutput) ToBackupPolicyShowOutputOutputWithContext(ctx context.Context) BackupPolicyShowOutputOutput {
+	return o
+}
+
+func (o BackupPolicyShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) ExpireAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *int { return v.ExpireAfterDays }).(pulumi.IntPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) HasRetentionLock() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *bool { return v.HasRetentionLock }).(pulumi.BoolPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyShowOutput)(nil)).Elem()
+}
+
+func (o BackupPolicyShowOutputArrayOutput) ToBackupPolicyShowOutputArrayOutput() BackupPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o BackupPolicyShowOutputArrayOutput) ToBackupPolicyShowOutputArrayOutputWithContext(ctx context.Context) BackupPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o BackupPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) BackupPolicyShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyShowOutput {
+		return vs[0].([]BackupPolicyShowOutput)[vs[1].(int)]
+	}).(BackupPolicyShowOutputOutput)
 }
 
 type CatalogIntegrationAwsGlueDescribeOutput struct {
@@ -10111,7 +10934,7 @@ func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) OauthToke
 type CatalogIntegrationIcebergRestRestConfig struct {
 	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
 	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
-	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 	CatalogApiType *string `pulumi:"catalogApiType"`
 	// Specifies the catalog or identifier to request from your remote catalog service.
 	CatalogName *string `pulumi:"catalogName"`
@@ -10135,7 +10958,7 @@ type CatalogIntegrationIcebergRestRestConfigInput interface {
 type CatalogIntegrationIcebergRestRestConfigArgs struct {
 	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
 	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
-	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 	CatalogApiType pulumi.StringPtrInput `pulumi:"catalogApiType"`
 	// Specifies the catalog or identifier to request from your remote catalog service.
 	CatalogName pulumi.StringPtrInput `pulumi:"catalogName"`
@@ -10227,7 +11050,7 @@ func (o CatalogIntegrationIcebergRestRestConfigOutput) AccessDelegationMode() pu
 	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 func (o CatalogIntegrationIcebergRestRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
 }
@@ -10281,7 +11104,7 @@ func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) AccessDelegationMode()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) CatalogApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
 		if v == nil {
@@ -11431,7 +12254,7 @@ func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) OauthTokenUri(
 type CatalogIntegrationOpenCatalogRestConfig struct {
 	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
 	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
-	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 	CatalogApiType *string `pulumi:"catalogApiType"`
 	// Specifies the name of the catalog to use in Open Catalog.
 	CatalogName string `pulumi:"catalogName"`
@@ -11453,7 +12276,7 @@ type CatalogIntegrationOpenCatalogRestConfigInput interface {
 type CatalogIntegrationOpenCatalogRestConfigArgs struct {
 	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
 	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
-	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 	CatalogApiType pulumi.StringPtrInput `pulumi:"catalogApiType"`
 	// Specifies the name of the catalog to use in Open Catalog.
 	CatalogName pulumi.StringInput `pulumi:"catalogName"`
@@ -11543,7 +12366,7 @@ func (o CatalogIntegrationOpenCatalogRestConfigOutput) AccessDelegationMode() pu
 	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 func (o CatalogIntegrationOpenCatalogRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
 }
@@ -11592,7 +12415,7 @@ func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) AccessDelegationMode()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
 func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) CatalogApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) *string {
 		if v == nil {
@@ -11744,6 +12567,344 @@ func (o CatalogIntegrationOpenCatalogShowOutputArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationOpenCatalogShowOutput {
 		return vs[0].([]CatalogIntegrationOpenCatalogShowOutput)[vs[1].(int)]
 	}).(CatalogIntegrationOpenCatalogShowOutputOutput)
+}
+
+type CodeBundleDescribeOutput struct {
+	Comment                         *string `pulumi:"comment"`
+	ContainerDatabase               *string `pulumi:"containerDatabase"`
+	ContainerName                   *string `pulumi:"containerName"`
+	ContainerSchema                 *string `pulumi:"containerSchema"`
+	ContainerType                   *string `pulumi:"containerType"`
+	CreatedOn                       *string `pulumi:"createdOn"`
+	DefaultVersion                  *string `pulumi:"defaultVersion"`
+	DefaultVersionAlias             *string `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     *string `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       *string `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              *string `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri *string `pulumi:"defaultVersionSourceLocationUri"`
+	LastVersionAlias                *string `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        *string `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          *string `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 *string `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    *string `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          *string `pulumi:"liveVersionLocationUri"`
+	Name                            *string `pulumi:"name"`
+	OwnerRole                       *string `pulumi:"ownerRole"`
+	OwnerRoleType                   *string `pulumi:"ownerRoleType"`
+}
+
+// CodeBundleDescribeOutputInput is an input type that accepts CodeBundleDescribeOutputArgs and CodeBundleDescribeOutputOutput values.
+// You can construct a concrete instance of `CodeBundleDescribeOutputInput` via:
+//
+//	CodeBundleDescribeOutputArgs{...}
+type CodeBundleDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCodeBundleDescribeOutputOutput() CodeBundleDescribeOutputOutput
+	ToCodeBundleDescribeOutputOutputWithContext(context.Context) CodeBundleDescribeOutputOutput
+}
+
+type CodeBundleDescribeOutputArgs struct {
+	Comment                         pulumi.StringPtrInput `pulumi:"comment"`
+	ContainerDatabase               pulumi.StringPtrInput `pulumi:"containerDatabase"`
+	ContainerName                   pulumi.StringPtrInput `pulumi:"containerName"`
+	ContainerSchema                 pulumi.StringPtrInput `pulumi:"containerSchema"`
+	ContainerType                   pulumi.StringPtrInput `pulumi:"containerType"`
+	CreatedOn                       pulumi.StringPtrInput `pulumi:"createdOn"`
+	DefaultVersion                  pulumi.StringPtrInput `pulumi:"defaultVersion"`
+	DefaultVersionAlias             pulumi.StringPtrInput `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     pulumi.StringPtrInput `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       pulumi.StringPtrInput `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              pulumi.StringPtrInput `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri pulumi.StringPtrInput `pulumi:"defaultVersionSourceLocationUri"`
+	LastVersionAlias                pulumi.StringPtrInput `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        pulumi.StringPtrInput `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          pulumi.StringPtrInput `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 pulumi.StringPtrInput `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    pulumi.StringPtrInput `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          pulumi.StringPtrInput `pulumi:"liveVersionLocationUri"`
+	Name                            pulumi.StringPtrInput `pulumi:"name"`
+	OwnerRole                       pulumi.StringPtrInput `pulumi:"ownerRole"`
+	OwnerRoleType                   pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+}
+
+func (CodeBundleDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeBundleDescribeOutput)(nil)).Elem()
+}
+
+func (i CodeBundleDescribeOutputArgs) ToCodeBundleDescribeOutputOutput() CodeBundleDescribeOutputOutput {
+	return i.ToCodeBundleDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CodeBundleDescribeOutputArgs) ToCodeBundleDescribeOutputOutputWithContext(ctx context.Context) CodeBundleDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeBundleDescribeOutputOutput)
+}
+
+// CodeBundleDescribeOutputArrayInput is an input type that accepts CodeBundleDescribeOutputArray and CodeBundleDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CodeBundleDescribeOutputArrayInput` via:
+//
+//	CodeBundleDescribeOutputArray{ CodeBundleDescribeOutputArgs{...} }
+type CodeBundleDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCodeBundleDescribeOutputArrayOutput() CodeBundleDescribeOutputArrayOutput
+	ToCodeBundleDescribeOutputArrayOutputWithContext(context.Context) CodeBundleDescribeOutputArrayOutput
+}
+
+type CodeBundleDescribeOutputArray []CodeBundleDescribeOutputInput
+
+func (CodeBundleDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeBundleDescribeOutput)(nil)).Elem()
+}
+
+func (i CodeBundleDescribeOutputArray) ToCodeBundleDescribeOutputArrayOutput() CodeBundleDescribeOutputArrayOutput {
+	return i.ToCodeBundleDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CodeBundleDescribeOutputArray) ToCodeBundleDescribeOutputArrayOutputWithContext(ctx context.Context) CodeBundleDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeBundleDescribeOutputArrayOutput)
+}
+
+type CodeBundleDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CodeBundleDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeBundleDescribeOutput)(nil)).Elem()
+}
+
+func (o CodeBundleDescribeOutputOutput) ToCodeBundleDescribeOutputOutput() CodeBundleDescribeOutputOutput {
+	return o
+}
+
+func (o CodeBundleDescribeOutputOutput) ToCodeBundleDescribeOutputOutputWithContext(ctx context.Context) CodeBundleDescribeOutputOutput {
+	return o
+}
+
+func (o CodeBundleDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) ContainerDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.ContainerDatabase }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) ContainerSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.ContainerSchema }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersionAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersionGitCommitHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersionGitCommitHash }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) DefaultVersionSourceLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.DefaultVersionSourceLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LastVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LastVersionAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LastVersionGitCommitHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LastVersionGitCommitHash }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LastVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LastVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LastVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LastVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LastVersionSourceLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LastVersionSourceLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) LiveVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.LiveVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) OwnerRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.OwnerRole }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+type CodeBundleDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeBundleDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeBundleDescribeOutput)(nil)).Elem()
+}
+
+func (o CodeBundleDescribeOutputArrayOutput) ToCodeBundleDescribeOutputArrayOutput() CodeBundleDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CodeBundleDescribeOutputArrayOutput) ToCodeBundleDescribeOutputArrayOutputWithContext(ctx context.Context) CodeBundleDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CodeBundleDescribeOutputArrayOutput) Index(i pulumi.IntInput) CodeBundleDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeBundleDescribeOutput {
+		return vs[0].([]CodeBundleDescribeOutput)[vs[1].(int)]
+	}).(CodeBundleDescribeOutputOutput)
+}
+
+type CodeBundleShowOutput struct {
+	Comment      *string `pulumi:"comment"`
+	CreatedOn    *string `pulumi:"createdOn"`
+	DatabaseName *string `pulumi:"databaseName"`
+	Name         *string `pulumi:"name"`
+	Owner        *string `pulumi:"owner"`
+	SchemaName   *string `pulumi:"schemaName"`
+}
+
+// CodeBundleShowOutputInput is an input type that accepts CodeBundleShowOutputArgs and CodeBundleShowOutputOutput values.
+// You can construct a concrete instance of `CodeBundleShowOutputInput` via:
+//
+//	CodeBundleShowOutputArgs{...}
+type CodeBundleShowOutputInput interface {
+	pulumi.Input
+
+	ToCodeBundleShowOutputOutput() CodeBundleShowOutputOutput
+	ToCodeBundleShowOutputOutputWithContext(context.Context) CodeBundleShowOutputOutput
+}
+
+type CodeBundleShowOutputArgs struct {
+	Comment      pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn    pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Owner        pulumi.StringPtrInput `pulumi:"owner"`
+	SchemaName   pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (CodeBundleShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeBundleShowOutput)(nil)).Elem()
+}
+
+func (i CodeBundleShowOutputArgs) ToCodeBundleShowOutputOutput() CodeBundleShowOutputOutput {
+	return i.ToCodeBundleShowOutputOutputWithContext(context.Background())
+}
+
+func (i CodeBundleShowOutputArgs) ToCodeBundleShowOutputOutputWithContext(ctx context.Context) CodeBundleShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeBundleShowOutputOutput)
+}
+
+// CodeBundleShowOutputArrayInput is an input type that accepts CodeBundleShowOutputArray and CodeBundleShowOutputArrayOutput values.
+// You can construct a concrete instance of `CodeBundleShowOutputArrayInput` via:
+//
+//	CodeBundleShowOutputArray{ CodeBundleShowOutputArgs{...} }
+type CodeBundleShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCodeBundleShowOutputArrayOutput() CodeBundleShowOutputArrayOutput
+	ToCodeBundleShowOutputArrayOutputWithContext(context.Context) CodeBundleShowOutputArrayOutput
+}
+
+type CodeBundleShowOutputArray []CodeBundleShowOutputInput
+
+func (CodeBundleShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeBundleShowOutput)(nil)).Elem()
+}
+
+func (i CodeBundleShowOutputArray) ToCodeBundleShowOutputArrayOutput() CodeBundleShowOutputArrayOutput {
+	return i.ToCodeBundleShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CodeBundleShowOutputArray) ToCodeBundleShowOutputArrayOutputWithContext(ctx context.Context) CodeBundleShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeBundleShowOutputArrayOutput)
+}
+
+type CodeBundleShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CodeBundleShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeBundleShowOutput)(nil)).Elem()
+}
+
+func (o CodeBundleShowOutputOutput) ToCodeBundleShowOutputOutput() CodeBundleShowOutputOutput {
+	return o
+}
+
+func (o CodeBundleShowOutputOutput) ToCodeBundleShowOutputOutputWithContext(ctx context.Context) CodeBundleShowOutputOutput {
+	return o
+}
+
+func (o CodeBundleShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeBundleShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeBundleShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type CodeBundleShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeBundleShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeBundleShowOutput)(nil)).Elem()
+}
+
+func (o CodeBundleShowOutputArrayOutput) ToCodeBundleShowOutputArrayOutput() CodeBundleShowOutputArrayOutput {
+	return o
+}
+
+func (o CodeBundleShowOutputArrayOutput) ToCodeBundleShowOutputArrayOutputWithContext(ctx context.Context) CodeBundleShowOutputArrayOutput {
+	return o
+}
+
+func (o CodeBundleShowOutputArrayOutput) Index(i pulumi.IntInput) CodeBundleShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeBundleShowOutput {
+		return vs[0].([]CodeBundleShowOutput)[vs[1].(int)]
+	}).(CodeBundleShowOutputOutput)
 }
 
 type ComputePoolDescribeOutput struct {
@@ -13277,6 +14438,2468 @@ func (o CurrentOrganizationAccountShowOutputArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CurrentOrganizationAccountShowOutput {
 		return vs[0].([]CurrentOrganizationAccountShowOutput)[vs[1].(int)]
 	}).(CurrentOrganizationAccountShowOutputOutput)
+}
+
+type DatabaseParameter struct {
+	Catalogs                                []DatabaseParameterCatalog                                `pulumi:"catalogs"`
+	DataRetentionTimeInDays                 []DatabaseParameterDataRetentionTimeInDay                 `pulumi:"dataRetentionTimeInDays"`
+	DefaultDdlCollations                    []DatabaseParameterDefaultDdlCollation                    `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus          []DatabaseParameterDefaultNotebookComputePoolCpus         `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus          []DatabaseParameterDefaultNotebookComputePoolGpus         `pulumi:"defaultNotebookComputePoolGpus"`
+	EnableConsoleOutputs                    []DatabaseParameterEnableConsoleOutput                    `pulumi:"enableConsoleOutputs"`
+	ExternalVolumes                         []DatabaseParameterExternalVolume                         `pulumi:"externalVolumes"`
+	LogEventLevels                          []DatabaseParameterLogEventLevel                          `pulumi:"logEventLevels"`
+	LogLevels                               []DatabaseParameterLogLevel                               `pulumi:"logLevels"`
+	MaxDataExtensionTimeInDays              []DatabaseParameterMaxDataExtensionTimeInDay              `pulumi:"maxDataExtensionTimeInDays"`
+	QuotedIdentifiersIgnoreCases            []DatabaseParameterQuotedIdentifiersIgnoreCase            `pulumi:"quotedIdentifiersIgnoreCases"`
+	ReplaceInvalidCharacters                []DatabaseParameterReplaceInvalidCharacter                `pulumi:"replaceInvalidCharacters"`
+	StorageSerializationPolicies            []DatabaseParameterStorageSerializationPolicy             `pulumi:"storageSerializationPolicies"`
+	SuspendTaskAfterNumFailures             []DatabaseParameterSuspendTaskAfterNumFailure             `pulumi:"suspendTaskAfterNumFailures"`
+	TaskAutoRetryAttempts                   []DatabaseParameterTaskAutoRetryAttempt                   `pulumi:"taskAutoRetryAttempts"`
+	TraceLevels                             []DatabaseParameterTraceLevel                             `pulumi:"traceLevels"`
+	UserTaskManagedInitialWarehouseSizes    []DatabaseParameterUserTaskManagedInitialWarehouseSize    `pulumi:"userTaskManagedInitialWarehouseSizes"`
+	UserTaskMinimumTriggerIntervalInSeconds []DatabaseParameterUserTaskMinimumTriggerIntervalInSecond `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
+	UserTaskTimeoutMs                       []DatabaseParameterUserTaskTimeoutM                       `pulumi:"userTaskTimeoutMs"`
+}
+
+// DatabaseParameterInput is an input type that accepts DatabaseParameterArgs and DatabaseParameterOutput values.
+// You can construct a concrete instance of `DatabaseParameterInput` via:
+//
+//	DatabaseParameterArgs{...}
+type DatabaseParameterInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterOutput() DatabaseParameterOutput
+	ToDatabaseParameterOutputWithContext(context.Context) DatabaseParameterOutput
+}
+
+type DatabaseParameterArgs struct {
+	Catalogs                                DatabaseParameterCatalogArrayInput                                `pulumi:"catalogs"`
+	DataRetentionTimeInDays                 DatabaseParameterDataRetentionTimeInDayArrayInput                 `pulumi:"dataRetentionTimeInDays"`
+	DefaultDdlCollations                    DatabaseParameterDefaultDdlCollationArrayInput                    `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus          DatabaseParameterDefaultNotebookComputePoolCpusArrayInput         `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus          DatabaseParameterDefaultNotebookComputePoolGpusArrayInput         `pulumi:"defaultNotebookComputePoolGpus"`
+	EnableConsoleOutputs                    DatabaseParameterEnableConsoleOutputArrayInput                    `pulumi:"enableConsoleOutputs"`
+	ExternalVolumes                         DatabaseParameterExternalVolumeArrayInput                         `pulumi:"externalVolumes"`
+	LogEventLevels                          DatabaseParameterLogEventLevelArrayInput                          `pulumi:"logEventLevels"`
+	LogLevels                               DatabaseParameterLogLevelArrayInput                               `pulumi:"logLevels"`
+	MaxDataExtensionTimeInDays              DatabaseParameterMaxDataExtensionTimeInDayArrayInput              `pulumi:"maxDataExtensionTimeInDays"`
+	QuotedIdentifiersIgnoreCases            DatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput            `pulumi:"quotedIdentifiersIgnoreCases"`
+	ReplaceInvalidCharacters                DatabaseParameterReplaceInvalidCharacterArrayInput                `pulumi:"replaceInvalidCharacters"`
+	StorageSerializationPolicies            DatabaseParameterStorageSerializationPolicyArrayInput             `pulumi:"storageSerializationPolicies"`
+	SuspendTaskAfterNumFailures             DatabaseParameterSuspendTaskAfterNumFailureArrayInput             `pulumi:"suspendTaskAfterNumFailures"`
+	TaskAutoRetryAttempts                   DatabaseParameterTaskAutoRetryAttemptArrayInput                   `pulumi:"taskAutoRetryAttempts"`
+	TraceLevels                             DatabaseParameterTraceLevelArrayInput                             `pulumi:"traceLevels"`
+	UserTaskManagedInitialWarehouseSizes    DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput    `pulumi:"userTaskManagedInitialWarehouseSizes"`
+	UserTaskMinimumTriggerIntervalInSeconds DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
+	UserTaskTimeoutMs                       DatabaseParameterUserTaskTimeoutMArrayInput                       `pulumi:"userTaskTimeoutMs"`
+}
+
+func (DatabaseParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameter)(nil)).Elem()
+}
+
+func (i DatabaseParameterArgs) ToDatabaseParameterOutput() DatabaseParameterOutput {
+	return i.ToDatabaseParameterOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterArgs) ToDatabaseParameterOutputWithContext(ctx context.Context) DatabaseParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterOutput)
+}
+
+// DatabaseParameterArrayInput is an input type that accepts DatabaseParameterArray and DatabaseParameterArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterArrayInput` via:
+//
+//	DatabaseParameterArray{ DatabaseParameterArgs{...} }
+type DatabaseParameterArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterArrayOutput() DatabaseParameterArrayOutput
+	ToDatabaseParameterArrayOutputWithContext(context.Context) DatabaseParameterArrayOutput
+}
+
+type DatabaseParameterArray []DatabaseParameterInput
+
+func (DatabaseParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameter)(nil)).Elem()
+}
+
+func (i DatabaseParameterArray) ToDatabaseParameterArrayOutput() DatabaseParameterArrayOutput {
+	return i.ToDatabaseParameterArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterArray) ToDatabaseParameterArrayOutputWithContext(ctx context.Context) DatabaseParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterArrayOutput)
+}
+
+type DatabaseParameterOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameter)(nil)).Elem()
+}
+
+func (o DatabaseParameterOutput) ToDatabaseParameterOutput() DatabaseParameterOutput {
+	return o
+}
+
+func (o DatabaseParameterOutput) ToDatabaseParameterOutputWithContext(ctx context.Context) DatabaseParameterOutput {
+	return o
+}
+
+func (o DatabaseParameterOutput) Catalogs() DatabaseParameterCatalogArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterCatalog { return v.Catalogs }).(DatabaseParameterCatalogArrayOutput)
+}
+
+func (o DatabaseParameterOutput) DataRetentionTimeInDays() DatabaseParameterDataRetentionTimeInDayArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterDataRetentionTimeInDay { return v.DataRetentionTimeInDays }).(DatabaseParameterDataRetentionTimeInDayArrayOutput)
+}
+
+func (o DatabaseParameterOutput) DefaultDdlCollations() DatabaseParameterDefaultDdlCollationArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterDefaultDdlCollation { return v.DefaultDdlCollations }).(DatabaseParameterDefaultDdlCollationArrayOutput)
+}
+
+func (o DatabaseParameterOutput) DefaultNotebookComputePoolCpus() DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterDefaultNotebookComputePoolCpus {
+		return v.DefaultNotebookComputePoolCpus
+	}).(DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+func (o DatabaseParameterOutput) DefaultNotebookComputePoolGpus() DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterDefaultNotebookComputePoolGpus {
+		return v.DefaultNotebookComputePoolGpus
+	}).(DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput)
+}
+
+func (o DatabaseParameterOutput) EnableConsoleOutputs() DatabaseParameterEnableConsoleOutputArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterEnableConsoleOutput { return v.EnableConsoleOutputs }).(DatabaseParameterEnableConsoleOutputArrayOutput)
+}
+
+func (o DatabaseParameterOutput) ExternalVolumes() DatabaseParameterExternalVolumeArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterExternalVolume { return v.ExternalVolumes }).(DatabaseParameterExternalVolumeArrayOutput)
+}
+
+func (o DatabaseParameterOutput) LogEventLevels() DatabaseParameterLogEventLevelArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterLogEventLevel { return v.LogEventLevels }).(DatabaseParameterLogEventLevelArrayOutput)
+}
+
+func (o DatabaseParameterOutput) LogLevels() DatabaseParameterLogLevelArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterLogLevel { return v.LogLevels }).(DatabaseParameterLogLevelArrayOutput)
+}
+
+func (o DatabaseParameterOutput) MaxDataExtensionTimeInDays() DatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterMaxDataExtensionTimeInDay {
+		return v.MaxDataExtensionTimeInDays
+	}).(DatabaseParameterMaxDataExtensionTimeInDayArrayOutput)
+}
+
+func (o DatabaseParameterOutput) QuotedIdentifiersIgnoreCases() DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterQuotedIdentifiersIgnoreCase {
+		return v.QuotedIdentifiersIgnoreCases
+	}).(DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput)
+}
+
+func (o DatabaseParameterOutput) ReplaceInvalidCharacters() DatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterReplaceInvalidCharacter {
+		return v.ReplaceInvalidCharacters
+	}).(DatabaseParameterReplaceInvalidCharacterArrayOutput)
+}
+
+func (o DatabaseParameterOutput) StorageSerializationPolicies() DatabaseParameterStorageSerializationPolicyArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterStorageSerializationPolicy {
+		return v.StorageSerializationPolicies
+	}).(DatabaseParameterStorageSerializationPolicyArrayOutput)
+}
+
+func (o DatabaseParameterOutput) SuspendTaskAfterNumFailures() DatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterSuspendTaskAfterNumFailure {
+		return v.SuspendTaskAfterNumFailures
+	}).(DatabaseParameterSuspendTaskAfterNumFailureArrayOutput)
+}
+
+func (o DatabaseParameterOutput) TaskAutoRetryAttempts() DatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterTaskAutoRetryAttempt { return v.TaskAutoRetryAttempts }).(DatabaseParameterTaskAutoRetryAttemptArrayOutput)
+}
+
+func (o DatabaseParameterOutput) TraceLevels() DatabaseParameterTraceLevelArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterTraceLevel { return v.TraceLevels }).(DatabaseParameterTraceLevelArrayOutput)
+}
+
+func (o DatabaseParameterOutput) UserTaskManagedInitialWarehouseSizes() DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterUserTaskManagedInitialWarehouseSize {
+		return v.UserTaskManagedInitialWarehouseSizes
+	}).(DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
+}
+
+func (o DatabaseParameterOutput) UserTaskMinimumTriggerIntervalInSeconds() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+		return v.UserTaskMinimumTriggerIntervalInSeconds
+	}).(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
+}
+
+func (o DatabaseParameterOutput) UserTaskTimeoutMs() DatabaseParameterUserTaskTimeoutMArrayOutput {
+	return o.ApplyT(func(v DatabaseParameter) []DatabaseParameterUserTaskTimeoutM { return v.UserTaskTimeoutMs }).(DatabaseParameterUserTaskTimeoutMArrayOutput)
+}
+
+type DatabaseParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameter)(nil)).Elem()
+}
+
+func (o DatabaseParameterArrayOutput) ToDatabaseParameterArrayOutput() DatabaseParameterArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterArrayOutput) ToDatabaseParameterArrayOutputWithContext(ctx context.Context) DatabaseParameterArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterArrayOutput) Index(i pulumi.IntInput) DatabaseParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameter {
+		return vs[0].([]DatabaseParameter)[vs[1].(int)]
+	}).(DatabaseParameterOutput)
+}
+
+type DatabaseParameterCatalog struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterCatalogInput is an input type that accepts DatabaseParameterCatalogArgs and DatabaseParameterCatalogOutput values.
+// You can construct a concrete instance of `DatabaseParameterCatalogInput` via:
+//
+//	DatabaseParameterCatalogArgs{...}
+type DatabaseParameterCatalogInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterCatalogOutput() DatabaseParameterCatalogOutput
+	ToDatabaseParameterCatalogOutputWithContext(context.Context) DatabaseParameterCatalogOutput
+}
+
+type DatabaseParameterCatalogArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterCatalog)(nil)).Elem()
+}
+
+func (i DatabaseParameterCatalogArgs) ToDatabaseParameterCatalogOutput() DatabaseParameterCatalogOutput {
+	return i.ToDatabaseParameterCatalogOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterCatalogArgs) ToDatabaseParameterCatalogOutputWithContext(ctx context.Context) DatabaseParameterCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterCatalogOutput)
+}
+
+// DatabaseParameterCatalogArrayInput is an input type that accepts DatabaseParameterCatalogArray and DatabaseParameterCatalogArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterCatalogArrayInput` via:
+//
+//	DatabaseParameterCatalogArray{ DatabaseParameterCatalogArgs{...} }
+type DatabaseParameterCatalogArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterCatalogArrayOutput() DatabaseParameterCatalogArrayOutput
+	ToDatabaseParameterCatalogArrayOutputWithContext(context.Context) DatabaseParameterCatalogArrayOutput
+}
+
+type DatabaseParameterCatalogArray []DatabaseParameterCatalogInput
+
+func (DatabaseParameterCatalogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterCatalog)(nil)).Elem()
+}
+
+func (i DatabaseParameterCatalogArray) ToDatabaseParameterCatalogArrayOutput() DatabaseParameterCatalogArrayOutput {
+	return i.ToDatabaseParameterCatalogArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterCatalogArray) ToDatabaseParameterCatalogArrayOutputWithContext(ctx context.Context) DatabaseParameterCatalogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterCatalogArrayOutput)
+}
+
+type DatabaseParameterCatalogOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterCatalog)(nil)).Elem()
+}
+
+func (o DatabaseParameterCatalogOutput) ToDatabaseParameterCatalogOutput() DatabaseParameterCatalogOutput {
+	return o
+}
+
+func (o DatabaseParameterCatalogOutput) ToDatabaseParameterCatalogOutputWithContext(ctx context.Context) DatabaseParameterCatalogOutput {
+	return o
+}
+
+func (o DatabaseParameterCatalogOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterCatalog) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterCatalogOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterCatalog) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterCatalogOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterCatalog) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterCatalogOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterCatalog) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterCatalogOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterCatalog) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterCatalogArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterCatalogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterCatalog)(nil)).Elem()
+}
+
+func (o DatabaseParameterCatalogArrayOutput) ToDatabaseParameterCatalogArrayOutput() DatabaseParameterCatalogArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterCatalogArrayOutput) ToDatabaseParameterCatalogArrayOutputWithContext(ctx context.Context) DatabaseParameterCatalogArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterCatalogArrayOutput) Index(i pulumi.IntInput) DatabaseParameterCatalogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterCatalog {
+		return vs[0].([]DatabaseParameterCatalog)[vs[1].(int)]
+	}).(DatabaseParameterCatalogOutput)
+}
+
+type DatabaseParameterDataRetentionTimeInDay struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterDataRetentionTimeInDayInput is an input type that accepts DatabaseParameterDataRetentionTimeInDayArgs and DatabaseParameterDataRetentionTimeInDayOutput values.
+// You can construct a concrete instance of `DatabaseParameterDataRetentionTimeInDayInput` via:
+//
+//	DatabaseParameterDataRetentionTimeInDayArgs{...}
+type DatabaseParameterDataRetentionTimeInDayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDataRetentionTimeInDayOutput() DatabaseParameterDataRetentionTimeInDayOutput
+	ToDatabaseParameterDataRetentionTimeInDayOutputWithContext(context.Context) DatabaseParameterDataRetentionTimeInDayOutput
+}
+
+type DatabaseParameterDataRetentionTimeInDayArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterDataRetentionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i DatabaseParameterDataRetentionTimeInDayArgs) ToDatabaseParameterDataRetentionTimeInDayOutput() DatabaseParameterDataRetentionTimeInDayOutput {
+	return i.ToDatabaseParameterDataRetentionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDataRetentionTimeInDayArgs) ToDatabaseParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) DatabaseParameterDataRetentionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDataRetentionTimeInDayOutput)
+}
+
+// DatabaseParameterDataRetentionTimeInDayArrayInput is an input type that accepts DatabaseParameterDataRetentionTimeInDayArray and DatabaseParameterDataRetentionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterDataRetentionTimeInDayArrayInput` via:
+//
+//	DatabaseParameterDataRetentionTimeInDayArray{ DatabaseParameterDataRetentionTimeInDayArgs{...} }
+type DatabaseParameterDataRetentionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDataRetentionTimeInDayArrayOutput() DatabaseParameterDataRetentionTimeInDayArrayOutput
+	ToDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(context.Context) DatabaseParameterDataRetentionTimeInDayArrayOutput
+}
+
+type DatabaseParameterDataRetentionTimeInDayArray []DatabaseParameterDataRetentionTimeInDayInput
+
+func (DatabaseParameterDataRetentionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i DatabaseParameterDataRetentionTimeInDayArray) ToDatabaseParameterDataRetentionTimeInDayArrayOutput() DatabaseParameterDataRetentionTimeInDayArrayOutput {
+	return i.ToDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDataRetentionTimeInDayArray) ToDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) DatabaseParameterDataRetentionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDataRetentionTimeInDayArrayOutput)
+}
+
+type DatabaseParameterDataRetentionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDataRetentionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) ToDatabaseParameterDataRetentionTimeInDayOutput() DatabaseParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) ToDatabaseParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) DatabaseParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDataRetentionTimeInDay) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDataRetentionTimeInDay) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDataRetentionTimeInDay) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDataRetentionTimeInDay) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDataRetentionTimeInDay) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterDataRetentionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDataRetentionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayArrayOutput) ToDatabaseParameterDataRetentionTimeInDayArrayOutput() DatabaseParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayArrayOutput) ToDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) DatabaseParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDataRetentionTimeInDayArrayOutput) Index(i pulumi.IntInput) DatabaseParameterDataRetentionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterDataRetentionTimeInDay {
+		return vs[0].([]DatabaseParameterDataRetentionTimeInDay)[vs[1].(int)]
+	}).(DatabaseParameterDataRetentionTimeInDayOutput)
+}
+
+type DatabaseParameterDefaultDdlCollation struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterDefaultDdlCollationInput is an input type that accepts DatabaseParameterDefaultDdlCollationArgs and DatabaseParameterDefaultDdlCollationOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultDdlCollationInput` via:
+//
+//	DatabaseParameterDefaultDdlCollationArgs{...}
+type DatabaseParameterDefaultDdlCollationInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultDdlCollationOutput() DatabaseParameterDefaultDdlCollationOutput
+	ToDatabaseParameterDefaultDdlCollationOutputWithContext(context.Context) DatabaseParameterDefaultDdlCollationOutput
+}
+
+type DatabaseParameterDefaultDdlCollationArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterDefaultDdlCollationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultDdlCollationArgs) ToDatabaseParameterDefaultDdlCollationOutput() DatabaseParameterDefaultDdlCollationOutput {
+	return i.ToDatabaseParameterDefaultDdlCollationOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultDdlCollationArgs) ToDatabaseParameterDefaultDdlCollationOutputWithContext(ctx context.Context) DatabaseParameterDefaultDdlCollationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultDdlCollationOutput)
+}
+
+// DatabaseParameterDefaultDdlCollationArrayInput is an input type that accepts DatabaseParameterDefaultDdlCollationArray and DatabaseParameterDefaultDdlCollationArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultDdlCollationArrayInput` via:
+//
+//	DatabaseParameterDefaultDdlCollationArray{ DatabaseParameterDefaultDdlCollationArgs{...} }
+type DatabaseParameterDefaultDdlCollationArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultDdlCollationArrayOutput() DatabaseParameterDefaultDdlCollationArrayOutput
+	ToDatabaseParameterDefaultDdlCollationArrayOutputWithContext(context.Context) DatabaseParameterDefaultDdlCollationArrayOutput
+}
+
+type DatabaseParameterDefaultDdlCollationArray []DatabaseParameterDefaultDdlCollationInput
+
+func (DatabaseParameterDefaultDdlCollationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultDdlCollationArray) ToDatabaseParameterDefaultDdlCollationArrayOutput() DatabaseParameterDefaultDdlCollationArrayOutput {
+	return i.ToDatabaseParameterDefaultDdlCollationArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultDdlCollationArray) ToDatabaseParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultDdlCollationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultDdlCollationArrayOutput)
+}
+
+type DatabaseParameterDefaultDdlCollationOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultDdlCollationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) ToDatabaseParameterDefaultDdlCollationOutput() DatabaseParameterDefaultDdlCollationOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) ToDatabaseParameterDefaultDdlCollationOutputWithContext(ctx context.Context) DatabaseParameterDefaultDdlCollationOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultDdlCollation) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultDdlCollation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultDdlCollation) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultDdlCollation) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultDdlCollationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultDdlCollation) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterDefaultDdlCollationArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultDdlCollationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultDdlCollationArrayOutput) ToDatabaseParameterDefaultDdlCollationArrayOutput() DatabaseParameterDefaultDdlCollationArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultDdlCollationArrayOutput) ToDatabaseParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultDdlCollationArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultDdlCollationArrayOutput) Index(i pulumi.IntInput) DatabaseParameterDefaultDdlCollationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterDefaultDdlCollation {
+		return vs[0].([]DatabaseParameterDefaultDdlCollation)[vs[1].(int)]
+	}).(DatabaseParameterDefaultDdlCollationOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolCpus struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterDefaultNotebookComputePoolCpusInput is an input type that accepts DatabaseParameterDefaultNotebookComputePoolCpusArgs and DatabaseParameterDefaultNotebookComputePoolCpusOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultNotebookComputePoolCpusInput` via:
+//
+//	DatabaseParameterDefaultNotebookComputePoolCpusArgs{...}
+type DatabaseParameterDefaultNotebookComputePoolCpusInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultNotebookComputePoolCpusOutput() DatabaseParameterDefaultNotebookComputePoolCpusOutput
+	ToDatabaseParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Context) DatabaseParameterDefaultNotebookComputePoolCpusOutput
+}
+
+type DatabaseParameterDefaultNotebookComputePoolCpusArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterDefaultNotebookComputePoolCpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolCpusArgs) ToDatabaseParameterDefaultNotebookComputePoolCpusOutput() DatabaseParameterDefaultNotebookComputePoolCpusOutput {
+	return i.ToDatabaseParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolCpusArgs) ToDatabaseParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+// DatabaseParameterDefaultNotebookComputePoolCpusArrayInput is an input type that accepts DatabaseParameterDefaultNotebookComputePoolCpusArray and DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultNotebookComputePoolCpusArrayInput` via:
+//
+//	DatabaseParameterDefaultNotebookComputePoolCpusArray{ DatabaseParameterDefaultNotebookComputePoolCpusArgs{...} }
+type DatabaseParameterDefaultNotebookComputePoolCpusArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput
+	ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Context) DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput
+}
+
+type DatabaseParameterDefaultNotebookComputePoolCpusArray []DatabaseParameterDefaultNotebookComputePoolCpusInput
+
+func (DatabaseParameterDefaultNotebookComputePoolCpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolCpusArray) ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return i.ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolCpusArray) ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolCpusOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultNotebookComputePoolCpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) ToDatabaseParameterDefaultNotebookComputePoolCpusOutput() DatabaseParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) ToDatabaseParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolCpus) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolCpus) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolCpus) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolCpus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolCpus) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput) ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput) ToDatabaseParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput) Index(i pulumi.IntInput) DatabaseParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterDefaultNotebookComputePoolCpus {
+		return vs[0].([]DatabaseParameterDefaultNotebookComputePoolCpus)[vs[1].(int)]
+	}).(DatabaseParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolGpus struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterDefaultNotebookComputePoolGpusInput is an input type that accepts DatabaseParameterDefaultNotebookComputePoolGpusArgs and DatabaseParameterDefaultNotebookComputePoolGpusOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultNotebookComputePoolGpusInput` via:
+//
+//	DatabaseParameterDefaultNotebookComputePoolGpusArgs{...}
+type DatabaseParameterDefaultNotebookComputePoolGpusInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultNotebookComputePoolGpusOutput() DatabaseParameterDefaultNotebookComputePoolGpusOutput
+	ToDatabaseParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Context) DatabaseParameterDefaultNotebookComputePoolGpusOutput
+}
+
+type DatabaseParameterDefaultNotebookComputePoolGpusArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterDefaultNotebookComputePoolGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolGpusArgs) ToDatabaseParameterDefaultNotebookComputePoolGpusOutput() DatabaseParameterDefaultNotebookComputePoolGpusOutput {
+	return i.ToDatabaseParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolGpusArgs) ToDatabaseParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultNotebookComputePoolGpusOutput)
+}
+
+// DatabaseParameterDefaultNotebookComputePoolGpusArrayInput is an input type that accepts DatabaseParameterDefaultNotebookComputePoolGpusArray and DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterDefaultNotebookComputePoolGpusArrayInput` via:
+//
+//	DatabaseParameterDefaultNotebookComputePoolGpusArray{ DatabaseParameterDefaultNotebookComputePoolGpusArgs{...} }
+type DatabaseParameterDefaultNotebookComputePoolGpusArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput
+	ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Context) DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput
+}
+
+type DatabaseParameterDefaultNotebookComputePoolGpusArray []DatabaseParameterDefaultNotebookComputePoolGpusInput
+
+func (DatabaseParameterDefaultNotebookComputePoolGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolGpusArray) ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return i.ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterDefaultNotebookComputePoolGpusArray) ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolGpusOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultNotebookComputePoolGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) ToDatabaseParameterDefaultNotebookComputePoolGpusOutput() DatabaseParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) ToDatabaseParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolGpus) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolGpus) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolGpus) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolGpus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterDefaultNotebookComputePoolGpus) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput) ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutput() DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput) ToDatabaseParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput) Index(i pulumi.IntInput) DatabaseParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterDefaultNotebookComputePoolGpus {
+		return vs[0].([]DatabaseParameterDefaultNotebookComputePoolGpus)[vs[1].(int)]
+	}).(DatabaseParameterDefaultNotebookComputePoolGpusOutput)
+}
+
+type DatabaseParameterEnableConsoleOutput struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterEnableConsoleOutputInput is an input type that accepts DatabaseParameterEnableConsoleOutputArgs and DatabaseParameterEnableConsoleOutputOutput values.
+// You can construct a concrete instance of `DatabaseParameterEnableConsoleOutputInput` via:
+//
+//	DatabaseParameterEnableConsoleOutputArgs{...}
+type DatabaseParameterEnableConsoleOutputInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterEnableConsoleOutputOutput() DatabaseParameterEnableConsoleOutputOutput
+	ToDatabaseParameterEnableConsoleOutputOutputWithContext(context.Context) DatabaseParameterEnableConsoleOutputOutput
+}
+
+type DatabaseParameterEnableConsoleOutputArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterEnableConsoleOutput)(nil)).Elem()
+}
+
+func (i DatabaseParameterEnableConsoleOutputArgs) ToDatabaseParameterEnableConsoleOutputOutput() DatabaseParameterEnableConsoleOutputOutput {
+	return i.ToDatabaseParameterEnableConsoleOutputOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterEnableConsoleOutputArgs) ToDatabaseParameterEnableConsoleOutputOutputWithContext(ctx context.Context) DatabaseParameterEnableConsoleOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterEnableConsoleOutputOutput)
+}
+
+// DatabaseParameterEnableConsoleOutputArrayInput is an input type that accepts DatabaseParameterEnableConsoleOutputArray and DatabaseParameterEnableConsoleOutputArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterEnableConsoleOutputArrayInput` via:
+//
+//	DatabaseParameterEnableConsoleOutputArray{ DatabaseParameterEnableConsoleOutputArgs{...} }
+type DatabaseParameterEnableConsoleOutputArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterEnableConsoleOutputArrayOutput() DatabaseParameterEnableConsoleOutputArrayOutput
+	ToDatabaseParameterEnableConsoleOutputArrayOutputWithContext(context.Context) DatabaseParameterEnableConsoleOutputArrayOutput
+}
+
+type DatabaseParameterEnableConsoleOutputArray []DatabaseParameterEnableConsoleOutputInput
+
+func (DatabaseParameterEnableConsoleOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterEnableConsoleOutput)(nil)).Elem()
+}
+
+func (i DatabaseParameterEnableConsoleOutputArray) ToDatabaseParameterEnableConsoleOutputArrayOutput() DatabaseParameterEnableConsoleOutputArrayOutput {
+	return i.ToDatabaseParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterEnableConsoleOutputArray) ToDatabaseParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) DatabaseParameterEnableConsoleOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterEnableConsoleOutputArrayOutput)
+}
+
+type DatabaseParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterEnableConsoleOutput)(nil)).Elem()
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) ToDatabaseParameterEnableConsoleOutputOutput() DatabaseParameterEnableConsoleOutputOutput {
+	return o
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) ToDatabaseParameterEnableConsoleOutputOutputWithContext(ctx context.Context) DatabaseParameterEnableConsoleOutputOutput {
+	return o
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterEnableConsoleOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterEnableConsoleOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterEnableConsoleOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterEnableConsoleOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterEnableConsoleOutputOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterEnableConsoleOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterEnableConsoleOutput)(nil)).Elem()
+}
+
+func (o DatabaseParameterEnableConsoleOutputArrayOutput) ToDatabaseParameterEnableConsoleOutputArrayOutput() DatabaseParameterEnableConsoleOutputArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterEnableConsoleOutputArrayOutput) ToDatabaseParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) DatabaseParameterEnableConsoleOutputArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) DatabaseParameterEnableConsoleOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterEnableConsoleOutput {
+		return vs[0].([]DatabaseParameterEnableConsoleOutput)[vs[1].(int)]
+	}).(DatabaseParameterEnableConsoleOutputOutput)
+}
+
+type DatabaseParameterExternalVolume struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterExternalVolumeInput is an input type that accepts DatabaseParameterExternalVolumeArgs and DatabaseParameterExternalVolumeOutput values.
+// You can construct a concrete instance of `DatabaseParameterExternalVolumeInput` via:
+//
+//	DatabaseParameterExternalVolumeArgs{...}
+type DatabaseParameterExternalVolumeInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterExternalVolumeOutput() DatabaseParameterExternalVolumeOutput
+	ToDatabaseParameterExternalVolumeOutputWithContext(context.Context) DatabaseParameterExternalVolumeOutput
+}
+
+type DatabaseParameterExternalVolumeArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterExternalVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (i DatabaseParameterExternalVolumeArgs) ToDatabaseParameterExternalVolumeOutput() DatabaseParameterExternalVolumeOutput {
+	return i.ToDatabaseParameterExternalVolumeOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterExternalVolumeArgs) ToDatabaseParameterExternalVolumeOutputWithContext(ctx context.Context) DatabaseParameterExternalVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterExternalVolumeOutput)
+}
+
+// DatabaseParameterExternalVolumeArrayInput is an input type that accepts DatabaseParameterExternalVolumeArray and DatabaseParameterExternalVolumeArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterExternalVolumeArrayInput` via:
+//
+//	DatabaseParameterExternalVolumeArray{ DatabaseParameterExternalVolumeArgs{...} }
+type DatabaseParameterExternalVolumeArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterExternalVolumeArrayOutput() DatabaseParameterExternalVolumeArrayOutput
+	ToDatabaseParameterExternalVolumeArrayOutputWithContext(context.Context) DatabaseParameterExternalVolumeArrayOutput
+}
+
+type DatabaseParameterExternalVolumeArray []DatabaseParameterExternalVolumeInput
+
+func (DatabaseParameterExternalVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (i DatabaseParameterExternalVolumeArray) ToDatabaseParameterExternalVolumeArrayOutput() DatabaseParameterExternalVolumeArrayOutput {
+	return i.ToDatabaseParameterExternalVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterExternalVolumeArray) ToDatabaseParameterExternalVolumeArrayOutputWithContext(ctx context.Context) DatabaseParameterExternalVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterExternalVolumeArrayOutput)
+}
+
+type DatabaseParameterExternalVolumeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterExternalVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (o DatabaseParameterExternalVolumeOutput) ToDatabaseParameterExternalVolumeOutput() DatabaseParameterExternalVolumeOutput {
+	return o
+}
+
+func (o DatabaseParameterExternalVolumeOutput) ToDatabaseParameterExternalVolumeOutputWithContext(ctx context.Context) DatabaseParameterExternalVolumeOutput {
+	return o
+}
+
+func (o DatabaseParameterExternalVolumeOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterExternalVolume) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterExternalVolumeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterExternalVolume) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterExternalVolumeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterExternalVolume) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterExternalVolumeOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterExternalVolume) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterExternalVolumeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterExternalVolume) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterExternalVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterExternalVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (o DatabaseParameterExternalVolumeArrayOutput) ToDatabaseParameterExternalVolumeArrayOutput() DatabaseParameterExternalVolumeArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterExternalVolumeArrayOutput) ToDatabaseParameterExternalVolumeArrayOutputWithContext(ctx context.Context) DatabaseParameterExternalVolumeArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterExternalVolumeArrayOutput) Index(i pulumi.IntInput) DatabaseParameterExternalVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterExternalVolume {
+		return vs[0].([]DatabaseParameterExternalVolume)[vs[1].(int)]
+	}).(DatabaseParameterExternalVolumeOutput)
+}
+
+type DatabaseParameterLogEventLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterLogEventLevelInput is an input type that accepts DatabaseParameterLogEventLevelArgs and DatabaseParameterLogEventLevelOutput values.
+// You can construct a concrete instance of `DatabaseParameterLogEventLevelInput` via:
+//
+//	DatabaseParameterLogEventLevelArgs{...}
+type DatabaseParameterLogEventLevelInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterLogEventLevelOutput() DatabaseParameterLogEventLevelOutput
+	ToDatabaseParameterLogEventLevelOutputWithContext(context.Context) DatabaseParameterLogEventLevelOutput
+}
+
+type DatabaseParameterLogEventLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterLogEventLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterLogEventLevelArgs) ToDatabaseParameterLogEventLevelOutput() DatabaseParameterLogEventLevelOutput {
+	return i.ToDatabaseParameterLogEventLevelOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterLogEventLevelArgs) ToDatabaseParameterLogEventLevelOutputWithContext(ctx context.Context) DatabaseParameterLogEventLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterLogEventLevelOutput)
+}
+
+// DatabaseParameterLogEventLevelArrayInput is an input type that accepts DatabaseParameterLogEventLevelArray and DatabaseParameterLogEventLevelArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterLogEventLevelArrayInput` via:
+//
+//	DatabaseParameterLogEventLevelArray{ DatabaseParameterLogEventLevelArgs{...} }
+type DatabaseParameterLogEventLevelArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterLogEventLevelArrayOutput() DatabaseParameterLogEventLevelArrayOutput
+	ToDatabaseParameterLogEventLevelArrayOutputWithContext(context.Context) DatabaseParameterLogEventLevelArrayOutput
+}
+
+type DatabaseParameterLogEventLevelArray []DatabaseParameterLogEventLevelInput
+
+func (DatabaseParameterLogEventLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterLogEventLevelArray) ToDatabaseParameterLogEventLevelArrayOutput() DatabaseParameterLogEventLevelArrayOutput {
+	return i.ToDatabaseParameterLogEventLevelArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterLogEventLevelArray) ToDatabaseParameterLogEventLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterLogEventLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterLogEventLevelArrayOutput)
+}
+
+type DatabaseParameterLogEventLevelOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterLogEventLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterLogEventLevelOutput) ToDatabaseParameterLogEventLevelOutput() DatabaseParameterLogEventLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterLogEventLevelOutput) ToDatabaseParameterLogEventLevelOutputWithContext(ctx context.Context) DatabaseParameterLogEventLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterLogEventLevelArrayOutput) ToDatabaseParameterLogEventLevelArrayOutput() DatabaseParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterLogEventLevelArrayOutput) ToDatabaseParameterLogEventLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) DatabaseParameterLogEventLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterLogEventLevel {
+		return vs[0].([]DatabaseParameterLogEventLevel)[vs[1].(int)]
+	}).(DatabaseParameterLogEventLevelOutput)
+}
+
+type DatabaseParameterLogLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterLogLevelInput is an input type that accepts DatabaseParameterLogLevelArgs and DatabaseParameterLogLevelOutput values.
+// You can construct a concrete instance of `DatabaseParameterLogLevelInput` via:
+//
+//	DatabaseParameterLogLevelArgs{...}
+type DatabaseParameterLogLevelInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterLogLevelOutput() DatabaseParameterLogLevelOutput
+	ToDatabaseParameterLogLevelOutputWithContext(context.Context) DatabaseParameterLogLevelOutput
+}
+
+type DatabaseParameterLogLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterLogLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterLogLevelArgs) ToDatabaseParameterLogLevelOutput() DatabaseParameterLogLevelOutput {
+	return i.ToDatabaseParameterLogLevelOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterLogLevelArgs) ToDatabaseParameterLogLevelOutputWithContext(ctx context.Context) DatabaseParameterLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterLogLevelOutput)
+}
+
+// DatabaseParameterLogLevelArrayInput is an input type that accepts DatabaseParameterLogLevelArray and DatabaseParameterLogLevelArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterLogLevelArrayInput` via:
+//
+//	DatabaseParameterLogLevelArray{ DatabaseParameterLogLevelArgs{...} }
+type DatabaseParameterLogLevelArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterLogLevelArrayOutput() DatabaseParameterLogLevelArrayOutput
+	ToDatabaseParameterLogLevelArrayOutputWithContext(context.Context) DatabaseParameterLogLevelArrayOutput
+}
+
+type DatabaseParameterLogLevelArray []DatabaseParameterLogLevelInput
+
+func (DatabaseParameterLogLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterLogLevelArray) ToDatabaseParameterLogLevelArrayOutput() DatabaseParameterLogLevelArrayOutput {
+	return i.ToDatabaseParameterLogLevelArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterLogLevelArray) ToDatabaseParameterLogLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterLogLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterLogLevelArrayOutput)
+}
+
+type DatabaseParameterLogLevelOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterLogLevelOutput) ToDatabaseParameterLogLevelOutput() DatabaseParameterLogLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterLogLevelOutput) ToDatabaseParameterLogLevelOutputWithContext(ctx context.Context) DatabaseParameterLogLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterLogLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterLogLevelArrayOutput) ToDatabaseParameterLogLevelArrayOutput() DatabaseParameterLogLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterLogLevelArrayOutput) ToDatabaseParameterLogLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterLogLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterLogLevelArrayOutput) Index(i pulumi.IntInput) DatabaseParameterLogLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterLogLevel {
+		return vs[0].([]DatabaseParameterLogLevel)[vs[1].(int)]
+	}).(DatabaseParameterLogLevelOutput)
+}
+
+type DatabaseParameterMaxDataExtensionTimeInDay struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterMaxDataExtensionTimeInDayInput is an input type that accepts DatabaseParameterMaxDataExtensionTimeInDayArgs and DatabaseParameterMaxDataExtensionTimeInDayOutput values.
+// You can construct a concrete instance of `DatabaseParameterMaxDataExtensionTimeInDayInput` via:
+//
+//	DatabaseParameterMaxDataExtensionTimeInDayArgs{...}
+type DatabaseParameterMaxDataExtensionTimeInDayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterMaxDataExtensionTimeInDayOutput() DatabaseParameterMaxDataExtensionTimeInDayOutput
+	ToDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(context.Context) DatabaseParameterMaxDataExtensionTimeInDayOutput
+}
+
+type DatabaseParameterMaxDataExtensionTimeInDayArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterMaxDataExtensionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i DatabaseParameterMaxDataExtensionTimeInDayArgs) ToDatabaseParameterMaxDataExtensionTimeInDayOutput() DatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return i.ToDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterMaxDataExtensionTimeInDayArgs) ToDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) DatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterMaxDataExtensionTimeInDayOutput)
+}
+
+// DatabaseParameterMaxDataExtensionTimeInDayArrayInput is an input type that accepts DatabaseParameterMaxDataExtensionTimeInDayArray and DatabaseParameterMaxDataExtensionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterMaxDataExtensionTimeInDayArrayInput` via:
+//
+//	DatabaseParameterMaxDataExtensionTimeInDayArray{ DatabaseParameterMaxDataExtensionTimeInDayArgs{...} }
+type DatabaseParameterMaxDataExtensionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() DatabaseParameterMaxDataExtensionTimeInDayArrayOutput
+	ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Context) DatabaseParameterMaxDataExtensionTimeInDayArrayOutput
+}
+
+type DatabaseParameterMaxDataExtensionTimeInDayArray []DatabaseParameterMaxDataExtensionTimeInDayInput
+
+func (DatabaseParameterMaxDataExtensionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i DatabaseParameterMaxDataExtensionTimeInDayArray) ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() DatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return i.ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterMaxDataExtensionTimeInDayArray) ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) DatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterMaxDataExtensionTimeInDayArrayOutput)
+}
+
+type DatabaseParameterMaxDataExtensionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterMaxDataExtensionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) ToDatabaseParameterMaxDataExtensionTimeInDayOutput() DatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) ToDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) DatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterMaxDataExtensionTimeInDay) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterMaxDataExtensionTimeInDay) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterMaxDataExtensionTimeInDay) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterMaxDataExtensionTimeInDay) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterMaxDataExtensionTimeInDay) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterMaxDataExtensionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() DatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ToDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) DatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterMaxDataExtensionTimeInDayArrayOutput) Index(i pulumi.IntInput) DatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterMaxDataExtensionTimeInDay {
+		return vs[0].([]DatabaseParameterMaxDataExtensionTimeInDay)[vs[1].(int)]
+	}).(DatabaseParameterMaxDataExtensionTimeInDayOutput)
+}
+
+type DatabaseParameterQuotedIdentifiersIgnoreCase struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterQuotedIdentifiersIgnoreCaseInput is an input type that accepts DatabaseParameterQuotedIdentifiersIgnoreCaseArgs and DatabaseParameterQuotedIdentifiersIgnoreCaseOutput values.
+// You can construct a concrete instance of `DatabaseParameterQuotedIdentifiersIgnoreCaseInput` via:
+//
+//	DatabaseParameterQuotedIdentifiersIgnoreCaseArgs{...}
+type DatabaseParameterQuotedIdentifiersIgnoreCaseInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseOutput
+	ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseOutput
+}
+
+type DatabaseParameterQuotedIdentifiersIgnoreCaseArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (i DatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return i.ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(ctx context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterQuotedIdentifiersIgnoreCaseOutput)
+}
+
+// DatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput is an input type that accepts DatabaseParameterQuotedIdentifiersIgnoreCaseArray and DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput` via:
+//
+//	DatabaseParameterQuotedIdentifiersIgnoreCaseArray{ DatabaseParameterQuotedIdentifiersIgnoreCaseArgs{...} }
+type DatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput
+	ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput
+}
+
+type DatabaseParameterQuotedIdentifiersIgnoreCaseArray []DatabaseParameterQuotedIdentifiersIgnoreCaseInput
+
+func (DatabaseParameterQuotedIdentifiersIgnoreCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (i DatabaseParameterQuotedIdentifiersIgnoreCaseArray) ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return i.ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterQuotedIdentifiersIgnoreCaseArray) ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(ctx context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput)
+}
+
+type DatabaseParameterQuotedIdentifiersIgnoreCaseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return o
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ToDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(ctx context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return o
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterQuotedIdentifiersIgnoreCase) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterQuotedIdentifiersIgnoreCase) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterQuotedIdentifiersIgnoreCase) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterQuotedIdentifiersIgnoreCase) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterQuotedIdentifiersIgnoreCase) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ToDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(ctx context.Context) DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) Index(i pulumi.IntInput) DatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterQuotedIdentifiersIgnoreCase {
+		return vs[0].([]DatabaseParameterQuotedIdentifiersIgnoreCase)[vs[1].(int)]
+	}).(DatabaseParameterQuotedIdentifiersIgnoreCaseOutput)
+}
+
+type DatabaseParameterReplaceInvalidCharacter struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterReplaceInvalidCharacterInput is an input type that accepts DatabaseParameterReplaceInvalidCharacterArgs and DatabaseParameterReplaceInvalidCharacterOutput values.
+// You can construct a concrete instance of `DatabaseParameterReplaceInvalidCharacterInput` via:
+//
+//	DatabaseParameterReplaceInvalidCharacterArgs{...}
+type DatabaseParameterReplaceInvalidCharacterInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterReplaceInvalidCharacterOutput() DatabaseParameterReplaceInvalidCharacterOutput
+	ToDatabaseParameterReplaceInvalidCharacterOutputWithContext(context.Context) DatabaseParameterReplaceInvalidCharacterOutput
+}
+
+type DatabaseParameterReplaceInvalidCharacterArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterReplaceInvalidCharacterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (i DatabaseParameterReplaceInvalidCharacterArgs) ToDatabaseParameterReplaceInvalidCharacterOutput() DatabaseParameterReplaceInvalidCharacterOutput {
+	return i.ToDatabaseParameterReplaceInvalidCharacterOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterReplaceInvalidCharacterArgs) ToDatabaseParameterReplaceInvalidCharacterOutputWithContext(ctx context.Context) DatabaseParameterReplaceInvalidCharacterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterReplaceInvalidCharacterOutput)
+}
+
+// DatabaseParameterReplaceInvalidCharacterArrayInput is an input type that accepts DatabaseParameterReplaceInvalidCharacterArray and DatabaseParameterReplaceInvalidCharacterArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterReplaceInvalidCharacterArrayInput` via:
+//
+//	DatabaseParameterReplaceInvalidCharacterArray{ DatabaseParameterReplaceInvalidCharacterArgs{...} }
+type DatabaseParameterReplaceInvalidCharacterArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterReplaceInvalidCharacterArrayOutput() DatabaseParameterReplaceInvalidCharacterArrayOutput
+	ToDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(context.Context) DatabaseParameterReplaceInvalidCharacterArrayOutput
+}
+
+type DatabaseParameterReplaceInvalidCharacterArray []DatabaseParameterReplaceInvalidCharacterInput
+
+func (DatabaseParameterReplaceInvalidCharacterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (i DatabaseParameterReplaceInvalidCharacterArray) ToDatabaseParameterReplaceInvalidCharacterArrayOutput() DatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return i.ToDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterReplaceInvalidCharacterArray) ToDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(ctx context.Context) DatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterReplaceInvalidCharacterArrayOutput)
+}
+
+type DatabaseParameterReplaceInvalidCharacterOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterReplaceInvalidCharacterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) ToDatabaseParameterReplaceInvalidCharacterOutput() DatabaseParameterReplaceInvalidCharacterOutput {
+	return o
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) ToDatabaseParameterReplaceInvalidCharacterOutputWithContext(ctx context.Context) DatabaseParameterReplaceInvalidCharacterOutput {
+	return o
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterReplaceInvalidCharacter) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterReplaceInvalidCharacter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterReplaceInvalidCharacter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterReplaceInvalidCharacter) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterReplaceInvalidCharacter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterReplaceInvalidCharacterArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterReplaceInvalidCharacterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterArrayOutput) ToDatabaseParameterReplaceInvalidCharacterArrayOutput() DatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterArrayOutput) ToDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(ctx context.Context) DatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterReplaceInvalidCharacterArrayOutput) Index(i pulumi.IntInput) DatabaseParameterReplaceInvalidCharacterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterReplaceInvalidCharacter {
+		return vs[0].([]DatabaseParameterReplaceInvalidCharacter)[vs[1].(int)]
+	}).(DatabaseParameterReplaceInvalidCharacterOutput)
+}
+
+type DatabaseParameterStorageSerializationPolicy struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterStorageSerializationPolicyInput is an input type that accepts DatabaseParameterStorageSerializationPolicyArgs and DatabaseParameterStorageSerializationPolicyOutput values.
+// You can construct a concrete instance of `DatabaseParameterStorageSerializationPolicyInput` via:
+//
+//	DatabaseParameterStorageSerializationPolicyArgs{...}
+type DatabaseParameterStorageSerializationPolicyInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterStorageSerializationPolicyOutput() DatabaseParameterStorageSerializationPolicyOutput
+	ToDatabaseParameterStorageSerializationPolicyOutputWithContext(context.Context) DatabaseParameterStorageSerializationPolicyOutput
+}
+
+type DatabaseParameterStorageSerializationPolicyArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterStorageSerializationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (i DatabaseParameterStorageSerializationPolicyArgs) ToDatabaseParameterStorageSerializationPolicyOutput() DatabaseParameterStorageSerializationPolicyOutput {
+	return i.ToDatabaseParameterStorageSerializationPolicyOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterStorageSerializationPolicyArgs) ToDatabaseParameterStorageSerializationPolicyOutputWithContext(ctx context.Context) DatabaseParameterStorageSerializationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterStorageSerializationPolicyOutput)
+}
+
+// DatabaseParameterStorageSerializationPolicyArrayInput is an input type that accepts DatabaseParameterStorageSerializationPolicyArray and DatabaseParameterStorageSerializationPolicyArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterStorageSerializationPolicyArrayInput` via:
+//
+//	DatabaseParameterStorageSerializationPolicyArray{ DatabaseParameterStorageSerializationPolicyArgs{...} }
+type DatabaseParameterStorageSerializationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterStorageSerializationPolicyArrayOutput() DatabaseParameterStorageSerializationPolicyArrayOutput
+	ToDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(context.Context) DatabaseParameterStorageSerializationPolicyArrayOutput
+}
+
+type DatabaseParameterStorageSerializationPolicyArray []DatabaseParameterStorageSerializationPolicyInput
+
+func (DatabaseParameterStorageSerializationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (i DatabaseParameterStorageSerializationPolicyArray) ToDatabaseParameterStorageSerializationPolicyArrayOutput() DatabaseParameterStorageSerializationPolicyArrayOutput {
+	return i.ToDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterStorageSerializationPolicyArray) ToDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(ctx context.Context) DatabaseParameterStorageSerializationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterStorageSerializationPolicyArrayOutput)
+}
+
+type DatabaseParameterStorageSerializationPolicyOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterStorageSerializationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) ToDatabaseParameterStorageSerializationPolicyOutput() DatabaseParameterStorageSerializationPolicyOutput {
+	return o
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) ToDatabaseParameterStorageSerializationPolicyOutputWithContext(ctx context.Context) DatabaseParameterStorageSerializationPolicyOutput {
+	return o
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterStorageSerializationPolicy) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterStorageSerializationPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterStorageSerializationPolicy) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterStorageSerializationPolicy) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterStorageSerializationPolicyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterStorageSerializationPolicy) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterStorageSerializationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterStorageSerializationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (o DatabaseParameterStorageSerializationPolicyArrayOutput) ToDatabaseParameterStorageSerializationPolicyArrayOutput() DatabaseParameterStorageSerializationPolicyArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterStorageSerializationPolicyArrayOutput) ToDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(ctx context.Context) DatabaseParameterStorageSerializationPolicyArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterStorageSerializationPolicyArrayOutput) Index(i pulumi.IntInput) DatabaseParameterStorageSerializationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterStorageSerializationPolicy {
+		return vs[0].([]DatabaseParameterStorageSerializationPolicy)[vs[1].(int)]
+	}).(DatabaseParameterStorageSerializationPolicyOutput)
+}
+
+type DatabaseParameterSuspendTaskAfterNumFailure struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterSuspendTaskAfterNumFailureInput is an input type that accepts DatabaseParameterSuspendTaskAfterNumFailureArgs and DatabaseParameterSuspendTaskAfterNumFailureOutput values.
+// You can construct a concrete instance of `DatabaseParameterSuspendTaskAfterNumFailureInput` via:
+//
+//	DatabaseParameterSuspendTaskAfterNumFailureArgs{...}
+type DatabaseParameterSuspendTaskAfterNumFailureInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterSuspendTaskAfterNumFailureOutput() DatabaseParameterSuspendTaskAfterNumFailureOutput
+	ToDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(context.Context) DatabaseParameterSuspendTaskAfterNumFailureOutput
+}
+
+type DatabaseParameterSuspendTaskAfterNumFailureArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterSuspendTaskAfterNumFailureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i DatabaseParameterSuspendTaskAfterNumFailureArgs) ToDatabaseParameterSuspendTaskAfterNumFailureOutput() DatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return i.ToDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterSuspendTaskAfterNumFailureArgs) ToDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) DatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterSuspendTaskAfterNumFailureOutput)
+}
+
+// DatabaseParameterSuspendTaskAfterNumFailureArrayInput is an input type that accepts DatabaseParameterSuspendTaskAfterNumFailureArray and DatabaseParameterSuspendTaskAfterNumFailureArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterSuspendTaskAfterNumFailureArrayInput` via:
+//
+//	DatabaseParameterSuspendTaskAfterNumFailureArray{ DatabaseParameterSuspendTaskAfterNumFailureArgs{...} }
+type DatabaseParameterSuspendTaskAfterNumFailureArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() DatabaseParameterSuspendTaskAfterNumFailureArrayOutput
+	ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Context) DatabaseParameterSuspendTaskAfterNumFailureArrayOutput
+}
+
+type DatabaseParameterSuspendTaskAfterNumFailureArray []DatabaseParameterSuspendTaskAfterNumFailureInput
+
+func (DatabaseParameterSuspendTaskAfterNumFailureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i DatabaseParameterSuspendTaskAfterNumFailureArray) ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() DatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return i.ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterSuspendTaskAfterNumFailureArray) ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) DatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterSuspendTaskAfterNumFailureArrayOutput)
+}
+
+type DatabaseParameterSuspendTaskAfterNumFailureOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterSuspendTaskAfterNumFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) ToDatabaseParameterSuspendTaskAfterNumFailureOutput() DatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) ToDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) DatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterSuspendTaskAfterNumFailure) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterSuspendTaskAfterNumFailure) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterSuspendTaskAfterNumFailure) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterSuspendTaskAfterNumFailure) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterSuspendTaskAfterNumFailure) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterSuspendTaskAfterNumFailureArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() DatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ToDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) DatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterSuspendTaskAfterNumFailureArrayOutput) Index(i pulumi.IntInput) DatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterSuspendTaskAfterNumFailure {
+		return vs[0].([]DatabaseParameterSuspendTaskAfterNumFailure)[vs[1].(int)]
+	}).(DatabaseParameterSuspendTaskAfterNumFailureOutput)
+}
+
+type DatabaseParameterTaskAutoRetryAttempt struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterTaskAutoRetryAttemptInput is an input type that accepts DatabaseParameterTaskAutoRetryAttemptArgs and DatabaseParameterTaskAutoRetryAttemptOutput values.
+// You can construct a concrete instance of `DatabaseParameterTaskAutoRetryAttemptInput` via:
+//
+//	DatabaseParameterTaskAutoRetryAttemptArgs{...}
+type DatabaseParameterTaskAutoRetryAttemptInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterTaskAutoRetryAttemptOutput() DatabaseParameterTaskAutoRetryAttemptOutput
+	ToDatabaseParameterTaskAutoRetryAttemptOutputWithContext(context.Context) DatabaseParameterTaskAutoRetryAttemptOutput
+}
+
+type DatabaseParameterTaskAutoRetryAttemptArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterTaskAutoRetryAttemptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i DatabaseParameterTaskAutoRetryAttemptArgs) ToDatabaseParameterTaskAutoRetryAttemptOutput() DatabaseParameterTaskAutoRetryAttemptOutput {
+	return i.ToDatabaseParameterTaskAutoRetryAttemptOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterTaskAutoRetryAttemptArgs) ToDatabaseParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) DatabaseParameterTaskAutoRetryAttemptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterTaskAutoRetryAttemptOutput)
+}
+
+// DatabaseParameterTaskAutoRetryAttemptArrayInput is an input type that accepts DatabaseParameterTaskAutoRetryAttemptArray and DatabaseParameterTaskAutoRetryAttemptArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterTaskAutoRetryAttemptArrayInput` via:
+//
+//	DatabaseParameterTaskAutoRetryAttemptArray{ DatabaseParameterTaskAutoRetryAttemptArgs{...} }
+type DatabaseParameterTaskAutoRetryAttemptArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterTaskAutoRetryAttemptArrayOutput() DatabaseParameterTaskAutoRetryAttemptArrayOutput
+	ToDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Context) DatabaseParameterTaskAutoRetryAttemptArrayOutput
+}
+
+type DatabaseParameterTaskAutoRetryAttemptArray []DatabaseParameterTaskAutoRetryAttemptInput
+
+func (DatabaseParameterTaskAutoRetryAttemptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i DatabaseParameterTaskAutoRetryAttemptArray) ToDatabaseParameterTaskAutoRetryAttemptArrayOutput() DatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return i.ToDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterTaskAutoRetryAttemptArray) ToDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) DatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterTaskAutoRetryAttemptArrayOutput)
+}
+
+type DatabaseParameterTaskAutoRetryAttemptOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterTaskAutoRetryAttemptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) ToDatabaseParameterTaskAutoRetryAttemptOutput() DatabaseParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) ToDatabaseParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) DatabaseParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTaskAutoRetryAttempt) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTaskAutoRetryAttempt) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTaskAutoRetryAttempt) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTaskAutoRetryAttempt) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTaskAutoRetryAttempt) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterTaskAutoRetryAttemptArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterTaskAutoRetryAttemptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptArrayOutput) ToDatabaseParameterTaskAutoRetryAttemptArrayOutput() DatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptArrayOutput) ToDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) DatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterTaskAutoRetryAttemptArrayOutput) Index(i pulumi.IntInput) DatabaseParameterTaskAutoRetryAttemptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterTaskAutoRetryAttempt {
+		return vs[0].([]DatabaseParameterTaskAutoRetryAttempt)[vs[1].(int)]
+	}).(DatabaseParameterTaskAutoRetryAttemptOutput)
+}
+
+type DatabaseParameterTraceLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterTraceLevelInput is an input type that accepts DatabaseParameterTraceLevelArgs and DatabaseParameterTraceLevelOutput values.
+// You can construct a concrete instance of `DatabaseParameterTraceLevelInput` via:
+//
+//	DatabaseParameterTraceLevelArgs{...}
+type DatabaseParameterTraceLevelInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterTraceLevelOutput() DatabaseParameterTraceLevelOutput
+	ToDatabaseParameterTraceLevelOutputWithContext(context.Context) DatabaseParameterTraceLevelOutput
+}
+
+type DatabaseParameterTraceLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterTraceLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterTraceLevelArgs) ToDatabaseParameterTraceLevelOutput() DatabaseParameterTraceLevelOutput {
+	return i.ToDatabaseParameterTraceLevelOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterTraceLevelArgs) ToDatabaseParameterTraceLevelOutputWithContext(ctx context.Context) DatabaseParameterTraceLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterTraceLevelOutput)
+}
+
+// DatabaseParameterTraceLevelArrayInput is an input type that accepts DatabaseParameterTraceLevelArray and DatabaseParameterTraceLevelArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterTraceLevelArrayInput` via:
+//
+//	DatabaseParameterTraceLevelArray{ DatabaseParameterTraceLevelArgs{...} }
+type DatabaseParameterTraceLevelArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterTraceLevelArrayOutput() DatabaseParameterTraceLevelArrayOutput
+	ToDatabaseParameterTraceLevelArrayOutputWithContext(context.Context) DatabaseParameterTraceLevelArrayOutput
+}
+
+type DatabaseParameterTraceLevelArray []DatabaseParameterTraceLevelInput
+
+func (DatabaseParameterTraceLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (i DatabaseParameterTraceLevelArray) ToDatabaseParameterTraceLevelArrayOutput() DatabaseParameterTraceLevelArrayOutput {
+	return i.ToDatabaseParameterTraceLevelArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterTraceLevelArray) ToDatabaseParameterTraceLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterTraceLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterTraceLevelArrayOutput)
+}
+
+type DatabaseParameterTraceLevelOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterTraceLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterTraceLevelOutput) ToDatabaseParameterTraceLevelOutput() DatabaseParameterTraceLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterTraceLevelOutput) ToDatabaseParameterTraceLevelOutputWithContext(ctx context.Context) DatabaseParameterTraceLevelOutput {
+	return o
+}
+
+func (o DatabaseParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterTraceLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (o DatabaseParameterTraceLevelArrayOutput) ToDatabaseParameterTraceLevelArrayOutput() DatabaseParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterTraceLevelArrayOutput) ToDatabaseParameterTraceLevelArrayOutputWithContext(ctx context.Context) DatabaseParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) DatabaseParameterTraceLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterTraceLevel {
+		return vs[0].([]DatabaseParameterTraceLevel)[vs[1].(int)]
+	}).(DatabaseParameterTraceLevelOutput)
+}
+
+type DatabaseParameterUserTaskManagedInitialWarehouseSize struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterUserTaskManagedInitialWarehouseSizeInput is an input type that accepts DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs and DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskManagedInitialWarehouseSizeInput` via:
+//
+//	DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{...}
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput
+	ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput
+}
+
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return i.ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput)
+}
+
+// DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput is an input type that accepts DatabaseParameterUserTaskManagedInitialWarehouseSizeArray and DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput` via:
+//
+//	DatabaseParameterUserTaskManagedInitialWarehouseSizeArray{ DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{...} }
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput
+	ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput
+}
+
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeArray []DatabaseParameterUserTaskManagedInitialWarehouseSizeInput
+
+func (DatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return i.ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
+}
+
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskManagedInitialWarehouseSize) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskManagedInitialWarehouseSize) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskManagedInitialWarehouseSize) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskManagedInitialWarehouseSize) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskManagedInitialWarehouseSize) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) Index(i pulumi.IntInput) DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterUserTaskManagedInitialWarehouseSize {
+		return vs[0].([]DatabaseParameterUserTaskManagedInitialWarehouseSize)[vs[1].(int)]
+	}).(DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput)
+}
+
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecond struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput is an input type that accepts DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs and DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput` via:
+//
+//	DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{...}
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput
+	ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput
+}
+
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return i.ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput)
+}
+
+// DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput is an input type that accepts DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray and DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput` via:
+//
+//	DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray{ DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{...} }
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
+	ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
+}
+
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray []DatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput
+
+func (DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return i.ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
+}
+
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) Index(i pulumi.IntInput) DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+		return vs[0].([]DatabaseParameterUserTaskMinimumTriggerIntervalInSecond)[vs[1].(int)]
+	}).(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput)
+}
+
+type DatabaseParameterUserTaskTimeoutM struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// DatabaseParameterUserTaskTimeoutMInput is an input type that accepts DatabaseParameterUserTaskTimeoutMArgs and DatabaseParameterUserTaskTimeoutMOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskTimeoutMInput` via:
+//
+//	DatabaseParameterUserTaskTimeoutMArgs{...}
+type DatabaseParameterUserTaskTimeoutMInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskTimeoutMOutput() DatabaseParameterUserTaskTimeoutMOutput
+	ToDatabaseParameterUserTaskTimeoutMOutputWithContext(context.Context) DatabaseParameterUserTaskTimeoutMOutput
+}
+
+type DatabaseParameterUserTaskTimeoutMArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseParameterUserTaskTimeoutMArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskTimeoutMArgs) ToDatabaseParameterUserTaskTimeoutMOutput() DatabaseParameterUserTaskTimeoutMOutput {
+	return i.ToDatabaseParameterUserTaskTimeoutMOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskTimeoutMArgs) ToDatabaseParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) DatabaseParameterUserTaskTimeoutMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskTimeoutMOutput)
+}
+
+// DatabaseParameterUserTaskTimeoutMArrayInput is an input type that accepts DatabaseParameterUserTaskTimeoutMArray and DatabaseParameterUserTaskTimeoutMArrayOutput values.
+// You can construct a concrete instance of `DatabaseParameterUserTaskTimeoutMArrayInput` via:
+//
+//	DatabaseParameterUserTaskTimeoutMArray{ DatabaseParameterUserTaskTimeoutMArgs{...} }
+type DatabaseParameterUserTaskTimeoutMArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseParameterUserTaskTimeoutMArrayOutput() DatabaseParameterUserTaskTimeoutMArrayOutput
+	ToDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(context.Context) DatabaseParameterUserTaskTimeoutMArrayOutput
+}
+
+type DatabaseParameterUserTaskTimeoutMArray []DatabaseParameterUserTaskTimeoutMInput
+
+func (DatabaseParameterUserTaskTimeoutMArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (i DatabaseParameterUserTaskTimeoutMArray) ToDatabaseParameterUserTaskTimeoutMArrayOutput() DatabaseParameterUserTaskTimeoutMArrayOutput {
+	return i.ToDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseParameterUserTaskTimeoutMArray) ToDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskTimeoutMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseParameterUserTaskTimeoutMArrayOutput)
+}
+
+type DatabaseParameterUserTaskTimeoutMOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskTimeoutMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) ToDatabaseParameterUserTaskTimeoutMOutput() DatabaseParameterUserTaskTimeoutMOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) ToDatabaseParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) DatabaseParameterUserTaskTimeoutMOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskTimeoutM) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskTimeoutM) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskTimeoutM) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskTimeoutM) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o DatabaseParameterUserTaskTimeoutMOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseParameterUserTaskTimeoutM) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseParameterUserTaskTimeoutMArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseParameterUserTaskTimeoutMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (o DatabaseParameterUserTaskTimeoutMArrayOutput) ToDatabaseParameterUserTaskTimeoutMArrayOutput() DatabaseParameterUserTaskTimeoutMArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskTimeoutMArrayOutput) ToDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) DatabaseParameterUserTaskTimeoutMArrayOutput {
+	return o
+}
+
+func (o DatabaseParameterUserTaskTimeoutMArrayOutput) Index(i pulumi.IntInput) DatabaseParameterUserTaskTimeoutMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseParameterUserTaskTimeoutM {
+		return vs[0].([]DatabaseParameterUserTaskTimeoutM)[vs[1].(int)]
+	}).(DatabaseParameterUserTaskTimeoutMOutput)
 }
 
 type DatabaseReplication struct {
@@ -27217,7 +30840,7 @@ func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutp
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObject struct {
-	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnAccountObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -27237,7 +30860,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectInput interface {
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectArgs struct {
-	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -27322,7 +30945,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAc
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) Inherited() GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) *GrantPrivilegesToAccountRoleOnAccountObjectInherited {
 		return v.Inherited
@@ -27363,7 +30986,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) Elem() GrantPrivil
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *GrantPrivilegesToAccountRoleOnAccountObjectInherited {
 		if v == nil {
@@ -27535,7 +31158,7 @@ type GrantPrivilegesToAccountRoleOnSchema struct {
 	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase *string `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnSchemaInherited `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
@@ -27557,7 +31180,7 @@ type GrantPrivilegesToAccountRoleOnSchemaArgs struct {
 	AllSchemasInDatabase pulumi.StringPtrInput `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase pulumi.StringPtrInput `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnSchemaInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
@@ -27650,7 +31273,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaOutput) FutureSchemasInDatabase() pu
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *string { return v.FutureSchemasInDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *GrantPrivilegesToAccountRoleOnSchemaInherited {
 		return v.Inherited
@@ -27706,7 +31329,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) FutureSchemasInDatabase()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) *GrantPrivilegesToAccountRoleOnSchemaInherited {
 		if v == nil {
@@ -27887,7 +31510,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObject struct {
 	All *GrantPrivilegesToAccountRoleOnSchemaObjectAll `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future *GrantPrivilegesToAccountRoleOnSchemaObjectFuture `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -27911,7 +31534,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectArgs struct {
 	All GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -28010,7 +31633,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Future() GrantPrivileg
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
 		return v.Inherited
@@ -28071,7 +31694,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Future() GrantPrivi
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
 		if v == nil {
@@ -28634,7 +32257,7 @@ type GrantPrivilegesToDatabaseRoleOnSchema struct {
 	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase *string `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited *string `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
@@ -28656,7 +32279,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaArgs struct {
 	AllSchemasInDatabase pulumi.StringPtrInput `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase pulumi.StringPtrInput `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited pulumi.StringPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
@@ -28749,7 +32372,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaOutput) FutureSchemasInDatabase() p
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchema) *string { return v.FutureSchemasInDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaOutput) Inherited() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchema) *string { return v.Inherited }).(pulumi.StringPtrOutput)
 }
@@ -28803,7 +32426,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput) FutureSchemasInDatabase(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput) Inherited() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchema) *string {
 		if v == nil {
@@ -28828,7 +32451,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObject struct {
 	All *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -28852,7 +32475,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs struct {
 	All GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -28951,7 +32574,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) Future() GrantPrivile
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) Inherited() GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
 		return v.Inherited
@@ -29012,7 +32635,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) Future() GrantPriv
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) Inherited() GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObject) *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
 		if v == nil {
@@ -42163,28 +45786,35 @@ func (o LegacyServiceUserDefaultWorkloadIdentityOidcPtrOutput) Subject() pulumi.
 
 type LegacyServiceUserParameter struct {
 	AbortDetachedQueries                       []LegacyServiceUserParameterAbortDetachedQuery                       `pulumi:"abortDetachedQueries"`
+	ActivePythonProfilers                      []LegacyServiceUserParameterActivePythonProfiler                     `pulumi:"activePythonProfilers"`
 	Autocommits                                []LegacyServiceUserParameterAutocommit                               `pulumi:"autocommits"`
 	BinaryInputFormats                         []LegacyServiceUserParameterBinaryInputFormat                        `pulumi:"binaryInputFormats"`
 	BinaryOutputFormats                        []LegacyServiceUserParameterBinaryOutputFormat                       `pulumi:"binaryOutputFormats"`
+	ClientEnableLogInfoStatementParameters     []LegacyServiceUserParameterClientEnableLogInfoStatementParameter    `pulumi:"clientEnableLogInfoStatementParameters"`
 	ClientMemoryLimits                         []LegacyServiceUserParameterClientMemoryLimit                        `pulumi:"clientMemoryLimits"`
 	ClientMetadataRequestUseConnectionCtxes    []LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientMetadataUseSessionDatabases          []LegacyServiceUserParameterClientMetadataUseSessionDatabase         `pulumi:"clientMetadataUseSessionDatabases"`
 	ClientPrefetchThreads                      []LegacyServiceUserParameterClientPrefetchThread                     `pulumi:"clientPrefetchThreads"`
 	ClientResultChunkSizes                     []LegacyServiceUserParameterClientResultChunkSize                    `pulumi:"clientResultChunkSizes"`
 	ClientResultColumnCaseInsensitives         []LegacyServiceUserParameterClientResultColumnCaseInsensitive        `pulumi:"clientResultColumnCaseInsensitives"`
 	ClientSessionKeepAliveHeartbeatFrequencies []LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
 	ClientSessionKeepAlives                    []LegacyServiceUserParameterClientSessionKeepAlife                   `pulumi:"clientSessionKeepAlives"`
 	ClientTimestampTypeMappings                []LegacyServiceUserParameterClientTimestampTypeMapping               `pulumi:"clientTimestampTypeMappings"`
+	CsvTimestampFormats                        []LegacyServiceUserParameterCsvTimestampFormat                       `pulumi:"csvTimestampFormats"`
 	DateInputFormats                           []LegacyServiceUserParameterDateInputFormat                          `pulumi:"dateInputFormats"`
 	DateOutputFormats                          []LegacyServiceUserParameterDateOutputFormat                         `pulumi:"dateOutputFormats"`
+	EnableGetDdlUseDataTypeAliases             []LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias             `pulumi:"enableGetDdlUseDataTypeAliases"`
 	EnableUnloadPhysicalTypeOptimizations      []LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
 	EnableUnredactedQuerySyntaxErrors          []LegacyServiceUserParameterEnableUnredactedQuerySyntaxError         `pulumi:"enableUnredactedQuerySyntaxErrors"`
 	ErrorOnNondeterministicMerges              []LegacyServiceUserParameterErrorOnNondeterministicMerge             `pulumi:"errorOnNondeterministicMerges"`
 	ErrorOnNondeterministicUpdates             []LegacyServiceUserParameterErrorOnNondeterministicUpdate            `pulumi:"errorOnNondeterministicUpdates"`
 	GeographyOutputFormats                     []LegacyServiceUserParameterGeographyOutputFormat                    `pulumi:"geographyOutputFormats"`
 	GeometryOutputFormats                      []LegacyServiceUserParameterGeometryOutputFormat                     `pulumi:"geometryOutputFormats"`
+	HybridTableLockTimeouts                    []LegacyServiceUserParameterHybridTableLockTimeout                   `pulumi:"hybridTableLockTimeouts"`
 	JdbcTreatDecimalAsInts                     []LegacyServiceUserParameterJdbcTreatDecimalAsInt                    `pulumi:"jdbcTreatDecimalAsInts"`
 	JdbcTreatTimestampNtzAsUtcs                []LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
 	JdbcUseSessionTimezones                    []LegacyServiceUserParameterJdbcUseSessionTimezone                   `pulumi:"jdbcUseSessionTimezones"`
+	JsTreatIntegerAsBigints                    []LegacyServiceUserParameterJsTreatIntegerAsBigint                   `pulumi:"jsTreatIntegerAsBigints"`
 	JsonIndents                                []LegacyServiceUserParameterJsonIndent                               `pulumi:"jsonIndents"`
 	LockTimeouts                               []LegacyServiceUserParameterLockTimeout                              `pulumi:"lockTimeouts"`
 	LogEventLevels                             []LegacyServiceUserParameterLogEventLevel                            `pulumi:"logEventLevels"`
@@ -42194,6 +45824,8 @@ type LegacyServiceUserParameter struct {
 	NoorderSequenceAsDefaults                  []LegacyServiceUserParameterNoorderSequenceAsDefault                 `pulumi:"noorderSequenceAsDefaults"`
 	OdbcTreatDecimalAsInts                     []LegacyServiceUserParameterOdbcTreatDecimalAsInt                    `pulumi:"odbcTreatDecimalAsInts"`
 	PreventUnloadToInternalStages              []LegacyServiceUserParameterPreventUnloadToInternalStage             `pulumi:"preventUnloadToInternalStages"`
+	PythonProfilerModules                      []LegacyServiceUserParameterPythonProfilerModule                     `pulumi:"pythonProfilerModules"`
+	PythonProfilerTargetStages                 []LegacyServiceUserParameterPythonProfilerTargetStage                `pulumi:"pythonProfilerTargetStages"`
 	QueryTags                                  []LegacyServiceUserParameterQueryTag                                 `pulumi:"queryTags"`
 	QuotedIdentifiersIgnoreCases               []LegacyServiceUserParameterQuotedIdentifiersIgnoreCase              `pulumi:"quotedIdentifiersIgnoreCases"`
 	RowsPerResultsets                          []LegacyServiceUserParameterRowsPerResultset                         `pulumi:"rowsPerResultsets"`
@@ -42236,28 +45868,35 @@ type LegacyServiceUserParameterInput interface {
 
 type LegacyServiceUserParameterArgs struct {
 	AbortDetachedQueries                       LegacyServiceUserParameterAbortDetachedQueryArrayInput                       `pulumi:"abortDetachedQueries"`
+	ActivePythonProfilers                      LegacyServiceUserParameterActivePythonProfilerArrayInput                     `pulumi:"activePythonProfilers"`
 	Autocommits                                LegacyServiceUserParameterAutocommitArrayInput                               `pulumi:"autocommits"`
 	BinaryInputFormats                         LegacyServiceUserParameterBinaryInputFormatArrayInput                        `pulumi:"binaryInputFormats"`
 	BinaryOutputFormats                        LegacyServiceUserParameterBinaryOutputFormatArrayInput                       `pulumi:"binaryOutputFormats"`
+	ClientEnableLogInfoStatementParameters     LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayInput    `pulumi:"clientEnableLogInfoStatementParameters"`
 	ClientMemoryLimits                         LegacyServiceUserParameterClientMemoryLimitArrayInput                        `pulumi:"clientMemoryLimits"`
 	ClientMetadataRequestUseConnectionCtxes    LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArrayInput    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientMetadataUseSessionDatabases          LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayInput         `pulumi:"clientMetadataUseSessionDatabases"`
 	ClientPrefetchThreads                      LegacyServiceUserParameterClientPrefetchThreadArrayInput                     `pulumi:"clientPrefetchThreads"`
 	ClientResultChunkSizes                     LegacyServiceUserParameterClientResultChunkSizeArrayInput                    `pulumi:"clientResultChunkSizes"`
 	ClientResultColumnCaseInsensitives         LegacyServiceUserParameterClientResultColumnCaseInsensitiveArrayInput        `pulumi:"clientResultColumnCaseInsensitives"`
 	ClientSessionKeepAliveHeartbeatFrequencies LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
 	ClientSessionKeepAlives                    LegacyServiceUserParameterClientSessionKeepAlifeArrayInput                   `pulumi:"clientSessionKeepAlives"`
 	ClientTimestampTypeMappings                LegacyServiceUserParameterClientTimestampTypeMappingArrayInput               `pulumi:"clientTimestampTypeMappings"`
+	CsvTimestampFormats                        LegacyServiceUserParameterCsvTimestampFormatArrayInput                       `pulumi:"csvTimestampFormats"`
 	DateInputFormats                           LegacyServiceUserParameterDateInputFormatArrayInput                          `pulumi:"dateInputFormats"`
 	DateOutputFormats                          LegacyServiceUserParameterDateOutputFormatArrayInput                         `pulumi:"dateOutputFormats"`
+	EnableGetDdlUseDataTypeAliases             LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayInput             `pulumi:"enableGetDdlUseDataTypeAliases"`
 	EnableUnloadPhysicalTypeOptimizations      LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArrayInput     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
 	EnableUnredactedQuerySyntaxErrors          LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArrayInput         `pulumi:"enableUnredactedQuerySyntaxErrors"`
 	ErrorOnNondeterministicMerges              LegacyServiceUserParameterErrorOnNondeterministicMergeArrayInput             `pulumi:"errorOnNondeterministicMerges"`
 	ErrorOnNondeterministicUpdates             LegacyServiceUserParameterErrorOnNondeterministicUpdateArrayInput            `pulumi:"errorOnNondeterministicUpdates"`
 	GeographyOutputFormats                     LegacyServiceUserParameterGeographyOutputFormatArrayInput                    `pulumi:"geographyOutputFormats"`
 	GeometryOutputFormats                      LegacyServiceUserParameterGeometryOutputFormatArrayInput                     `pulumi:"geometryOutputFormats"`
+	HybridTableLockTimeouts                    LegacyServiceUserParameterHybridTableLockTimeoutArrayInput                   `pulumi:"hybridTableLockTimeouts"`
 	JdbcTreatDecimalAsInts                     LegacyServiceUserParameterJdbcTreatDecimalAsIntArrayInput                    `pulumi:"jdbcTreatDecimalAsInts"`
 	JdbcTreatTimestampNtzAsUtcs                LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArrayInput               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
 	JdbcUseSessionTimezones                    LegacyServiceUserParameterJdbcUseSessionTimezoneArrayInput                   `pulumi:"jdbcUseSessionTimezones"`
+	JsTreatIntegerAsBigints                    LegacyServiceUserParameterJsTreatIntegerAsBigintArrayInput                   `pulumi:"jsTreatIntegerAsBigints"`
 	JsonIndents                                LegacyServiceUserParameterJsonIndentArrayInput                               `pulumi:"jsonIndents"`
 	LockTimeouts                               LegacyServiceUserParameterLockTimeoutArrayInput                              `pulumi:"lockTimeouts"`
 	LogEventLevels                             LegacyServiceUserParameterLogEventLevelArrayInput                            `pulumi:"logEventLevels"`
@@ -42267,6 +45906,8 @@ type LegacyServiceUserParameterArgs struct {
 	NoorderSequenceAsDefaults                  LegacyServiceUserParameterNoorderSequenceAsDefaultArrayInput                 `pulumi:"noorderSequenceAsDefaults"`
 	OdbcTreatDecimalAsInts                     LegacyServiceUserParameterOdbcTreatDecimalAsIntArrayInput                    `pulumi:"odbcTreatDecimalAsInts"`
 	PreventUnloadToInternalStages              LegacyServiceUserParameterPreventUnloadToInternalStageArrayInput             `pulumi:"preventUnloadToInternalStages"`
+	PythonProfilerModules                      LegacyServiceUserParameterPythonProfilerModuleArrayInput                     `pulumi:"pythonProfilerModules"`
+	PythonProfilerTargetStages                 LegacyServiceUserParameterPythonProfilerTargetStageArrayInput                `pulumi:"pythonProfilerTargetStages"`
 	QueryTags                                  LegacyServiceUserParameterQueryTagArrayInput                                 `pulumi:"queryTags"`
 	QuotedIdentifiersIgnoreCases               LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArrayInput              `pulumi:"quotedIdentifiersIgnoreCases"`
 	RowsPerResultsets                          LegacyServiceUserParameterRowsPerResultsetArrayInput                         `pulumi:"rowsPerResultsets"`
@@ -42353,6 +45994,12 @@ func (o LegacyServiceUserParameterOutput) AbortDetachedQueries() LegacyServiceUs
 	}).(LegacyServiceUserParameterAbortDetachedQueryArrayOutput)
 }
 
+func (o LegacyServiceUserParameterOutput) ActivePythonProfilers() LegacyServiceUserParameterActivePythonProfilerArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterActivePythonProfiler {
+		return v.ActivePythonProfilers
+	}).(LegacyServiceUserParameterActivePythonProfilerArrayOutput)
+}
+
 func (o LegacyServiceUserParameterOutput) Autocommits() LegacyServiceUserParameterAutocommitArrayOutput {
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterAutocommit { return v.Autocommits }).(LegacyServiceUserParameterAutocommitArrayOutput)
 }
@@ -42369,6 +46016,12 @@ func (o LegacyServiceUserParameterOutput) BinaryOutputFormats() LegacyServiceUse
 	}).(LegacyServiceUserParameterBinaryOutputFormatArrayOutput)
 }
 
+func (o LegacyServiceUserParameterOutput) ClientEnableLogInfoStatementParameters() LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterClientEnableLogInfoStatementParameter {
+		return v.ClientEnableLogInfoStatementParameters
+	}).(LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput)
+}
+
 func (o LegacyServiceUserParameterOutput) ClientMemoryLimits() LegacyServiceUserParameterClientMemoryLimitArrayOutput {
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterClientMemoryLimit {
 		return v.ClientMemoryLimits
@@ -42379,6 +46032,12 @@ func (o LegacyServiceUserParameterOutput) ClientMetadataRequestUseConnectionCtxe
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
 		return v.ClientMetadataRequestUseConnectionCtxes
 	}).(LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArrayOutput)
+}
+
+func (o LegacyServiceUserParameterOutput) ClientMetadataUseSessionDatabases() LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterClientMetadataUseSessionDatabase {
+		return v.ClientMetadataUseSessionDatabases
+	}).(LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput)
 }
 
 func (o LegacyServiceUserParameterOutput) ClientPrefetchThreads() LegacyServiceUserParameterClientPrefetchThreadArrayOutput {
@@ -42417,6 +46076,12 @@ func (o LegacyServiceUserParameterOutput) ClientTimestampTypeMappings() LegacySe
 	}).(LegacyServiceUserParameterClientTimestampTypeMappingArrayOutput)
 }
 
+func (o LegacyServiceUserParameterOutput) CsvTimestampFormats() LegacyServiceUserParameterCsvTimestampFormatArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterCsvTimestampFormat {
+		return v.CsvTimestampFormats
+	}).(LegacyServiceUserParameterCsvTimestampFormatArrayOutput)
+}
+
 func (o LegacyServiceUserParameterOutput) DateInputFormats() LegacyServiceUserParameterDateInputFormatArrayOutput {
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterDateInputFormat {
 		return v.DateInputFormats
@@ -42427,6 +46092,12 @@ func (o LegacyServiceUserParameterOutput) DateOutputFormats() LegacyServiceUserP
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterDateOutputFormat {
 		return v.DateOutputFormats
 	}).(LegacyServiceUserParameterDateOutputFormatArrayOutput)
+}
+
+func (o LegacyServiceUserParameterOutput) EnableGetDdlUseDataTypeAliases() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias {
+		return v.EnableGetDdlUseDataTypeAliases
+	}).(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput)
 }
 
 func (o LegacyServiceUserParameterOutput) EnableUnloadPhysicalTypeOptimizations() LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput {
@@ -42465,6 +46136,12 @@ func (o LegacyServiceUserParameterOutput) GeometryOutputFormats() LegacyServiceU
 	}).(LegacyServiceUserParameterGeometryOutputFormatArrayOutput)
 }
 
+func (o LegacyServiceUserParameterOutput) HybridTableLockTimeouts() LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterHybridTableLockTimeout {
+		return v.HybridTableLockTimeouts
+	}).(LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput)
+}
+
 func (o LegacyServiceUserParameterOutput) JdbcTreatDecimalAsInts() LegacyServiceUserParameterJdbcTreatDecimalAsIntArrayOutput {
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterJdbcTreatDecimalAsInt {
 		return v.JdbcTreatDecimalAsInts
@@ -42481,6 +46158,12 @@ func (o LegacyServiceUserParameterOutput) JdbcUseSessionTimezones() LegacyServic
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterJdbcUseSessionTimezone {
 		return v.JdbcUseSessionTimezones
 	}).(LegacyServiceUserParameterJdbcUseSessionTimezoneArrayOutput)
+}
+
+func (o LegacyServiceUserParameterOutput) JsTreatIntegerAsBigints() LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterJsTreatIntegerAsBigint {
+		return v.JsTreatIntegerAsBigints
+	}).(LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput)
 }
 
 func (o LegacyServiceUserParameterOutput) JsonIndents() LegacyServiceUserParameterJsonIndentArrayOutput {
@@ -42525,6 +46208,18 @@ func (o LegacyServiceUserParameterOutput) PreventUnloadToInternalStages() Legacy
 	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterPreventUnloadToInternalStage {
 		return v.PreventUnloadToInternalStages
 	}).(LegacyServiceUserParameterPreventUnloadToInternalStageArrayOutput)
+}
+
+func (o LegacyServiceUserParameterOutput) PythonProfilerModules() LegacyServiceUserParameterPythonProfilerModuleArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterPythonProfilerModule {
+		return v.PythonProfilerModules
+	}).(LegacyServiceUserParameterPythonProfilerModuleArrayOutput)
+}
+
+func (o LegacyServiceUserParameterOutput) PythonProfilerTargetStages() LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameter) []LegacyServiceUserParameterPythonProfilerTargetStage {
+		return v.PythonProfilerTargetStages
+	}).(LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput)
 }
 
 func (o LegacyServiceUserParameterOutput) QueryTags() LegacyServiceUserParameterQueryTagArrayOutput {
@@ -42815,6 +46510,124 @@ func (o LegacyServiceUserParameterAbortDetachedQueryArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterAbortDetachedQuery {
 		return vs[0].([]LegacyServiceUserParameterAbortDetachedQuery)[vs[1].(int)]
 	}).(LegacyServiceUserParameterAbortDetachedQueryOutput)
+}
+
+type LegacyServiceUserParameterActivePythonProfiler struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterActivePythonProfilerInput is an input type that accepts LegacyServiceUserParameterActivePythonProfilerArgs and LegacyServiceUserParameterActivePythonProfilerOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterActivePythonProfilerInput` via:
+//
+//	LegacyServiceUserParameterActivePythonProfilerArgs{...}
+type LegacyServiceUserParameterActivePythonProfilerInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterActivePythonProfilerOutput() LegacyServiceUserParameterActivePythonProfilerOutput
+	ToLegacyServiceUserParameterActivePythonProfilerOutputWithContext(context.Context) LegacyServiceUserParameterActivePythonProfilerOutput
+}
+
+type LegacyServiceUserParameterActivePythonProfilerArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterActivePythonProfilerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterActivePythonProfiler)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterActivePythonProfilerArgs) ToLegacyServiceUserParameterActivePythonProfilerOutput() LegacyServiceUserParameterActivePythonProfilerOutput {
+	return i.ToLegacyServiceUserParameterActivePythonProfilerOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterActivePythonProfilerArgs) ToLegacyServiceUserParameterActivePythonProfilerOutputWithContext(ctx context.Context) LegacyServiceUserParameterActivePythonProfilerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterActivePythonProfilerOutput)
+}
+
+// LegacyServiceUserParameterActivePythonProfilerArrayInput is an input type that accepts LegacyServiceUserParameterActivePythonProfilerArray and LegacyServiceUserParameterActivePythonProfilerArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterActivePythonProfilerArrayInput` via:
+//
+//	LegacyServiceUserParameterActivePythonProfilerArray{ LegacyServiceUserParameterActivePythonProfilerArgs{...} }
+type LegacyServiceUserParameterActivePythonProfilerArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterActivePythonProfilerArrayOutput() LegacyServiceUserParameterActivePythonProfilerArrayOutput
+	ToLegacyServiceUserParameterActivePythonProfilerArrayOutputWithContext(context.Context) LegacyServiceUserParameterActivePythonProfilerArrayOutput
+}
+
+type LegacyServiceUserParameterActivePythonProfilerArray []LegacyServiceUserParameterActivePythonProfilerInput
+
+func (LegacyServiceUserParameterActivePythonProfilerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterActivePythonProfiler)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterActivePythonProfilerArray) ToLegacyServiceUserParameterActivePythonProfilerArrayOutput() LegacyServiceUserParameterActivePythonProfilerArrayOutput {
+	return i.ToLegacyServiceUserParameterActivePythonProfilerArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterActivePythonProfilerArray) ToLegacyServiceUserParameterActivePythonProfilerArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterActivePythonProfilerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterActivePythonProfilerArrayOutput)
+}
+
+type LegacyServiceUserParameterActivePythonProfilerOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterActivePythonProfilerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterActivePythonProfiler)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) ToLegacyServiceUserParameterActivePythonProfilerOutput() LegacyServiceUserParameterActivePythonProfilerOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) ToLegacyServiceUserParameterActivePythonProfilerOutputWithContext(ctx context.Context) LegacyServiceUserParameterActivePythonProfilerOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterActivePythonProfiler) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterActivePythonProfiler) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterActivePythonProfiler) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterActivePythonProfiler) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterActivePythonProfiler) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterActivePythonProfilerArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterActivePythonProfilerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterActivePythonProfiler)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerArrayOutput) ToLegacyServiceUserParameterActivePythonProfilerArrayOutput() LegacyServiceUserParameterActivePythonProfilerArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerArrayOutput) ToLegacyServiceUserParameterActivePythonProfilerArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterActivePythonProfilerArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterActivePythonProfilerArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterActivePythonProfilerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterActivePythonProfiler {
+		return vs[0].([]LegacyServiceUserParameterActivePythonProfiler)[vs[1].(int)]
+	}).(LegacyServiceUserParameterActivePythonProfilerOutput)
 }
 
 type LegacyServiceUserParameterAutocommit struct {
@@ -43171,6 +46984,124 @@ func (o LegacyServiceUserParameterBinaryOutputFormatArrayOutput) Index(i pulumi.
 	}).(LegacyServiceUserParameterBinaryOutputFormatOutput)
 }
 
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameter struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterClientEnableLogInfoStatementParameterInput is an input type that accepts LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs and LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterClientEnableLogInfoStatementParameterInput` via:
+//
+//	LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs{...}
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput
+	ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutputWithContext(context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput
+}
+
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput {
+	return i.ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput)
+}
+
+// LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayInput is an input type that accepts LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray and LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayInput` via:
+//
+//	LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray{ LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs{...} }
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput
+	ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput
+}
+
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray []LegacyServiceUserParameterClientEnableLogInfoStatementParameterInput
+
+func (LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return i.ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput)
+}
+
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientEnableLogInfoStatementParameter) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientEnableLogInfoStatementParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientEnableLogInfoStatementParameter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientEnableLogInfoStatementParameter) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientEnableLogInfoStatementParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput() LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput) ToLegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterClientEnableLogInfoStatementParameter {
+		return vs[0].([]LegacyServiceUserParameterClientEnableLogInfoStatementParameter)[vs[1].(int)]
+	}).(LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput)
+}
+
 type LegacyServiceUserParameterClientMemoryLimit struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -43405,6 +47336,124 @@ func (o LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArrayOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
 		return vs[0].([]LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx)[vs[1].(int)]
 	}).(LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxOutput)
+}
+
+type LegacyServiceUserParameterClientMetadataUseSessionDatabase struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterClientMetadataUseSessionDatabaseInput is an input type that accepts LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs and LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterClientMetadataUseSessionDatabaseInput` via:
+//
+//	LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs{...}
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput
+	ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutputWithContext(context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput
+}
+
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput {
+	return i.ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput)
+}
+
+// LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayInput is an input type that accepts LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray and LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayInput` via:
+//
+//	LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray{ LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs{...} }
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput
+	ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput
+}
+
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray []LegacyServiceUserParameterClientMetadataUseSessionDatabaseInput
+
+func (LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return i.ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput)
+}
+
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientMetadataUseSessionDatabase) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientMetadataUseSessionDatabase) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientMetadataUseSessionDatabase) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientMetadataUseSessionDatabase) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterClientMetadataUseSessionDatabase) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput() LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput) ToLegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterClientMetadataUseSessionDatabase {
+		return vs[0].([]LegacyServiceUserParameterClientMetadataUseSessionDatabase)[vs[1].(int)]
+	}).(LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput)
 }
 
 type LegacyServiceUserParameterClientPrefetchThread struct {
@@ -44117,6 +48166,124 @@ func (o LegacyServiceUserParameterClientTimestampTypeMappingArrayOutput) Index(i
 	}).(LegacyServiceUserParameterClientTimestampTypeMappingOutput)
 }
 
+type LegacyServiceUserParameterCsvTimestampFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterCsvTimestampFormatInput is an input type that accepts LegacyServiceUserParameterCsvTimestampFormatArgs and LegacyServiceUserParameterCsvTimestampFormatOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterCsvTimestampFormatInput` via:
+//
+//	LegacyServiceUserParameterCsvTimestampFormatArgs{...}
+type LegacyServiceUserParameterCsvTimestampFormatInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterCsvTimestampFormatOutput() LegacyServiceUserParameterCsvTimestampFormatOutput
+	ToLegacyServiceUserParameterCsvTimestampFormatOutputWithContext(context.Context) LegacyServiceUserParameterCsvTimestampFormatOutput
+}
+
+type LegacyServiceUserParameterCsvTimestampFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterCsvTimestampFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterCsvTimestampFormatArgs) ToLegacyServiceUserParameterCsvTimestampFormatOutput() LegacyServiceUserParameterCsvTimestampFormatOutput {
+	return i.ToLegacyServiceUserParameterCsvTimestampFormatOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterCsvTimestampFormatArgs) ToLegacyServiceUserParameterCsvTimestampFormatOutputWithContext(ctx context.Context) LegacyServiceUserParameterCsvTimestampFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterCsvTimestampFormatOutput)
+}
+
+// LegacyServiceUserParameterCsvTimestampFormatArrayInput is an input type that accepts LegacyServiceUserParameterCsvTimestampFormatArray and LegacyServiceUserParameterCsvTimestampFormatArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterCsvTimestampFormatArrayInput` via:
+//
+//	LegacyServiceUserParameterCsvTimestampFormatArray{ LegacyServiceUserParameterCsvTimestampFormatArgs{...} }
+type LegacyServiceUserParameterCsvTimestampFormatArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterCsvTimestampFormatArrayOutput() LegacyServiceUserParameterCsvTimestampFormatArrayOutput
+	ToLegacyServiceUserParameterCsvTimestampFormatArrayOutputWithContext(context.Context) LegacyServiceUserParameterCsvTimestampFormatArrayOutput
+}
+
+type LegacyServiceUserParameterCsvTimestampFormatArray []LegacyServiceUserParameterCsvTimestampFormatInput
+
+func (LegacyServiceUserParameterCsvTimestampFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterCsvTimestampFormatArray) ToLegacyServiceUserParameterCsvTimestampFormatArrayOutput() LegacyServiceUserParameterCsvTimestampFormatArrayOutput {
+	return i.ToLegacyServiceUserParameterCsvTimestampFormatArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterCsvTimestampFormatArray) ToLegacyServiceUserParameterCsvTimestampFormatArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterCsvTimestampFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterCsvTimestampFormatArrayOutput)
+}
+
+type LegacyServiceUserParameterCsvTimestampFormatOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterCsvTimestampFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) ToLegacyServiceUserParameterCsvTimestampFormatOutput() LegacyServiceUserParameterCsvTimestampFormatOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) ToLegacyServiceUserParameterCsvTimestampFormatOutputWithContext(ctx context.Context) LegacyServiceUserParameterCsvTimestampFormatOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterCsvTimestampFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterCsvTimestampFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterCsvTimestampFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterCsvTimestampFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterCsvTimestampFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterCsvTimestampFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterCsvTimestampFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatArrayOutput) ToLegacyServiceUserParameterCsvTimestampFormatArrayOutput() LegacyServiceUserParameterCsvTimestampFormatArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatArrayOutput) ToLegacyServiceUserParameterCsvTimestampFormatArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterCsvTimestampFormatArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterCsvTimestampFormatArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterCsvTimestampFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterCsvTimestampFormat {
+		return vs[0].([]LegacyServiceUserParameterCsvTimestampFormat)[vs[1].(int)]
+	}).(LegacyServiceUserParameterCsvTimestampFormatOutput)
+}
+
 type LegacyServiceUserParameterDateInputFormat struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -44351,6 +48518,124 @@ func (o LegacyServiceUserParameterDateOutputFormatArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterDateOutputFormat {
 		return vs[0].([]LegacyServiceUserParameterDateOutputFormat)[vs[1].(int)]
 	}).(LegacyServiceUserParameterDateOutputFormatOutput)
+}
+
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasInput is an input type that accepts LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs and LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasInput` via:
+//
+//	LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs{...}
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput
+	ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutputWithContext(context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput
+}
+
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput {
+	return i.ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutputWithContext(ctx context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput)
+}
+
+// LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayInput is an input type that accepts LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray and LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayInput` via:
+//
+//	LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray{ LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs{...} }
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput
+	ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutputWithContext(context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput
+}
+
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray []LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasInput
+
+func (LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return i.ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput)
+}
+
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutputWithContext(ctx context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput() LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput) ToLegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias {
+		return vs[0].([]LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias)[vs[1].(int)]
+	}).(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput)
 }
 
 type LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization struct {
@@ -45061,6 +49346,124 @@ func (o LegacyServiceUserParameterGeometryOutputFormatArrayOutput) Index(i pulum
 	}).(LegacyServiceUserParameterGeometryOutputFormatOutput)
 }
 
+type LegacyServiceUserParameterHybridTableLockTimeout struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterHybridTableLockTimeoutInput is an input type that accepts LegacyServiceUserParameterHybridTableLockTimeoutArgs and LegacyServiceUserParameterHybridTableLockTimeoutOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterHybridTableLockTimeoutInput` via:
+//
+//	LegacyServiceUserParameterHybridTableLockTimeoutArgs{...}
+type LegacyServiceUserParameterHybridTableLockTimeoutInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterHybridTableLockTimeoutOutput() LegacyServiceUserParameterHybridTableLockTimeoutOutput
+	ToLegacyServiceUserParameterHybridTableLockTimeoutOutputWithContext(context.Context) LegacyServiceUserParameterHybridTableLockTimeoutOutput
+}
+
+type LegacyServiceUserParameterHybridTableLockTimeoutArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterHybridTableLockTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterHybridTableLockTimeout)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterHybridTableLockTimeoutArgs) ToLegacyServiceUserParameterHybridTableLockTimeoutOutput() LegacyServiceUserParameterHybridTableLockTimeoutOutput {
+	return i.ToLegacyServiceUserParameterHybridTableLockTimeoutOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterHybridTableLockTimeoutArgs) ToLegacyServiceUserParameterHybridTableLockTimeoutOutputWithContext(ctx context.Context) LegacyServiceUserParameterHybridTableLockTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterHybridTableLockTimeoutOutput)
+}
+
+// LegacyServiceUserParameterHybridTableLockTimeoutArrayInput is an input type that accepts LegacyServiceUserParameterHybridTableLockTimeoutArray and LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterHybridTableLockTimeoutArrayInput` via:
+//
+//	LegacyServiceUserParameterHybridTableLockTimeoutArray{ LegacyServiceUserParameterHybridTableLockTimeoutArgs{...} }
+type LegacyServiceUserParameterHybridTableLockTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutput() LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput
+	ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutputWithContext(context.Context) LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput
+}
+
+type LegacyServiceUserParameterHybridTableLockTimeoutArray []LegacyServiceUserParameterHybridTableLockTimeoutInput
+
+func (LegacyServiceUserParameterHybridTableLockTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterHybridTableLockTimeout)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterHybridTableLockTimeoutArray) ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutput() LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput {
+	return i.ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterHybridTableLockTimeoutArray) ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput)
+}
+
+type LegacyServiceUserParameterHybridTableLockTimeoutOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterHybridTableLockTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterHybridTableLockTimeout)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) ToLegacyServiceUserParameterHybridTableLockTimeoutOutput() LegacyServiceUserParameterHybridTableLockTimeoutOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) ToLegacyServiceUserParameterHybridTableLockTimeoutOutputWithContext(ctx context.Context) LegacyServiceUserParameterHybridTableLockTimeoutOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterHybridTableLockTimeout) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterHybridTableLockTimeout) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterHybridTableLockTimeout) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterHybridTableLockTimeout) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterHybridTableLockTimeout) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterHybridTableLockTimeout)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput) ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutput() LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput) ToLegacyServiceUserParameterHybridTableLockTimeoutArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterHybridTableLockTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterHybridTableLockTimeout {
+		return vs[0].([]LegacyServiceUserParameterHybridTableLockTimeout)[vs[1].(int)]
+	}).(LegacyServiceUserParameterHybridTableLockTimeoutOutput)
+}
+
 type LegacyServiceUserParameterJdbcTreatDecimalAsInt struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -45413,6 +49816,124 @@ func (o LegacyServiceUserParameterJdbcUseSessionTimezoneArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterJdbcUseSessionTimezone {
 		return vs[0].([]LegacyServiceUserParameterJdbcUseSessionTimezone)[vs[1].(int)]
 	}).(LegacyServiceUserParameterJdbcUseSessionTimezoneOutput)
+}
+
+type LegacyServiceUserParameterJsTreatIntegerAsBigint struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterJsTreatIntegerAsBigintInput is an input type that accepts LegacyServiceUserParameterJsTreatIntegerAsBigintArgs and LegacyServiceUserParameterJsTreatIntegerAsBigintOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterJsTreatIntegerAsBigintInput` via:
+//
+//	LegacyServiceUserParameterJsTreatIntegerAsBigintArgs{...}
+type LegacyServiceUserParameterJsTreatIntegerAsBigintInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintOutput
+	ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutputWithContext(context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintOutput
+}
+
+type LegacyServiceUserParameterJsTreatIntegerAsBigintArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterJsTreatIntegerAsBigintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterJsTreatIntegerAsBigint)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterJsTreatIntegerAsBigintArgs) ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintOutput {
+	return i.ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterJsTreatIntegerAsBigintArgs) ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutputWithContext(ctx context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterJsTreatIntegerAsBigintOutput)
+}
+
+// LegacyServiceUserParameterJsTreatIntegerAsBigintArrayInput is an input type that accepts LegacyServiceUserParameterJsTreatIntegerAsBigintArray and LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterJsTreatIntegerAsBigintArrayInput` via:
+//
+//	LegacyServiceUserParameterJsTreatIntegerAsBigintArray{ LegacyServiceUserParameterJsTreatIntegerAsBigintArgs{...} }
+type LegacyServiceUserParameterJsTreatIntegerAsBigintArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput
+	ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutputWithContext(context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput
+}
+
+type LegacyServiceUserParameterJsTreatIntegerAsBigintArray []LegacyServiceUserParameterJsTreatIntegerAsBigintInput
+
+func (LegacyServiceUserParameterJsTreatIntegerAsBigintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterJsTreatIntegerAsBigint)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterJsTreatIntegerAsBigintArray) ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput {
+	return i.ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterJsTreatIntegerAsBigintArray) ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput)
+}
+
+type LegacyServiceUserParameterJsTreatIntegerAsBigintOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterJsTreatIntegerAsBigint)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) ToLegacyServiceUserParameterJsTreatIntegerAsBigintOutputWithContext(ctx context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterJsTreatIntegerAsBigint) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterJsTreatIntegerAsBigint) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterJsTreatIntegerAsBigint) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterJsTreatIntegerAsBigint) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterJsTreatIntegerAsBigint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterJsTreatIntegerAsBigint)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput) ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput() LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput) ToLegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterJsTreatIntegerAsBigintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterJsTreatIntegerAsBigint {
+		return vs[0].([]LegacyServiceUserParameterJsTreatIntegerAsBigint)[vs[1].(int)]
+	}).(LegacyServiceUserParameterJsTreatIntegerAsBigintOutput)
 }
 
 type LegacyServiceUserParameterJsonIndent struct {
@@ -46475,6 +50996,242 @@ func (o LegacyServiceUserParameterPreventUnloadToInternalStageArrayOutput) Index
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterPreventUnloadToInternalStage {
 		return vs[0].([]LegacyServiceUserParameterPreventUnloadToInternalStage)[vs[1].(int)]
 	}).(LegacyServiceUserParameterPreventUnloadToInternalStageOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerModule struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterPythonProfilerModuleInput is an input type that accepts LegacyServiceUserParameterPythonProfilerModuleArgs and LegacyServiceUserParameterPythonProfilerModuleOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterPythonProfilerModuleInput` via:
+//
+//	LegacyServiceUserParameterPythonProfilerModuleArgs{...}
+type LegacyServiceUserParameterPythonProfilerModuleInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterPythonProfilerModuleOutput() LegacyServiceUserParameterPythonProfilerModuleOutput
+	ToLegacyServiceUserParameterPythonProfilerModuleOutputWithContext(context.Context) LegacyServiceUserParameterPythonProfilerModuleOutput
+}
+
+type LegacyServiceUserParameterPythonProfilerModuleArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterPythonProfilerModuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerModule)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterPythonProfilerModuleArgs) ToLegacyServiceUserParameterPythonProfilerModuleOutput() LegacyServiceUserParameterPythonProfilerModuleOutput {
+	return i.ToLegacyServiceUserParameterPythonProfilerModuleOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterPythonProfilerModuleArgs) ToLegacyServiceUserParameterPythonProfilerModuleOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerModuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterPythonProfilerModuleOutput)
+}
+
+// LegacyServiceUserParameterPythonProfilerModuleArrayInput is an input type that accepts LegacyServiceUserParameterPythonProfilerModuleArray and LegacyServiceUserParameterPythonProfilerModuleArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterPythonProfilerModuleArrayInput` via:
+//
+//	LegacyServiceUserParameterPythonProfilerModuleArray{ LegacyServiceUserParameterPythonProfilerModuleArgs{...} }
+type LegacyServiceUserParameterPythonProfilerModuleArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterPythonProfilerModuleArrayOutput() LegacyServiceUserParameterPythonProfilerModuleArrayOutput
+	ToLegacyServiceUserParameterPythonProfilerModuleArrayOutputWithContext(context.Context) LegacyServiceUserParameterPythonProfilerModuleArrayOutput
+}
+
+type LegacyServiceUserParameterPythonProfilerModuleArray []LegacyServiceUserParameterPythonProfilerModuleInput
+
+func (LegacyServiceUserParameterPythonProfilerModuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterPythonProfilerModule)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterPythonProfilerModuleArray) ToLegacyServiceUserParameterPythonProfilerModuleArrayOutput() LegacyServiceUserParameterPythonProfilerModuleArrayOutput {
+	return i.ToLegacyServiceUserParameterPythonProfilerModuleArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterPythonProfilerModuleArray) ToLegacyServiceUserParameterPythonProfilerModuleArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerModuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterPythonProfilerModuleArrayOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerModuleOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterPythonProfilerModuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerModule)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) ToLegacyServiceUserParameterPythonProfilerModuleOutput() LegacyServiceUserParameterPythonProfilerModuleOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) ToLegacyServiceUserParameterPythonProfilerModuleOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerModuleOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerModule) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerModule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerModule) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerModule) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerModule) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerModuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterPythonProfilerModuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterPythonProfilerModule)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleArrayOutput) ToLegacyServiceUserParameterPythonProfilerModuleArrayOutput() LegacyServiceUserParameterPythonProfilerModuleArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleArrayOutput) ToLegacyServiceUserParameterPythonProfilerModuleArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerModuleArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerModuleArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterPythonProfilerModuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterPythonProfilerModule {
+		return vs[0].([]LegacyServiceUserParameterPythonProfilerModule)[vs[1].(int)]
+	}).(LegacyServiceUserParameterPythonProfilerModuleOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerTargetStage struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// LegacyServiceUserParameterPythonProfilerTargetStageInput is an input type that accepts LegacyServiceUserParameterPythonProfilerTargetStageArgs and LegacyServiceUserParameterPythonProfilerTargetStageOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterPythonProfilerTargetStageInput` via:
+//
+//	LegacyServiceUserParameterPythonProfilerTargetStageArgs{...}
+type LegacyServiceUserParameterPythonProfilerTargetStageInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterPythonProfilerTargetStageOutput() LegacyServiceUserParameterPythonProfilerTargetStageOutput
+	ToLegacyServiceUserParameterPythonProfilerTargetStageOutputWithContext(context.Context) LegacyServiceUserParameterPythonProfilerTargetStageOutput
+}
+
+type LegacyServiceUserParameterPythonProfilerTargetStageArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LegacyServiceUserParameterPythonProfilerTargetStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerTargetStage)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterPythonProfilerTargetStageArgs) ToLegacyServiceUserParameterPythonProfilerTargetStageOutput() LegacyServiceUserParameterPythonProfilerTargetStageOutput {
+	return i.ToLegacyServiceUserParameterPythonProfilerTargetStageOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterPythonProfilerTargetStageArgs) ToLegacyServiceUserParameterPythonProfilerTargetStageOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerTargetStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterPythonProfilerTargetStageOutput)
+}
+
+// LegacyServiceUserParameterPythonProfilerTargetStageArrayInput is an input type that accepts LegacyServiceUserParameterPythonProfilerTargetStageArray and LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput values.
+// You can construct a concrete instance of `LegacyServiceUserParameterPythonProfilerTargetStageArrayInput` via:
+//
+//	LegacyServiceUserParameterPythonProfilerTargetStageArray{ LegacyServiceUserParameterPythonProfilerTargetStageArgs{...} }
+type LegacyServiceUserParameterPythonProfilerTargetStageArrayInput interface {
+	pulumi.Input
+
+	ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutput() LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput
+	ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutputWithContext(context.Context) LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput
+}
+
+type LegacyServiceUserParameterPythonProfilerTargetStageArray []LegacyServiceUserParameterPythonProfilerTargetStageInput
+
+func (LegacyServiceUserParameterPythonProfilerTargetStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterPythonProfilerTargetStage)(nil)).Elem()
+}
+
+func (i LegacyServiceUserParameterPythonProfilerTargetStageArray) ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutput() LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput {
+	return i.ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutputWithContext(context.Background())
+}
+
+func (i LegacyServiceUserParameterPythonProfilerTargetStageArray) ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerTargetStageOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterPythonProfilerTargetStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerTargetStage)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) ToLegacyServiceUserParameterPythonProfilerTargetStageOutput() LegacyServiceUserParameterPythonProfilerTargetStageOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) ToLegacyServiceUserParameterPythonProfilerTargetStageOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerTargetStageOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerTargetStage) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerTargetStage) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerTargetStage) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerTargetStage) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserParameterPythonProfilerTargetStage) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput struct{ *pulumi.OutputState }
+
+func (LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LegacyServiceUserParameterPythonProfilerTargetStage)(nil)).Elem()
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput) ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutput() LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput) ToLegacyServiceUserParameterPythonProfilerTargetStageArrayOutputWithContext(ctx context.Context) LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput {
+	return o
+}
+
+func (o LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput) Index(i pulumi.IntInput) LegacyServiceUserParameterPythonProfilerTargetStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LegacyServiceUserParameterPythonProfilerTargetStage {
+		return vs[0].([]LegacyServiceUserParameterPythonProfilerTargetStage)[vs[1].(int)]
+	}).(LegacyServiceUserParameterPythonProfilerTargetStageOutput)
 }
 
 type LegacyServiceUserParameterQueryTag struct {
@@ -60179,6 +64936,686 @@ func (o PasswordPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) PasswordPo
 	}).(PasswordPolicyShowOutputOutput)
 }
 
+type PipeDescribeOutput struct {
+	Comment             *string `pulumi:"comment"`
+	CreatedOn           *string `pulumi:"createdOn"`
+	DatabaseName        *string `pulumi:"databaseName"`
+	Definition          *string `pulumi:"definition"`
+	ErrorIntegration    *string `pulumi:"errorIntegration"`
+	Integration         *string `pulumi:"integration"`
+	InvalidReason       *string `pulumi:"invalidReason"`
+	Kind                *string `pulumi:"kind"`
+	Name                *string `pulumi:"name"`
+	NotificationChannel *string `pulumi:"notificationChannel"`
+	Owner               *string `pulumi:"owner"`
+	OwnerRoleType       *string `pulumi:"ownerRoleType"`
+	Pattern             *string `pulumi:"pattern"`
+	SchemaName          *string `pulumi:"schemaName"`
+}
+
+// PipeDescribeOutputInput is an input type that accepts PipeDescribeOutputArgs and PipeDescribeOutputOutput values.
+// You can construct a concrete instance of `PipeDescribeOutputInput` via:
+//
+//	PipeDescribeOutputArgs{...}
+type PipeDescribeOutputInput interface {
+	pulumi.Input
+
+	ToPipeDescribeOutputOutput() PipeDescribeOutputOutput
+	ToPipeDescribeOutputOutputWithContext(context.Context) PipeDescribeOutputOutput
+}
+
+type PipeDescribeOutputArgs struct {
+	Comment             pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn           pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName        pulumi.StringPtrInput `pulumi:"databaseName"`
+	Definition          pulumi.StringPtrInput `pulumi:"definition"`
+	ErrorIntegration    pulumi.StringPtrInput `pulumi:"errorIntegration"`
+	Integration         pulumi.StringPtrInput `pulumi:"integration"`
+	InvalidReason       pulumi.StringPtrInput `pulumi:"invalidReason"`
+	Kind                pulumi.StringPtrInput `pulumi:"kind"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	NotificationChannel pulumi.StringPtrInput `pulumi:"notificationChannel"`
+	Owner               pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType       pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Pattern             pulumi.StringPtrInput `pulumi:"pattern"`
+	SchemaName          pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (PipeDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDescribeOutput)(nil)).Elem()
+}
+
+func (i PipeDescribeOutputArgs) ToPipeDescribeOutputOutput() PipeDescribeOutputOutput {
+	return i.ToPipeDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i PipeDescribeOutputArgs) ToPipeDescribeOutputOutputWithContext(ctx context.Context) PipeDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeDescribeOutputOutput)
+}
+
+// PipeDescribeOutputArrayInput is an input type that accepts PipeDescribeOutputArray and PipeDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `PipeDescribeOutputArrayInput` via:
+//
+//	PipeDescribeOutputArray{ PipeDescribeOutputArgs{...} }
+type PipeDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToPipeDescribeOutputArrayOutput() PipeDescribeOutputArrayOutput
+	ToPipeDescribeOutputArrayOutputWithContext(context.Context) PipeDescribeOutputArrayOutput
+}
+
+type PipeDescribeOutputArray []PipeDescribeOutputInput
+
+func (PipeDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeDescribeOutput)(nil)).Elem()
+}
+
+func (i PipeDescribeOutputArray) ToPipeDescribeOutputArrayOutput() PipeDescribeOutputArrayOutput {
+	return i.ToPipeDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PipeDescribeOutputArray) ToPipeDescribeOutputArrayOutputWithContext(ctx context.Context) PipeDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeDescribeOutputArrayOutput)
+}
+
+type PipeDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (PipeDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeDescribeOutput)(nil)).Elem()
+}
+
+func (o PipeDescribeOutputOutput) ToPipeDescribeOutputOutput() PipeDescribeOutputOutput {
+	return o
+}
+
+func (o PipeDescribeOutputOutput) ToPipeDescribeOutputOutputWithContext(ctx context.Context) PipeDescribeOutputOutput {
+	return o
+}
+
+func (o PipeDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) ErrorIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Integration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Integration }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) InvalidReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.InvalidReason }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) NotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.NotificationChannel }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PipeDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeDescribeOutput)(nil)).Elem()
+}
+
+func (o PipeDescribeOutputArrayOutput) ToPipeDescribeOutputArrayOutput() PipeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PipeDescribeOutputArrayOutput) ToPipeDescribeOutputArrayOutputWithContext(ctx context.Context) PipeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PipeDescribeOutputArrayOutput) Index(i pulumi.IntInput) PipeDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeDescribeOutput {
+		return vs[0].([]PipeDescribeOutput)[vs[1].(int)]
+	}).(PipeDescribeOutputOutput)
+}
+
+type PipeParameter struct {
+	LogEventLevels       []PipeParameterLogEventLevel       `pulumi:"logEventLevels"`
+	PipeExecutionPauseds []PipeParameterPipeExecutionPaused `pulumi:"pipeExecutionPauseds"`
+}
+
+// PipeParameterInput is an input type that accepts PipeParameterArgs and PipeParameterOutput values.
+// You can construct a concrete instance of `PipeParameterInput` via:
+//
+//	PipeParameterArgs{...}
+type PipeParameterInput interface {
+	pulumi.Input
+
+	ToPipeParameterOutput() PipeParameterOutput
+	ToPipeParameterOutputWithContext(context.Context) PipeParameterOutput
+}
+
+type PipeParameterArgs struct {
+	LogEventLevels       PipeParameterLogEventLevelArrayInput       `pulumi:"logEventLevels"`
+	PipeExecutionPauseds PipeParameterPipeExecutionPausedArrayInput `pulumi:"pipeExecutionPauseds"`
+}
+
+func (PipeParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameter)(nil)).Elem()
+}
+
+func (i PipeParameterArgs) ToPipeParameterOutput() PipeParameterOutput {
+	return i.ToPipeParameterOutputWithContext(context.Background())
+}
+
+func (i PipeParameterArgs) ToPipeParameterOutputWithContext(ctx context.Context) PipeParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterOutput)
+}
+
+// PipeParameterArrayInput is an input type that accepts PipeParameterArray and PipeParameterArrayOutput values.
+// You can construct a concrete instance of `PipeParameterArrayInput` via:
+//
+//	PipeParameterArray{ PipeParameterArgs{...} }
+type PipeParameterArrayInput interface {
+	pulumi.Input
+
+	ToPipeParameterArrayOutput() PipeParameterArrayOutput
+	ToPipeParameterArrayOutputWithContext(context.Context) PipeParameterArrayOutput
+}
+
+type PipeParameterArray []PipeParameterInput
+
+func (PipeParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameter)(nil)).Elem()
+}
+
+func (i PipeParameterArray) ToPipeParameterArrayOutput() PipeParameterArrayOutput {
+	return i.ToPipeParameterArrayOutputWithContext(context.Background())
+}
+
+func (i PipeParameterArray) ToPipeParameterArrayOutputWithContext(ctx context.Context) PipeParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterArrayOutput)
+}
+
+type PipeParameterOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameter)(nil)).Elem()
+}
+
+func (o PipeParameterOutput) ToPipeParameterOutput() PipeParameterOutput {
+	return o
+}
+
+func (o PipeParameterOutput) ToPipeParameterOutputWithContext(ctx context.Context) PipeParameterOutput {
+	return o
+}
+
+func (o PipeParameterOutput) LogEventLevels() PipeParameterLogEventLevelArrayOutput {
+	return o.ApplyT(func(v PipeParameter) []PipeParameterLogEventLevel { return v.LogEventLevels }).(PipeParameterLogEventLevelArrayOutput)
+}
+
+func (o PipeParameterOutput) PipeExecutionPauseds() PipeParameterPipeExecutionPausedArrayOutput {
+	return o.ApplyT(func(v PipeParameter) []PipeParameterPipeExecutionPaused { return v.PipeExecutionPauseds }).(PipeParameterPipeExecutionPausedArrayOutput)
+}
+
+type PipeParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameter)(nil)).Elem()
+}
+
+func (o PipeParameterArrayOutput) ToPipeParameterArrayOutput() PipeParameterArrayOutput {
+	return o
+}
+
+func (o PipeParameterArrayOutput) ToPipeParameterArrayOutputWithContext(ctx context.Context) PipeParameterArrayOutput {
+	return o
+}
+
+func (o PipeParameterArrayOutput) Index(i pulumi.IntInput) PipeParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeParameter {
+		return vs[0].([]PipeParameter)[vs[1].(int)]
+	}).(PipeParameterOutput)
+}
+
+type PipeParameterLogEventLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// PipeParameterLogEventLevelInput is an input type that accepts PipeParameterLogEventLevelArgs and PipeParameterLogEventLevelOutput values.
+// You can construct a concrete instance of `PipeParameterLogEventLevelInput` via:
+//
+//	PipeParameterLogEventLevelArgs{...}
+type PipeParameterLogEventLevelInput interface {
+	pulumi.Input
+
+	ToPipeParameterLogEventLevelOutput() PipeParameterLogEventLevelOutput
+	ToPipeParameterLogEventLevelOutputWithContext(context.Context) PipeParameterLogEventLevelOutput
+}
+
+type PipeParameterLogEventLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (PipeParameterLogEventLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i PipeParameterLogEventLevelArgs) ToPipeParameterLogEventLevelOutput() PipeParameterLogEventLevelOutput {
+	return i.ToPipeParameterLogEventLevelOutputWithContext(context.Background())
+}
+
+func (i PipeParameterLogEventLevelArgs) ToPipeParameterLogEventLevelOutputWithContext(ctx context.Context) PipeParameterLogEventLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterLogEventLevelOutput)
+}
+
+// PipeParameterLogEventLevelArrayInput is an input type that accepts PipeParameterLogEventLevelArray and PipeParameterLogEventLevelArrayOutput values.
+// You can construct a concrete instance of `PipeParameterLogEventLevelArrayInput` via:
+//
+//	PipeParameterLogEventLevelArray{ PipeParameterLogEventLevelArgs{...} }
+type PipeParameterLogEventLevelArrayInput interface {
+	pulumi.Input
+
+	ToPipeParameterLogEventLevelArrayOutput() PipeParameterLogEventLevelArrayOutput
+	ToPipeParameterLogEventLevelArrayOutputWithContext(context.Context) PipeParameterLogEventLevelArrayOutput
+}
+
+type PipeParameterLogEventLevelArray []PipeParameterLogEventLevelInput
+
+func (PipeParameterLogEventLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i PipeParameterLogEventLevelArray) ToPipeParameterLogEventLevelArrayOutput() PipeParameterLogEventLevelArrayOutput {
+	return i.ToPipeParameterLogEventLevelArrayOutputWithContext(context.Background())
+}
+
+func (i PipeParameterLogEventLevelArray) ToPipeParameterLogEventLevelArrayOutputWithContext(ctx context.Context) PipeParameterLogEventLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterLogEventLevelArrayOutput)
+}
+
+type PipeParameterLogEventLevelOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterLogEventLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o PipeParameterLogEventLevelOutput) ToPipeParameterLogEventLevelOutput() PipeParameterLogEventLevelOutput {
+	return o
+}
+
+func (o PipeParameterLogEventLevelOutput) ToPipeParameterLogEventLevelOutputWithContext(ctx context.Context) PipeParameterLogEventLevelOutput {
+	return o
+}
+
+func (o PipeParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type PipeParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o PipeParameterLogEventLevelArrayOutput) ToPipeParameterLogEventLevelArrayOutput() PipeParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o PipeParameterLogEventLevelArrayOutput) ToPipeParameterLogEventLevelArrayOutputWithContext(ctx context.Context) PipeParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o PipeParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) PipeParameterLogEventLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeParameterLogEventLevel {
+		return vs[0].([]PipeParameterLogEventLevel)[vs[1].(int)]
+	}).(PipeParameterLogEventLevelOutput)
+}
+
+type PipeParameterPipeExecutionPaused struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// PipeParameterPipeExecutionPausedInput is an input type that accepts PipeParameterPipeExecutionPausedArgs and PipeParameterPipeExecutionPausedOutput values.
+// You can construct a concrete instance of `PipeParameterPipeExecutionPausedInput` via:
+//
+//	PipeParameterPipeExecutionPausedArgs{...}
+type PipeParameterPipeExecutionPausedInput interface {
+	pulumi.Input
+
+	ToPipeParameterPipeExecutionPausedOutput() PipeParameterPipeExecutionPausedOutput
+	ToPipeParameterPipeExecutionPausedOutputWithContext(context.Context) PipeParameterPipeExecutionPausedOutput
+}
+
+type PipeParameterPipeExecutionPausedArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (PipeParameterPipeExecutionPausedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameterPipeExecutionPaused)(nil)).Elem()
+}
+
+func (i PipeParameterPipeExecutionPausedArgs) ToPipeParameterPipeExecutionPausedOutput() PipeParameterPipeExecutionPausedOutput {
+	return i.ToPipeParameterPipeExecutionPausedOutputWithContext(context.Background())
+}
+
+func (i PipeParameterPipeExecutionPausedArgs) ToPipeParameterPipeExecutionPausedOutputWithContext(ctx context.Context) PipeParameterPipeExecutionPausedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterPipeExecutionPausedOutput)
+}
+
+// PipeParameterPipeExecutionPausedArrayInput is an input type that accepts PipeParameterPipeExecutionPausedArray and PipeParameterPipeExecutionPausedArrayOutput values.
+// You can construct a concrete instance of `PipeParameterPipeExecutionPausedArrayInput` via:
+//
+//	PipeParameterPipeExecutionPausedArray{ PipeParameterPipeExecutionPausedArgs{...} }
+type PipeParameterPipeExecutionPausedArrayInput interface {
+	pulumi.Input
+
+	ToPipeParameterPipeExecutionPausedArrayOutput() PipeParameterPipeExecutionPausedArrayOutput
+	ToPipeParameterPipeExecutionPausedArrayOutputWithContext(context.Context) PipeParameterPipeExecutionPausedArrayOutput
+}
+
+type PipeParameterPipeExecutionPausedArray []PipeParameterPipeExecutionPausedInput
+
+func (PipeParameterPipeExecutionPausedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameterPipeExecutionPaused)(nil)).Elem()
+}
+
+func (i PipeParameterPipeExecutionPausedArray) ToPipeParameterPipeExecutionPausedArrayOutput() PipeParameterPipeExecutionPausedArrayOutput {
+	return i.ToPipeParameterPipeExecutionPausedArrayOutputWithContext(context.Background())
+}
+
+func (i PipeParameterPipeExecutionPausedArray) ToPipeParameterPipeExecutionPausedArrayOutputWithContext(ctx context.Context) PipeParameterPipeExecutionPausedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeParameterPipeExecutionPausedArrayOutput)
+}
+
+type PipeParameterPipeExecutionPausedOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterPipeExecutionPausedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeParameterPipeExecutionPaused)(nil)).Elem()
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) ToPipeParameterPipeExecutionPausedOutput() PipeParameterPipeExecutionPausedOutput {
+	return o
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) ToPipeParameterPipeExecutionPausedOutputWithContext(ctx context.Context) PipeParameterPipeExecutionPausedOutput {
+	return o
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterPipeExecutionPaused) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterPipeExecutionPaused) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterPipeExecutionPaused) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterPipeExecutionPaused) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeParameterPipeExecutionPausedOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeParameterPipeExecutionPaused) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type PipeParameterPipeExecutionPausedArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeParameterPipeExecutionPausedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeParameterPipeExecutionPaused)(nil)).Elem()
+}
+
+func (o PipeParameterPipeExecutionPausedArrayOutput) ToPipeParameterPipeExecutionPausedArrayOutput() PipeParameterPipeExecutionPausedArrayOutput {
+	return o
+}
+
+func (o PipeParameterPipeExecutionPausedArrayOutput) ToPipeParameterPipeExecutionPausedArrayOutputWithContext(ctx context.Context) PipeParameterPipeExecutionPausedArrayOutput {
+	return o
+}
+
+func (o PipeParameterPipeExecutionPausedArrayOutput) Index(i pulumi.IntInput) PipeParameterPipeExecutionPausedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeParameterPipeExecutionPaused {
+		return vs[0].([]PipeParameterPipeExecutionPaused)[vs[1].(int)]
+	}).(PipeParameterPipeExecutionPausedOutput)
+}
+
+type PipeShowOutput struct {
+	Comment             *string `pulumi:"comment"`
+	CreatedOn           *string `pulumi:"createdOn"`
+	DatabaseName        *string `pulumi:"databaseName"`
+	Definition          *string `pulumi:"definition"`
+	ErrorIntegration    *string `pulumi:"errorIntegration"`
+	Integration         *string `pulumi:"integration"`
+	InvalidReason       *string `pulumi:"invalidReason"`
+	Kind                *string `pulumi:"kind"`
+	Name                *string `pulumi:"name"`
+	NotificationChannel *string `pulumi:"notificationChannel"`
+	Owner               *string `pulumi:"owner"`
+	OwnerRoleType       *string `pulumi:"ownerRoleType"`
+	Pattern             *string `pulumi:"pattern"`
+	SchemaName          *string `pulumi:"schemaName"`
+}
+
+// PipeShowOutputInput is an input type that accepts PipeShowOutputArgs and PipeShowOutputOutput values.
+// You can construct a concrete instance of `PipeShowOutputInput` via:
+//
+//	PipeShowOutputArgs{...}
+type PipeShowOutputInput interface {
+	pulumi.Input
+
+	ToPipeShowOutputOutput() PipeShowOutputOutput
+	ToPipeShowOutputOutputWithContext(context.Context) PipeShowOutputOutput
+}
+
+type PipeShowOutputArgs struct {
+	Comment             pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn           pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName        pulumi.StringPtrInput `pulumi:"databaseName"`
+	Definition          pulumi.StringPtrInput `pulumi:"definition"`
+	ErrorIntegration    pulumi.StringPtrInput `pulumi:"errorIntegration"`
+	Integration         pulumi.StringPtrInput `pulumi:"integration"`
+	InvalidReason       pulumi.StringPtrInput `pulumi:"invalidReason"`
+	Kind                pulumi.StringPtrInput `pulumi:"kind"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	NotificationChannel pulumi.StringPtrInput `pulumi:"notificationChannel"`
+	Owner               pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType       pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Pattern             pulumi.StringPtrInput `pulumi:"pattern"`
+	SchemaName          pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (PipeShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeShowOutput)(nil)).Elem()
+}
+
+func (i PipeShowOutputArgs) ToPipeShowOutputOutput() PipeShowOutputOutput {
+	return i.ToPipeShowOutputOutputWithContext(context.Background())
+}
+
+func (i PipeShowOutputArgs) ToPipeShowOutputOutputWithContext(ctx context.Context) PipeShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeShowOutputOutput)
+}
+
+// PipeShowOutputArrayInput is an input type that accepts PipeShowOutputArray and PipeShowOutputArrayOutput values.
+// You can construct a concrete instance of `PipeShowOutputArrayInput` via:
+//
+//	PipeShowOutputArray{ PipeShowOutputArgs{...} }
+type PipeShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToPipeShowOutputArrayOutput() PipeShowOutputArrayOutput
+	ToPipeShowOutputArrayOutputWithContext(context.Context) PipeShowOutputArrayOutput
+}
+
+type PipeShowOutputArray []PipeShowOutputInput
+
+func (PipeShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeShowOutput)(nil)).Elem()
+}
+
+func (i PipeShowOutputArray) ToPipeShowOutputArrayOutput() PipeShowOutputArrayOutput {
+	return i.ToPipeShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PipeShowOutputArray) ToPipeShowOutputArrayOutputWithContext(ctx context.Context) PipeShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeShowOutputArrayOutput)
+}
+
+type PipeShowOutputOutput struct{ *pulumi.OutputState }
+
+func (PipeShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeShowOutput)(nil)).Elem()
+}
+
+func (o PipeShowOutputOutput) ToPipeShowOutputOutput() PipeShowOutputOutput {
+	return o
+}
+
+func (o PipeShowOutputOutput) ToPipeShowOutputOutputWithContext(ctx context.Context) PipeShowOutputOutput {
+	return o
+}
+
+func (o PipeShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) ErrorIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Integration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Integration }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) InvalidReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.InvalidReason }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) NotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.NotificationChannel }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PipeShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeShowOutput)(nil)).Elem()
+}
+
+func (o PipeShowOutputArrayOutput) ToPipeShowOutputArrayOutput() PipeShowOutputArrayOutput {
+	return o
+}
+
+func (o PipeShowOutputArrayOutput) ToPipeShowOutputArrayOutputWithContext(ctx context.Context) PipeShowOutputArrayOutput {
+	return o
+}
+
+func (o PipeShowOutputArrayOutput) Index(i pulumi.IntInput) PipeShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeShowOutput {
+		return vs[0].([]PipeShowOutput)[vs[1].(int)]
+	}).(PipeShowOutputOutput)
+}
+
 type PostgresInstanceDescribeOutput struct {
 	AuthenticationAuthority      *string `pulumi:"authenticationAuthority"`
 	Comment                      *string `pulumi:"comment"`
@@ -60587,6 +66024,413 @@ func (o PostgresInstanceShowOutputArrayOutput) Index(i pulumi.IntInput) Postgres
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PostgresInstanceShowOutput {
 		return vs[0].([]PostgresInstanceShowOutput)[vs[1].(int)]
 	}).(PostgresInstanceShowOutputOutput)
+}
+
+type PostgresMirrorDescribeOutput struct {
+	ApplyLagBytes          *int     `pulumi:"applyLagBytes"`
+	ApplyLagOperations     *int     `pulumi:"applyLagOperations"`
+	ApplyLagSeconds        *int     `pulumi:"applyLagSeconds"`
+	CatalogIntegrationName *string  `pulumi:"catalogIntegrationName"`
+	ErrorMessage           *string  `pulumi:"errorMessage"`
+	ExternalVolume         *string  `pulumi:"externalVolume"`
+	FeedOnly               *bool    `pulumi:"feedOnly"`
+	LastAppliedCommitLsn   *string  `pulumi:"lastAppliedCommitLsn"`
+	LastAppliedCommitTime  *string  `pulumi:"lastAppliedCommitTime"`
+	LastApplyTime          *string  `pulumi:"lastApplyTime"`
+	LastOperationId        *int     `pulumi:"lastOperationId"`
+	LastOperationTime      *string  `pulumi:"lastOperationTime"`
+	Name                   *string  `pulumi:"name"`
+	PostgresDatabase       *string  `pulumi:"postgresDatabase"`
+	PostgresInstance       *string  `pulumi:"postgresInstance"`
+	PostgresSchemas        []string `pulumi:"postgresSchemas"`
+	PostgresStatus         *string  `pulumi:"postgresStatus"`
+	PostgresTables         []string `pulumi:"postgresTables"`
+	RecentQueryDurations   *string  `pulumi:"recentQueryDurations"`
+	RefreshInterval        *string  `pulumi:"refreshInterval"`
+	Status                 *string  `pulumi:"status"`
+	TargetDatabase         *string  `pulumi:"targetDatabase"`
+	TargetTableType        *string  `pulumi:"targetTableType"`
+	Warehouse              *string  `pulumi:"warehouse"`
+}
+
+// PostgresMirrorDescribeOutputInput is an input type that accepts PostgresMirrorDescribeOutputArgs and PostgresMirrorDescribeOutputOutput values.
+// You can construct a concrete instance of `PostgresMirrorDescribeOutputInput` via:
+//
+//	PostgresMirrorDescribeOutputArgs{...}
+type PostgresMirrorDescribeOutputInput interface {
+	pulumi.Input
+
+	ToPostgresMirrorDescribeOutputOutput() PostgresMirrorDescribeOutputOutput
+	ToPostgresMirrorDescribeOutputOutputWithContext(context.Context) PostgresMirrorDescribeOutputOutput
+}
+
+type PostgresMirrorDescribeOutputArgs struct {
+	ApplyLagBytes          pulumi.IntPtrInput      `pulumi:"applyLagBytes"`
+	ApplyLagOperations     pulumi.IntPtrInput      `pulumi:"applyLagOperations"`
+	ApplyLagSeconds        pulumi.IntPtrInput      `pulumi:"applyLagSeconds"`
+	CatalogIntegrationName pulumi.StringPtrInput   `pulumi:"catalogIntegrationName"`
+	ErrorMessage           pulumi.StringPtrInput   `pulumi:"errorMessage"`
+	ExternalVolume         pulumi.StringPtrInput   `pulumi:"externalVolume"`
+	FeedOnly               pulumi.BoolPtrInput     `pulumi:"feedOnly"`
+	LastAppliedCommitLsn   pulumi.StringPtrInput   `pulumi:"lastAppliedCommitLsn"`
+	LastAppliedCommitTime  pulumi.StringPtrInput   `pulumi:"lastAppliedCommitTime"`
+	LastApplyTime          pulumi.StringPtrInput   `pulumi:"lastApplyTime"`
+	LastOperationId        pulumi.IntPtrInput      `pulumi:"lastOperationId"`
+	LastOperationTime      pulumi.StringPtrInput   `pulumi:"lastOperationTime"`
+	Name                   pulumi.StringPtrInput   `pulumi:"name"`
+	PostgresDatabase       pulumi.StringPtrInput   `pulumi:"postgresDatabase"`
+	PostgresInstance       pulumi.StringPtrInput   `pulumi:"postgresInstance"`
+	PostgresSchemas        pulumi.StringArrayInput `pulumi:"postgresSchemas"`
+	PostgresStatus         pulumi.StringPtrInput   `pulumi:"postgresStatus"`
+	PostgresTables         pulumi.StringArrayInput `pulumi:"postgresTables"`
+	RecentQueryDurations   pulumi.StringPtrInput   `pulumi:"recentQueryDurations"`
+	RefreshInterval        pulumi.StringPtrInput   `pulumi:"refreshInterval"`
+	Status                 pulumi.StringPtrInput   `pulumi:"status"`
+	TargetDatabase         pulumi.StringPtrInput   `pulumi:"targetDatabase"`
+	TargetTableType        pulumi.StringPtrInput   `pulumi:"targetTableType"`
+	Warehouse              pulumi.StringPtrInput   `pulumi:"warehouse"`
+}
+
+func (PostgresMirrorDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresMirrorDescribeOutput)(nil)).Elem()
+}
+
+func (i PostgresMirrorDescribeOutputArgs) ToPostgresMirrorDescribeOutputOutput() PostgresMirrorDescribeOutputOutput {
+	return i.ToPostgresMirrorDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i PostgresMirrorDescribeOutputArgs) ToPostgresMirrorDescribeOutputOutputWithContext(ctx context.Context) PostgresMirrorDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresMirrorDescribeOutputOutput)
+}
+
+// PostgresMirrorDescribeOutputArrayInput is an input type that accepts PostgresMirrorDescribeOutputArray and PostgresMirrorDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `PostgresMirrorDescribeOutputArrayInput` via:
+//
+//	PostgresMirrorDescribeOutputArray{ PostgresMirrorDescribeOutputArgs{...} }
+type PostgresMirrorDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToPostgresMirrorDescribeOutputArrayOutput() PostgresMirrorDescribeOutputArrayOutput
+	ToPostgresMirrorDescribeOutputArrayOutputWithContext(context.Context) PostgresMirrorDescribeOutputArrayOutput
+}
+
+type PostgresMirrorDescribeOutputArray []PostgresMirrorDescribeOutputInput
+
+func (PostgresMirrorDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PostgresMirrorDescribeOutput)(nil)).Elem()
+}
+
+func (i PostgresMirrorDescribeOutputArray) ToPostgresMirrorDescribeOutputArrayOutput() PostgresMirrorDescribeOutputArrayOutput {
+	return i.ToPostgresMirrorDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PostgresMirrorDescribeOutputArray) ToPostgresMirrorDescribeOutputArrayOutputWithContext(ctx context.Context) PostgresMirrorDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresMirrorDescribeOutputArrayOutput)
+}
+
+type PostgresMirrorDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (PostgresMirrorDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresMirrorDescribeOutput)(nil)).Elem()
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ToPostgresMirrorDescribeOutputOutput() PostgresMirrorDescribeOutputOutput {
+	return o
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ToPostgresMirrorDescribeOutputOutputWithContext(ctx context.Context) PostgresMirrorDescribeOutputOutput {
+	return o
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ApplyLagBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *int { return v.ApplyLagBytes }).(pulumi.IntPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ApplyLagOperations() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *int { return v.ApplyLagOperations }).(pulumi.IntPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ApplyLagSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *int { return v.ApplyLagSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) CatalogIntegrationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.CatalogIntegrationName }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) ExternalVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.ExternalVolume }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) FeedOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *bool { return v.FeedOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) LastAppliedCommitLsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.LastAppliedCommitLsn }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) LastAppliedCommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.LastAppliedCommitTime }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) LastApplyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.LastApplyTime }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) LastOperationId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *int { return v.LastOperationId }).(pulumi.IntPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) LastOperationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.LastOperationTime }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) PostgresDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.PostgresDatabase }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) PostgresInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.PostgresInstance }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) PostgresSchemas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) []string { return v.PostgresSchemas }).(pulumi.StringArrayOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) PostgresStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.PostgresStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) PostgresTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) []string { return v.PostgresTables }).(pulumi.StringArrayOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) RecentQueryDurations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.RecentQueryDurations }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.RefreshInterval }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) TargetDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.TargetDatabase }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) TargetTableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.TargetTableType }).(pulumi.StringPtrOutput)
+}
+
+func (o PostgresMirrorDescribeOutputOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorDescribeOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
+}
+
+type PostgresMirrorDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PostgresMirrorDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PostgresMirrorDescribeOutput)(nil)).Elem()
+}
+
+func (o PostgresMirrorDescribeOutputArrayOutput) ToPostgresMirrorDescribeOutputArrayOutput() PostgresMirrorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PostgresMirrorDescribeOutputArrayOutput) ToPostgresMirrorDescribeOutputArrayOutputWithContext(ctx context.Context) PostgresMirrorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PostgresMirrorDescribeOutputArrayOutput) Index(i pulumi.IntInput) PostgresMirrorDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PostgresMirrorDescribeOutput {
+		return vs[0].([]PostgresMirrorDescribeOutput)[vs[1].(int)]
+	}).(PostgresMirrorDescribeOutputOutput)
+}
+
+type PostgresMirrorRefreshInterval struct {
+	// Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+	Hours *int `pulumi:"hours"`
+	// Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+	Minutes *int `pulumi:"minutes"`
+	// Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+	Seconds *int `pulumi:"seconds"`
+}
+
+// PostgresMirrorRefreshIntervalInput is an input type that accepts PostgresMirrorRefreshIntervalArgs and PostgresMirrorRefreshIntervalOutput values.
+// You can construct a concrete instance of `PostgresMirrorRefreshIntervalInput` via:
+//
+//	PostgresMirrorRefreshIntervalArgs{...}
+type PostgresMirrorRefreshIntervalInput interface {
+	pulumi.Input
+
+	ToPostgresMirrorRefreshIntervalOutput() PostgresMirrorRefreshIntervalOutput
+	ToPostgresMirrorRefreshIntervalOutputWithContext(context.Context) PostgresMirrorRefreshIntervalOutput
+}
+
+type PostgresMirrorRefreshIntervalArgs struct {
+	// Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
+	// Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+	// Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+	Seconds pulumi.IntPtrInput `pulumi:"seconds"`
+}
+
+func (PostgresMirrorRefreshIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresMirrorRefreshInterval)(nil)).Elem()
+}
+
+func (i PostgresMirrorRefreshIntervalArgs) ToPostgresMirrorRefreshIntervalOutput() PostgresMirrorRefreshIntervalOutput {
+	return i.ToPostgresMirrorRefreshIntervalOutputWithContext(context.Background())
+}
+
+func (i PostgresMirrorRefreshIntervalArgs) ToPostgresMirrorRefreshIntervalOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresMirrorRefreshIntervalOutput)
+}
+
+func (i PostgresMirrorRefreshIntervalArgs) ToPostgresMirrorRefreshIntervalPtrOutput() PostgresMirrorRefreshIntervalPtrOutput {
+	return i.ToPostgresMirrorRefreshIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i PostgresMirrorRefreshIntervalArgs) ToPostgresMirrorRefreshIntervalPtrOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresMirrorRefreshIntervalOutput).ToPostgresMirrorRefreshIntervalPtrOutputWithContext(ctx)
+}
+
+// PostgresMirrorRefreshIntervalPtrInput is an input type that accepts PostgresMirrorRefreshIntervalArgs, PostgresMirrorRefreshIntervalPtr and PostgresMirrorRefreshIntervalPtrOutput values.
+// You can construct a concrete instance of `PostgresMirrorRefreshIntervalPtrInput` via:
+//
+//	        PostgresMirrorRefreshIntervalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PostgresMirrorRefreshIntervalPtrInput interface {
+	pulumi.Input
+
+	ToPostgresMirrorRefreshIntervalPtrOutput() PostgresMirrorRefreshIntervalPtrOutput
+	ToPostgresMirrorRefreshIntervalPtrOutputWithContext(context.Context) PostgresMirrorRefreshIntervalPtrOutput
+}
+
+type postgresMirrorRefreshIntervalPtrType PostgresMirrorRefreshIntervalArgs
+
+func PostgresMirrorRefreshIntervalPtr(v *PostgresMirrorRefreshIntervalArgs) PostgresMirrorRefreshIntervalPtrInput {
+	return (*postgresMirrorRefreshIntervalPtrType)(v)
+}
+
+func (*postgresMirrorRefreshIntervalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PostgresMirrorRefreshInterval)(nil)).Elem()
+}
+
+func (i *postgresMirrorRefreshIntervalPtrType) ToPostgresMirrorRefreshIntervalPtrOutput() PostgresMirrorRefreshIntervalPtrOutput {
+	return i.ToPostgresMirrorRefreshIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i *postgresMirrorRefreshIntervalPtrType) ToPostgresMirrorRefreshIntervalPtrOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresMirrorRefreshIntervalPtrOutput)
+}
+
+type PostgresMirrorRefreshIntervalOutput struct{ *pulumi.OutputState }
+
+func (PostgresMirrorRefreshIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresMirrorRefreshInterval)(nil)).Elem()
+}
+
+func (o PostgresMirrorRefreshIntervalOutput) ToPostgresMirrorRefreshIntervalOutput() PostgresMirrorRefreshIntervalOutput {
+	return o
+}
+
+func (o PostgresMirrorRefreshIntervalOutput) ToPostgresMirrorRefreshIntervalOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalOutput {
+	return o
+}
+
+func (o PostgresMirrorRefreshIntervalOutput) ToPostgresMirrorRefreshIntervalPtrOutput() PostgresMirrorRefreshIntervalPtrOutput {
+	return o.ToPostgresMirrorRefreshIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o PostgresMirrorRefreshIntervalOutput) ToPostgresMirrorRefreshIntervalPtrOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresMirrorRefreshInterval) *PostgresMirrorRefreshInterval {
+		return &v
+	}).(PostgresMirrorRefreshIntervalPtrOutput)
+}
+
+// Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+func (o PostgresMirrorRefreshIntervalOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorRefreshInterval) *int { return v.Hours }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+func (o PostgresMirrorRefreshIntervalOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorRefreshInterval) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+func (o PostgresMirrorRefreshIntervalOutput) Seconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresMirrorRefreshInterval) *int { return v.Seconds }).(pulumi.IntPtrOutput)
+}
+
+type PostgresMirrorRefreshIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (PostgresMirrorRefreshIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PostgresMirrorRefreshInterval)(nil)).Elem()
+}
+
+func (o PostgresMirrorRefreshIntervalPtrOutput) ToPostgresMirrorRefreshIntervalPtrOutput() PostgresMirrorRefreshIntervalPtrOutput {
+	return o
+}
+
+func (o PostgresMirrorRefreshIntervalPtrOutput) ToPostgresMirrorRefreshIntervalPtrOutputWithContext(ctx context.Context) PostgresMirrorRefreshIntervalPtrOutput {
+	return o
+}
+
+func (o PostgresMirrorRefreshIntervalPtrOutput) Elem() PostgresMirrorRefreshIntervalOutput {
+	return o.ApplyT(func(v *PostgresMirrorRefreshInterval) PostgresMirrorRefreshInterval {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresMirrorRefreshInterval
+		return ret
+	}).(PostgresMirrorRefreshIntervalOutput)
+}
+
+// Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+func (o PostgresMirrorRefreshIntervalPtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresMirrorRefreshInterval) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+func (o PostgresMirrorRefreshIntervalPtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresMirrorRefreshInterval) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+func (o PostgresMirrorRefreshIntervalPtrOutput) Seconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresMirrorRefreshInterval) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Seconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type PrimaryConnectionShowOutput struct {
@@ -62481,5554 +68325,6 @@ func (o ProcedureJavascriptParameterEnableConsoleOutputArrayOutput) Index(i pulu
 	}).(ProcedureJavascriptParameterEnableConsoleOutputOutput)
 }
 
-type ProcedureJavascriptParameterLogEventLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureJavascriptParameterLogEventLevelInput is an input type that accepts ProcedureJavascriptParameterLogEventLevelArgs and ProcedureJavascriptParameterLogEventLevelOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterLogEventLevelInput` via:
-//
-//	ProcedureJavascriptParameterLogEventLevelArgs{...}
-type ProcedureJavascriptParameterLogEventLevelInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterLogEventLevelOutput() ProcedureJavascriptParameterLogEventLevelOutput
-	ToProcedureJavascriptParameterLogEventLevelOutputWithContext(context.Context) ProcedureJavascriptParameterLogEventLevelOutput
-}
-
-type ProcedureJavascriptParameterLogEventLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureJavascriptParameterLogEventLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterLogEventLevelArgs) ToProcedureJavascriptParameterLogEventLevelOutput() ProcedureJavascriptParameterLogEventLevelOutput {
-	return i.ToProcedureJavascriptParameterLogEventLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterLogEventLevelArgs) ToProcedureJavascriptParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogEventLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterLogEventLevelOutput)
-}
-
-// ProcedureJavascriptParameterLogEventLevelArrayInput is an input type that accepts ProcedureJavascriptParameterLogEventLevelArray and ProcedureJavascriptParameterLogEventLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterLogEventLevelArrayInput` via:
-//
-//	ProcedureJavascriptParameterLogEventLevelArray{ ProcedureJavascriptParameterLogEventLevelArgs{...} }
-type ProcedureJavascriptParameterLogEventLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterLogEventLevelArrayOutput() ProcedureJavascriptParameterLogEventLevelArrayOutput
-	ToProcedureJavascriptParameterLogEventLevelArrayOutputWithContext(context.Context) ProcedureJavascriptParameterLogEventLevelArrayOutput
-}
-
-type ProcedureJavascriptParameterLogEventLevelArray []ProcedureJavascriptParameterLogEventLevelInput
-
-func (ProcedureJavascriptParameterLogEventLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterLogEventLevelArray) ToProcedureJavascriptParameterLogEventLevelArrayOutput() ProcedureJavascriptParameterLogEventLevelArrayOutput {
-	return i.ToProcedureJavascriptParameterLogEventLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterLogEventLevelArray) ToProcedureJavascriptParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogEventLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterLogEventLevelArrayOutput)
-}
-
-type ProcedureJavascriptParameterLogEventLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterLogEventLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) ToProcedureJavascriptParameterLogEventLevelOutput() ProcedureJavascriptParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) ToProcedureJavascriptParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureJavascriptParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelArrayOutput) ToProcedureJavascriptParameterLogEventLevelArrayOutput() ProcedureJavascriptParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelArrayOutput) ToProcedureJavascriptParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) ProcedureJavascriptParameterLogEventLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureJavascriptParameterLogEventLevel {
-		return vs[0].([]ProcedureJavascriptParameterLogEventLevel)[vs[1].(int)]
-	}).(ProcedureJavascriptParameterLogEventLevelOutput)
-}
-
-type ProcedureJavascriptParameterLogLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureJavascriptParameterLogLevelInput is an input type that accepts ProcedureJavascriptParameterLogLevelArgs and ProcedureJavascriptParameterLogLevelOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterLogLevelInput` via:
-//
-//	ProcedureJavascriptParameterLogLevelArgs{...}
-type ProcedureJavascriptParameterLogLevelInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterLogLevelOutput() ProcedureJavascriptParameterLogLevelOutput
-	ToProcedureJavascriptParameterLogLevelOutputWithContext(context.Context) ProcedureJavascriptParameterLogLevelOutput
-}
-
-type ProcedureJavascriptParameterLogLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureJavascriptParameterLogLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterLogLevelArgs) ToProcedureJavascriptParameterLogLevelOutput() ProcedureJavascriptParameterLogLevelOutput {
-	return i.ToProcedureJavascriptParameterLogLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterLogLevelArgs) ToProcedureJavascriptParameterLogLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterLogLevelOutput)
-}
-
-// ProcedureJavascriptParameterLogLevelArrayInput is an input type that accepts ProcedureJavascriptParameterLogLevelArray and ProcedureJavascriptParameterLogLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterLogLevelArrayInput` via:
-//
-//	ProcedureJavascriptParameterLogLevelArray{ ProcedureJavascriptParameterLogLevelArgs{...} }
-type ProcedureJavascriptParameterLogLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterLogLevelArrayOutput() ProcedureJavascriptParameterLogLevelArrayOutput
-	ToProcedureJavascriptParameterLogLevelArrayOutputWithContext(context.Context) ProcedureJavascriptParameterLogLevelArrayOutput
-}
-
-type ProcedureJavascriptParameterLogLevelArray []ProcedureJavascriptParameterLogLevelInput
-
-func (ProcedureJavascriptParameterLogLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterLogLevelArray) ToProcedureJavascriptParameterLogLevelArrayOutput() ProcedureJavascriptParameterLogLevelArrayOutput {
-	return i.ToProcedureJavascriptParameterLogLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterLogLevelArray) ToProcedureJavascriptParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterLogLevelArrayOutput)
-}
-
-type ProcedureJavascriptParameterLogLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterLogLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) ToProcedureJavascriptParameterLogLevelOutput() ProcedureJavascriptParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) ToProcedureJavascriptParameterLogLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureJavascriptParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterLogLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterLogLevelArrayOutput) ToProcedureJavascriptParameterLogLevelArrayOutput() ProcedureJavascriptParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogLevelArrayOutput) ToProcedureJavascriptParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterLogLevelArrayOutput) Index(i pulumi.IntInput) ProcedureJavascriptParameterLogLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureJavascriptParameterLogLevel {
-		return vs[0].([]ProcedureJavascriptParameterLogLevel)[vs[1].(int)]
-	}).(ProcedureJavascriptParameterLogLevelOutput)
-}
-
-type ProcedureJavascriptParameterMetricLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureJavascriptParameterMetricLevelInput is an input type that accepts ProcedureJavascriptParameterMetricLevelArgs and ProcedureJavascriptParameterMetricLevelOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterMetricLevelInput` via:
-//
-//	ProcedureJavascriptParameterMetricLevelArgs{...}
-type ProcedureJavascriptParameterMetricLevelInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterMetricLevelOutput() ProcedureJavascriptParameterMetricLevelOutput
-	ToProcedureJavascriptParameterMetricLevelOutputWithContext(context.Context) ProcedureJavascriptParameterMetricLevelOutput
-}
-
-type ProcedureJavascriptParameterMetricLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureJavascriptParameterMetricLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterMetricLevelArgs) ToProcedureJavascriptParameterMetricLevelOutput() ProcedureJavascriptParameterMetricLevelOutput {
-	return i.ToProcedureJavascriptParameterMetricLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterMetricLevelArgs) ToProcedureJavascriptParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterMetricLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterMetricLevelOutput)
-}
-
-// ProcedureJavascriptParameterMetricLevelArrayInput is an input type that accepts ProcedureJavascriptParameterMetricLevelArray and ProcedureJavascriptParameterMetricLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterMetricLevelArrayInput` via:
-//
-//	ProcedureJavascriptParameterMetricLevelArray{ ProcedureJavascriptParameterMetricLevelArgs{...} }
-type ProcedureJavascriptParameterMetricLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterMetricLevelArrayOutput() ProcedureJavascriptParameterMetricLevelArrayOutput
-	ToProcedureJavascriptParameterMetricLevelArrayOutputWithContext(context.Context) ProcedureJavascriptParameterMetricLevelArrayOutput
-}
-
-type ProcedureJavascriptParameterMetricLevelArray []ProcedureJavascriptParameterMetricLevelInput
-
-func (ProcedureJavascriptParameterMetricLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterMetricLevelArray) ToProcedureJavascriptParameterMetricLevelArrayOutput() ProcedureJavascriptParameterMetricLevelArrayOutput {
-	return i.ToProcedureJavascriptParameterMetricLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterMetricLevelArray) ToProcedureJavascriptParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterMetricLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterMetricLevelArrayOutput)
-}
-
-type ProcedureJavascriptParameterMetricLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterMetricLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) ToProcedureJavascriptParameterMetricLevelOutput() ProcedureJavascriptParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) ToProcedureJavascriptParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterMetricLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterMetricLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterMetricLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterMetricLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterMetricLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterMetricLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureJavascriptParameterMetricLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterMetricLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterMetricLevelArrayOutput) ToProcedureJavascriptParameterMetricLevelArrayOutput() ProcedureJavascriptParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterMetricLevelArrayOutput) ToProcedureJavascriptParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterMetricLevelArrayOutput) Index(i pulumi.IntInput) ProcedureJavascriptParameterMetricLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureJavascriptParameterMetricLevel {
-		return vs[0].([]ProcedureJavascriptParameterMetricLevel)[vs[1].(int)]
-	}).(ProcedureJavascriptParameterMetricLevelOutput)
-}
-
-type ProcedureJavascriptParameterTraceLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureJavascriptParameterTraceLevelInput is an input type that accepts ProcedureJavascriptParameterTraceLevelArgs and ProcedureJavascriptParameterTraceLevelOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterTraceLevelInput` via:
-//
-//	ProcedureJavascriptParameterTraceLevelArgs{...}
-type ProcedureJavascriptParameterTraceLevelInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterTraceLevelOutput() ProcedureJavascriptParameterTraceLevelOutput
-	ToProcedureJavascriptParameterTraceLevelOutputWithContext(context.Context) ProcedureJavascriptParameterTraceLevelOutput
-}
-
-type ProcedureJavascriptParameterTraceLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureJavascriptParameterTraceLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterTraceLevelArgs) ToProcedureJavascriptParameterTraceLevelOutput() ProcedureJavascriptParameterTraceLevelOutput {
-	return i.ToProcedureJavascriptParameterTraceLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterTraceLevelArgs) ToProcedureJavascriptParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterTraceLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterTraceLevelOutput)
-}
-
-// ProcedureJavascriptParameterTraceLevelArrayInput is an input type that accepts ProcedureJavascriptParameterTraceLevelArray and ProcedureJavascriptParameterTraceLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptParameterTraceLevelArrayInput` via:
-//
-//	ProcedureJavascriptParameterTraceLevelArray{ ProcedureJavascriptParameterTraceLevelArgs{...} }
-type ProcedureJavascriptParameterTraceLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptParameterTraceLevelArrayOutput() ProcedureJavascriptParameterTraceLevelArrayOutput
-	ToProcedureJavascriptParameterTraceLevelArrayOutputWithContext(context.Context) ProcedureJavascriptParameterTraceLevelArrayOutput
-}
-
-type ProcedureJavascriptParameterTraceLevelArray []ProcedureJavascriptParameterTraceLevelInput
-
-func (ProcedureJavascriptParameterTraceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptParameterTraceLevelArray) ToProcedureJavascriptParameterTraceLevelArrayOutput() ProcedureJavascriptParameterTraceLevelArrayOutput {
-	return i.ToProcedureJavascriptParameterTraceLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptParameterTraceLevelArray) ToProcedureJavascriptParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterTraceLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptParameterTraceLevelArrayOutput)
-}
-
-type ProcedureJavascriptParameterTraceLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterTraceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) ToProcedureJavascriptParameterTraceLevelOutput() ProcedureJavascriptParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) ToProcedureJavascriptParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureJavascriptParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureJavascriptParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptParameterTraceLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptParameterTraceLevelArrayOutput) ToProcedureJavascriptParameterTraceLevelArrayOutput() ProcedureJavascriptParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterTraceLevelArrayOutput) ToProcedureJavascriptParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureJavascriptParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) ProcedureJavascriptParameterTraceLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureJavascriptParameterTraceLevel {
-		return vs[0].([]ProcedureJavascriptParameterTraceLevel)[vs[1].(int)]
-	}).(ProcedureJavascriptParameterTraceLevelOutput)
-}
-
-type ProcedureJavascriptShowOutput struct {
-	ArgumentsRaw               *string `pulumi:"argumentsRaw"`
-	CatalogName                *string `pulumi:"catalogName"`
-	CreatedOn                  *string `pulumi:"createdOn"`
-	Description                *string `pulumi:"description"`
-	ExternalAccessIntegrations *string `pulumi:"externalAccessIntegrations"`
-	IsAggregate                *bool   `pulumi:"isAggregate"`
-	IsAnsi                     *bool   `pulumi:"isAnsi"`
-	IsBuiltin                  *bool   `pulumi:"isBuiltin"`
-	IsSecure                   *bool   `pulumi:"isSecure"`
-	IsTableFunction            *bool   `pulumi:"isTableFunction"`
-	MaxNumArguments            *int    `pulumi:"maxNumArguments"`
-	MinNumArguments            *int    `pulumi:"minNumArguments"`
-	Name                       *string `pulumi:"name"`
-	SchemaName                 *string `pulumi:"schemaName"`
-	Secrets                    *string `pulumi:"secrets"`
-	ValidForClustering         *bool   `pulumi:"validForClustering"`
-}
-
-// ProcedureJavascriptShowOutputInput is an input type that accepts ProcedureJavascriptShowOutputArgs and ProcedureJavascriptShowOutputOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptShowOutputInput` via:
-//
-//	ProcedureJavascriptShowOutputArgs{...}
-type ProcedureJavascriptShowOutputInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptShowOutputOutput() ProcedureJavascriptShowOutputOutput
-	ToProcedureJavascriptShowOutputOutputWithContext(context.Context) ProcedureJavascriptShowOutputOutput
-}
-
-type ProcedureJavascriptShowOutputArgs struct {
-	ArgumentsRaw               pulumi.StringPtrInput `pulumi:"argumentsRaw"`
-	CatalogName                pulumi.StringPtrInput `pulumi:"catalogName"`
-	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	ExternalAccessIntegrations pulumi.StringPtrInput `pulumi:"externalAccessIntegrations"`
-	IsAggregate                pulumi.BoolPtrInput   `pulumi:"isAggregate"`
-	IsAnsi                     pulumi.BoolPtrInput   `pulumi:"isAnsi"`
-	IsBuiltin                  pulumi.BoolPtrInput   `pulumi:"isBuiltin"`
-	IsSecure                   pulumi.BoolPtrInput   `pulumi:"isSecure"`
-	IsTableFunction            pulumi.BoolPtrInput   `pulumi:"isTableFunction"`
-	MaxNumArguments            pulumi.IntPtrInput    `pulumi:"maxNumArguments"`
-	MinNumArguments            pulumi.IntPtrInput    `pulumi:"minNumArguments"`
-	Name                       pulumi.StringPtrInput `pulumi:"name"`
-	SchemaName                 pulumi.StringPtrInput `pulumi:"schemaName"`
-	Secrets                    pulumi.StringPtrInput `pulumi:"secrets"`
-	ValidForClustering         pulumi.BoolPtrInput   `pulumi:"validForClustering"`
-}
-
-func (ProcedureJavascriptShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptShowOutputArgs) ToProcedureJavascriptShowOutputOutput() ProcedureJavascriptShowOutputOutput {
-	return i.ToProcedureJavascriptShowOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptShowOutputArgs) ToProcedureJavascriptShowOutputOutputWithContext(ctx context.Context) ProcedureJavascriptShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptShowOutputOutput)
-}
-
-// ProcedureJavascriptShowOutputArrayInput is an input type that accepts ProcedureJavascriptShowOutputArray and ProcedureJavascriptShowOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedureJavascriptShowOutputArrayInput` via:
-//
-//	ProcedureJavascriptShowOutputArray{ ProcedureJavascriptShowOutputArgs{...} }
-type ProcedureJavascriptShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedureJavascriptShowOutputArrayOutput() ProcedureJavascriptShowOutputArrayOutput
-	ToProcedureJavascriptShowOutputArrayOutputWithContext(context.Context) ProcedureJavascriptShowOutputArrayOutput
-}
-
-type ProcedureJavascriptShowOutputArray []ProcedureJavascriptShowOutputInput
-
-func (ProcedureJavascriptShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureJavascriptShowOutputArray) ToProcedureJavascriptShowOutputArrayOutput() ProcedureJavascriptShowOutputArrayOutput {
-	return i.ToProcedureJavascriptShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureJavascriptShowOutputArray) ToProcedureJavascriptShowOutputArrayOutputWithContext(ctx context.Context) ProcedureJavascriptShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureJavascriptShowOutputArrayOutput)
-}
-
-type ProcedureJavascriptShowOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureJavascriptShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptShowOutputOutput) ToProcedureJavascriptShowOutputOutput() ProcedureJavascriptShowOutputOutput {
-	return o
-}
-
-func (o ProcedureJavascriptShowOutputOutput) ToProcedureJavascriptShowOutputOutputWithContext(ctx context.Context) ProcedureJavascriptShowOutputOutput {
-	return o
-}
-
-func (o ProcedureJavascriptShowOutputOutput) ArgumentsRaw() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.ArgumentsRaw }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) CatalogName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) ExternalAccessIntegrations() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.ExternalAccessIntegrations }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) IsAggregate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.IsAggregate }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) IsAnsi() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.IsAnsi }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) IsBuiltin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.IsBuiltin }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) IsSecure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.IsSecure }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) IsTableFunction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.IsTableFunction }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) MaxNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *int { return v.MaxNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) MinNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *int { return v.MinNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) Secrets() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *string { return v.Secrets }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureJavascriptShowOutputOutput) ValidForClustering() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureJavascriptShowOutput) *bool { return v.ValidForClustering }).(pulumi.BoolPtrOutput)
-}
-
-type ProcedureJavascriptShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureJavascriptShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureJavascriptShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureJavascriptShowOutputArrayOutput) ToProcedureJavascriptShowOutputArrayOutput() ProcedureJavascriptShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptShowOutputArrayOutput) ToProcedureJavascriptShowOutputArrayOutputWithContext(ctx context.Context) ProcedureJavascriptShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureJavascriptShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedureJavascriptShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureJavascriptShowOutput {
-		return vs[0].([]ProcedureJavascriptShowOutput)[vs[1].(int)]
-	}).(ProcedureJavascriptShowOutputOutput)
-}
-
-type ProcedurePythonArgument struct {
-	// The argument type.
-	ArgDataType string `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName string `pulumi:"argName"`
-}
-
-// ProcedurePythonArgumentInput is an input type that accepts ProcedurePythonArgumentArgs and ProcedurePythonArgumentOutput values.
-// You can construct a concrete instance of `ProcedurePythonArgumentInput` via:
-//
-//	ProcedurePythonArgumentArgs{...}
-type ProcedurePythonArgumentInput interface {
-	pulumi.Input
-
-	ToProcedurePythonArgumentOutput() ProcedurePythonArgumentOutput
-	ToProcedurePythonArgumentOutputWithContext(context.Context) ProcedurePythonArgumentOutput
-}
-
-type ProcedurePythonArgumentArgs struct {
-	// The argument type.
-	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName pulumi.StringInput `pulumi:"argName"`
-}
-
-func (ProcedurePythonArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonArgument)(nil)).Elem()
-}
-
-func (i ProcedurePythonArgumentArgs) ToProcedurePythonArgumentOutput() ProcedurePythonArgumentOutput {
-	return i.ToProcedurePythonArgumentOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonArgumentArgs) ToProcedurePythonArgumentOutputWithContext(ctx context.Context) ProcedurePythonArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonArgumentOutput)
-}
-
-// ProcedurePythonArgumentArrayInput is an input type that accepts ProcedurePythonArgumentArray and ProcedurePythonArgumentArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonArgumentArrayInput` via:
-//
-//	ProcedurePythonArgumentArray{ ProcedurePythonArgumentArgs{...} }
-type ProcedurePythonArgumentArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonArgumentArrayOutput() ProcedurePythonArgumentArrayOutput
-	ToProcedurePythonArgumentArrayOutputWithContext(context.Context) ProcedurePythonArgumentArrayOutput
-}
-
-type ProcedurePythonArgumentArray []ProcedurePythonArgumentInput
-
-func (ProcedurePythonArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonArgument)(nil)).Elem()
-}
-
-func (i ProcedurePythonArgumentArray) ToProcedurePythonArgumentArrayOutput() ProcedurePythonArgumentArrayOutput {
-	return i.ToProcedurePythonArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonArgumentArray) ToProcedurePythonArgumentArrayOutputWithContext(ctx context.Context) ProcedurePythonArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonArgumentArrayOutput)
-}
-
-type ProcedurePythonArgumentOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonArgument)(nil)).Elem()
-}
-
-func (o ProcedurePythonArgumentOutput) ToProcedurePythonArgumentOutput() ProcedurePythonArgumentOutput {
-	return o
-}
-
-func (o ProcedurePythonArgumentOutput) ToProcedurePythonArgumentOutputWithContext(ctx context.Context) ProcedurePythonArgumentOutput {
-	return o
-}
-
-// The argument type.
-func (o ProcedurePythonArgumentOutput) ArgDataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
-}
-
-// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-func (o ProcedurePythonArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
-}
-
-// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-func (o ProcedurePythonArgumentOutput) ArgName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonArgument) string { return v.ArgName }).(pulumi.StringOutput)
-}
-
-type ProcedurePythonArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonArgument)(nil)).Elem()
-}
-
-func (o ProcedurePythonArgumentArrayOutput) ToProcedurePythonArgumentArrayOutput() ProcedurePythonArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonArgumentArrayOutput) ToProcedurePythonArgumentArrayOutputWithContext(ctx context.Context) ProcedurePythonArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonArgumentArrayOutput) Index(i pulumi.IntInput) ProcedurePythonArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonArgument {
-		return vs[0].([]ProcedurePythonArgument)[vs[1].(int)]
-	}).(ProcedurePythonArgumentOutput)
-}
-
-type ProcedurePythonImport struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage string `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation string `pulumi:"stageLocation"`
-}
-
-// ProcedurePythonImportInput is an input type that accepts ProcedurePythonImportArgs and ProcedurePythonImportOutput values.
-// You can construct a concrete instance of `ProcedurePythonImportInput` via:
-//
-//	ProcedurePythonImportArgs{...}
-type ProcedurePythonImportInput interface {
-	pulumi.Input
-
-	ToProcedurePythonImportOutput() ProcedurePythonImportOutput
-	ToProcedurePythonImportOutputWithContext(context.Context) ProcedurePythonImportOutput
-}
-
-type ProcedurePythonImportArgs struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
-}
-
-func (ProcedurePythonImportArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonImport)(nil)).Elem()
-}
-
-func (i ProcedurePythonImportArgs) ToProcedurePythonImportOutput() ProcedurePythonImportOutput {
-	return i.ToProcedurePythonImportOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonImportArgs) ToProcedurePythonImportOutputWithContext(ctx context.Context) ProcedurePythonImportOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonImportOutput)
-}
-
-// ProcedurePythonImportArrayInput is an input type that accepts ProcedurePythonImportArray and ProcedurePythonImportArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonImportArrayInput` via:
-//
-//	ProcedurePythonImportArray{ ProcedurePythonImportArgs{...} }
-type ProcedurePythonImportArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonImportArrayOutput() ProcedurePythonImportArrayOutput
-	ToProcedurePythonImportArrayOutputWithContext(context.Context) ProcedurePythonImportArrayOutput
-}
-
-type ProcedurePythonImportArray []ProcedurePythonImportInput
-
-func (ProcedurePythonImportArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonImport)(nil)).Elem()
-}
-
-func (i ProcedurePythonImportArray) ToProcedurePythonImportArrayOutput() ProcedurePythonImportArrayOutput {
-	return i.ToProcedurePythonImportArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonImportArray) ToProcedurePythonImportArrayOutputWithContext(ctx context.Context) ProcedurePythonImportArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonImportArrayOutput)
-}
-
-type ProcedurePythonImportOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonImportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonImport)(nil)).Elem()
-}
-
-func (o ProcedurePythonImportOutput) ToProcedurePythonImportOutput() ProcedurePythonImportOutput {
-	return o
-}
-
-func (o ProcedurePythonImportOutput) ToProcedurePythonImportOutputWithContext(ctx context.Context) ProcedurePythonImportOutput {
-	return o
-}
-
-// Path for import on stage, without the leading `/`.
-func (o ProcedurePythonImportOutput) PathOnStage() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonImport) string { return v.PathOnStage }).(pulumi.StringOutput)
-}
-
-// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-func (o ProcedurePythonImportOutput) StageLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonImport) string { return v.StageLocation }).(pulumi.StringOutput)
-}
-
-type ProcedurePythonImportArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonImportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonImport)(nil)).Elem()
-}
-
-func (o ProcedurePythonImportArrayOutput) ToProcedurePythonImportArrayOutput() ProcedurePythonImportArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonImportArrayOutput) ToProcedurePythonImportArrayOutputWithContext(ctx context.Context) ProcedurePythonImportArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonImportArrayOutput) Index(i pulumi.IntInput) ProcedurePythonImportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonImport {
-		return vs[0].([]ProcedurePythonImport)[vs[1].(int)]
-	}).(ProcedurePythonImportOutput)
-}
-
-type ProcedurePythonParameter struct {
-	EnableConsoleOutputs []ProcedurePythonParameterEnableConsoleOutput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       []ProcedurePythonParameterLogEventLevel       `pulumi:"logEventLevels"`
-	LogLevels            []ProcedurePythonParameterLogLevel            `pulumi:"logLevels"`
-	MetricLevels         []ProcedurePythonParameterMetricLevel         `pulumi:"metricLevels"`
-	TraceLevels          []ProcedurePythonParameterTraceLevel          `pulumi:"traceLevels"`
-}
-
-// ProcedurePythonParameterInput is an input type that accepts ProcedurePythonParameterArgs and ProcedurePythonParameterOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterInput` via:
-//
-//	ProcedurePythonParameterArgs{...}
-type ProcedurePythonParameterInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterOutput() ProcedurePythonParameterOutput
-	ToProcedurePythonParameterOutputWithContext(context.Context) ProcedurePythonParameterOutput
-}
-
-type ProcedurePythonParameterArgs struct {
-	EnableConsoleOutputs ProcedurePythonParameterEnableConsoleOutputArrayInput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       ProcedurePythonParameterLogEventLevelArrayInput       `pulumi:"logEventLevels"`
-	LogLevels            ProcedurePythonParameterLogLevelArrayInput            `pulumi:"logLevels"`
-	MetricLevels         ProcedurePythonParameterMetricLevelArrayInput         `pulumi:"metricLevels"`
-	TraceLevels          ProcedurePythonParameterTraceLevelArrayInput          `pulumi:"traceLevels"`
-}
-
-func (ProcedurePythonParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameter)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterArgs) ToProcedurePythonParameterOutput() ProcedurePythonParameterOutput {
-	return i.ToProcedurePythonParameterOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterArgs) ToProcedurePythonParameterOutputWithContext(ctx context.Context) ProcedurePythonParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterOutput)
-}
-
-// ProcedurePythonParameterArrayInput is an input type that accepts ProcedurePythonParameterArray and ProcedurePythonParameterArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterArrayInput` via:
-//
-//	ProcedurePythonParameterArray{ ProcedurePythonParameterArgs{...} }
-type ProcedurePythonParameterArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterArrayOutput() ProcedurePythonParameterArrayOutput
-	ToProcedurePythonParameterArrayOutputWithContext(context.Context) ProcedurePythonParameterArrayOutput
-}
-
-type ProcedurePythonParameterArray []ProcedurePythonParameterInput
-
-func (ProcedurePythonParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameter)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterArray) ToProcedurePythonParameterArrayOutput() ProcedurePythonParameterArrayOutput {
-	return i.ToProcedurePythonParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterArray) ToProcedurePythonParameterArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterArrayOutput)
-}
-
-type ProcedurePythonParameterOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameter)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterOutput) ToProcedurePythonParameterOutput() ProcedurePythonParameterOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterOutput) ToProcedurePythonParameterOutputWithContext(ctx context.Context) ProcedurePythonParameterOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterOutput) EnableConsoleOutputs() ProcedurePythonParameterEnableConsoleOutputArrayOutput {
-	return o.ApplyT(func(v ProcedurePythonParameter) []ProcedurePythonParameterEnableConsoleOutput {
-		return v.EnableConsoleOutputs
-	}).(ProcedurePythonParameterEnableConsoleOutputArrayOutput)
-}
-
-func (o ProcedurePythonParameterOutput) LogEventLevels() ProcedurePythonParameterLogEventLevelArrayOutput {
-	return o.ApplyT(func(v ProcedurePythonParameter) []ProcedurePythonParameterLogEventLevel { return v.LogEventLevels }).(ProcedurePythonParameterLogEventLevelArrayOutput)
-}
-
-func (o ProcedurePythonParameterOutput) LogLevels() ProcedurePythonParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v ProcedurePythonParameter) []ProcedurePythonParameterLogLevel { return v.LogLevels }).(ProcedurePythonParameterLogLevelArrayOutput)
-}
-
-func (o ProcedurePythonParameterOutput) MetricLevels() ProcedurePythonParameterMetricLevelArrayOutput {
-	return o.ApplyT(func(v ProcedurePythonParameter) []ProcedurePythonParameterMetricLevel { return v.MetricLevels }).(ProcedurePythonParameterMetricLevelArrayOutput)
-}
-
-func (o ProcedurePythonParameterOutput) TraceLevels() ProcedurePythonParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v ProcedurePythonParameter) []ProcedurePythonParameterTraceLevel { return v.TraceLevels }).(ProcedurePythonParameterTraceLevelArrayOutput)
-}
-
-type ProcedurePythonParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameter)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterArrayOutput) ToProcedurePythonParameterArrayOutput() ProcedurePythonParameterArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterArrayOutput) ToProcedurePythonParameterArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameter {
-		return vs[0].([]ProcedurePythonParameter)[vs[1].(int)]
-	}).(ProcedurePythonParameterOutput)
-}
-
-type ProcedurePythonParameterEnableConsoleOutput struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedurePythonParameterEnableConsoleOutputInput is an input type that accepts ProcedurePythonParameterEnableConsoleOutputArgs and ProcedurePythonParameterEnableConsoleOutputOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterEnableConsoleOutputInput` via:
-//
-//	ProcedurePythonParameterEnableConsoleOutputArgs{...}
-type ProcedurePythonParameterEnableConsoleOutputInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterEnableConsoleOutputOutput() ProcedurePythonParameterEnableConsoleOutputOutput
-	ToProcedurePythonParameterEnableConsoleOutputOutputWithContext(context.Context) ProcedurePythonParameterEnableConsoleOutputOutput
-}
-
-type ProcedurePythonParameterEnableConsoleOutputArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedurePythonParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterEnableConsoleOutputArgs) ToProcedurePythonParameterEnableConsoleOutputOutput() ProcedurePythonParameterEnableConsoleOutputOutput {
-	return i.ToProcedurePythonParameterEnableConsoleOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterEnableConsoleOutputArgs) ToProcedurePythonParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedurePythonParameterEnableConsoleOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterEnableConsoleOutputOutput)
-}
-
-// ProcedurePythonParameterEnableConsoleOutputArrayInput is an input type that accepts ProcedurePythonParameterEnableConsoleOutputArray and ProcedurePythonParameterEnableConsoleOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterEnableConsoleOutputArrayInput` via:
-//
-//	ProcedurePythonParameterEnableConsoleOutputArray{ ProcedurePythonParameterEnableConsoleOutputArgs{...} }
-type ProcedurePythonParameterEnableConsoleOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterEnableConsoleOutputArrayOutput() ProcedurePythonParameterEnableConsoleOutputArrayOutput
-	ToProcedurePythonParameterEnableConsoleOutputArrayOutputWithContext(context.Context) ProcedurePythonParameterEnableConsoleOutputArrayOutput
-}
-
-type ProcedurePythonParameterEnableConsoleOutputArray []ProcedurePythonParameterEnableConsoleOutputInput
-
-func (ProcedurePythonParameterEnableConsoleOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterEnableConsoleOutputArray) ToProcedurePythonParameterEnableConsoleOutputArrayOutput() ProcedurePythonParameterEnableConsoleOutputArrayOutput {
-	return i.ToProcedurePythonParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterEnableConsoleOutputArray) ToProcedurePythonParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterEnableConsoleOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterEnableConsoleOutputArrayOutput)
-}
-
-type ProcedurePythonParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) ToProcedurePythonParameterEnableConsoleOutputOutput() ProcedurePythonParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) ToProcedurePythonParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedurePythonParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterEnableConsoleOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterEnableConsoleOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterEnableConsoleOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterEnableConsoleOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterEnableConsoleOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedurePythonParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputArrayOutput) ToProcedurePythonParameterEnableConsoleOutputArrayOutput() ProcedurePythonParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputArrayOutput) ToProcedurePythonParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterEnableConsoleOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameterEnableConsoleOutput {
-		return vs[0].([]ProcedurePythonParameterEnableConsoleOutput)[vs[1].(int)]
-	}).(ProcedurePythonParameterEnableConsoleOutputOutput)
-}
-
-type ProcedurePythonParameterLogEventLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedurePythonParameterLogEventLevelInput is an input type that accepts ProcedurePythonParameterLogEventLevelArgs and ProcedurePythonParameterLogEventLevelOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterLogEventLevelInput` via:
-//
-//	ProcedurePythonParameterLogEventLevelArgs{...}
-type ProcedurePythonParameterLogEventLevelInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterLogEventLevelOutput() ProcedurePythonParameterLogEventLevelOutput
-	ToProcedurePythonParameterLogEventLevelOutputWithContext(context.Context) ProcedurePythonParameterLogEventLevelOutput
-}
-
-type ProcedurePythonParameterLogEventLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedurePythonParameterLogEventLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterLogEventLevelArgs) ToProcedurePythonParameterLogEventLevelOutput() ProcedurePythonParameterLogEventLevelOutput {
-	return i.ToProcedurePythonParameterLogEventLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterLogEventLevelArgs) ToProcedurePythonParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterLogEventLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterLogEventLevelOutput)
-}
-
-// ProcedurePythonParameterLogEventLevelArrayInput is an input type that accepts ProcedurePythonParameterLogEventLevelArray and ProcedurePythonParameterLogEventLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterLogEventLevelArrayInput` via:
-//
-//	ProcedurePythonParameterLogEventLevelArray{ ProcedurePythonParameterLogEventLevelArgs{...} }
-type ProcedurePythonParameterLogEventLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterLogEventLevelArrayOutput() ProcedurePythonParameterLogEventLevelArrayOutput
-	ToProcedurePythonParameterLogEventLevelArrayOutputWithContext(context.Context) ProcedurePythonParameterLogEventLevelArrayOutput
-}
-
-type ProcedurePythonParameterLogEventLevelArray []ProcedurePythonParameterLogEventLevelInput
-
-func (ProcedurePythonParameterLogEventLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterLogEventLevelArray) ToProcedurePythonParameterLogEventLevelArrayOutput() ProcedurePythonParameterLogEventLevelArrayOutput {
-	return i.ToProcedurePythonParameterLogEventLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterLogEventLevelArray) ToProcedurePythonParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterLogEventLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterLogEventLevelArrayOutput)
-}
-
-type ProcedurePythonParameterLogEventLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterLogEventLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) ToProcedurePythonParameterLogEventLevelOutput() ProcedurePythonParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) ToProcedurePythonParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedurePythonParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterLogEventLevelArrayOutput) ToProcedurePythonParameterLogEventLevelArrayOutput() ProcedurePythonParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogEventLevelArrayOutput) ToProcedurePythonParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterLogEventLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameterLogEventLevel {
-		return vs[0].([]ProcedurePythonParameterLogEventLevel)[vs[1].(int)]
-	}).(ProcedurePythonParameterLogEventLevelOutput)
-}
-
-type ProcedurePythonParameterLogLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedurePythonParameterLogLevelInput is an input type that accepts ProcedurePythonParameterLogLevelArgs and ProcedurePythonParameterLogLevelOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterLogLevelInput` via:
-//
-//	ProcedurePythonParameterLogLevelArgs{...}
-type ProcedurePythonParameterLogLevelInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterLogLevelOutput() ProcedurePythonParameterLogLevelOutput
-	ToProcedurePythonParameterLogLevelOutputWithContext(context.Context) ProcedurePythonParameterLogLevelOutput
-}
-
-type ProcedurePythonParameterLogLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedurePythonParameterLogLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterLogLevelArgs) ToProcedurePythonParameterLogLevelOutput() ProcedurePythonParameterLogLevelOutput {
-	return i.ToProcedurePythonParameterLogLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterLogLevelArgs) ToProcedurePythonParameterLogLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterLogLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterLogLevelOutput)
-}
-
-// ProcedurePythonParameterLogLevelArrayInput is an input type that accepts ProcedurePythonParameterLogLevelArray and ProcedurePythonParameterLogLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterLogLevelArrayInput` via:
-//
-//	ProcedurePythonParameterLogLevelArray{ ProcedurePythonParameterLogLevelArgs{...} }
-type ProcedurePythonParameterLogLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterLogLevelArrayOutput() ProcedurePythonParameterLogLevelArrayOutput
-	ToProcedurePythonParameterLogLevelArrayOutputWithContext(context.Context) ProcedurePythonParameterLogLevelArrayOutput
-}
-
-type ProcedurePythonParameterLogLevelArray []ProcedurePythonParameterLogLevelInput
-
-func (ProcedurePythonParameterLogLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterLogLevelArray) ToProcedurePythonParameterLogLevelArrayOutput() ProcedurePythonParameterLogLevelArrayOutput {
-	return i.ToProcedurePythonParameterLogLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterLogLevelArray) ToProcedurePythonParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterLogLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterLogLevelArrayOutput)
-}
-
-type ProcedurePythonParameterLogLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterLogLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) ToProcedurePythonParameterLogLevelOutput() ProcedurePythonParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) ToProcedurePythonParameterLogLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedurePythonParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterLogLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterLogLevelArrayOutput) ToProcedurePythonParameterLogLevelArrayOutput() ProcedurePythonParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogLevelArrayOutput) ToProcedurePythonParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterLogLevelArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterLogLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameterLogLevel {
-		return vs[0].([]ProcedurePythonParameterLogLevel)[vs[1].(int)]
-	}).(ProcedurePythonParameterLogLevelOutput)
-}
-
-type ProcedurePythonParameterMetricLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedurePythonParameterMetricLevelInput is an input type that accepts ProcedurePythonParameterMetricLevelArgs and ProcedurePythonParameterMetricLevelOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterMetricLevelInput` via:
-//
-//	ProcedurePythonParameterMetricLevelArgs{...}
-type ProcedurePythonParameterMetricLevelInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterMetricLevelOutput() ProcedurePythonParameterMetricLevelOutput
-	ToProcedurePythonParameterMetricLevelOutputWithContext(context.Context) ProcedurePythonParameterMetricLevelOutput
-}
-
-type ProcedurePythonParameterMetricLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedurePythonParameterMetricLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterMetricLevelArgs) ToProcedurePythonParameterMetricLevelOutput() ProcedurePythonParameterMetricLevelOutput {
-	return i.ToProcedurePythonParameterMetricLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterMetricLevelArgs) ToProcedurePythonParameterMetricLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterMetricLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterMetricLevelOutput)
-}
-
-// ProcedurePythonParameterMetricLevelArrayInput is an input type that accepts ProcedurePythonParameterMetricLevelArray and ProcedurePythonParameterMetricLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterMetricLevelArrayInput` via:
-//
-//	ProcedurePythonParameterMetricLevelArray{ ProcedurePythonParameterMetricLevelArgs{...} }
-type ProcedurePythonParameterMetricLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterMetricLevelArrayOutput() ProcedurePythonParameterMetricLevelArrayOutput
-	ToProcedurePythonParameterMetricLevelArrayOutputWithContext(context.Context) ProcedurePythonParameterMetricLevelArrayOutput
-}
-
-type ProcedurePythonParameterMetricLevelArray []ProcedurePythonParameterMetricLevelInput
-
-func (ProcedurePythonParameterMetricLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterMetricLevelArray) ToProcedurePythonParameterMetricLevelArrayOutput() ProcedurePythonParameterMetricLevelArrayOutput {
-	return i.ToProcedurePythonParameterMetricLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterMetricLevelArray) ToProcedurePythonParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterMetricLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterMetricLevelArrayOutput)
-}
-
-type ProcedurePythonParameterMetricLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterMetricLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) ToProcedurePythonParameterMetricLevelOutput() ProcedurePythonParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) ToProcedurePythonParameterMetricLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterMetricLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterMetricLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterMetricLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterMetricLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterMetricLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterMetricLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedurePythonParameterMetricLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterMetricLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterMetricLevelArrayOutput) ToProcedurePythonParameterMetricLevelArrayOutput() ProcedurePythonParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterMetricLevelArrayOutput) ToProcedurePythonParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterMetricLevelArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterMetricLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameterMetricLevel {
-		return vs[0].([]ProcedurePythonParameterMetricLevel)[vs[1].(int)]
-	}).(ProcedurePythonParameterMetricLevelOutput)
-}
-
-type ProcedurePythonParameterTraceLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedurePythonParameterTraceLevelInput is an input type that accepts ProcedurePythonParameterTraceLevelArgs and ProcedurePythonParameterTraceLevelOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterTraceLevelInput` via:
-//
-//	ProcedurePythonParameterTraceLevelArgs{...}
-type ProcedurePythonParameterTraceLevelInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterTraceLevelOutput() ProcedurePythonParameterTraceLevelOutput
-	ToProcedurePythonParameterTraceLevelOutputWithContext(context.Context) ProcedurePythonParameterTraceLevelOutput
-}
-
-type ProcedurePythonParameterTraceLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedurePythonParameterTraceLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterTraceLevelArgs) ToProcedurePythonParameterTraceLevelOutput() ProcedurePythonParameterTraceLevelOutput {
-	return i.ToProcedurePythonParameterTraceLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterTraceLevelArgs) ToProcedurePythonParameterTraceLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterTraceLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterTraceLevelOutput)
-}
-
-// ProcedurePythonParameterTraceLevelArrayInput is an input type that accepts ProcedurePythonParameterTraceLevelArray and ProcedurePythonParameterTraceLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonParameterTraceLevelArrayInput` via:
-//
-//	ProcedurePythonParameterTraceLevelArray{ ProcedurePythonParameterTraceLevelArgs{...} }
-type ProcedurePythonParameterTraceLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonParameterTraceLevelArrayOutput() ProcedurePythonParameterTraceLevelArrayOutput
-	ToProcedurePythonParameterTraceLevelArrayOutputWithContext(context.Context) ProcedurePythonParameterTraceLevelArrayOutput
-}
-
-type ProcedurePythonParameterTraceLevelArray []ProcedurePythonParameterTraceLevelInput
-
-func (ProcedurePythonParameterTraceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedurePythonParameterTraceLevelArray) ToProcedurePythonParameterTraceLevelArrayOutput() ProcedurePythonParameterTraceLevelArrayOutput {
-	return i.ToProcedurePythonParameterTraceLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonParameterTraceLevelArray) ToProcedurePythonParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterTraceLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonParameterTraceLevelArrayOutput)
-}
-
-type ProcedurePythonParameterTraceLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterTraceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) ToProcedurePythonParameterTraceLevelOutput() ProcedurePythonParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) ToProcedurePythonParameterTraceLevelOutputWithContext(ctx context.Context) ProcedurePythonParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedurePythonParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonParameterTraceLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedurePythonParameterTraceLevelArrayOutput) ToProcedurePythonParameterTraceLevelArrayOutput() ProcedurePythonParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterTraceLevelArrayOutput) ToProcedurePythonParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedurePythonParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) ProcedurePythonParameterTraceLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonParameterTraceLevel {
-		return vs[0].([]ProcedurePythonParameterTraceLevel)[vs[1].(int)]
-	}).(ProcedurePythonParameterTraceLevelOutput)
-}
-
-type ProcedurePythonSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-	SecretId string `pulumi:"secretId"`
-	// The variable that will be used in handler code when retrieving information from the secret.
-	SecretVariableName string `pulumi:"secretVariableName"`
-}
-
-// ProcedurePythonSecretInput is an input type that accepts ProcedurePythonSecretArgs and ProcedurePythonSecretOutput values.
-// You can construct a concrete instance of `ProcedurePythonSecretInput` via:
-//
-//	ProcedurePythonSecretArgs{...}
-type ProcedurePythonSecretInput interface {
-	pulumi.Input
-
-	ToProcedurePythonSecretOutput() ProcedurePythonSecretOutput
-	ToProcedurePythonSecretOutputWithContext(context.Context) ProcedurePythonSecretOutput
-}
-
-type ProcedurePythonSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-	SecretId pulumi.StringInput `pulumi:"secretId"`
-	// The variable that will be used in handler code when retrieving information from the secret.
-	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
-}
-
-func (ProcedurePythonSecretArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonSecret)(nil)).Elem()
-}
-
-func (i ProcedurePythonSecretArgs) ToProcedurePythonSecretOutput() ProcedurePythonSecretOutput {
-	return i.ToProcedurePythonSecretOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonSecretArgs) ToProcedurePythonSecretOutputWithContext(ctx context.Context) ProcedurePythonSecretOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonSecretOutput)
-}
-
-// ProcedurePythonSecretArrayInput is an input type that accepts ProcedurePythonSecretArray and ProcedurePythonSecretArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonSecretArrayInput` via:
-//
-//	ProcedurePythonSecretArray{ ProcedurePythonSecretArgs{...} }
-type ProcedurePythonSecretArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonSecretArrayOutput() ProcedurePythonSecretArrayOutput
-	ToProcedurePythonSecretArrayOutputWithContext(context.Context) ProcedurePythonSecretArrayOutput
-}
-
-type ProcedurePythonSecretArray []ProcedurePythonSecretInput
-
-func (ProcedurePythonSecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonSecret)(nil)).Elem()
-}
-
-func (i ProcedurePythonSecretArray) ToProcedurePythonSecretArrayOutput() ProcedurePythonSecretArrayOutput {
-	return i.ToProcedurePythonSecretArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonSecretArray) ToProcedurePythonSecretArrayOutputWithContext(ctx context.Context) ProcedurePythonSecretArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonSecretArrayOutput)
-}
-
-type ProcedurePythonSecretOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonSecret)(nil)).Elem()
-}
-
-func (o ProcedurePythonSecretOutput) ToProcedurePythonSecretOutput() ProcedurePythonSecretOutput {
-	return o
-}
-
-func (o ProcedurePythonSecretOutput) ToProcedurePythonSecretOutputWithContext(ctx context.Context) ProcedurePythonSecretOutput {
-	return o
-}
-
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-func (o ProcedurePythonSecretOutput) SecretId() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonSecret) string { return v.SecretId }).(pulumi.StringOutput)
-}
-
-// The variable that will be used in handler code when retrieving information from the secret.
-func (o ProcedurePythonSecretOutput) SecretVariableName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedurePythonSecret) string { return v.SecretVariableName }).(pulumi.StringOutput)
-}
-
-type ProcedurePythonSecretArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonSecretArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonSecret)(nil)).Elem()
-}
-
-func (o ProcedurePythonSecretArrayOutput) ToProcedurePythonSecretArrayOutput() ProcedurePythonSecretArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonSecretArrayOutput) ToProcedurePythonSecretArrayOutputWithContext(ctx context.Context) ProcedurePythonSecretArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonSecretArrayOutput) Index(i pulumi.IntInput) ProcedurePythonSecretOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonSecret {
-		return vs[0].([]ProcedurePythonSecret)[vs[1].(int)]
-	}).(ProcedurePythonSecretOutput)
-}
-
-type ProcedurePythonShowOutput struct {
-	ArgumentsRaw               *string `pulumi:"argumentsRaw"`
-	CatalogName                *string `pulumi:"catalogName"`
-	CreatedOn                  *string `pulumi:"createdOn"`
-	Description                *string `pulumi:"description"`
-	ExternalAccessIntegrations *string `pulumi:"externalAccessIntegrations"`
-	IsAggregate                *bool   `pulumi:"isAggregate"`
-	IsAnsi                     *bool   `pulumi:"isAnsi"`
-	IsBuiltin                  *bool   `pulumi:"isBuiltin"`
-	IsSecure                   *bool   `pulumi:"isSecure"`
-	IsTableFunction            *bool   `pulumi:"isTableFunction"`
-	MaxNumArguments            *int    `pulumi:"maxNumArguments"`
-	MinNumArguments            *int    `pulumi:"minNumArguments"`
-	Name                       *string `pulumi:"name"`
-	SchemaName                 *string `pulumi:"schemaName"`
-	Secrets                    *string `pulumi:"secrets"`
-	ValidForClustering         *bool   `pulumi:"validForClustering"`
-}
-
-// ProcedurePythonShowOutputInput is an input type that accepts ProcedurePythonShowOutputArgs and ProcedurePythonShowOutputOutput values.
-// You can construct a concrete instance of `ProcedurePythonShowOutputInput` via:
-//
-//	ProcedurePythonShowOutputArgs{...}
-type ProcedurePythonShowOutputInput interface {
-	pulumi.Input
-
-	ToProcedurePythonShowOutputOutput() ProcedurePythonShowOutputOutput
-	ToProcedurePythonShowOutputOutputWithContext(context.Context) ProcedurePythonShowOutputOutput
-}
-
-type ProcedurePythonShowOutputArgs struct {
-	ArgumentsRaw               pulumi.StringPtrInput `pulumi:"argumentsRaw"`
-	CatalogName                pulumi.StringPtrInput `pulumi:"catalogName"`
-	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	ExternalAccessIntegrations pulumi.StringPtrInput `pulumi:"externalAccessIntegrations"`
-	IsAggregate                pulumi.BoolPtrInput   `pulumi:"isAggregate"`
-	IsAnsi                     pulumi.BoolPtrInput   `pulumi:"isAnsi"`
-	IsBuiltin                  pulumi.BoolPtrInput   `pulumi:"isBuiltin"`
-	IsSecure                   pulumi.BoolPtrInput   `pulumi:"isSecure"`
-	IsTableFunction            pulumi.BoolPtrInput   `pulumi:"isTableFunction"`
-	MaxNumArguments            pulumi.IntPtrInput    `pulumi:"maxNumArguments"`
-	MinNumArguments            pulumi.IntPtrInput    `pulumi:"minNumArguments"`
-	Name                       pulumi.StringPtrInput `pulumi:"name"`
-	SchemaName                 pulumi.StringPtrInput `pulumi:"schemaName"`
-	Secrets                    pulumi.StringPtrInput `pulumi:"secrets"`
-	ValidForClustering         pulumi.BoolPtrInput   `pulumi:"validForClustering"`
-}
-
-func (ProcedurePythonShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonShowOutput)(nil)).Elem()
-}
-
-func (i ProcedurePythonShowOutputArgs) ToProcedurePythonShowOutputOutput() ProcedurePythonShowOutputOutput {
-	return i.ToProcedurePythonShowOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonShowOutputArgs) ToProcedurePythonShowOutputOutputWithContext(ctx context.Context) ProcedurePythonShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonShowOutputOutput)
-}
-
-// ProcedurePythonShowOutputArrayInput is an input type that accepts ProcedurePythonShowOutputArray and ProcedurePythonShowOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedurePythonShowOutputArrayInput` via:
-//
-//	ProcedurePythonShowOutputArray{ ProcedurePythonShowOutputArgs{...} }
-type ProcedurePythonShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedurePythonShowOutputArrayOutput() ProcedurePythonShowOutputArrayOutput
-	ToProcedurePythonShowOutputArrayOutputWithContext(context.Context) ProcedurePythonShowOutputArrayOutput
-}
-
-type ProcedurePythonShowOutputArray []ProcedurePythonShowOutputInput
-
-func (ProcedurePythonShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonShowOutput)(nil)).Elem()
-}
-
-func (i ProcedurePythonShowOutputArray) ToProcedurePythonShowOutputArrayOutput() ProcedurePythonShowOutputArrayOutput {
-	return i.ToProcedurePythonShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedurePythonShowOutputArray) ToProcedurePythonShowOutputArrayOutputWithContext(ctx context.Context) ProcedurePythonShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedurePythonShowOutputArrayOutput)
-}
-
-type ProcedurePythonShowOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedurePythonShowOutput)(nil)).Elem()
-}
-
-func (o ProcedurePythonShowOutputOutput) ToProcedurePythonShowOutputOutput() ProcedurePythonShowOutputOutput {
-	return o
-}
-
-func (o ProcedurePythonShowOutputOutput) ToProcedurePythonShowOutputOutputWithContext(ctx context.Context) ProcedurePythonShowOutputOutput {
-	return o
-}
-
-func (o ProcedurePythonShowOutputOutput) ArgumentsRaw() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.ArgumentsRaw }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) CatalogName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) ExternalAccessIntegrations() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.ExternalAccessIntegrations }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) IsAggregate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.IsAggregate }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) IsAnsi() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.IsAnsi }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) IsBuiltin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.IsBuiltin }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) IsSecure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.IsSecure }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) IsTableFunction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.IsTableFunction }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) MaxNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *int { return v.MaxNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) MinNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *int { return v.MinNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) Secrets() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *string { return v.Secrets }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedurePythonShowOutputOutput) ValidForClustering() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedurePythonShowOutput) *bool { return v.ValidForClustering }).(pulumi.BoolPtrOutput)
-}
-
-type ProcedurePythonShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedurePythonShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedurePythonShowOutput)(nil)).Elem()
-}
-
-func (o ProcedurePythonShowOutputArrayOutput) ToProcedurePythonShowOutputArrayOutput() ProcedurePythonShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonShowOutputArrayOutput) ToProcedurePythonShowOutputArrayOutputWithContext(ctx context.Context) ProcedurePythonShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedurePythonShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedurePythonShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedurePythonShowOutput {
-		return vs[0].([]ProcedurePythonShowOutput)[vs[1].(int)]
-	}).(ProcedurePythonShowOutputOutput)
-}
-
-type ProcedureScalaArgument struct {
-	// The argument type.
-	ArgDataType string `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName string `pulumi:"argName"`
-}
-
-// ProcedureScalaArgumentInput is an input type that accepts ProcedureScalaArgumentArgs and ProcedureScalaArgumentOutput values.
-// You can construct a concrete instance of `ProcedureScalaArgumentInput` via:
-//
-//	ProcedureScalaArgumentArgs{...}
-type ProcedureScalaArgumentInput interface {
-	pulumi.Input
-
-	ToProcedureScalaArgumentOutput() ProcedureScalaArgumentOutput
-	ToProcedureScalaArgumentOutputWithContext(context.Context) ProcedureScalaArgumentOutput
-}
-
-type ProcedureScalaArgumentArgs struct {
-	// The argument type.
-	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName pulumi.StringInput `pulumi:"argName"`
-}
-
-func (ProcedureScalaArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaArgument)(nil)).Elem()
-}
-
-func (i ProcedureScalaArgumentArgs) ToProcedureScalaArgumentOutput() ProcedureScalaArgumentOutput {
-	return i.ToProcedureScalaArgumentOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaArgumentArgs) ToProcedureScalaArgumentOutputWithContext(ctx context.Context) ProcedureScalaArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaArgumentOutput)
-}
-
-// ProcedureScalaArgumentArrayInput is an input type that accepts ProcedureScalaArgumentArray and ProcedureScalaArgumentArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaArgumentArrayInput` via:
-//
-//	ProcedureScalaArgumentArray{ ProcedureScalaArgumentArgs{...} }
-type ProcedureScalaArgumentArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaArgumentArrayOutput() ProcedureScalaArgumentArrayOutput
-	ToProcedureScalaArgumentArrayOutputWithContext(context.Context) ProcedureScalaArgumentArrayOutput
-}
-
-type ProcedureScalaArgumentArray []ProcedureScalaArgumentInput
-
-func (ProcedureScalaArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaArgument)(nil)).Elem()
-}
-
-func (i ProcedureScalaArgumentArray) ToProcedureScalaArgumentArrayOutput() ProcedureScalaArgumentArrayOutput {
-	return i.ToProcedureScalaArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaArgumentArray) ToProcedureScalaArgumentArrayOutputWithContext(ctx context.Context) ProcedureScalaArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaArgumentArrayOutput)
-}
-
-type ProcedureScalaArgumentOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaArgument)(nil)).Elem()
-}
-
-func (o ProcedureScalaArgumentOutput) ToProcedureScalaArgumentOutput() ProcedureScalaArgumentOutput {
-	return o
-}
-
-func (o ProcedureScalaArgumentOutput) ToProcedureScalaArgumentOutputWithContext(ctx context.Context) ProcedureScalaArgumentOutput {
-	return o
-}
-
-// The argument type.
-func (o ProcedureScalaArgumentOutput) ArgDataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
-}
-
-// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-func (o ProcedureScalaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
-}
-
-// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-func (o ProcedureScalaArgumentOutput) ArgName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaArgument) string { return v.ArgName }).(pulumi.StringOutput)
-}
-
-type ProcedureScalaArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaArgument)(nil)).Elem()
-}
-
-func (o ProcedureScalaArgumentArrayOutput) ToProcedureScalaArgumentArrayOutput() ProcedureScalaArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaArgumentArrayOutput) ToProcedureScalaArgumentArrayOutputWithContext(ctx context.Context) ProcedureScalaArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureScalaArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaArgument {
-		return vs[0].([]ProcedureScalaArgument)[vs[1].(int)]
-	}).(ProcedureScalaArgumentOutput)
-}
-
-type ProcedureScalaImport struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage string `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation string `pulumi:"stageLocation"`
-}
-
-// ProcedureScalaImportInput is an input type that accepts ProcedureScalaImportArgs and ProcedureScalaImportOutput values.
-// You can construct a concrete instance of `ProcedureScalaImportInput` via:
-//
-//	ProcedureScalaImportArgs{...}
-type ProcedureScalaImportInput interface {
-	pulumi.Input
-
-	ToProcedureScalaImportOutput() ProcedureScalaImportOutput
-	ToProcedureScalaImportOutputWithContext(context.Context) ProcedureScalaImportOutput
-}
-
-type ProcedureScalaImportArgs struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
-}
-
-func (ProcedureScalaImportArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaImport)(nil)).Elem()
-}
-
-func (i ProcedureScalaImportArgs) ToProcedureScalaImportOutput() ProcedureScalaImportOutput {
-	return i.ToProcedureScalaImportOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaImportArgs) ToProcedureScalaImportOutputWithContext(ctx context.Context) ProcedureScalaImportOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaImportOutput)
-}
-
-// ProcedureScalaImportArrayInput is an input type that accepts ProcedureScalaImportArray and ProcedureScalaImportArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaImportArrayInput` via:
-//
-//	ProcedureScalaImportArray{ ProcedureScalaImportArgs{...} }
-type ProcedureScalaImportArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaImportArrayOutput() ProcedureScalaImportArrayOutput
-	ToProcedureScalaImportArrayOutputWithContext(context.Context) ProcedureScalaImportArrayOutput
-}
-
-type ProcedureScalaImportArray []ProcedureScalaImportInput
-
-func (ProcedureScalaImportArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaImport)(nil)).Elem()
-}
-
-func (i ProcedureScalaImportArray) ToProcedureScalaImportArrayOutput() ProcedureScalaImportArrayOutput {
-	return i.ToProcedureScalaImportArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaImportArray) ToProcedureScalaImportArrayOutputWithContext(ctx context.Context) ProcedureScalaImportArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaImportArrayOutput)
-}
-
-type ProcedureScalaImportOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaImportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaImport)(nil)).Elem()
-}
-
-func (o ProcedureScalaImportOutput) ToProcedureScalaImportOutput() ProcedureScalaImportOutput {
-	return o
-}
-
-func (o ProcedureScalaImportOutput) ToProcedureScalaImportOutputWithContext(ctx context.Context) ProcedureScalaImportOutput {
-	return o
-}
-
-// Path for import on stage, without the leading `/`.
-func (o ProcedureScalaImportOutput) PathOnStage() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaImport) string { return v.PathOnStage }).(pulumi.StringOutput)
-}
-
-// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-func (o ProcedureScalaImportOutput) StageLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaImport) string { return v.StageLocation }).(pulumi.StringOutput)
-}
-
-type ProcedureScalaImportArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaImportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaImport)(nil)).Elem()
-}
-
-func (o ProcedureScalaImportArrayOutput) ToProcedureScalaImportArrayOutput() ProcedureScalaImportArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaImportArrayOutput) ToProcedureScalaImportArrayOutputWithContext(ctx context.Context) ProcedureScalaImportArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaImportArrayOutput) Index(i pulumi.IntInput) ProcedureScalaImportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaImport {
-		return vs[0].([]ProcedureScalaImport)[vs[1].(int)]
-	}).(ProcedureScalaImportOutput)
-}
-
-type ProcedureScalaParameter struct {
-	EnableConsoleOutputs []ProcedureScalaParameterEnableConsoleOutput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       []ProcedureScalaParameterLogEventLevel       `pulumi:"logEventLevels"`
-	LogLevels            []ProcedureScalaParameterLogLevel            `pulumi:"logLevels"`
-	MetricLevels         []ProcedureScalaParameterMetricLevel         `pulumi:"metricLevels"`
-	TraceLevels          []ProcedureScalaParameterTraceLevel          `pulumi:"traceLevels"`
-}
-
-// ProcedureScalaParameterInput is an input type that accepts ProcedureScalaParameterArgs and ProcedureScalaParameterOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterInput` via:
-//
-//	ProcedureScalaParameterArgs{...}
-type ProcedureScalaParameterInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterOutput() ProcedureScalaParameterOutput
-	ToProcedureScalaParameterOutputWithContext(context.Context) ProcedureScalaParameterOutput
-}
-
-type ProcedureScalaParameterArgs struct {
-	EnableConsoleOutputs ProcedureScalaParameterEnableConsoleOutputArrayInput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       ProcedureScalaParameterLogEventLevelArrayInput       `pulumi:"logEventLevels"`
-	LogLevels            ProcedureScalaParameterLogLevelArrayInput            `pulumi:"logLevels"`
-	MetricLevels         ProcedureScalaParameterMetricLevelArrayInput         `pulumi:"metricLevels"`
-	TraceLevels          ProcedureScalaParameterTraceLevelArrayInput          `pulumi:"traceLevels"`
-}
-
-func (ProcedureScalaParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameter)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterArgs) ToProcedureScalaParameterOutput() ProcedureScalaParameterOutput {
-	return i.ToProcedureScalaParameterOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterArgs) ToProcedureScalaParameterOutputWithContext(ctx context.Context) ProcedureScalaParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterOutput)
-}
-
-// ProcedureScalaParameterArrayInput is an input type that accepts ProcedureScalaParameterArray and ProcedureScalaParameterArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterArrayInput` via:
-//
-//	ProcedureScalaParameterArray{ ProcedureScalaParameterArgs{...} }
-type ProcedureScalaParameterArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterArrayOutput() ProcedureScalaParameterArrayOutput
-	ToProcedureScalaParameterArrayOutputWithContext(context.Context) ProcedureScalaParameterArrayOutput
-}
-
-type ProcedureScalaParameterArray []ProcedureScalaParameterInput
-
-func (ProcedureScalaParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameter)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterArray) ToProcedureScalaParameterArrayOutput() ProcedureScalaParameterArrayOutput {
-	return i.ToProcedureScalaParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterArray) ToProcedureScalaParameterArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterArrayOutput)
-}
-
-type ProcedureScalaParameterOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameter)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterOutput) ToProcedureScalaParameterOutput() ProcedureScalaParameterOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterOutput) ToProcedureScalaParameterOutputWithContext(ctx context.Context) ProcedureScalaParameterOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterOutput) EnableConsoleOutputs() ProcedureScalaParameterEnableConsoleOutputArrayOutput {
-	return o.ApplyT(func(v ProcedureScalaParameter) []ProcedureScalaParameterEnableConsoleOutput {
-		return v.EnableConsoleOutputs
-	}).(ProcedureScalaParameterEnableConsoleOutputArrayOutput)
-}
-
-func (o ProcedureScalaParameterOutput) LogEventLevels() ProcedureScalaParameterLogEventLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureScalaParameter) []ProcedureScalaParameterLogEventLevel { return v.LogEventLevels }).(ProcedureScalaParameterLogEventLevelArrayOutput)
-}
-
-func (o ProcedureScalaParameterOutput) LogLevels() ProcedureScalaParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureScalaParameter) []ProcedureScalaParameterLogLevel { return v.LogLevels }).(ProcedureScalaParameterLogLevelArrayOutput)
-}
-
-func (o ProcedureScalaParameterOutput) MetricLevels() ProcedureScalaParameterMetricLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureScalaParameter) []ProcedureScalaParameterMetricLevel { return v.MetricLevels }).(ProcedureScalaParameterMetricLevelArrayOutput)
-}
-
-func (o ProcedureScalaParameterOutput) TraceLevels() ProcedureScalaParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureScalaParameter) []ProcedureScalaParameterTraceLevel { return v.TraceLevels }).(ProcedureScalaParameterTraceLevelArrayOutput)
-}
-
-type ProcedureScalaParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameter)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterArrayOutput) ToProcedureScalaParameterArrayOutput() ProcedureScalaParameterArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterArrayOutput) ToProcedureScalaParameterArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameter {
-		return vs[0].([]ProcedureScalaParameter)[vs[1].(int)]
-	}).(ProcedureScalaParameterOutput)
-}
-
-type ProcedureScalaParameterEnableConsoleOutput struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureScalaParameterEnableConsoleOutputInput is an input type that accepts ProcedureScalaParameterEnableConsoleOutputArgs and ProcedureScalaParameterEnableConsoleOutputOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterEnableConsoleOutputInput` via:
-//
-//	ProcedureScalaParameterEnableConsoleOutputArgs{...}
-type ProcedureScalaParameterEnableConsoleOutputInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterEnableConsoleOutputOutput() ProcedureScalaParameterEnableConsoleOutputOutput
-	ToProcedureScalaParameterEnableConsoleOutputOutputWithContext(context.Context) ProcedureScalaParameterEnableConsoleOutputOutput
-}
-
-type ProcedureScalaParameterEnableConsoleOutputArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureScalaParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterEnableConsoleOutputArgs) ToProcedureScalaParameterEnableConsoleOutputOutput() ProcedureScalaParameterEnableConsoleOutputOutput {
-	return i.ToProcedureScalaParameterEnableConsoleOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterEnableConsoleOutputArgs) ToProcedureScalaParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedureScalaParameterEnableConsoleOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterEnableConsoleOutputOutput)
-}
-
-// ProcedureScalaParameterEnableConsoleOutputArrayInput is an input type that accepts ProcedureScalaParameterEnableConsoleOutputArray and ProcedureScalaParameterEnableConsoleOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterEnableConsoleOutputArrayInput` via:
-//
-//	ProcedureScalaParameterEnableConsoleOutputArray{ ProcedureScalaParameterEnableConsoleOutputArgs{...} }
-type ProcedureScalaParameterEnableConsoleOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterEnableConsoleOutputArrayOutput() ProcedureScalaParameterEnableConsoleOutputArrayOutput
-	ToProcedureScalaParameterEnableConsoleOutputArrayOutputWithContext(context.Context) ProcedureScalaParameterEnableConsoleOutputArrayOutput
-}
-
-type ProcedureScalaParameterEnableConsoleOutputArray []ProcedureScalaParameterEnableConsoleOutputInput
-
-func (ProcedureScalaParameterEnableConsoleOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterEnableConsoleOutputArray) ToProcedureScalaParameterEnableConsoleOutputArrayOutput() ProcedureScalaParameterEnableConsoleOutputArrayOutput {
-	return i.ToProcedureScalaParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterEnableConsoleOutputArray) ToProcedureScalaParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterEnableConsoleOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterEnableConsoleOutputArrayOutput)
-}
-
-type ProcedureScalaParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) ToProcedureScalaParameterEnableConsoleOutputOutput() ProcedureScalaParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) ToProcedureScalaParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedureScalaParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterEnableConsoleOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterEnableConsoleOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterEnableConsoleOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterEnableConsoleOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterEnableConsoleOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureScalaParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputArrayOutput) ToProcedureScalaParameterEnableConsoleOutputArrayOutput() ProcedureScalaParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputArrayOutput) ToProcedureScalaParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterEnableConsoleOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameterEnableConsoleOutput {
-		return vs[0].([]ProcedureScalaParameterEnableConsoleOutput)[vs[1].(int)]
-	}).(ProcedureScalaParameterEnableConsoleOutputOutput)
-}
-
-type ProcedureScalaParameterLogEventLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureScalaParameterLogEventLevelInput is an input type that accepts ProcedureScalaParameterLogEventLevelArgs and ProcedureScalaParameterLogEventLevelOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterLogEventLevelInput` via:
-//
-//	ProcedureScalaParameterLogEventLevelArgs{...}
-type ProcedureScalaParameterLogEventLevelInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterLogEventLevelOutput() ProcedureScalaParameterLogEventLevelOutput
-	ToProcedureScalaParameterLogEventLevelOutputWithContext(context.Context) ProcedureScalaParameterLogEventLevelOutput
-}
-
-type ProcedureScalaParameterLogEventLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureScalaParameterLogEventLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterLogEventLevelArgs) ToProcedureScalaParameterLogEventLevelOutput() ProcedureScalaParameterLogEventLevelOutput {
-	return i.ToProcedureScalaParameterLogEventLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterLogEventLevelArgs) ToProcedureScalaParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterLogEventLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterLogEventLevelOutput)
-}
-
-// ProcedureScalaParameterLogEventLevelArrayInput is an input type that accepts ProcedureScalaParameterLogEventLevelArray and ProcedureScalaParameterLogEventLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterLogEventLevelArrayInput` via:
-//
-//	ProcedureScalaParameterLogEventLevelArray{ ProcedureScalaParameterLogEventLevelArgs{...} }
-type ProcedureScalaParameterLogEventLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterLogEventLevelArrayOutput() ProcedureScalaParameterLogEventLevelArrayOutput
-	ToProcedureScalaParameterLogEventLevelArrayOutputWithContext(context.Context) ProcedureScalaParameterLogEventLevelArrayOutput
-}
-
-type ProcedureScalaParameterLogEventLevelArray []ProcedureScalaParameterLogEventLevelInput
-
-func (ProcedureScalaParameterLogEventLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterLogEventLevelArray) ToProcedureScalaParameterLogEventLevelArrayOutput() ProcedureScalaParameterLogEventLevelArrayOutput {
-	return i.ToProcedureScalaParameterLogEventLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterLogEventLevelArray) ToProcedureScalaParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterLogEventLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterLogEventLevelArrayOutput)
-}
-
-type ProcedureScalaParameterLogEventLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterLogEventLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) ToProcedureScalaParameterLogEventLevelOutput() ProcedureScalaParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) ToProcedureScalaParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureScalaParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterLogEventLevelArrayOutput) ToProcedureScalaParameterLogEventLevelArrayOutput() ProcedureScalaParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogEventLevelArrayOutput) ToProcedureScalaParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterLogEventLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameterLogEventLevel {
-		return vs[0].([]ProcedureScalaParameterLogEventLevel)[vs[1].(int)]
-	}).(ProcedureScalaParameterLogEventLevelOutput)
-}
-
-type ProcedureScalaParameterLogLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureScalaParameterLogLevelInput is an input type that accepts ProcedureScalaParameterLogLevelArgs and ProcedureScalaParameterLogLevelOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterLogLevelInput` via:
-//
-//	ProcedureScalaParameterLogLevelArgs{...}
-type ProcedureScalaParameterLogLevelInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterLogLevelOutput() ProcedureScalaParameterLogLevelOutput
-	ToProcedureScalaParameterLogLevelOutputWithContext(context.Context) ProcedureScalaParameterLogLevelOutput
-}
-
-type ProcedureScalaParameterLogLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureScalaParameterLogLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterLogLevelArgs) ToProcedureScalaParameterLogLevelOutput() ProcedureScalaParameterLogLevelOutput {
-	return i.ToProcedureScalaParameterLogLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterLogLevelArgs) ToProcedureScalaParameterLogLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterLogLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterLogLevelOutput)
-}
-
-// ProcedureScalaParameterLogLevelArrayInput is an input type that accepts ProcedureScalaParameterLogLevelArray and ProcedureScalaParameterLogLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterLogLevelArrayInput` via:
-//
-//	ProcedureScalaParameterLogLevelArray{ ProcedureScalaParameterLogLevelArgs{...} }
-type ProcedureScalaParameterLogLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterLogLevelArrayOutput() ProcedureScalaParameterLogLevelArrayOutput
-	ToProcedureScalaParameterLogLevelArrayOutputWithContext(context.Context) ProcedureScalaParameterLogLevelArrayOutput
-}
-
-type ProcedureScalaParameterLogLevelArray []ProcedureScalaParameterLogLevelInput
-
-func (ProcedureScalaParameterLogLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterLogLevelArray) ToProcedureScalaParameterLogLevelArrayOutput() ProcedureScalaParameterLogLevelArrayOutput {
-	return i.ToProcedureScalaParameterLogLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterLogLevelArray) ToProcedureScalaParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterLogLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterLogLevelArrayOutput)
-}
-
-type ProcedureScalaParameterLogLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterLogLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) ToProcedureScalaParameterLogLevelOutput() ProcedureScalaParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) ToProcedureScalaParameterLogLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureScalaParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterLogLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterLogLevelArrayOutput) ToProcedureScalaParameterLogLevelArrayOutput() ProcedureScalaParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogLevelArrayOutput) ToProcedureScalaParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterLogLevelArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterLogLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameterLogLevel {
-		return vs[0].([]ProcedureScalaParameterLogLevel)[vs[1].(int)]
-	}).(ProcedureScalaParameterLogLevelOutput)
-}
-
-type ProcedureScalaParameterMetricLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureScalaParameterMetricLevelInput is an input type that accepts ProcedureScalaParameterMetricLevelArgs and ProcedureScalaParameterMetricLevelOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterMetricLevelInput` via:
-//
-//	ProcedureScalaParameterMetricLevelArgs{...}
-type ProcedureScalaParameterMetricLevelInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterMetricLevelOutput() ProcedureScalaParameterMetricLevelOutput
-	ToProcedureScalaParameterMetricLevelOutputWithContext(context.Context) ProcedureScalaParameterMetricLevelOutput
-}
-
-type ProcedureScalaParameterMetricLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureScalaParameterMetricLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterMetricLevelArgs) ToProcedureScalaParameterMetricLevelOutput() ProcedureScalaParameterMetricLevelOutput {
-	return i.ToProcedureScalaParameterMetricLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterMetricLevelArgs) ToProcedureScalaParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterMetricLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterMetricLevelOutput)
-}
-
-// ProcedureScalaParameterMetricLevelArrayInput is an input type that accepts ProcedureScalaParameterMetricLevelArray and ProcedureScalaParameterMetricLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterMetricLevelArrayInput` via:
-//
-//	ProcedureScalaParameterMetricLevelArray{ ProcedureScalaParameterMetricLevelArgs{...} }
-type ProcedureScalaParameterMetricLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterMetricLevelArrayOutput() ProcedureScalaParameterMetricLevelArrayOutput
-	ToProcedureScalaParameterMetricLevelArrayOutputWithContext(context.Context) ProcedureScalaParameterMetricLevelArrayOutput
-}
-
-type ProcedureScalaParameterMetricLevelArray []ProcedureScalaParameterMetricLevelInput
-
-func (ProcedureScalaParameterMetricLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterMetricLevelArray) ToProcedureScalaParameterMetricLevelArrayOutput() ProcedureScalaParameterMetricLevelArrayOutput {
-	return i.ToProcedureScalaParameterMetricLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterMetricLevelArray) ToProcedureScalaParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterMetricLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterMetricLevelArrayOutput)
-}
-
-type ProcedureScalaParameterMetricLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterMetricLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) ToProcedureScalaParameterMetricLevelOutput() ProcedureScalaParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) ToProcedureScalaParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterMetricLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterMetricLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterMetricLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterMetricLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterMetricLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterMetricLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureScalaParameterMetricLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterMetricLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterMetricLevelArrayOutput) ToProcedureScalaParameterMetricLevelArrayOutput() ProcedureScalaParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterMetricLevelArrayOutput) ToProcedureScalaParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterMetricLevelArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterMetricLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameterMetricLevel {
-		return vs[0].([]ProcedureScalaParameterMetricLevel)[vs[1].(int)]
-	}).(ProcedureScalaParameterMetricLevelOutput)
-}
-
-type ProcedureScalaParameterTraceLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureScalaParameterTraceLevelInput is an input type that accepts ProcedureScalaParameterTraceLevelArgs and ProcedureScalaParameterTraceLevelOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterTraceLevelInput` via:
-//
-//	ProcedureScalaParameterTraceLevelArgs{...}
-type ProcedureScalaParameterTraceLevelInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterTraceLevelOutput() ProcedureScalaParameterTraceLevelOutput
-	ToProcedureScalaParameterTraceLevelOutputWithContext(context.Context) ProcedureScalaParameterTraceLevelOutput
-}
-
-type ProcedureScalaParameterTraceLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureScalaParameterTraceLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterTraceLevelArgs) ToProcedureScalaParameterTraceLevelOutput() ProcedureScalaParameterTraceLevelOutput {
-	return i.ToProcedureScalaParameterTraceLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterTraceLevelArgs) ToProcedureScalaParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterTraceLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterTraceLevelOutput)
-}
-
-// ProcedureScalaParameterTraceLevelArrayInput is an input type that accepts ProcedureScalaParameterTraceLevelArray and ProcedureScalaParameterTraceLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaParameterTraceLevelArrayInput` via:
-//
-//	ProcedureScalaParameterTraceLevelArray{ ProcedureScalaParameterTraceLevelArgs{...} }
-type ProcedureScalaParameterTraceLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaParameterTraceLevelArrayOutput() ProcedureScalaParameterTraceLevelArrayOutput
-	ToProcedureScalaParameterTraceLevelArrayOutputWithContext(context.Context) ProcedureScalaParameterTraceLevelArrayOutput
-}
-
-type ProcedureScalaParameterTraceLevelArray []ProcedureScalaParameterTraceLevelInput
-
-func (ProcedureScalaParameterTraceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureScalaParameterTraceLevelArray) ToProcedureScalaParameterTraceLevelArrayOutput() ProcedureScalaParameterTraceLevelArrayOutput {
-	return i.ToProcedureScalaParameterTraceLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaParameterTraceLevelArray) ToProcedureScalaParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterTraceLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaParameterTraceLevelArrayOutput)
-}
-
-type ProcedureScalaParameterTraceLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterTraceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) ToProcedureScalaParameterTraceLevelOutput() ProcedureScalaParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) ToProcedureScalaParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureScalaParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureScalaParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaParameterTraceLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureScalaParameterTraceLevelArrayOutput) ToProcedureScalaParameterTraceLevelArrayOutput() ProcedureScalaParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterTraceLevelArrayOutput) ToProcedureScalaParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureScalaParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) ProcedureScalaParameterTraceLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaParameterTraceLevel {
-		return vs[0].([]ProcedureScalaParameterTraceLevel)[vs[1].(int)]
-	}).(ProcedureScalaParameterTraceLevelOutput)
-}
-
-type ProcedureScalaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-	SecretId string `pulumi:"secretId"`
-	// The variable that will be used in handler code when retrieving information from the secret.
-	SecretVariableName string `pulumi:"secretVariableName"`
-}
-
-// ProcedureScalaSecretInput is an input type that accepts ProcedureScalaSecretArgs and ProcedureScalaSecretOutput values.
-// You can construct a concrete instance of `ProcedureScalaSecretInput` via:
-//
-//	ProcedureScalaSecretArgs{...}
-type ProcedureScalaSecretInput interface {
-	pulumi.Input
-
-	ToProcedureScalaSecretOutput() ProcedureScalaSecretOutput
-	ToProcedureScalaSecretOutputWithContext(context.Context) ProcedureScalaSecretOutput
-}
-
-type ProcedureScalaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-	SecretId pulumi.StringInput `pulumi:"secretId"`
-	// The variable that will be used in handler code when retrieving information from the secret.
-	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
-}
-
-func (ProcedureScalaSecretArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaSecret)(nil)).Elem()
-}
-
-func (i ProcedureScalaSecretArgs) ToProcedureScalaSecretOutput() ProcedureScalaSecretOutput {
-	return i.ToProcedureScalaSecretOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaSecretArgs) ToProcedureScalaSecretOutputWithContext(ctx context.Context) ProcedureScalaSecretOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaSecretOutput)
-}
-
-// ProcedureScalaSecretArrayInput is an input type that accepts ProcedureScalaSecretArray and ProcedureScalaSecretArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaSecretArrayInput` via:
-//
-//	ProcedureScalaSecretArray{ ProcedureScalaSecretArgs{...} }
-type ProcedureScalaSecretArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaSecretArrayOutput() ProcedureScalaSecretArrayOutput
-	ToProcedureScalaSecretArrayOutputWithContext(context.Context) ProcedureScalaSecretArrayOutput
-}
-
-type ProcedureScalaSecretArray []ProcedureScalaSecretInput
-
-func (ProcedureScalaSecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaSecret)(nil)).Elem()
-}
-
-func (i ProcedureScalaSecretArray) ToProcedureScalaSecretArrayOutput() ProcedureScalaSecretArrayOutput {
-	return i.ToProcedureScalaSecretArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaSecretArray) ToProcedureScalaSecretArrayOutputWithContext(ctx context.Context) ProcedureScalaSecretArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaSecretArrayOutput)
-}
-
-type ProcedureScalaSecretOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaSecret)(nil)).Elem()
-}
-
-func (o ProcedureScalaSecretOutput) ToProcedureScalaSecretOutput() ProcedureScalaSecretOutput {
-	return o
-}
-
-func (o ProcedureScalaSecretOutput) ToProcedureScalaSecretOutputWithContext(ctx context.Context) ProcedureScalaSecretOutput {
-	return o
-}
-
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
-func (o ProcedureScalaSecretOutput) SecretId() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaSecret) string { return v.SecretId }).(pulumi.StringOutput)
-}
-
-// The variable that will be used in handler code when retrieving information from the secret.
-func (o ProcedureScalaSecretOutput) SecretVariableName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaSecret) string { return v.SecretVariableName }).(pulumi.StringOutput)
-}
-
-type ProcedureScalaSecretArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaSecretArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaSecret)(nil)).Elem()
-}
-
-func (o ProcedureScalaSecretArrayOutput) ToProcedureScalaSecretArrayOutput() ProcedureScalaSecretArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaSecretArrayOutput) ToProcedureScalaSecretArrayOutputWithContext(ctx context.Context) ProcedureScalaSecretArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaSecretArrayOutput) Index(i pulumi.IntInput) ProcedureScalaSecretOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaSecret {
-		return vs[0].([]ProcedureScalaSecret)[vs[1].(int)]
-	}).(ProcedureScalaSecretOutput)
-}
-
-type ProcedureScalaShowOutput struct {
-	ArgumentsRaw               *string `pulumi:"argumentsRaw"`
-	CatalogName                *string `pulumi:"catalogName"`
-	CreatedOn                  *string `pulumi:"createdOn"`
-	Description                *string `pulumi:"description"`
-	ExternalAccessIntegrations *string `pulumi:"externalAccessIntegrations"`
-	IsAggregate                *bool   `pulumi:"isAggregate"`
-	IsAnsi                     *bool   `pulumi:"isAnsi"`
-	IsBuiltin                  *bool   `pulumi:"isBuiltin"`
-	IsSecure                   *bool   `pulumi:"isSecure"`
-	IsTableFunction            *bool   `pulumi:"isTableFunction"`
-	MaxNumArguments            *int    `pulumi:"maxNumArguments"`
-	MinNumArguments            *int    `pulumi:"minNumArguments"`
-	Name                       *string `pulumi:"name"`
-	SchemaName                 *string `pulumi:"schemaName"`
-	Secrets                    *string `pulumi:"secrets"`
-	ValidForClustering         *bool   `pulumi:"validForClustering"`
-}
-
-// ProcedureScalaShowOutputInput is an input type that accepts ProcedureScalaShowOutputArgs and ProcedureScalaShowOutputOutput values.
-// You can construct a concrete instance of `ProcedureScalaShowOutputInput` via:
-//
-//	ProcedureScalaShowOutputArgs{...}
-type ProcedureScalaShowOutputInput interface {
-	pulumi.Input
-
-	ToProcedureScalaShowOutputOutput() ProcedureScalaShowOutputOutput
-	ToProcedureScalaShowOutputOutputWithContext(context.Context) ProcedureScalaShowOutputOutput
-}
-
-type ProcedureScalaShowOutputArgs struct {
-	ArgumentsRaw               pulumi.StringPtrInput `pulumi:"argumentsRaw"`
-	CatalogName                pulumi.StringPtrInput `pulumi:"catalogName"`
-	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	ExternalAccessIntegrations pulumi.StringPtrInput `pulumi:"externalAccessIntegrations"`
-	IsAggregate                pulumi.BoolPtrInput   `pulumi:"isAggregate"`
-	IsAnsi                     pulumi.BoolPtrInput   `pulumi:"isAnsi"`
-	IsBuiltin                  pulumi.BoolPtrInput   `pulumi:"isBuiltin"`
-	IsSecure                   pulumi.BoolPtrInput   `pulumi:"isSecure"`
-	IsTableFunction            pulumi.BoolPtrInput   `pulumi:"isTableFunction"`
-	MaxNumArguments            pulumi.IntPtrInput    `pulumi:"maxNumArguments"`
-	MinNumArguments            pulumi.IntPtrInput    `pulumi:"minNumArguments"`
-	Name                       pulumi.StringPtrInput `pulumi:"name"`
-	SchemaName                 pulumi.StringPtrInput `pulumi:"schemaName"`
-	Secrets                    pulumi.StringPtrInput `pulumi:"secrets"`
-	ValidForClustering         pulumi.BoolPtrInput   `pulumi:"validForClustering"`
-}
-
-func (ProcedureScalaShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureScalaShowOutputArgs) ToProcedureScalaShowOutputOutput() ProcedureScalaShowOutputOutput {
-	return i.ToProcedureScalaShowOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaShowOutputArgs) ToProcedureScalaShowOutputOutputWithContext(ctx context.Context) ProcedureScalaShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaShowOutputOutput)
-}
-
-// ProcedureScalaShowOutputArrayInput is an input type that accepts ProcedureScalaShowOutputArray and ProcedureScalaShowOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedureScalaShowOutputArrayInput` via:
-//
-//	ProcedureScalaShowOutputArray{ ProcedureScalaShowOutputArgs{...} }
-type ProcedureScalaShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedureScalaShowOutputArrayOutput() ProcedureScalaShowOutputArrayOutput
-	ToProcedureScalaShowOutputArrayOutputWithContext(context.Context) ProcedureScalaShowOutputArrayOutput
-}
-
-type ProcedureScalaShowOutputArray []ProcedureScalaShowOutputInput
-
-func (ProcedureScalaShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureScalaShowOutputArray) ToProcedureScalaShowOutputArrayOutput() ProcedureScalaShowOutputArrayOutput {
-	return i.ToProcedureScalaShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaShowOutputArray) ToProcedureScalaShowOutputArrayOutputWithContext(ctx context.Context) ProcedureScalaShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaShowOutputArrayOutput)
-}
-
-type ProcedureScalaShowOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureScalaShowOutputOutput) ToProcedureScalaShowOutputOutput() ProcedureScalaShowOutputOutput {
-	return o
-}
-
-func (o ProcedureScalaShowOutputOutput) ToProcedureScalaShowOutputOutputWithContext(ctx context.Context) ProcedureScalaShowOutputOutput {
-	return o
-}
-
-func (o ProcedureScalaShowOutputOutput) ArgumentsRaw() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.ArgumentsRaw }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) CatalogName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) ExternalAccessIntegrations() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.ExternalAccessIntegrations }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) IsAggregate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.IsAggregate }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) IsAnsi() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.IsAnsi }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) IsBuiltin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.IsBuiltin }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) IsSecure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.IsSecure }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) IsTableFunction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.IsTableFunction }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) MaxNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *int { return v.MaxNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) MinNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *int { return v.MinNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) Secrets() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *string { return v.Secrets }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureScalaShowOutputOutput) ValidForClustering() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureScalaShowOutput) *bool { return v.ValidForClustering }).(pulumi.BoolPtrOutput)
-}
-
-type ProcedureScalaShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureScalaShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureScalaShowOutputArrayOutput) ToProcedureScalaShowOutputArrayOutput() ProcedureScalaShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaShowOutputArrayOutput) ToProcedureScalaShowOutputArrayOutputWithContext(ctx context.Context) ProcedureScalaShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureScalaShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedureScalaShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureScalaShowOutput {
-		return vs[0].([]ProcedureScalaShowOutput)[vs[1].(int)]
-	}).(ProcedureScalaShowOutputOutput)
-}
-
-type ProcedureScalaTargetPath struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage string `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation string `pulumi:"stageLocation"`
-}
-
-// ProcedureScalaTargetPathInput is an input type that accepts ProcedureScalaTargetPathArgs and ProcedureScalaTargetPathOutput values.
-// You can construct a concrete instance of `ProcedureScalaTargetPathInput` via:
-//
-//	ProcedureScalaTargetPathArgs{...}
-type ProcedureScalaTargetPathInput interface {
-	pulumi.Input
-
-	ToProcedureScalaTargetPathOutput() ProcedureScalaTargetPathOutput
-	ToProcedureScalaTargetPathOutputWithContext(context.Context) ProcedureScalaTargetPathOutput
-}
-
-type ProcedureScalaTargetPathArgs struct {
-	// Path for import on stage, without the leading `/`.
-	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
-	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
-}
-
-func (ProcedureScalaTargetPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaTargetPath)(nil)).Elem()
-}
-
-func (i ProcedureScalaTargetPathArgs) ToProcedureScalaTargetPathOutput() ProcedureScalaTargetPathOutput {
-	return i.ToProcedureScalaTargetPathOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaTargetPathArgs) ToProcedureScalaTargetPathOutputWithContext(ctx context.Context) ProcedureScalaTargetPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaTargetPathOutput)
-}
-
-func (i ProcedureScalaTargetPathArgs) ToProcedureScalaTargetPathPtrOutput() ProcedureScalaTargetPathPtrOutput {
-	return i.ToProcedureScalaTargetPathPtrOutputWithContext(context.Background())
-}
-
-func (i ProcedureScalaTargetPathArgs) ToProcedureScalaTargetPathPtrOutputWithContext(ctx context.Context) ProcedureScalaTargetPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaTargetPathOutput).ToProcedureScalaTargetPathPtrOutputWithContext(ctx)
-}
-
-// ProcedureScalaTargetPathPtrInput is an input type that accepts ProcedureScalaTargetPathArgs, ProcedureScalaTargetPathPtr and ProcedureScalaTargetPathPtrOutput values.
-// You can construct a concrete instance of `ProcedureScalaTargetPathPtrInput` via:
-//
-//	        ProcedureScalaTargetPathArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProcedureScalaTargetPathPtrInput interface {
-	pulumi.Input
-
-	ToProcedureScalaTargetPathPtrOutput() ProcedureScalaTargetPathPtrOutput
-	ToProcedureScalaTargetPathPtrOutputWithContext(context.Context) ProcedureScalaTargetPathPtrOutput
-}
-
-type procedureScalaTargetPathPtrType ProcedureScalaTargetPathArgs
-
-func ProcedureScalaTargetPathPtr(v *ProcedureScalaTargetPathArgs) ProcedureScalaTargetPathPtrInput {
-	return (*procedureScalaTargetPathPtrType)(v)
-}
-
-func (*procedureScalaTargetPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcedureScalaTargetPath)(nil)).Elem()
-}
-
-func (i *procedureScalaTargetPathPtrType) ToProcedureScalaTargetPathPtrOutput() ProcedureScalaTargetPathPtrOutput {
-	return i.ToProcedureScalaTargetPathPtrOutputWithContext(context.Background())
-}
-
-func (i *procedureScalaTargetPathPtrType) ToProcedureScalaTargetPathPtrOutputWithContext(ctx context.Context) ProcedureScalaTargetPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureScalaTargetPathPtrOutput)
-}
-
-type ProcedureScalaTargetPathOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaTargetPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureScalaTargetPath)(nil)).Elem()
-}
-
-func (o ProcedureScalaTargetPathOutput) ToProcedureScalaTargetPathOutput() ProcedureScalaTargetPathOutput {
-	return o
-}
-
-func (o ProcedureScalaTargetPathOutput) ToProcedureScalaTargetPathOutputWithContext(ctx context.Context) ProcedureScalaTargetPathOutput {
-	return o
-}
-
-func (o ProcedureScalaTargetPathOutput) ToProcedureScalaTargetPathPtrOutput() ProcedureScalaTargetPathPtrOutput {
-	return o.ToProcedureScalaTargetPathPtrOutputWithContext(context.Background())
-}
-
-func (o ProcedureScalaTargetPathOutput) ToProcedureScalaTargetPathPtrOutputWithContext(ctx context.Context) ProcedureScalaTargetPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcedureScalaTargetPath) *ProcedureScalaTargetPath {
-		return &v
-	}).(ProcedureScalaTargetPathPtrOutput)
-}
-
-// Path for import on stage, without the leading `/`.
-func (o ProcedureScalaTargetPathOutput) PathOnStage() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaTargetPath) string { return v.PathOnStage }).(pulumi.StringOutput)
-}
-
-// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-func (o ProcedureScalaTargetPathOutput) StageLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureScalaTargetPath) string { return v.StageLocation }).(pulumi.StringOutput)
-}
-
-type ProcedureScalaTargetPathPtrOutput struct{ *pulumi.OutputState }
-
-func (ProcedureScalaTargetPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProcedureScalaTargetPath)(nil)).Elem()
-}
-
-func (o ProcedureScalaTargetPathPtrOutput) ToProcedureScalaTargetPathPtrOutput() ProcedureScalaTargetPathPtrOutput {
-	return o
-}
-
-func (o ProcedureScalaTargetPathPtrOutput) ToProcedureScalaTargetPathPtrOutputWithContext(ctx context.Context) ProcedureScalaTargetPathPtrOutput {
-	return o
-}
-
-func (o ProcedureScalaTargetPathPtrOutput) Elem() ProcedureScalaTargetPathOutput {
-	return o.ApplyT(func(v *ProcedureScalaTargetPath) ProcedureScalaTargetPath {
-		if v != nil {
-			return *v
-		}
-		var ret ProcedureScalaTargetPath
-		return ret
-	}).(ProcedureScalaTargetPathOutput)
-}
-
-// Path for import on stage, without the leading `/`.
-func (o ProcedureScalaTargetPathPtrOutput) PathOnStage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProcedureScalaTargetPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PathOnStage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
-func (o ProcedureScalaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProcedureScalaTargetPath) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StageLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlArgument struct {
-	// The argument type.
-	ArgDataType string `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName string `pulumi:"argName"`
-}
-
-// ProcedureSqlArgumentInput is an input type that accepts ProcedureSqlArgumentArgs and ProcedureSqlArgumentOutput values.
-// You can construct a concrete instance of `ProcedureSqlArgumentInput` via:
-//
-//	ProcedureSqlArgumentArgs{...}
-type ProcedureSqlArgumentInput interface {
-	pulumi.Input
-
-	ToProcedureSqlArgumentOutput() ProcedureSqlArgumentOutput
-	ToProcedureSqlArgumentOutputWithContext(context.Context) ProcedureSqlArgumentOutput
-}
-
-type ProcedureSqlArgumentArgs struct {
-	// The argument type.
-	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
-	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-	ArgName pulumi.StringInput `pulumi:"argName"`
-}
-
-func (ProcedureSqlArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlArgument)(nil)).Elem()
-}
-
-func (i ProcedureSqlArgumentArgs) ToProcedureSqlArgumentOutput() ProcedureSqlArgumentOutput {
-	return i.ToProcedureSqlArgumentOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlArgumentArgs) ToProcedureSqlArgumentOutputWithContext(ctx context.Context) ProcedureSqlArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlArgumentOutput)
-}
-
-// ProcedureSqlArgumentArrayInput is an input type that accepts ProcedureSqlArgumentArray and ProcedureSqlArgumentArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlArgumentArrayInput` via:
-//
-//	ProcedureSqlArgumentArray{ ProcedureSqlArgumentArgs{...} }
-type ProcedureSqlArgumentArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlArgumentArrayOutput() ProcedureSqlArgumentArrayOutput
-	ToProcedureSqlArgumentArrayOutputWithContext(context.Context) ProcedureSqlArgumentArrayOutput
-}
-
-type ProcedureSqlArgumentArray []ProcedureSqlArgumentInput
-
-func (ProcedureSqlArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlArgument)(nil)).Elem()
-}
-
-func (i ProcedureSqlArgumentArray) ToProcedureSqlArgumentArrayOutput() ProcedureSqlArgumentArrayOutput {
-	return i.ToProcedureSqlArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlArgumentArray) ToProcedureSqlArgumentArrayOutputWithContext(ctx context.Context) ProcedureSqlArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlArgumentArrayOutput)
-}
-
-type ProcedureSqlArgumentOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlArgument)(nil)).Elem()
-}
-
-func (o ProcedureSqlArgumentOutput) ToProcedureSqlArgumentOutput() ProcedureSqlArgumentOutput {
-	return o
-}
-
-func (o ProcedureSqlArgumentOutput) ToProcedureSqlArgumentOutputWithContext(ctx context.Context) ProcedureSqlArgumentOutput {
-	return o
-}
-
-// The argument type.
-func (o ProcedureSqlArgumentOutput) ArgDataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureSqlArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
-}
-
-// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-func (o ProcedureSqlArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
-}
-
-// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
-func (o ProcedureSqlArgumentOutput) ArgName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProcedureSqlArgument) string { return v.ArgName }).(pulumi.StringOutput)
-}
-
-type ProcedureSqlArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlArgument)(nil)).Elem()
-}
-
-func (o ProcedureSqlArgumentArrayOutput) ToProcedureSqlArgumentArrayOutput() ProcedureSqlArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlArgumentArrayOutput) ToProcedureSqlArgumentArrayOutputWithContext(ctx context.Context) ProcedureSqlArgumentArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureSqlArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlArgument {
-		return vs[0].([]ProcedureSqlArgument)[vs[1].(int)]
-	}).(ProcedureSqlArgumentOutput)
-}
-
-type ProcedureSqlParameter struct {
-	EnableConsoleOutputs []ProcedureSqlParameterEnableConsoleOutput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       []ProcedureSqlParameterLogEventLevel       `pulumi:"logEventLevels"`
-	LogLevels            []ProcedureSqlParameterLogLevel            `pulumi:"logLevels"`
-	MetricLevels         []ProcedureSqlParameterMetricLevel         `pulumi:"metricLevels"`
-	TraceLevels          []ProcedureSqlParameterTraceLevel          `pulumi:"traceLevels"`
-}
-
-// ProcedureSqlParameterInput is an input type that accepts ProcedureSqlParameterArgs and ProcedureSqlParameterOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterInput` via:
-//
-//	ProcedureSqlParameterArgs{...}
-type ProcedureSqlParameterInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterOutput() ProcedureSqlParameterOutput
-	ToProcedureSqlParameterOutputWithContext(context.Context) ProcedureSqlParameterOutput
-}
-
-type ProcedureSqlParameterArgs struct {
-	EnableConsoleOutputs ProcedureSqlParameterEnableConsoleOutputArrayInput `pulumi:"enableConsoleOutputs"`
-	LogEventLevels       ProcedureSqlParameterLogEventLevelArrayInput       `pulumi:"logEventLevels"`
-	LogLevels            ProcedureSqlParameterLogLevelArrayInput            `pulumi:"logLevels"`
-	MetricLevels         ProcedureSqlParameterMetricLevelArrayInput         `pulumi:"metricLevels"`
-	TraceLevels          ProcedureSqlParameterTraceLevelArrayInput          `pulumi:"traceLevels"`
-}
-
-func (ProcedureSqlParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameter)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterArgs) ToProcedureSqlParameterOutput() ProcedureSqlParameterOutput {
-	return i.ToProcedureSqlParameterOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterArgs) ToProcedureSqlParameterOutputWithContext(ctx context.Context) ProcedureSqlParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterOutput)
-}
-
-// ProcedureSqlParameterArrayInput is an input type that accepts ProcedureSqlParameterArray and ProcedureSqlParameterArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterArrayInput` via:
-//
-//	ProcedureSqlParameterArray{ ProcedureSqlParameterArgs{...} }
-type ProcedureSqlParameterArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterArrayOutput() ProcedureSqlParameterArrayOutput
-	ToProcedureSqlParameterArrayOutputWithContext(context.Context) ProcedureSqlParameterArrayOutput
-}
-
-type ProcedureSqlParameterArray []ProcedureSqlParameterInput
-
-func (ProcedureSqlParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameter)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterArray) ToProcedureSqlParameterArrayOutput() ProcedureSqlParameterArrayOutput {
-	return i.ToProcedureSqlParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterArray) ToProcedureSqlParameterArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterArrayOutput)
-}
-
-type ProcedureSqlParameterOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameter)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterOutput) ToProcedureSqlParameterOutput() ProcedureSqlParameterOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterOutput) ToProcedureSqlParameterOutputWithContext(ctx context.Context) ProcedureSqlParameterOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterOutput) EnableConsoleOutputs() ProcedureSqlParameterEnableConsoleOutputArrayOutput {
-	return o.ApplyT(func(v ProcedureSqlParameter) []ProcedureSqlParameterEnableConsoleOutput {
-		return v.EnableConsoleOutputs
-	}).(ProcedureSqlParameterEnableConsoleOutputArrayOutput)
-}
-
-func (o ProcedureSqlParameterOutput) LogEventLevels() ProcedureSqlParameterLogEventLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureSqlParameter) []ProcedureSqlParameterLogEventLevel { return v.LogEventLevels }).(ProcedureSqlParameterLogEventLevelArrayOutput)
-}
-
-func (o ProcedureSqlParameterOutput) LogLevels() ProcedureSqlParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureSqlParameter) []ProcedureSqlParameterLogLevel { return v.LogLevels }).(ProcedureSqlParameterLogLevelArrayOutput)
-}
-
-func (o ProcedureSqlParameterOutput) MetricLevels() ProcedureSqlParameterMetricLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureSqlParameter) []ProcedureSqlParameterMetricLevel { return v.MetricLevels }).(ProcedureSqlParameterMetricLevelArrayOutput)
-}
-
-func (o ProcedureSqlParameterOutput) TraceLevels() ProcedureSqlParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v ProcedureSqlParameter) []ProcedureSqlParameterTraceLevel { return v.TraceLevels }).(ProcedureSqlParameterTraceLevelArrayOutput)
-}
-
-type ProcedureSqlParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameter)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterArrayOutput) ToProcedureSqlParameterArrayOutput() ProcedureSqlParameterArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterArrayOutput) ToProcedureSqlParameterArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameter {
-		return vs[0].([]ProcedureSqlParameter)[vs[1].(int)]
-	}).(ProcedureSqlParameterOutput)
-}
-
-type ProcedureSqlParameterEnableConsoleOutput struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureSqlParameterEnableConsoleOutputInput is an input type that accepts ProcedureSqlParameterEnableConsoleOutputArgs and ProcedureSqlParameterEnableConsoleOutputOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterEnableConsoleOutputInput` via:
-//
-//	ProcedureSqlParameterEnableConsoleOutputArgs{...}
-type ProcedureSqlParameterEnableConsoleOutputInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterEnableConsoleOutputOutput() ProcedureSqlParameterEnableConsoleOutputOutput
-	ToProcedureSqlParameterEnableConsoleOutputOutputWithContext(context.Context) ProcedureSqlParameterEnableConsoleOutputOutput
-}
-
-type ProcedureSqlParameterEnableConsoleOutputArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureSqlParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterEnableConsoleOutputArgs) ToProcedureSqlParameterEnableConsoleOutputOutput() ProcedureSqlParameterEnableConsoleOutputOutput {
-	return i.ToProcedureSqlParameterEnableConsoleOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterEnableConsoleOutputArgs) ToProcedureSqlParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedureSqlParameterEnableConsoleOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterEnableConsoleOutputOutput)
-}
-
-// ProcedureSqlParameterEnableConsoleOutputArrayInput is an input type that accepts ProcedureSqlParameterEnableConsoleOutputArray and ProcedureSqlParameterEnableConsoleOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterEnableConsoleOutputArrayInput` via:
-//
-//	ProcedureSqlParameterEnableConsoleOutputArray{ ProcedureSqlParameterEnableConsoleOutputArgs{...} }
-type ProcedureSqlParameterEnableConsoleOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterEnableConsoleOutputArrayOutput() ProcedureSqlParameterEnableConsoleOutputArrayOutput
-	ToProcedureSqlParameterEnableConsoleOutputArrayOutputWithContext(context.Context) ProcedureSqlParameterEnableConsoleOutputArrayOutput
-}
-
-type ProcedureSqlParameterEnableConsoleOutputArray []ProcedureSqlParameterEnableConsoleOutputInput
-
-func (ProcedureSqlParameterEnableConsoleOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterEnableConsoleOutputArray) ToProcedureSqlParameterEnableConsoleOutputArrayOutput() ProcedureSqlParameterEnableConsoleOutputArrayOutput {
-	return i.ToProcedureSqlParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterEnableConsoleOutputArray) ToProcedureSqlParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterEnableConsoleOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterEnableConsoleOutputArrayOutput)
-}
-
-type ProcedureSqlParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) ToProcedureSqlParameterEnableConsoleOutputOutput() ProcedureSqlParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) ToProcedureSqlParameterEnableConsoleOutputOutputWithContext(ctx context.Context) ProcedureSqlParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterEnableConsoleOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterEnableConsoleOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterEnableConsoleOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterEnableConsoleOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterEnableConsoleOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputArrayOutput) ToProcedureSqlParameterEnableConsoleOutputArrayOutput() ProcedureSqlParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputArrayOutput) ToProcedureSqlParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterEnableConsoleOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameterEnableConsoleOutput {
-		return vs[0].([]ProcedureSqlParameterEnableConsoleOutput)[vs[1].(int)]
-	}).(ProcedureSqlParameterEnableConsoleOutputOutput)
-}
-
-type ProcedureSqlParameterLogEventLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureSqlParameterLogEventLevelInput is an input type that accepts ProcedureSqlParameterLogEventLevelArgs and ProcedureSqlParameterLogEventLevelOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterLogEventLevelInput` via:
-//
-//	ProcedureSqlParameterLogEventLevelArgs{...}
-type ProcedureSqlParameterLogEventLevelInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterLogEventLevelOutput() ProcedureSqlParameterLogEventLevelOutput
-	ToProcedureSqlParameterLogEventLevelOutputWithContext(context.Context) ProcedureSqlParameterLogEventLevelOutput
-}
-
-type ProcedureSqlParameterLogEventLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureSqlParameterLogEventLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterLogEventLevelArgs) ToProcedureSqlParameterLogEventLevelOutput() ProcedureSqlParameterLogEventLevelOutput {
-	return i.ToProcedureSqlParameterLogEventLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterLogEventLevelArgs) ToProcedureSqlParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterLogEventLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterLogEventLevelOutput)
-}
-
-// ProcedureSqlParameterLogEventLevelArrayInput is an input type that accepts ProcedureSqlParameterLogEventLevelArray and ProcedureSqlParameterLogEventLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterLogEventLevelArrayInput` via:
-//
-//	ProcedureSqlParameterLogEventLevelArray{ ProcedureSqlParameterLogEventLevelArgs{...} }
-type ProcedureSqlParameterLogEventLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterLogEventLevelArrayOutput() ProcedureSqlParameterLogEventLevelArrayOutput
-	ToProcedureSqlParameterLogEventLevelArrayOutputWithContext(context.Context) ProcedureSqlParameterLogEventLevelArrayOutput
-}
-
-type ProcedureSqlParameterLogEventLevelArray []ProcedureSqlParameterLogEventLevelInput
-
-func (ProcedureSqlParameterLogEventLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterLogEventLevelArray) ToProcedureSqlParameterLogEventLevelArrayOutput() ProcedureSqlParameterLogEventLevelArrayOutput {
-	return i.ToProcedureSqlParameterLogEventLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterLogEventLevelArray) ToProcedureSqlParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterLogEventLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterLogEventLevelArrayOutput)
-}
-
-type ProcedureSqlParameterLogEventLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterLogEventLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) ToProcedureSqlParameterLogEventLevelOutput() ProcedureSqlParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) ToProcedureSqlParameterLogEventLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterLogEventLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterLogEventLevelArrayOutput) ToProcedureSqlParameterLogEventLevelArrayOutput() ProcedureSqlParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogEventLevelArrayOutput) ToProcedureSqlParameterLogEventLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterLogEventLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameterLogEventLevel {
-		return vs[0].([]ProcedureSqlParameterLogEventLevel)[vs[1].(int)]
-	}).(ProcedureSqlParameterLogEventLevelOutput)
-}
-
-type ProcedureSqlParameterLogLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureSqlParameterLogLevelInput is an input type that accepts ProcedureSqlParameterLogLevelArgs and ProcedureSqlParameterLogLevelOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterLogLevelInput` via:
-//
-//	ProcedureSqlParameterLogLevelArgs{...}
-type ProcedureSqlParameterLogLevelInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterLogLevelOutput() ProcedureSqlParameterLogLevelOutput
-	ToProcedureSqlParameterLogLevelOutputWithContext(context.Context) ProcedureSqlParameterLogLevelOutput
-}
-
-type ProcedureSqlParameterLogLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureSqlParameterLogLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterLogLevelArgs) ToProcedureSqlParameterLogLevelOutput() ProcedureSqlParameterLogLevelOutput {
-	return i.ToProcedureSqlParameterLogLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterLogLevelArgs) ToProcedureSqlParameterLogLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterLogLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterLogLevelOutput)
-}
-
-// ProcedureSqlParameterLogLevelArrayInput is an input type that accepts ProcedureSqlParameterLogLevelArray and ProcedureSqlParameterLogLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterLogLevelArrayInput` via:
-//
-//	ProcedureSqlParameterLogLevelArray{ ProcedureSqlParameterLogLevelArgs{...} }
-type ProcedureSqlParameterLogLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterLogLevelArrayOutput() ProcedureSqlParameterLogLevelArrayOutput
-	ToProcedureSqlParameterLogLevelArrayOutputWithContext(context.Context) ProcedureSqlParameterLogLevelArrayOutput
-}
-
-type ProcedureSqlParameterLogLevelArray []ProcedureSqlParameterLogLevelInput
-
-func (ProcedureSqlParameterLogLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterLogLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterLogLevelArray) ToProcedureSqlParameterLogLevelArrayOutput() ProcedureSqlParameterLogLevelArrayOutput {
-	return i.ToProcedureSqlParameterLogLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterLogLevelArray) ToProcedureSqlParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterLogLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterLogLevelArrayOutput)
-}
-
-type ProcedureSqlParameterLogLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterLogLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) ToProcedureSqlParameterLogLevelOutput() ProcedureSqlParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) ToProcedureSqlParameterLogLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterLogLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterLogLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterLogLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterLogLevelArrayOutput) ToProcedureSqlParameterLogLevelArrayOutput() ProcedureSqlParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogLevelArrayOutput) ToProcedureSqlParameterLogLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterLogLevelArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterLogLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameterLogLevel {
-		return vs[0].([]ProcedureSqlParameterLogLevel)[vs[1].(int)]
-	}).(ProcedureSqlParameterLogLevelOutput)
-}
-
-type ProcedureSqlParameterMetricLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureSqlParameterMetricLevelInput is an input type that accepts ProcedureSqlParameterMetricLevelArgs and ProcedureSqlParameterMetricLevelOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterMetricLevelInput` via:
-//
-//	ProcedureSqlParameterMetricLevelArgs{...}
-type ProcedureSqlParameterMetricLevelInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterMetricLevelOutput() ProcedureSqlParameterMetricLevelOutput
-	ToProcedureSqlParameterMetricLevelOutputWithContext(context.Context) ProcedureSqlParameterMetricLevelOutput
-}
-
-type ProcedureSqlParameterMetricLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureSqlParameterMetricLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterMetricLevelArgs) ToProcedureSqlParameterMetricLevelOutput() ProcedureSqlParameterMetricLevelOutput {
-	return i.ToProcedureSqlParameterMetricLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterMetricLevelArgs) ToProcedureSqlParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterMetricLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterMetricLevelOutput)
-}
-
-// ProcedureSqlParameterMetricLevelArrayInput is an input type that accepts ProcedureSqlParameterMetricLevelArray and ProcedureSqlParameterMetricLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterMetricLevelArrayInput` via:
-//
-//	ProcedureSqlParameterMetricLevelArray{ ProcedureSqlParameterMetricLevelArgs{...} }
-type ProcedureSqlParameterMetricLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterMetricLevelArrayOutput() ProcedureSqlParameterMetricLevelArrayOutput
-	ToProcedureSqlParameterMetricLevelArrayOutputWithContext(context.Context) ProcedureSqlParameterMetricLevelArrayOutput
-}
-
-type ProcedureSqlParameterMetricLevelArray []ProcedureSqlParameterMetricLevelInput
-
-func (ProcedureSqlParameterMetricLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterMetricLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterMetricLevelArray) ToProcedureSqlParameterMetricLevelArrayOutput() ProcedureSqlParameterMetricLevelArrayOutput {
-	return i.ToProcedureSqlParameterMetricLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterMetricLevelArray) ToProcedureSqlParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterMetricLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterMetricLevelArrayOutput)
-}
-
-type ProcedureSqlParameterMetricLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterMetricLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) ToProcedureSqlParameterMetricLevelOutput() ProcedureSqlParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) ToProcedureSqlParameterMetricLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterMetricLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterMetricLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterMetricLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterMetricLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterMetricLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterMetricLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterMetricLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlParameterMetricLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterMetricLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterMetricLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterMetricLevelArrayOutput) ToProcedureSqlParameterMetricLevelArrayOutput() ProcedureSqlParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterMetricLevelArrayOutput) ToProcedureSqlParameterMetricLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterMetricLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterMetricLevelArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterMetricLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameterMetricLevel {
-		return vs[0].([]ProcedureSqlParameterMetricLevel)[vs[1].(int)]
-	}).(ProcedureSqlParameterMetricLevelOutput)
-}
-
-type ProcedureSqlParameterTraceLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// ProcedureSqlParameterTraceLevelInput is an input type that accepts ProcedureSqlParameterTraceLevelArgs and ProcedureSqlParameterTraceLevelOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterTraceLevelInput` via:
-//
-//	ProcedureSqlParameterTraceLevelArgs{...}
-type ProcedureSqlParameterTraceLevelInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterTraceLevelOutput() ProcedureSqlParameterTraceLevelOutput
-	ToProcedureSqlParameterTraceLevelOutputWithContext(context.Context) ProcedureSqlParameterTraceLevelOutput
-}
-
-type ProcedureSqlParameterTraceLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ProcedureSqlParameterTraceLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterTraceLevelArgs) ToProcedureSqlParameterTraceLevelOutput() ProcedureSqlParameterTraceLevelOutput {
-	return i.ToProcedureSqlParameterTraceLevelOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterTraceLevelArgs) ToProcedureSqlParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterTraceLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterTraceLevelOutput)
-}
-
-// ProcedureSqlParameterTraceLevelArrayInput is an input type that accepts ProcedureSqlParameterTraceLevelArray and ProcedureSqlParameterTraceLevelArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlParameterTraceLevelArrayInput` via:
-//
-//	ProcedureSqlParameterTraceLevelArray{ ProcedureSqlParameterTraceLevelArgs{...} }
-type ProcedureSqlParameterTraceLevelArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlParameterTraceLevelArrayOutput() ProcedureSqlParameterTraceLevelArrayOutput
-	ToProcedureSqlParameterTraceLevelArrayOutputWithContext(context.Context) ProcedureSqlParameterTraceLevelArrayOutput
-}
-
-type ProcedureSqlParameterTraceLevelArray []ProcedureSqlParameterTraceLevelInput
-
-func (ProcedureSqlParameterTraceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterTraceLevel)(nil)).Elem()
-}
-
-func (i ProcedureSqlParameterTraceLevelArray) ToProcedureSqlParameterTraceLevelArrayOutput() ProcedureSqlParameterTraceLevelArrayOutput {
-	return i.ToProcedureSqlParameterTraceLevelArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlParameterTraceLevelArray) ToProcedureSqlParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterTraceLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlParameterTraceLevelArrayOutput)
-}
-
-type ProcedureSqlParameterTraceLevelOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterTraceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) ToProcedureSqlParameterTraceLevelOutput() ProcedureSqlParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) ToProcedureSqlParameterTraceLevelOutputWithContext(ctx context.Context) ProcedureSqlParameterTraceLevelOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ProcedureSqlParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlParameterTraceLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlParameterTraceLevel)(nil)).Elem()
-}
-
-func (o ProcedureSqlParameterTraceLevelArrayOutput) ToProcedureSqlParameterTraceLevelArrayOutput() ProcedureSqlParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterTraceLevelArrayOutput) ToProcedureSqlParameterTraceLevelArrayOutputWithContext(ctx context.Context) ProcedureSqlParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) ProcedureSqlParameterTraceLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlParameterTraceLevel {
-		return vs[0].([]ProcedureSqlParameterTraceLevel)[vs[1].(int)]
-	}).(ProcedureSqlParameterTraceLevelOutput)
-}
-
-type ProcedureSqlShowOutput struct {
-	ArgumentsRaw               *string `pulumi:"argumentsRaw"`
-	CatalogName                *string `pulumi:"catalogName"`
-	CreatedOn                  *string `pulumi:"createdOn"`
-	Description                *string `pulumi:"description"`
-	ExternalAccessIntegrations *string `pulumi:"externalAccessIntegrations"`
-	IsAggregate                *bool   `pulumi:"isAggregate"`
-	IsAnsi                     *bool   `pulumi:"isAnsi"`
-	IsBuiltin                  *bool   `pulumi:"isBuiltin"`
-	IsSecure                   *bool   `pulumi:"isSecure"`
-	IsTableFunction            *bool   `pulumi:"isTableFunction"`
-	MaxNumArguments            *int    `pulumi:"maxNumArguments"`
-	MinNumArguments            *int    `pulumi:"minNumArguments"`
-	Name                       *string `pulumi:"name"`
-	SchemaName                 *string `pulumi:"schemaName"`
-	Secrets                    *string `pulumi:"secrets"`
-	ValidForClustering         *bool   `pulumi:"validForClustering"`
-}
-
-// ProcedureSqlShowOutputInput is an input type that accepts ProcedureSqlShowOutputArgs and ProcedureSqlShowOutputOutput values.
-// You can construct a concrete instance of `ProcedureSqlShowOutputInput` via:
-//
-//	ProcedureSqlShowOutputArgs{...}
-type ProcedureSqlShowOutputInput interface {
-	pulumi.Input
-
-	ToProcedureSqlShowOutputOutput() ProcedureSqlShowOutputOutput
-	ToProcedureSqlShowOutputOutputWithContext(context.Context) ProcedureSqlShowOutputOutput
-}
-
-type ProcedureSqlShowOutputArgs struct {
-	ArgumentsRaw               pulumi.StringPtrInput `pulumi:"argumentsRaw"`
-	CatalogName                pulumi.StringPtrInput `pulumi:"catalogName"`
-	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
-	Description                pulumi.StringPtrInput `pulumi:"description"`
-	ExternalAccessIntegrations pulumi.StringPtrInput `pulumi:"externalAccessIntegrations"`
-	IsAggregate                pulumi.BoolPtrInput   `pulumi:"isAggregate"`
-	IsAnsi                     pulumi.BoolPtrInput   `pulumi:"isAnsi"`
-	IsBuiltin                  pulumi.BoolPtrInput   `pulumi:"isBuiltin"`
-	IsSecure                   pulumi.BoolPtrInput   `pulumi:"isSecure"`
-	IsTableFunction            pulumi.BoolPtrInput   `pulumi:"isTableFunction"`
-	MaxNumArguments            pulumi.IntPtrInput    `pulumi:"maxNumArguments"`
-	MinNumArguments            pulumi.IntPtrInput    `pulumi:"minNumArguments"`
-	Name                       pulumi.StringPtrInput `pulumi:"name"`
-	SchemaName                 pulumi.StringPtrInput `pulumi:"schemaName"`
-	Secrets                    pulumi.StringPtrInput `pulumi:"secrets"`
-	ValidForClustering         pulumi.BoolPtrInput   `pulumi:"validForClustering"`
-}
-
-func (ProcedureSqlShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureSqlShowOutputArgs) ToProcedureSqlShowOutputOutput() ProcedureSqlShowOutputOutput {
-	return i.ToProcedureSqlShowOutputOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlShowOutputArgs) ToProcedureSqlShowOutputOutputWithContext(ctx context.Context) ProcedureSqlShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlShowOutputOutput)
-}
-
-// ProcedureSqlShowOutputArrayInput is an input type that accepts ProcedureSqlShowOutputArray and ProcedureSqlShowOutputArrayOutput values.
-// You can construct a concrete instance of `ProcedureSqlShowOutputArrayInput` via:
-//
-//	ProcedureSqlShowOutputArray{ ProcedureSqlShowOutputArgs{...} }
-type ProcedureSqlShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToProcedureSqlShowOutputArrayOutput() ProcedureSqlShowOutputArrayOutput
-	ToProcedureSqlShowOutputArrayOutputWithContext(context.Context) ProcedureSqlShowOutputArrayOutput
-}
-
-type ProcedureSqlShowOutputArray []ProcedureSqlShowOutputInput
-
-func (ProcedureSqlShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlShowOutput)(nil)).Elem()
-}
-
-func (i ProcedureSqlShowOutputArray) ToProcedureSqlShowOutputArrayOutput() ProcedureSqlShowOutputArrayOutput {
-	return i.ToProcedureSqlShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ProcedureSqlShowOutputArray) ToProcedureSqlShowOutputArrayOutputWithContext(ctx context.Context) ProcedureSqlShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcedureSqlShowOutputArrayOutput)
-}
-
-type ProcedureSqlShowOutputOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcedureSqlShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureSqlShowOutputOutput) ToProcedureSqlShowOutputOutput() ProcedureSqlShowOutputOutput {
-	return o
-}
-
-func (o ProcedureSqlShowOutputOutput) ToProcedureSqlShowOutputOutputWithContext(ctx context.Context) ProcedureSqlShowOutputOutput {
-	return o
-}
-
-func (o ProcedureSqlShowOutputOutput) ArgumentsRaw() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.ArgumentsRaw }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) CatalogName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) ExternalAccessIntegrations() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.ExternalAccessIntegrations }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) IsAggregate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.IsAggregate }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) IsAnsi() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.IsAnsi }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) IsBuiltin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.IsBuiltin }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) IsSecure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.IsSecure }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) IsTableFunction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.IsTableFunction }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) MaxNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *int { return v.MaxNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) MinNumArguments() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *int { return v.MinNumArguments }).(pulumi.IntPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) Secrets() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *string { return v.Secrets }).(pulumi.StringPtrOutput)
-}
-
-func (o ProcedureSqlShowOutputOutput) ValidForClustering() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProcedureSqlShowOutput) *bool { return v.ValidForClustering }).(pulumi.BoolPtrOutput)
-}
-
-type ProcedureSqlShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ProcedureSqlShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcedureSqlShowOutput)(nil)).Elem()
-}
-
-func (o ProcedureSqlShowOutputArrayOutput) ToProcedureSqlShowOutputArrayOutput() ProcedureSqlShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlShowOutputArrayOutput) ToProcedureSqlShowOutputArrayOutputWithContext(ctx context.Context) ProcedureSqlShowOutputArrayOutput {
-	return o
-}
-
-func (o ProcedureSqlShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedureSqlShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcedureSqlShowOutput {
-		return vs[0].([]ProcedureSqlShowOutput)[vs[1].(int)]
-	}).(ProcedureSqlShowOutputOutput)
-}
-
-type ProviderTokenAccessor struct {
-	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
-	ClientId string `pulumi:"clientId"`
-	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
-	ClientSecret string `pulumi:"clientSecret"`
-	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
-	RedirectUri string `pulumi:"redirectUri"`
-	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
-	RefreshToken string `pulumi:"refreshToken"`
-	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
-	TokenEndpoint string `pulumi:"tokenEndpoint"`
-}
-
-// ProviderTokenAccessorInput is an input type that accepts ProviderTokenAccessorArgs and ProviderTokenAccessorOutput values.
-// You can construct a concrete instance of `ProviderTokenAccessorInput` via:
-//
-//	ProviderTokenAccessorArgs{...}
-type ProviderTokenAccessorInput interface {
-	pulumi.Input
-
-	ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput
-	ToProviderTokenAccessorOutputWithContext(context.Context) ProviderTokenAccessorOutput
-}
-
-type ProviderTokenAccessorArgs struct {
-	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
-	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
-	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
-	RefreshToken pulumi.StringInput `pulumi:"refreshToken"`
-	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
-	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-}
-
-func (ProviderTokenAccessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderTokenAccessor)(nil)).Elem()
-}
-
-func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput {
-	return i.ToProviderTokenAccessorOutputWithContext(context.Background())
-}
-
-func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorOutputWithContext(ctx context.Context) ProviderTokenAccessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorOutput)
-}
-
-func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
-	return i.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
-}
-
-func (i ProviderTokenAccessorArgs) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorOutput).ToProviderTokenAccessorPtrOutputWithContext(ctx)
-}
-
-// ProviderTokenAccessorPtrInput is an input type that accepts ProviderTokenAccessorArgs, ProviderTokenAccessorPtr and ProviderTokenAccessorPtrOutput values.
-// You can construct a concrete instance of `ProviderTokenAccessorPtrInput` via:
-//
-//	        ProviderTokenAccessorArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProviderTokenAccessorPtrInput interface {
-	pulumi.Input
-
-	ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput
-	ToProviderTokenAccessorPtrOutputWithContext(context.Context) ProviderTokenAccessorPtrOutput
-}
-
-type providerTokenAccessorPtrType ProviderTokenAccessorArgs
-
-func ProviderTokenAccessorPtr(v *ProviderTokenAccessorArgs) ProviderTokenAccessorPtrInput {
-	return (*providerTokenAccessorPtrType)(v)
-}
-
-func (*providerTokenAccessorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderTokenAccessor)(nil)).Elem()
-}
-
-func (i *providerTokenAccessorPtrType) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
-	return i.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
-}
-
-func (i *providerTokenAccessorPtrType) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderTokenAccessorPtrOutput)
-}
-
-type ProviderTokenAccessorOutput struct{ *pulumi.OutputState }
-
-func (ProviderTokenAccessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderTokenAccessor)(nil)).Elem()
-}
-
-func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorOutput() ProviderTokenAccessorOutput {
-	return o
-}
-
-func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorOutputWithContext(ctx context.Context) ProviderTokenAccessorOutput {
-	return o
-}
-
-func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
-	return o.ToProviderTokenAccessorPtrOutputWithContext(context.Background())
-}
-
-func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderTokenAccessor) *ProviderTokenAccessor {
-		return &v
-	}).(ProviderTokenAccessorPtrOutput)
-}
-
-// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
-func (o ProviderTokenAccessorOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
-func (o ProviderTokenAccessorOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientSecret }).(pulumi.StringOutput)
-}
-
-// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
-func (o ProviderTokenAccessorOutput) RedirectUri() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RedirectUri }).(pulumi.StringOutput)
-}
-
-// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
-func (o ProviderTokenAccessorOutput) RefreshToken() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RefreshToken }).(pulumi.StringOutput)
-}
-
-// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
-func (o ProviderTokenAccessorOutput) TokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.TokenEndpoint }).(pulumi.StringOutput)
-}
-
-type ProviderTokenAccessorPtrOutput struct{ *pulumi.OutputState }
-
-func (ProviderTokenAccessorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderTokenAccessor)(nil)).Elem()
-}
-
-func (o ProviderTokenAccessorPtrOutput) ToProviderTokenAccessorPtrOutput() ProviderTokenAccessorPtrOutput {
-	return o
-}
-
-func (o ProviderTokenAccessorPtrOutput) ToProviderTokenAccessorPtrOutputWithContext(ctx context.Context) ProviderTokenAccessorPtrOutput {
-	return o
-}
-
-func (o ProviderTokenAccessorPtrOutput) Elem() ProviderTokenAccessorOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) ProviderTokenAccessor {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderTokenAccessor
-		return ret
-	}).(ProviderTokenAccessorOutput)
-}
-
-// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
-func (o ProviderTokenAccessorPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
-func (o ProviderTokenAccessorPtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
-func (o ProviderTokenAccessorPtrOutput) RedirectUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RedirectUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
-func (o ProviderTokenAccessorPtrOutput) RefreshToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RefreshToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
-func (o ProviderTokenAccessorPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TokenEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-type ResourceMonitorShowOutput struct {
-	Comment            *string  `pulumi:"comment"`
-	CreatedOn          *string  `pulumi:"createdOn"`
-	CreditQuota        *float64 `pulumi:"creditQuota"`
-	EndTime            *string  `pulumi:"endTime"`
-	Frequency          *string  `pulumi:"frequency"`
-	Level              *string  `pulumi:"level"`
-	Name               *string  `pulumi:"name"`
-	Owner              *string  `pulumi:"owner"`
-	RemainingCredits   *float64 `pulumi:"remainingCredits"`
-	StartTime          *string  `pulumi:"startTime"`
-	SuspendAt          *int     `pulumi:"suspendAt"`
-	SuspendImmediateAt *int     `pulumi:"suspendImmediateAt"`
-	UsedCredits        *float64 `pulumi:"usedCredits"`
-}
-
-// ResourceMonitorShowOutputInput is an input type that accepts ResourceMonitorShowOutputArgs and ResourceMonitorShowOutputOutput values.
-// You can construct a concrete instance of `ResourceMonitorShowOutputInput` via:
-//
-//	ResourceMonitorShowOutputArgs{...}
-type ResourceMonitorShowOutputInput interface {
-	pulumi.Input
-
-	ToResourceMonitorShowOutputOutput() ResourceMonitorShowOutputOutput
-	ToResourceMonitorShowOutputOutputWithContext(context.Context) ResourceMonitorShowOutputOutput
-}
-
-type ResourceMonitorShowOutputArgs struct {
-	Comment            pulumi.StringPtrInput  `pulumi:"comment"`
-	CreatedOn          pulumi.StringPtrInput  `pulumi:"createdOn"`
-	CreditQuota        pulumi.Float64PtrInput `pulumi:"creditQuota"`
-	EndTime            pulumi.StringPtrInput  `pulumi:"endTime"`
-	Frequency          pulumi.StringPtrInput  `pulumi:"frequency"`
-	Level              pulumi.StringPtrInput  `pulumi:"level"`
-	Name               pulumi.StringPtrInput  `pulumi:"name"`
-	Owner              pulumi.StringPtrInput  `pulumi:"owner"`
-	RemainingCredits   pulumi.Float64PtrInput `pulumi:"remainingCredits"`
-	StartTime          pulumi.StringPtrInput  `pulumi:"startTime"`
-	SuspendAt          pulumi.IntPtrInput     `pulumi:"suspendAt"`
-	SuspendImmediateAt pulumi.IntPtrInput     `pulumi:"suspendImmediateAt"`
-	UsedCredits        pulumi.Float64PtrInput `pulumi:"usedCredits"`
-}
-
-func (ResourceMonitorShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceMonitorShowOutput)(nil)).Elem()
-}
-
-func (i ResourceMonitorShowOutputArgs) ToResourceMonitorShowOutputOutput() ResourceMonitorShowOutputOutput {
-	return i.ToResourceMonitorShowOutputOutputWithContext(context.Background())
-}
-
-func (i ResourceMonitorShowOutputArgs) ToResourceMonitorShowOutputOutputWithContext(ctx context.Context) ResourceMonitorShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorShowOutputOutput)
-}
-
-// ResourceMonitorShowOutputArrayInput is an input type that accepts ResourceMonitorShowOutputArray and ResourceMonitorShowOutputArrayOutput values.
-// You can construct a concrete instance of `ResourceMonitorShowOutputArrayInput` via:
-//
-//	ResourceMonitorShowOutputArray{ ResourceMonitorShowOutputArgs{...} }
-type ResourceMonitorShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToResourceMonitorShowOutputArrayOutput() ResourceMonitorShowOutputArrayOutput
-	ToResourceMonitorShowOutputArrayOutputWithContext(context.Context) ResourceMonitorShowOutputArrayOutput
-}
-
-type ResourceMonitorShowOutputArray []ResourceMonitorShowOutputInput
-
-func (ResourceMonitorShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceMonitorShowOutput)(nil)).Elem()
-}
-
-func (i ResourceMonitorShowOutputArray) ToResourceMonitorShowOutputArrayOutput() ResourceMonitorShowOutputArrayOutput {
-	return i.ToResourceMonitorShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i ResourceMonitorShowOutputArray) ToResourceMonitorShowOutputArrayOutputWithContext(ctx context.Context) ResourceMonitorShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceMonitorShowOutputArrayOutput)
-}
-
-type ResourceMonitorShowOutputOutput struct{ *pulumi.OutputState }
-
-func (ResourceMonitorShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceMonitorShowOutput)(nil)).Elem()
-}
-
-func (o ResourceMonitorShowOutputOutput) ToResourceMonitorShowOutputOutput() ResourceMonitorShowOutputOutput {
-	return o
-}
-
-func (o ResourceMonitorShowOutputOutput) ToResourceMonitorShowOutputOutputWithContext(ctx context.Context) ResourceMonitorShowOutputOutput {
-	return o
-}
-
-func (o ResourceMonitorShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) CreditQuota() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *float64 { return v.CreditQuota }).(pulumi.Float64PtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.Frequency }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) RemainingCredits() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *float64 { return v.RemainingCredits }).(pulumi.Float64PtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) SuspendAt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *int { return v.SuspendAt }).(pulumi.IntPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) SuspendImmediateAt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *int { return v.SuspendImmediateAt }).(pulumi.IntPtrOutput)
-}
-
-func (o ResourceMonitorShowOutputOutput) UsedCredits() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ResourceMonitorShowOutput) *float64 { return v.UsedCredits }).(pulumi.Float64PtrOutput)
-}
-
-type ResourceMonitorShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (ResourceMonitorShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceMonitorShowOutput)(nil)).Elem()
-}
-
-func (o ResourceMonitorShowOutputArrayOutput) ToResourceMonitorShowOutputArrayOutput() ResourceMonitorShowOutputArrayOutput {
-	return o
-}
-
-func (o ResourceMonitorShowOutputArrayOutput) ToResourceMonitorShowOutputArrayOutputWithContext(ctx context.Context) ResourceMonitorShowOutputArrayOutput {
-	return o
-}
-
-func (o ResourceMonitorShowOutputArrayOutput) Index(i pulumi.IntInput) ResourceMonitorShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceMonitorShowOutput {
-		return vs[0].([]ResourceMonitorShowOutput)[vs[1].(int)]
-	}).(ResourceMonitorShowOutputOutput)
-}
-
-type RowAccessPolicyArgument struct {
-	// The argument name
-	Name string `pulumi:"name"`
-	// The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-	Type string `pulumi:"type"`
-}
-
-// RowAccessPolicyArgumentInput is an input type that accepts RowAccessPolicyArgumentArgs and RowAccessPolicyArgumentOutput values.
-// You can construct a concrete instance of `RowAccessPolicyArgumentInput` via:
-//
-//	RowAccessPolicyArgumentArgs{...}
-type RowAccessPolicyArgumentInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyArgumentOutput() RowAccessPolicyArgumentOutput
-	ToRowAccessPolicyArgumentOutputWithContext(context.Context) RowAccessPolicyArgumentOutput
-}
-
-type RowAccessPolicyArgumentArgs struct {
-	// The argument name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RowAccessPolicyArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyArgument)(nil)).Elem()
-}
-
-func (i RowAccessPolicyArgumentArgs) ToRowAccessPolicyArgumentOutput() RowAccessPolicyArgumentOutput {
-	return i.ToRowAccessPolicyArgumentOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyArgumentArgs) ToRowAccessPolicyArgumentOutputWithContext(ctx context.Context) RowAccessPolicyArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyArgumentOutput)
-}
-
-// RowAccessPolicyArgumentArrayInput is an input type that accepts RowAccessPolicyArgumentArray and RowAccessPolicyArgumentArrayOutput values.
-// You can construct a concrete instance of `RowAccessPolicyArgumentArrayInput` via:
-//
-//	RowAccessPolicyArgumentArray{ RowAccessPolicyArgumentArgs{...} }
-type RowAccessPolicyArgumentArrayInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyArgumentArrayOutput() RowAccessPolicyArgumentArrayOutput
-	ToRowAccessPolicyArgumentArrayOutputWithContext(context.Context) RowAccessPolicyArgumentArrayOutput
-}
-
-type RowAccessPolicyArgumentArray []RowAccessPolicyArgumentInput
-
-func (RowAccessPolicyArgumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyArgument)(nil)).Elem()
-}
-
-func (i RowAccessPolicyArgumentArray) ToRowAccessPolicyArgumentArrayOutput() RowAccessPolicyArgumentArrayOutput {
-	return i.ToRowAccessPolicyArgumentArrayOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyArgumentArray) ToRowAccessPolicyArgumentArrayOutputWithContext(ctx context.Context) RowAccessPolicyArgumentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyArgumentArrayOutput)
-}
-
-type RowAccessPolicyArgumentOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyArgument)(nil)).Elem()
-}
-
-func (o RowAccessPolicyArgumentOutput) ToRowAccessPolicyArgumentOutput() RowAccessPolicyArgumentOutput {
-	return o
-}
-
-func (o RowAccessPolicyArgumentOutput) ToRowAccessPolicyArgumentOutputWithContext(ctx context.Context) RowAccessPolicyArgumentOutput {
-	return o
-}
-
-// The argument name
-func (o RowAccessPolicyArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RowAccessPolicyArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-func (o RowAccessPolicyArgumentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RowAccessPolicyArgument) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type RowAccessPolicyArgumentArrayOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyArgumentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyArgument)(nil)).Elem()
-}
-
-func (o RowAccessPolicyArgumentArrayOutput) ToRowAccessPolicyArgumentArrayOutput() RowAccessPolicyArgumentArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyArgumentArrayOutput) ToRowAccessPolicyArgumentArrayOutputWithContext(ctx context.Context) RowAccessPolicyArgumentArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyArgumentArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyArgumentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RowAccessPolicyArgument {
-		return vs[0].([]RowAccessPolicyArgument)[vs[1].(int)]
-	}).(RowAccessPolicyArgumentOutput)
-}
-
-type RowAccessPolicyDescribeOutput struct {
-	Body       *string                                  `pulumi:"body"`
-	Name       *string                                  `pulumi:"name"`
-	ReturnType *string                                  `pulumi:"returnType"`
-	Signatures []RowAccessPolicyDescribeOutputSignature `pulumi:"signatures"`
-}
-
-// RowAccessPolicyDescribeOutputInput is an input type that accepts RowAccessPolicyDescribeOutputArgs and RowAccessPolicyDescribeOutputOutput values.
-// You can construct a concrete instance of `RowAccessPolicyDescribeOutputInput` via:
-//
-//	RowAccessPolicyDescribeOutputArgs{...}
-type RowAccessPolicyDescribeOutputInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyDescribeOutputOutput() RowAccessPolicyDescribeOutputOutput
-	ToRowAccessPolicyDescribeOutputOutputWithContext(context.Context) RowAccessPolicyDescribeOutputOutput
-}
-
-type RowAccessPolicyDescribeOutputArgs struct {
-	Body       pulumi.StringPtrInput                            `pulumi:"body"`
-	Name       pulumi.StringPtrInput                            `pulumi:"name"`
-	ReturnType pulumi.StringPtrInput                            `pulumi:"returnType"`
-	Signatures RowAccessPolicyDescribeOutputSignatureArrayInput `pulumi:"signatures"`
-}
-
-func (RowAccessPolicyDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (i RowAccessPolicyDescribeOutputArgs) ToRowAccessPolicyDescribeOutputOutput() RowAccessPolicyDescribeOutputOutput {
-	return i.ToRowAccessPolicyDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyDescribeOutputArgs) ToRowAccessPolicyDescribeOutputOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyDescribeOutputOutput)
-}
-
-// RowAccessPolicyDescribeOutputArrayInput is an input type that accepts RowAccessPolicyDescribeOutputArray and RowAccessPolicyDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `RowAccessPolicyDescribeOutputArrayInput` via:
-//
-//	RowAccessPolicyDescribeOutputArray{ RowAccessPolicyDescribeOutputArgs{...} }
-type RowAccessPolicyDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyDescribeOutputArrayOutput() RowAccessPolicyDescribeOutputArrayOutput
-	ToRowAccessPolicyDescribeOutputArrayOutputWithContext(context.Context) RowAccessPolicyDescribeOutputArrayOutput
-}
-
-type RowAccessPolicyDescribeOutputArray []RowAccessPolicyDescribeOutputInput
-
-func (RowAccessPolicyDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (i RowAccessPolicyDescribeOutputArray) ToRowAccessPolicyDescribeOutputArrayOutput() RowAccessPolicyDescribeOutputArrayOutput {
-	return i.ToRowAccessPolicyDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyDescribeOutputArray) ToRowAccessPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyDescribeOutputArrayOutput)
-}
-
-type RowAccessPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) ToRowAccessPolicyDescribeOutputOutput() RowAccessPolicyDescribeOutputOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) ToRowAccessPolicyDescribeOutputOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutput) *string { return v.Body }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) ReturnType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutput) *string { return v.ReturnType }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyDescribeOutputOutput) Signatures() RowAccessPolicyDescribeOutputSignatureArrayOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutput) []RowAccessPolicyDescribeOutputSignature { return v.Signatures }).(RowAccessPolicyDescribeOutputSignatureArrayOutput)
-}
-
-type RowAccessPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (o RowAccessPolicyDescribeOutputArrayOutput) ToRowAccessPolicyDescribeOutputArrayOutput() RowAccessPolicyDescribeOutputArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputArrayOutput) ToRowAccessPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RowAccessPolicyDescribeOutput {
-		return vs[0].([]RowAccessPolicyDescribeOutput)[vs[1].(int)]
-	}).(RowAccessPolicyDescribeOutputOutput)
-}
-
-type RowAccessPolicyDescribeOutputSignature struct {
-	Name *string `pulumi:"name"`
-	Type *string `pulumi:"type"`
-}
-
-// RowAccessPolicyDescribeOutputSignatureInput is an input type that accepts RowAccessPolicyDescribeOutputSignatureArgs and RowAccessPolicyDescribeOutputSignatureOutput values.
-// You can construct a concrete instance of `RowAccessPolicyDescribeOutputSignatureInput` via:
-//
-//	RowAccessPolicyDescribeOutputSignatureArgs{...}
-type RowAccessPolicyDescribeOutputSignatureInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyDescribeOutputSignatureOutput() RowAccessPolicyDescribeOutputSignatureOutput
-	ToRowAccessPolicyDescribeOutputSignatureOutputWithContext(context.Context) RowAccessPolicyDescribeOutputSignatureOutput
-}
-
-type RowAccessPolicyDescribeOutputSignatureArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (RowAccessPolicyDescribeOutputSignatureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyDescribeOutputSignature)(nil)).Elem()
-}
-
-func (i RowAccessPolicyDescribeOutputSignatureArgs) ToRowAccessPolicyDescribeOutputSignatureOutput() RowAccessPolicyDescribeOutputSignatureOutput {
-	return i.ToRowAccessPolicyDescribeOutputSignatureOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyDescribeOutputSignatureArgs) ToRowAccessPolicyDescribeOutputSignatureOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputSignatureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyDescribeOutputSignatureOutput)
-}
-
-// RowAccessPolicyDescribeOutputSignatureArrayInput is an input type that accepts RowAccessPolicyDescribeOutputSignatureArray and RowAccessPolicyDescribeOutputSignatureArrayOutput values.
-// You can construct a concrete instance of `RowAccessPolicyDescribeOutputSignatureArrayInput` via:
-//
-//	RowAccessPolicyDescribeOutputSignatureArray{ RowAccessPolicyDescribeOutputSignatureArgs{...} }
-type RowAccessPolicyDescribeOutputSignatureArrayInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyDescribeOutputSignatureArrayOutput() RowAccessPolicyDescribeOutputSignatureArrayOutput
-	ToRowAccessPolicyDescribeOutputSignatureArrayOutputWithContext(context.Context) RowAccessPolicyDescribeOutputSignatureArrayOutput
-}
-
-type RowAccessPolicyDescribeOutputSignatureArray []RowAccessPolicyDescribeOutputSignatureInput
-
-func (RowAccessPolicyDescribeOutputSignatureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyDescribeOutputSignature)(nil)).Elem()
-}
-
-func (i RowAccessPolicyDescribeOutputSignatureArray) ToRowAccessPolicyDescribeOutputSignatureArrayOutput() RowAccessPolicyDescribeOutputSignatureArrayOutput {
-	return i.ToRowAccessPolicyDescribeOutputSignatureArrayOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyDescribeOutputSignatureArray) ToRowAccessPolicyDescribeOutputSignatureArrayOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputSignatureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyDescribeOutputSignatureArrayOutput)
-}
-
-type RowAccessPolicyDescribeOutputSignatureOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyDescribeOutputSignatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyDescribeOutputSignature)(nil)).Elem()
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureOutput) ToRowAccessPolicyDescribeOutputSignatureOutput() RowAccessPolicyDescribeOutputSignatureOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureOutput) ToRowAccessPolicyDescribeOutputSignatureOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputSignatureOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutputSignature) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyDescribeOutputSignature) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type RowAccessPolicyDescribeOutputSignatureArrayOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyDescribeOutputSignatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyDescribeOutputSignature)(nil)).Elem()
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureArrayOutput) ToRowAccessPolicyDescribeOutputSignatureArrayOutput() RowAccessPolicyDescribeOutputSignatureArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureArrayOutput) ToRowAccessPolicyDescribeOutputSignatureArrayOutputWithContext(ctx context.Context) RowAccessPolicyDescribeOutputSignatureArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyDescribeOutputSignatureArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyDescribeOutputSignatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RowAccessPolicyDescribeOutputSignature {
-		return vs[0].([]RowAccessPolicyDescribeOutputSignature)[vs[1].(int)]
-	}).(RowAccessPolicyDescribeOutputSignatureOutput)
-}
-
-type RowAccessPolicyShowOutput struct {
-	Comment       *string `pulumi:"comment"`
-	CreatedOn     *string `pulumi:"createdOn"`
-	DatabaseName  *string `pulumi:"databaseName"`
-	Kind          *string `pulumi:"kind"`
-	Name          *string `pulumi:"name"`
-	Options       *string `pulumi:"options"`
-	Owner         *string `pulumi:"owner"`
-	OwnerRoleType *string `pulumi:"ownerRoleType"`
-	SchemaName    *string `pulumi:"schemaName"`
-}
-
-// RowAccessPolicyShowOutputInput is an input type that accepts RowAccessPolicyShowOutputArgs and RowAccessPolicyShowOutputOutput values.
-// You can construct a concrete instance of `RowAccessPolicyShowOutputInput` via:
-//
-//	RowAccessPolicyShowOutputArgs{...}
-type RowAccessPolicyShowOutputInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyShowOutputOutput() RowAccessPolicyShowOutputOutput
-	ToRowAccessPolicyShowOutputOutputWithContext(context.Context) RowAccessPolicyShowOutputOutput
-}
-
-type RowAccessPolicyShowOutputArgs struct {
-	Comment       pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
-	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
-	Kind          pulumi.StringPtrInput `pulumi:"kind"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Options       pulumi.StringPtrInput `pulumi:"options"`
-	Owner         pulumi.StringPtrInput `pulumi:"owner"`
-	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
-	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
-}
-
-func (RowAccessPolicyShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyShowOutput)(nil)).Elem()
-}
-
-func (i RowAccessPolicyShowOutputArgs) ToRowAccessPolicyShowOutputOutput() RowAccessPolicyShowOutputOutput {
-	return i.ToRowAccessPolicyShowOutputOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyShowOutputArgs) ToRowAccessPolicyShowOutputOutputWithContext(ctx context.Context) RowAccessPolicyShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyShowOutputOutput)
-}
-
-// RowAccessPolicyShowOutputArrayInput is an input type that accepts RowAccessPolicyShowOutputArray and RowAccessPolicyShowOutputArrayOutput values.
-// You can construct a concrete instance of `RowAccessPolicyShowOutputArrayInput` via:
-//
-//	RowAccessPolicyShowOutputArray{ RowAccessPolicyShowOutputArgs{...} }
-type RowAccessPolicyShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToRowAccessPolicyShowOutputArrayOutput() RowAccessPolicyShowOutputArrayOutput
-	ToRowAccessPolicyShowOutputArrayOutputWithContext(context.Context) RowAccessPolicyShowOutputArrayOutput
-}
-
-type RowAccessPolicyShowOutputArray []RowAccessPolicyShowOutputInput
-
-func (RowAccessPolicyShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyShowOutput)(nil)).Elem()
-}
-
-func (i RowAccessPolicyShowOutputArray) ToRowAccessPolicyShowOutputArrayOutput() RowAccessPolicyShowOutputArrayOutput {
-	return i.ToRowAccessPolicyShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i RowAccessPolicyShowOutputArray) ToRowAccessPolicyShowOutputArrayOutputWithContext(ctx context.Context) RowAccessPolicyShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RowAccessPolicyShowOutputArrayOutput)
-}
-
-type RowAccessPolicyShowOutputOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RowAccessPolicyShowOutput)(nil)).Elem()
-}
-
-func (o RowAccessPolicyShowOutputOutput) ToRowAccessPolicyShowOutputOutput() RowAccessPolicyShowOutputOutput {
-	return o
-}
-
-func (o RowAccessPolicyShowOutputOutput) ToRowAccessPolicyShowOutputOutputWithContext(ctx context.Context) RowAccessPolicyShowOutputOutput {
-	return o
-}
-
-func (o RowAccessPolicyShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) Options() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.Options }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
-}
-
-func (o RowAccessPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RowAccessPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-type RowAccessPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (RowAccessPolicyShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RowAccessPolicyShowOutput)(nil)).Elem()
-}
-
-func (o RowAccessPolicyShowOutputArrayOutput) ToRowAccessPolicyShowOutputArrayOutput() RowAccessPolicyShowOutputArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyShowOutputArrayOutput) ToRowAccessPolicyShowOutputArrayOutputWithContext(ctx context.Context) RowAccessPolicyShowOutputArrayOutput {
-	return o
-}
-
-func (o RowAccessPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) RowAccessPolicyShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RowAccessPolicyShowOutput {
-		return vs[0].([]RowAccessPolicyShowOutput)[vs[1].(int)]
-	}).(RowAccessPolicyShowOutputOutput)
-}
-
-type Saml2IntegrationDescribeOutput struct {
-	AllowedEmailPatterns            []Saml2IntegrationDescribeOutputAllowedEmailPattern            `pulumi:"allowedEmailPatterns"`
-	AllowedUserDomains              []Saml2IntegrationDescribeOutputAllowedUserDomain              `pulumi:"allowedUserDomains"`
-	Comments                        []Saml2IntegrationDescribeOutputComment                        `pulumi:"comments"`
-	Saml2DigestMethodsUseds         []Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed         `pulumi:"saml2DigestMethodsUseds"`
-	Saml2EnableSpInitiateds         []Saml2IntegrationDescribeOutputSaml2EnableSpInitiated         `pulumi:"saml2EnableSpInitiateds"`
-	Saml2ForceAuthns                []Saml2IntegrationDescribeOutputSaml2ForceAuthn                `pulumi:"saml2ForceAuthns"`
-	Saml2Issuers                    []Saml2IntegrationDescribeOutputSaml2Issuer                    `pulumi:"saml2Issuers"`
-	Saml2PostLogoutRedirectUrls     []Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl     `pulumi:"saml2PostLogoutRedirectUrls"`
-	Saml2Providers                  []Saml2IntegrationDescribeOutputSaml2Provider                  `pulumi:"saml2Providers"`
-	Saml2RequestedNameidFormats     []Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat     `pulumi:"saml2RequestedNameidFormats"`
-	Saml2SignRequests               []Saml2IntegrationDescribeOutputSaml2SignRequest               `pulumi:"saml2SignRequests"`
-	Saml2SignatureMethodsUseds      []Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed      `pulumi:"saml2SignatureMethodsUseds"`
-	Saml2SnowflakeAcsUrls           []Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl           `pulumi:"saml2SnowflakeAcsUrls"`
-	Saml2SnowflakeIssuerUrls        []Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl        `pulumi:"saml2SnowflakeIssuerUrls"`
-	Saml2SnowflakeMetadatas         []Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata         `pulumi:"saml2SnowflakeMetadatas"`
-	Saml2SpInitiatedLoginPageLabels []Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel `pulumi:"saml2SpInitiatedLoginPageLabels"`
-	Saml2SsoUrls                    []Saml2IntegrationDescribeOutputSaml2SsoUrl                    `pulumi:"saml2SsoUrls"`
-}
-
-// Saml2IntegrationDescribeOutputInput is an input type that accepts Saml2IntegrationDescribeOutputArgs and Saml2IntegrationDescribeOutputOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputInput` via:
-//
-//	Saml2IntegrationDescribeOutputArgs{...}
-type Saml2IntegrationDescribeOutputInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputOutput() Saml2IntegrationDescribeOutputOutput
-	ToSaml2IntegrationDescribeOutputOutputWithContext(context.Context) Saml2IntegrationDescribeOutputOutput
-}
-
-type Saml2IntegrationDescribeOutputArgs struct {
-	AllowedEmailPatterns            Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput            `pulumi:"allowedEmailPatterns"`
-	AllowedUserDomains              Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput              `pulumi:"allowedUserDomains"`
-	Comments                        Saml2IntegrationDescribeOutputCommentArrayInput                        `pulumi:"comments"`
-	Saml2DigestMethodsUseds         Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayInput         `pulumi:"saml2DigestMethodsUseds"`
-	Saml2EnableSpInitiateds         Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayInput         `pulumi:"saml2EnableSpInitiateds"`
-	Saml2ForceAuthns                Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayInput                `pulumi:"saml2ForceAuthns"`
-	Saml2Issuers                    Saml2IntegrationDescribeOutputSaml2IssuerArrayInput                    `pulumi:"saml2Issuers"`
-	Saml2PostLogoutRedirectUrls     Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayInput     `pulumi:"saml2PostLogoutRedirectUrls"`
-	Saml2Providers                  Saml2IntegrationDescribeOutputSaml2ProviderArrayInput                  `pulumi:"saml2Providers"`
-	Saml2RequestedNameidFormats     Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayInput     `pulumi:"saml2RequestedNameidFormats"`
-	Saml2SignRequests               Saml2IntegrationDescribeOutputSaml2SignRequestArrayInput               `pulumi:"saml2SignRequests"`
-	Saml2SignatureMethodsUseds      Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayInput      `pulumi:"saml2SignatureMethodsUseds"`
-	Saml2SnowflakeAcsUrls           Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput           `pulumi:"saml2SnowflakeAcsUrls"`
-	Saml2SnowflakeIssuerUrls        Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput        `pulumi:"saml2SnowflakeIssuerUrls"`
-	Saml2SnowflakeMetadatas         Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput         `pulumi:"saml2SnowflakeMetadatas"`
-	Saml2SpInitiatedLoginPageLabels Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput `pulumi:"saml2SpInitiatedLoginPageLabels"`
-	Saml2SsoUrls                    Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput                    `pulumi:"saml2SsoUrls"`
-}
-
-func (Saml2IntegrationDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputArgs) ToSaml2IntegrationDescribeOutputOutput() Saml2IntegrationDescribeOutputOutput {
-	return i.ToSaml2IntegrationDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputArgs) ToSaml2IntegrationDescribeOutputOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputOutput)
-}
-
-// Saml2IntegrationDescribeOutputArrayInput is an input type that accepts Saml2IntegrationDescribeOutputArray and Saml2IntegrationDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputArray{ Saml2IntegrationDescribeOutputArgs{...} }
-type Saml2IntegrationDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputArrayOutput() Saml2IntegrationDescribeOutputArrayOutput
-	ToSaml2IntegrationDescribeOutputArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputArray []Saml2IntegrationDescribeOutputInput
-
-func (Saml2IntegrationDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputArray) ToSaml2IntegrationDescribeOutputArrayOutput() Saml2IntegrationDescribeOutputArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputArray) ToSaml2IntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) ToSaml2IntegrationDescribeOutputOutput() Saml2IntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) ToSaml2IntegrationDescribeOutputOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) AllowedEmailPatterns() Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputAllowedEmailPattern {
-		return v.AllowedEmailPatterns
-	}).(Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) AllowedUserDomains() Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputAllowedUserDomain {
-		return v.AllowedUserDomains
-	}).(Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Comments() Saml2IntegrationDescribeOutputCommentArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputComment { return v.Comments }).(Saml2IntegrationDescribeOutputCommentArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2DigestMethodsUseds() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed {
-		return v.Saml2DigestMethodsUseds
-	}).(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2EnableSpInitiateds() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2EnableSpInitiated {
-		return v.Saml2EnableSpInitiateds
-	}).(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2ForceAuthns() Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2ForceAuthn {
-		return v.Saml2ForceAuthns
-	}).(Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2Issuers() Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2Issuer {
-		return v.Saml2Issuers
-	}).(Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2PostLogoutRedirectUrls() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
-		return v.Saml2PostLogoutRedirectUrls
-	}).(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2Providers() Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2Provider {
-		return v.Saml2Providers
-	}).(Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2RequestedNameidFormats() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat {
-		return v.Saml2RequestedNameidFormats
-	}).(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SignRequests() Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SignRequest {
-		return v.Saml2SignRequests
-	}).(Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SignatureMethodsUseds() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed {
-		return v.Saml2SignatureMethodsUseds
-	}).(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SnowflakeAcsUrls() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl {
-		return v.Saml2SnowflakeAcsUrls
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SnowflakeIssuerUrls() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
-		return v.Saml2SnowflakeIssuerUrls
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SnowflakeMetadatas() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
-		return v.Saml2SnowflakeMetadatas
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SpInitiatedLoginPageLabels() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
-		return v.Saml2SpInitiatedLoginPageLabels
-	}).(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SsoUrls() Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SsoUrl {
-		return v.Saml2SsoUrls
-	}).(Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputArrayOutput) ToSaml2IntegrationDescribeOutputArrayOutput() Saml2IntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputArrayOutput) ToSaml2IntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutput {
-		return vs[0].([]Saml2IntegrationDescribeOutput)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedEmailPattern struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputAllowedEmailPatternInput is an input type that accepts Saml2IntegrationDescribeOutputAllowedEmailPatternArgs and Saml2IntegrationDescribeOutputAllowedEmailPatternOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputAllowedEmailPatternInput` via:
-//
-//	Saml2IntegrationDescribeOutputAllowedEmailPatternArgs{...}
-type Saml2IntegrationDescribeOutputAllowedEmailPatternInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternOutput
-	ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutputWithContext(context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternOutput
-}
-
-type Saml2IntegrationDescribeOutputAllowedEmailPatternArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputAllowedEmailPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedEmailPattern)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedEmailPatternArgs) ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternOutput {
-	return i.ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedEmailPatternArgs) ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputAllowedEmailPatternOutput)
-}
-
-// Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput is an input type that accepts Saml2IntegrationDescribeOutputAllowedEmailPatternArray and Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputAllowedEmailPatternArray{ Saml2IntegrationDescribeOutputAllowedEmailPatternArgs{...} }
-type Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput
-	ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputAllowedEmailPatternArray []Saml2IntegrationDescribeOutputAllowedEmailPatternInput
-
-func (Saml2IntegrationDescribeOutputAllowedEmailPatternArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputAllowedEmailPattern)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedEmailPatternArray) ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedEmailPatternArray) ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedEmailPatternOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedEmailPattern)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) ToSaml2IntegrationDescribeOutputAllowedEmailPatternOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedEmailPattern) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedEmailPattern) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedEmailPattern) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedEmailPattern) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputAllowedEmailPattern)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput) ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput() Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput) ToSaml2IntegrationDescribeOutputAllowedEmailPatternArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputAllowedEmailPatternOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputAllowedEmailPattern {
-		return vs[0].([]Saml2IntegrationDescribeOutputAllowedEmailPattern)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputAllowedEmailPatternOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedUserDomain struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputAllowedUserDomainInput is an input type that accepts Saml2IntegrationDescribeOutputAllowedUserDomainArgs and Saml2IntegrationDescribeOutputAllowedUserDomainOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputAllowedUserDomainInput` via:
-//
-//	Saml2IntegrationDescribeOutputAllowedUserDomainArgs{...}
-type Saml2IntegrationDescribeOutputAllowedUserDomainInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputAllowedUserDomainOutput() Saml2IntegrationDescribeOutputAllowedUserDomainOutput
-	ToSaml2IntegrationDescribeOutputAllowedUserDomainOutputWithContext(context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainOutput
-}
-
-type Saml2IntegrationDescribeOutputAllowedUserDomainArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputAllowedUserDomainArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomain)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedUserDomainArgs) ToSaml2IntegrationDescribeOutputAllowedUserDomainOutput() Saml2IntegrationDescribeOutputAllowedUserDomainOutput {
-	return i.ToSaml2IntegrationDescribeOutputAllowedUserDomainOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedUserDomainArgs) ToSaml2IntegrationDescribeOutputAllowedUserDomainOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputAllowedUserDomainOutput)
-}
-
-// Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput is an input type that accepts Saml2IntegrationDescribeOutputAllowedUserDomainArray and Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputAllowedUserDomainArray{ Saml2IntegrationDescribeOutputAllowedUserDomainArgs{...} }
-type Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutput() Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput
-	ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputAllowedUserDomainArray []Saml2IntegrationDescribeOutputAllowedUserDomainInput
-
-func (Saml2IntegrationDescribeOutputAllowedUserDomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputAllowedUserDomain)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedUserDomainArray) ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutput() Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputAllowedUserDomainArray) ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedUserDomainOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputAllowedUserDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomain)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) ToSaml2IntegrationDescribeOutputAllowedUserDomainOutput() Saml2IntegrationDescribeOutputAllowedUserDomainOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) ToSaml2IntegrationDescribeOutputAllowedUserDomainOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedUserDomain) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedUserDomain) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedUserDomain) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputAllowedUserDomain) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputAllowedUserDomain)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput) ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutput() Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput) ToSaml2IntegrationDescribeOutputAllowedUserDomainArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputAllowedUserDomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputAllowedUserDomain {
-		return vs[0].([]Saml2IntegrationDescribeOutputAllowedUserDomain)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputAllowedUserDomainOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -68038,6 +68334,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertSchedulePtrInput)(nil)).Elem(), AlertAlertScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAlertScheduleCronPtrInput)(nil)).Elem(), AlertAlertScheduleCronArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertDescribeOutputInput)(nil)).Elem(), AlertDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertDescribeOutputArrayInput)(nil)).Elem(), AlertDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertShowOutputInput)(nil)).Elem(), AlertShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertShowOutputArrayInput)(nil)).Elem(), AlertShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgs{})
@@ -68164,6 +68464,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), AuthenticationPolicyShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyPtrInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDescribeOutputInput)(nil)).Elem(), BackupPolicyDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDescribeOutputArrayInput)(nil)).Elem(), BackupPolicyDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyScheduleInput)(nil)).Elem(), BackupPolicyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicySchedulePtrInput)(nil)).Elem(), BackupPolicyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyShowOutputInput)(nil)).Elem(), BackupPolicyShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyShowOutputArrayInput)(nil)).Elem(), BackupPolicyShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutputInput)(nil)).Elem(), CatalogIntegrationAwsGlueDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutputArrayInput)(nil)).Elem(), CatalogIntegrationAwsGlueDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueShowOutputInput)(nil)).Elem(), CatalogIntegrationAwsGlueShowOutputArgs{})
@@ -68204,6 +68510,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogRestConfigPtrInput)(nil)).Elem(), CatalogIntegrationOpenCatalogRestConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutputInput)(nil)).Elem(), CatalogIntegrationOpenCatalogShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutputArrayInput)(nil)).Elem(), CatalogIntegrationOpenCatalogShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeBundleDescribeOutputInput)(nil)).Elem(), CodeBundleDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeBundleDescribeOutputArrayInput)(nil)).Elem(), CodeBundleDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeBundleShowOutputInput)(nil)).Elem(), CodeBundleShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeBundleShowOutputArrayInput)(nil)).Elem(), CodeBundleShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputInput)(nil)).Elem(), ComputePoolDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputArrayInput)(nil)).Elem(), ComputePoolDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputInput)(nil)).Elem(), ComputePoolShowOutputArgs{})
@@ -68222,6 +68532,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputArrayInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CurrentOrganizationAccountShowOutputInput)(nil)).Elem(), CurrentOrganizationAccountShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CurrentOrganizationAccountShowOutputArrayInput)(nil)).Elem(), CurrentOrganizationAccountShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterInput)(nil)).Elem(), DatabaseParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterArrayInput)(nil)).Elem(), DatabaseParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterCatalogInput)(nil)).Elem(), DatabaseParameterCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterCatalogArrayInput)(nil)).Elem(), DatabaseParameterCatalogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDataRetentionTimeInDayInput)(nil)).Elem(), DatabaseParameterDataRetentionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), DatabaseParameterDataRetentionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultDdlCollationInput)(nil)).Elem(), DatabaseParameterDefaultDdlCollationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultDdlCollationArrayInput)(nil)).Elem(), DatabaseParameterDefaultDdlCollationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolCpusInput)(nil)).Elem(), DatabaseParameterDefaultNotebookComputePoolCpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolCpusArrayInput)(nil)).Elem(), DatabaseParameterDefaultNotebookComputePoolCpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolGpusInput)(nil)).Elem(), DatabaseParameterDefaultNotebookComputePoolGpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterDefaultNotebookComputePoolGpusArrayInput)(nil)).Elem(), DatabaseParameterDefaultNotebookComputePoolGpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterEnableConsoleOutputInput)(nil)).Elem(), DatabaseParameterEnableConsoleOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterEnableConsoleOutputArrayInput)(nil)).Elem(), DatabaseParameterEnableConsoleOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterExternalVolumeInput)(nil)).Elem(), DatabaseParameterExternalVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterExternalVolumeArrayInput)(nil)).Elem(), DatabaseParameterExternalVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterLogEventLevelInput)(nil)).Elem(), DatabaseParameterLogEventLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterLogEventLevelArrayInput)(nil)).Elem(), DatabaseParameterLogEventLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterLogLevelInput)(nil)).Elem(), DatabaseParameterLogLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterLogLevelArrayInput)(nil)).Elem(), DatabaseParameterLogLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterMaxDataExtensionTimeInDayInput)(nil)).Elem(), DatabaseParameterMaxDataExtensionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterMaxDataExtensionTimeInDayArrayInput)(nil)).Elem(), DatabaseParameterMaxDataExtensionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterQuotedIdentifiersIgnoreCaseInput)(nil)).Elem(), DatabaseParameterQuotedIdentifiersIgnoreCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput)(nil)).Elem(), DatabaseParameterQuotedIdentifiersIgnoreCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterReplaceInvalidCharacterInput)(nil)).Elem(), DatabaseParameterReplaceInvalidCharacterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterReplaceInvalidCharacterArrayInput)(nil)).Elem(), DatabaseParameterReplaceInvalidCharacterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterStorageSerializationPolicyInput)(nil)).Elem(), DatabaseParameterStorageSerializationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterStorageSerializationPolicyArrayInput)(nil)).Elem(), DatabaseParameterStorageSerializationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterSuspendTaskAfterNumFailureInput)(nil)).Elem(), DatabaseParameterSuspendTaskAfterNumFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterSuspendTaskAfterNumFailureArrayInput)(nil)).Elem(), DatabaseParameterSuspendTaskAfterNumFailureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterTaskAutoRetryAttemptInput)(nil)).Elem(), DatabaseParameterTaskAutoRetryAttemptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterTaskAutoRetryAttemptArrayInput)(nil)).Elem(), DatabaseParameterTaskAutoRetryAttemptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterTraceLevelInput)(nil)).Elem(), DatabaseParameterTraceLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterTraceLevelArrayInput)(nil)).Elem(), DatabaseParameterTraceLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskManagedInitialWarehouseSizeInput)(nil)).Elem(), DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput)(nil)).Elem(), DatabaseParameterUserTaskManagedInitialWarehouseSizeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput)(nil)).Elem(), DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput)(nil)).Elem(), DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskTimeoutMInput)(nil)).Elem(), DatabaseParameterUserTaskTimeoutMArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseParameterUserTaskTimeoutMArrayInput)(nil)).Elem(), DatabaseParameterUserTaskTimeoutMArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationPtrInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationEnableToAccountInput)(nil)).Elem(), DatabaseReplicationEnableToAccountArgs{})
@@ -68638,16 +68988,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterArrayInput)(nil)).Elem(), LegacyServiceUserParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterAbortDetachedQueryInput)(nil)).Elem(), LegacyServiceUserParameterAbortDetachedQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterAbortDetachedQueryArrayInput)(nil)).Elem(), LegacyServiceUserParameterAbortDetachedQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterActivePythonProfilerInput)(nil)).Elem(), LegacyServiceUserParameterActivePythonProfilerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterActivePythonProfilerArrayInput)(nil)).Elem(), LegacyServiceUserParameterActivePythonProfilerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterAutocommitInput)(nil)).Elem(), LegacyServiceUserParameterAutocommitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterAutocommitArrayInput)(nil)).Elem(), LegacyServiceUserParameterAutocommitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterBinaryInputFormatInput)(nil)).Elem(), LegacyServiceUserParameterBinaryInputFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterBinaryInputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterBinaryInputFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterBinaryOutputFormatInput)(nil)).Elem(), LegacyServiceUserParameterBinaryOutputFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterBinaryOutputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterBinaryOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientEnableLogInfoStatementParameterInput)(nil)).Elem(), LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientEnableLogInfoStatementParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMemoryLimitInput)(nil)).Elem(), LegacyServiceUserParameterClientMemoryLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMemoryLimitArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientMemoryLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxInput)(nil)).Elem(), LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMetadataUseSessionDatabaseInput)(nil)).Elem(), LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientMetadataUseSessionDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientPrefetchThreadInput)(nil)).Elem(), LegacyServiceUserParameterClientPrefetchThreadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientPrefetchThreadArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientPrefetchThreadArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientResultChunkSizeInput)(nil)).Elem(), LegacyServiceUserParameterClientResultChunkSizeArgs{})
@@ -68660,10 +69016,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientTimestampTypeMappingInput)(nil)).Elem(), LegacyServiceUserParameterClientTimestampTypeMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterClientTimestampTypeMappingArrayInput)(nil)).Elem(), LegacyServiceUserParameterClientTimestampTypeMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterCsvTimestampFormatInput)(nil)).Elem(), LegacyServiceUserParameterCsvTimestampFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterCsvTimestampFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterCsvTimestampFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterDateInputFormatInput)(nil)).Elem(), LegacyServiceUserParameterDateInputFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterDateInputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterDateInputFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterDateOutputFormatInput)(nil)).Elem(), LegacyServiceUserParameterDateOutputFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterDateOutputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterDateOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasInput)(nil)).Elem(), LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayInput)(nil)).Elem(), LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationInput)(nil)).Elem(), LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArrayInput)(nil)).Elem(), LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorInput)(nil)).Elem(), LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs{})
@@ -68676,12 +69036,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterGeographyOutputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterGeographyOutputFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterGeometryOutputFormatInput)(nil)).Elem(), LegacyServiceUserParameterGeometryOutputFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterGeometryOutputFormatArrayInput)(nil)).Elem(), LegacyServiceUserParameterGeometryOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterHybridTableLockTimeoutInput)(nil)).Elem(), LegacyServiceUserParameterHybridTableLockTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterHybridTableLockTimeoutArrayInput)(nil)).Elem(), LegacyServiceUserParameterHybridTableLockTimeoutArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcTreatDecimalAsIntInput)(nil)).Elem(), LegacyServiceUserParameterJdbcTreatDecimalAsIntArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcTreatDecimalAsIntArrayInput)(nil)).Elem(), LegacyServiceUserParameterJdbcTreatDecimalAsIntArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcInput)(nil)).Elem(), LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArrayInput)(nil)).Elem(), LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcUseSessionTimezoneInput)(nil)).Elem(), LegacyServiceUserParameterJdbcUseSessionTimezoneArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJdbcUseSessionTimezoneArrayInput)(nil)).Elem(), LegacyServiceUserParameterJdbcUseSessionTimezoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJsTreatIntegerAsBigintInput)(nil)).Elem(), LegacyServiceUserParameterJsTreatIntegerAsBigintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJsTreatIntegerAsBigintArrayInput)(nil)).Elem(), LegacyServiceUserParameterJsTreatIntegerAsBigintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJsonIndentInput)(nil)).Elem(), LegacyServiceUserParameterJsonIndentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterJsonIndentArrayInput)(nil)).Elem(), LegacyServiceUserParameterJsonIndentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterLockTimeoutInput)(nil)).Elem(), LegacyServiceUserParameterLockTimeoutArgs{})
@@ -68700,6 +69064,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterOdbcTreatDecimalAsIntArrayInput)(nil)).Elem(), LegacyServiceUserParameterOdbcTreatDecimalAsIntArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPreventUnloadToInternalStageInput)(nil)).Elem(), LegacyServiceUserParameterPreventUnloadToInternalStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPreventUnloadToInternalStageArrayInput)(nil)).Elem(), LegacyServiceUserParameterPreventUnloadToInternalStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerModuleInput)(nil)).Elem(), LegacyServiceUserParameterPythonProfilerModuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerModuleArrayInput)(nil)).Elem(), LegacyServiceUserParameterPythonProfilerModuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerTargetStageInput)(nil)).Elem(), LegacyServiceUserParameterPythonProfilerTargetStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterPythonProfilerTargetStageArrayInput)(nil)).Elem(), LegacyServiceUserParameterPythonProfilerTargetStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterQueryTagInput)(nil)).Elem(), LegacyServiceUserParameterQueryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterQueryTagArrayInput)(nil)).Elem(), LegacyServiceUserParameterQueryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseInput)(nil)).Elem(), LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgs{})
@@ -68910,10 +69278,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyDescribeOutputArrayInput)(nil)).Elem(), PasswordPolicyDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyShowOutputInput)(nil)).Elem(), PasswordPolicyShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyShowOutputArrayInput)(nil)).Elem(), PasswordPolicyShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDescribeOutputInput)(nil)).Elem(), PipeDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeDescribeOutputArrayInput)(nil)).Elem(), PipeDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterInput)(nil)).Elem(), PipeParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterArrayInput)(nil)).Elem(), PipeParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterLogEventLevelInput)(nil)).Elem(), PipeParameterLogEventLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterLogEventLevelArrayInput)(nil)).Elem(), PipeParameterLogEventLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterPipeExecutionPausedInput)(nil)).Elem(), PipeParameterPipeExecutionPausedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeParameterPipeExecutionPausedArrayInput)(nil)).Elem(), PipeParameterPipeExecutionPausedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeShowOutputInput)(nil)).Elem(), PipeShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeShowOutputArrayInput)(nil)).Elem(), PipeShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceDescribeOutputInput)(nil)).Elem(), PostgresInstanceDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceDescribeOutputArrayInput)(nil)).Elem(), PostgresInstanceDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceShowOutputInput)(nil)).Elem(), PostgresInstanceShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresInstanceShowOutputArrayInput)(nil)).Elem(), PostgresInstanceShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresMirrorDescribeOutputInput)(nil)).Elem(), PostgresMirrorDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresMirrorDescribeOutputArrayInput)(nil)).Elem(), PostgresMirrorDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresMirrorRefreshIntervalInput)(nil)).Elem(), PostgresMirrorRefreshIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresMirrorRefreshIntervalPtrInput)(nil)).Elem(), PostgresMirrorRefreshIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryConnectionShowOutputInput)(nil)).Elem(), PrimaryConnectionShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryConnectionShowOutputArrayInput)(nil)).Elem(), PrimaryConnectionShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavaArgumentInput)(nil)).Elem(), ProcedureJavaArgumentArgs{})
@@ -68944,92 +69326,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterArrayInput)(nil)).Elem(), ProcedureJavascriptParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterEnableConsoleOutputInput)(nil)).Elem(), ProcedureJavascriptParameterEnableConsoleOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterEnableConsoleOutputArrayInput)(nil)).Elem(), ProcedureJavascriptParameterEnableConsoleOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterLogEventLevelInput)(nil)).Elem(), ProcedureJavascriptParameterLogEventLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterLogEventLevelArrayInput)(nil)).Elem(), ProcedureJavascriptParameterLogEventLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterLogLevelInput)(nil)).Elem(), ProcedureJavascriptParameterLogLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterLogLevelArrayInput)(nil)).Elem(), ProcedureJavascriptParameterLogLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterMetricLevelInput)(nil)).Elem(), ProcedureJavascriptParameterMetricLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterMetricLevelArrayInput)(nil)).Elem(), ProcedureJavascriptParameterMetricLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterTraceLevelInput)(nil)).Elem(), ProcedureJavascriptParameterTraceLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptParameterTraceLevelArrayInput)(nil)).Elem(), ProcedureJavascriptParameterTraceLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptShowOutputInput)(nil)).Elem(), ProcedureJavascriptShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavascriptShowOutputArrayInput)(nil)).Elem(), ProcedureJavascriptShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonArgumentInput)(nil)).Elem(), ProcedurePythonArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonArgumentArrayInput)(nil)).Elem(), ProcedurePythonArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonImportInput)(nil)).Elem(), ProcedurePythonImportArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonImportArrayInput)(nil)).Elem(), ProcedurePythonImportArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterInput)(nil)).Elem(), ProcedurePythonParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterArrayInput)(nil)).Elem(), ProcedurePythonParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterEnableConsoleOutputInput)(nil)).Elem(), ProcedurePythonParameterEnableConsoleOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterEnableConsoleOutputArrayInput)(nil)).Elem(), ProcedurePythonParameterEnableConsoleOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterLogEventLevelInput)(nil)).Elem(), ProcedurePythonParameterLogEventLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterLogEventLevelArrayInput)(nil)).Elem(), ProcedurePythonParameterLogEventLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterLogLevelInput)(nil)).Elem(), ProcedurePythonParameterLogLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterLogLevelArrayInput)(nil)).Elem(), ProcedurePythonParameterLogLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterMetricLevelInput)(nil)).Elem(), ProcedurePythonParameterMetricLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterMetricLevelArrayInput)(nil)).Elem(), ProcedurePythonParameterMetricLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterTraceLevelInput)(nil)).Elem(), ProcedurePythonParameterTraceLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonParameterTraceLevelArrayInput)(nil)).Elem(), ProcedurePythonParameterTraceLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonSecretInput)(nil)).Elem(), ProcedurePythonSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonSecretArrayInput)(nil)).Elem(), ProcedurePythonSecretArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonShowOutputInput)(nil)).Elem(), ProcedurePythonShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedurePythonShowOutputArrayInput)(nil)).Elem(), ProcedurePythonShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaArgumentInput)(nil)).Elem(), ProcedureScalaArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaArgumentArrayInput)(nil)).Elem(), ProcedureScalaArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaImportInput)(nil)).Elem(), ProcedureScalaImportArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaImportArrayInput)(nil)).Elem(), ProcedureScalaImportArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterInput)(nil)).Elem(), ProcedureScalaParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterArrayInput)(nil)).Elem(), ProcedureScalaParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterEnableConsoleOutputInput)(nil)).Elem(), ProcedureScalaParameterEnableConsoleOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterEnableConsoleOutputArrayInput)(nil)).Elem(), ProcedureScalaParameterEnableConsoleOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterLogEventLevelInput)(nil)).Elem(), ProcedureScalaParameterLogEventLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterLogEventLevelArrayInput)(nil)).Elem(), ProcedureScalaParameterLogEventLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterLogLevelInput)(nil)).Elem(), ProcedureScalaParameterLogLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterLogLevelArrayInput)(nil)).Elem(), ProcedureScalaParameterLogLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterMetricLevelInput)(nil)).Elem(), ProcedureScalaParameterMetricLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterMetricLevelArrayInput)(nil)).Elem(), ProcedureScalaParameterMetricLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterTraceLevelInput)(nil)).Elem(), ProcedureScalaParameterTraceLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaParameterTraceLevelArrayInput)(nil)).Elem(), ProcedureScalaParameterTraceLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaSecretInput)(nil)).Elem(), ProcedureScalaSecretArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaSecretArrayInput)(nil)).Elem(), ProcedureScalaSecretArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaShowOutputInput)(nil)).Elem(), ProcedureScalaShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaShowOutputArrayInput)(nil)).Elem(), ProcedureScalaShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaTargetPathInput)(nil)).Elem(), ProcedureScalaTargetPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureScalaTargetPathPtrInput)(nil)).Elem(), ProcedureScalaTargetPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlArgumentInput)(nil)).Elem(), ProcedureSqlArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlArgumentArrayInput)(nil)).Elem(), ProcedureSqlArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterInput)(nil)).Elem(), ProcedureSqlParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterArrayInput)(nil)).Elem(), ProcedureSqlParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterEnableConsoleOutputInput)(nil)).Elem(), ProcedureSqlParameterEnableConsoleOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterEnableConsoleOutputArrayInput)(nil)).Elem(), ProcedureSqlParameterEnableConsoleOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterLogEventLevelInput)(nil)).Elem(), ProcedureSqlParameterLogEventLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterLogEventLevelArrayInput)(nil)).Elem(), ProcedureSqlParameterLogEventLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterLogLevelInput)(nil)).Elem(), ProcedureSqlParameterLogLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterLogLevelArrayInput)(nil)).Elem(), ProcedureSqlParameterLogLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterMetricLevelInput)(nil)).Elem(), ProcedureSqlParameterMetricLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterMetricLevelArrayInput)(nil)).Elem(), ProcedureSqlParameterMetricLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterTraceLevelInput)(nil)).Elem(), ProcedureSqlParameterTraceLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlParameterTraceLevelArrayInput)(nil)).Elem(), ProcedureSqlParameterTraceLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlShowOutputInput)(nil)).Elem(), ProcedureSqlShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureSqlShowOutputArrayInput)(nil)).Elem(), ProcedureSqlShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderTokenAccessorInput)(nil)).Elem(), ProviderTokenAccessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderTokenAccessorPtrInput)(nil)).Elem(), ProviderTokenAccessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorShowOutputInput)(nil)).Elem(), ResourceMonitorShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMonitorShowOutputArrayInput)(nil)).Elem(), ResourceMonitorShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyArgumentInput)(nil)).Elem(), RowAccessPolicyArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyArgumentArrayInput)(nil)).Elem(), RowAccessPolicyArgumentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyDescribeOutputInput)(nil)).Elem(), RowAccessPolicyDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyDescribeOutputArrayInput)(nil)).Elem(), RowAccessPolicyDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyDescribeOutputSignatureInput)(nil)).Elem(), RowAccessPolicyDescribeOutputSignatureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyDescribeOutputSignatureArrayInput)(nil)).Elem(), RowAccessPolicyDescribeOutputSignatureArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyShowOutputInput)(nil)).Elem(), RowAccessPolicyShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RowAccessPolicyShowOutputArrayInput)(nil)).Elem(), RowAccessPolicyShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputInput)(nil)).Elem(), Saml2IntegrationDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedEmailPatternInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedEmailPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedEmailPatternArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomainInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedUserDomainArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedUserDomainArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -69038,6 +69334,10 @@ func init() {
 	pulumi.RegisterOutputType(AlertAlertSchedulePtrOutput{})
 	pulumi.RegisterOutputType(AlertAlertScheduleCronOutput{})
 	pulumi.RegisterOutputType(AlertAlertScheduleCronPtrOutput{})
+	pulumi.RegisterOutputType(AlertDescribeOutputOutput{})
+	pulumi.RegisterOutputType(AlertDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(AlertShowOutputOutput{})
+	pulumi.RegisterOutputType(AlertShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeOutput{})
@@ -69164,6 +69464,12 @@ func init() {
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyPtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDescribeOutputOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyScheduleOutput{})
+	pulumi.RegisterOutputType(BackupPolicySchedulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyShowOutputOutput{})
+	pulumi.RegisterOutputType(BackupPolicyShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueDescribeOutputOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueShowOutputOutput{})
@@ -69204,6 +69510,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogRestConfigPtrOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogShowOutputOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CodeBundleDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CodeBundleDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CodeBundleShowOutputOutput{})
+	pulumi.RegisterOutputType(CodeBundleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolShowOutputOutput{})
@@ -69222,6 +69532,46 @@ func init() {
 	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(CurrentOrganizationAccountShowOutputOutput{})
 	pulumi.RegisterOutputType(CurrentOrganizationAccountShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterCatalogOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterCatalogArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDataRetentionTimeInDayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDataRetentionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultDdlCollationOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultDdlCollationArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultNotebookComputePoolCpusOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultNotebookComputePoolCpusArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultNotebookComputePoolGpusOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterDefaultNotebookComputePoolGpusArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterEnableConsoleOutputOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterEnableConsoleOutputArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterExternalVolumeOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterExternalVolumeArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterLogEventLevelOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterLogEventLevelArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterLogLevelOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterLogLevelArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterMaxDataExtensionTimeInDayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterMaxDataExtensionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterQuotedIdentifiersIgnoreCaseOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterReplaceInvalidCharacterOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterReplaceInvalidCharacterArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterStorageSerializationPolicyOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterStorageSerializationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterSuspendTaskAfterNumFailureOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterSuspendTaskAfterNumFailureArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterTaskAutoRetryAttemptOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterTaskAutoRetryAttemptArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterTraceLevelOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterTraceLevelArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskManagedInitialWarehouseSizeOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskTimeoutMOutput{})
+	pulumi.RegisterOutputType(DatabaseParameterUserTaskTimeoutMArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationEnableToAccountOutput{})
@@ -69638,16 +69988,22 @@ func init() {
 	pulumi.RegisterOutputType(LegacyServiceUserParameterArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterAbortDetachedQueryOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterAbortDetachedQueryArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterActivePythonProfilerOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterActivePythonProfilerArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterAutocommitOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterAutocommitArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterBinaryInputFormatOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterBinaryInputFormatArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterBinaryOutputFormatOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterBinaryOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterClientEnableLogInfoStatementParameterOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterClientEnableLogInfoStatementParameterArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMemoryLimitOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMemoryLimitArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMetadataUseSessionDatabaseOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterClientMetadataUseSessionDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientPrefetchThreadOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientPrefetchThreadArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientResultChunkSizeOutput{})
@@ -69660,10 +70016,14 @@ func init() {
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientTimestampTypeMappingOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterClientTimestampTypeMappingArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterCsvTimestampFormatOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterCsvTimestampFormatArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterDateInputFormatOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterDateInputFormatArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterDateOutputFormatOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterDateOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorOutput{})
@@ -69676,12 +70036,16 @@ func init() {
 	pulumi.RegisterOutputType(LegacyServiceUserParameterGeographyOutputFormatArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterGeometryOutputFormatOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterGeometryOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterHybridTableLockTimeoutOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterHybridTableLockTimeoutArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcTreatDecimalAsIntOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcTreatDecimalAsIntArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcUseSessionTimezoneOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJdbcUseSessionTimezoneArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterJsTreatIntegerAsBigintOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterJsTreatIntegerAsBigintArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJsonIndentOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterJsonIndentArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterLockTimeoutOutput{})
@@ -69700,6 +70064,10 @@ func init() {
 	pulumi.RegisterOutputType(LegacyServiceUserParameterOdbcTreatDecimalAsIntArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterPreventUnloadToInternalStageOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterPreventUnloadToInternalStageArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterPythonProfilerModuleOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterPythonProfilerModuleArrayOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterPythonProfilerTargetStageOutput{})
+	pulumi.RegisterOutputType(LegacyServiceUserParameterPythonProfilerTargetStageArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterQueryTagOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterQueryTagArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseOutput{})
@@ -69910,10 +70278,24 @@ func init() {
 	pulumi.RegisterOutputType(PasswordPolicyDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyShowOutputOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(PipeDescribeOutputOutput{})
+	pulumi.RegisterOutputType(PipeDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(PipeParameterOutput{})
+	pulumi.RegisterOutputType(PipeParameterArrayOutput{})
+	pulumi.RegisterOutputType(PipeParameterLogEventLevelOutput{})
+	pulumi.RegisterOutputType(PipeParameterLogEventLevelArrayOutput{})
+	pulumi.RegisterOutputType(PipeParameterPipeExecutionPausedOutput{})
+	pulumi.RegisterOutputType(PipeParameterPipeExecutionPausedArrayOutput{})
+	pulumi.RegisterOutputType(PipeShowOutputOutput{})
+	pulumi.RegisterOutputType(PipeShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceDescribeOutputOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceShowOutputOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(PostgresMirrorDescribeOutputOutput{})
+	pulumi.RegisterOutputType(PostgresMirrorDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(PostgresMirrorRefreshIntervalOutput{})
+	pulumi.RegisterOutputType(PostgresMirrorRefreshIntervalPtrOutput{})
 	pulumi.RegisterOutputType(PrimaryConnectionShowOutputOutput{})
 	pulumi.RegisterOutputType(PrimaryConnectionShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureJavaArgumentOutput{})
@@ -69944,90 +70326,4 @@ func init() {
 	pulumi.RegisterOutputType(ProcedureJavascriptParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureJavascriptParameterEnableConsoleOutputOutput{})
 	pulumi.RegisterOutputType(ProcedureJavascriptParameterEnableConsoleOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterLogEventLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterLogEventLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterLogLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterLogLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterMetricLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterMetricLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterTraceLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptParameterTraceLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptShowOutputOutput{})
-	pulumi.RegisterOutputType(ProcedureJavascriptShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonArgumentOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonArgumentArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonImportOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonImportArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterEnableConsoleOutputOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterEnableConsoleOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterLogEventLevelOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterLogEventLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterLogLevelOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterLogLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterMetricLevelOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterMetricLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterTraceLevelOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonParameterTraceLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonSecretOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonSecretArrayOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonShowOutputOutput{})
-	pulumi.RegisterOutputType(ProcedurePythonShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaArgumentOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaArgumentArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaImportOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaImportArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterEnableConsoleOutputOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterEnableConsoleOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterLogEventLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterLogEventLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterLogLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterLogLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterMetricLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterMetricLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterTraceLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaParameterTraceLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaSecretOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaSecretArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaShowOutputOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaTargetPathOutput{})
-	pulumi.RegisterOutputType(ProcedureScalaTargetPathPtrOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlArgumentOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlArgumentArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterEnableConsoleOutputOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterEnableConsoleOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterLogEventLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterLogEventLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterLogLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterLogLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterMetricLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterMetricLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterTraceLevelOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlParameterTraceLevelArrayOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlShowOutputOutput{})
-	pulumi.RegisterOutputType(ProcedureSqlShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(ProviderTokenAccessorOutput{})
-	pulumi.RegisterOutputType(ProviderTokenAccessorPtrOutput{})
-	pulumi.RegisterOutputType(ResourceMonitorShowOutputOutput{})
-	pulumi.RegisterOutputType(ResourceMonitorShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyArgumentOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyArgumentArrayOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyDescribeOutputOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyDescribeOutputSignatureOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyDescribeOutputSignatureArrayOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyShowOutputOutput{})
-	pulumi.RegisterOutputType(RowAccessPolicyShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedEmailPatternOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedUserDomainOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput{})
 }

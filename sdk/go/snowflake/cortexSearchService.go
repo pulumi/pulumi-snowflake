@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Basic
+//			//# Basic
 //			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
 //				Name: pulumi.String("some_database"),
 //			})

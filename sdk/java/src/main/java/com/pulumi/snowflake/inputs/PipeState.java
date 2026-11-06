@@ -5,8 +5,12 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.PipeDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.PipeParameterArgs;
+import com.pulumi.snowflake.inputs.PipeShowOutputArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -77,18 +81,33 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the pipe.
+     * @return The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
+    }
+
+    /**
+     * Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<PipeDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     * 
+     */
+    public Optional<Output<List<PipeDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
     }
 
     /**
@@ -137,14 +156,29 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Import(name="logEventLevel")
+    private @Nullable Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Optional<Output<String>> logEventLevel() {
+        return Optional.ofNullable(this.logEventLevel);
+    }
+
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * @return Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,14 +188,20 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     @Import(name="notificationChannel")
     private @Nullable Output<String> notificationChannel;
 
     /**
      * @return Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     public Optional<Output<String>> notificationChannel() {
         return Optional.ofNullable(this.notificationChannel);
     }
@@ -169,31 +209,82 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the role that owns the pipe.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
      * @return Name of the role that owns the pipe.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
     /**
-     * The schema in which to create the pipe.
+     * Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<List<PipeParameterArgs>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     * 
+     */
+    public Optional<Output<List<PipeParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    @Import(name="pipeExecutionPaused")
+    private @Nullable Output<Boolean> pipeExecutionPaused;
+
+    /**
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    public Optional<Output<Boolean>> pipeExecutionPaused() {
+        return Optional.ofNullable(this.pipeExecutionPaused);
+    }
+
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the pipe.
+     * @return The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
+    }
+
+    /**
+     * Outputs the result of `SHOW PIPES` for the given pipe.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<PipeShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW PIPES` for the given pipe.
+     * 
+     */
+    public Optional<Output<List<PipeShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
     }
 
     private PipeState() {}
@@ -204,13 +295,18 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.copyStatement = $.copyStatement;
         this.database = $.database;
+        this.describeOutputs = $.describeOutputs;
         this.errorIntegration = $.errorIntegration;
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.integration = $.integration;
+        this.logEventLevel = $.logEventLevel;
         this.name = $.name;
         this.notificationChannel = $.notificationChannel;
         this.owner = $.owner;
+        this.parameters = $.parameters;
+        this.pipeExecutionPaused = $.pipeExecutionPaused;
         this.schema = $.schema;
+        this.showOutputs = $.showOutputs;
     }
 
     public static Builder builder() {
@@ -316,7 +412,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the pipe.
+         * @param database The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -327,13 +423,44 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the pipe.
+         * @param database The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<PipeDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<PipeDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(PipeDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
 
         /**
@@ -400,7 +527,28 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(@Nullable Output<String> logEventLevel) {
+            $.logEventLevel = logEventLevel;
+            return this;
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(String logEventLevel) {
+            return logEventLevel(Output.of(logEventLevel));
+        }
+
+        /**
+         * @param name Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -411,7 +559,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+         * @param name Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -425,7 +573,10 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
+         * 
          */
+        @Deprecated
         public Builder notificationChannel(@Nullable Output<String> notificationChannel) {
             $.notificationChannel = notificationChannel;
             return this;
@@ -436,7 +587,10 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
+         * 
          */
+        @Deprecated
         public Builder notificationChannel(String notificationChannel) {
             return notificationChannel(Output.of(notificationChannel));
         }
@@ -446,7 +600,10 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
+         * 
          */
+        @Deprecated
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
@@ -457,13 +614,68 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
+         * 
          */
+        @Deprecated
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
         /**
-         * @param schema The schema in which to create the pipe.
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<List<PipeParameterArgs>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(List<PipeParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(PipeParameterArgs... parameters) {
+            return parameters(List.of(parameters));
+        }
+
+        /**
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeExecutionPaused(@Nullable Output<Boolean> pipeExecutionPaused) {
+            $.pipeExecutionPaused = pipeExecutionPaused;
+            return this;
+        }
+
+        /**
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeExecutionPaused(Boolean pipeExecutionPaused) {
+            return pipeExecutionPaused(Output.of(pipeExecutionPaused));
+        }
+
+        /**
+         * @param schema The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -474,13 +686,44 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the pipe.
+         * @param schema The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW PIPES` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<PipeShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW PIPES` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<PipeShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW PIPES` for the given pipe.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(PipeShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         public PipeState build() {

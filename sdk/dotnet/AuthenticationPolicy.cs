@@ -64,9 +64,16 @@ namespace Pulumi.Snowflake
     ///         },
     ///         PatPolicy = new Snowflake.Inputs.AuthenticationPolicyPatPolicyArgs
     ///         {
+    ///             BlockedRolesLists = new[]
+    ///             {
+    ///                 "ACCOUNTADMIN",
+    ///                 "SYSADMIN",
+    ///             },
     ///             DefaultExpiryInDays = 1,
     ///             MaxExpiryInDays = 30,
     ///             NetworkPolicyEvaluation = "NOT_ENFORCED",
+    ///             RequireRoleRestrictionForPersonUsers = "true",
+    ///             RequireRoleRestrictionForServiceUsers = "false",
     ///         },
     ///         WorkloadIdentityPolicy = new Snowflake.Inputs.AuthenticationPolicyWorkloadIdentityPolicyArgs
     ///         {
@@ -140,7 +147,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+        /// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
         /// </summary>
         [Output("describeOutputs")]
         public Output<ImmutableArray<Outputs.AuthenticationPolicyDescribeOutput>> DescribeOutputs { get; private set; } = null!;
@@ -152,7 +159,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
         /// </summary>
         [Output("mfaAuthenticationMethods")]
         public Output<ImmutableArray<string>> MfaAuthenticationMethods { get; private set; } = null!;
@@ -170,7 +177,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.AuthenticationPolicyMfaPolicy?> MfaPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -194,7 +201,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> SecurityIntegrations { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+        /// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.AuthenticationPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -303,7 +310,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _mfaAuthenticationMethods;
 
         /// <summary>
-        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
         /// </summary>
         [Obsolete(@"This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `EnforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
         public InputList<string> MfaAuthenticationMethods
@@ -325,7 +332,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.AuthenticationPolicyMfaPolicyArgs>? MfaPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -420,7 +427,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.AuthenticationPolicyDescribeOutputGetArgs>? _describeOutputs;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+        /// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
         /// </summary>
         public InputList<Inputs.AuthenticationPolicyDescribeOutputGetArgs> DescribeOutputs
         {
@@ -438,7 +445,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _mfaAuthenticationMethods;
 
         /// <summary>
-        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+        /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
         /// </summary>
         [Obsolete(@"This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `EnforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
         public InputList<string> MfaAuthenticationMethods
@@ -460,7 +467,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.AuthenticationPolicyMfaPolicyGetArgs>? MfaPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -493,7 +500,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.AuthenticationPolicyShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+        /// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
         /// </summary>
         public InputList<Inputs.AuthenticationPolicyShowOutputGetArgs> ShowOutputs
         {

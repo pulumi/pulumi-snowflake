@@ -78,9 +78,14 @@ import javax.annotation.Nullable;
  *                 .enforceMfaOnExternalAuthentication("ALL")
  *                 .build())
  *             .patPolicy(AuthenticationPolicyPatPolicyArgs.builder()
+ *                 .blockedRolesLists(                
+ *                     "ACCOUNTADMIN",
+ *                     "SYSADMIN")
  *                 .defaultExpiryInDays(1)
  *                 .maxExpiryInDays(30)
  *                 .networkPolicyEvaluation("NOT_ENFORCED")
+ *                 .requireRoleRestrictionForPersonUsers("true")
+ *                 .requireRoleRestrictionForServiceUsers("false")
  *                 .build())
  *             .workloadIdentityPolicy(AuthenticationPolicyWorkloadIdentityPolicyArgs.builder()
  *                 .allowedProviders("ALL")
@@ -183,14 +188,14 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      * 
      */
     @Export(name="describeOutputs", refs={List.class,AuthenticationPolicyDescribeOutput.class}, tree="[0,1]")
     private Output<List<AuthenticationPolicyDescribeOutput>> describeOutputs;
 
     /**
-     * @return Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
+     * @return Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given authentication policy.
      * 
      */
     public Output<List<AuthenticationPolicyDescribeOutput>> describeOutputs() {
@@ -211,7 +216,7 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      * 
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      * 
@@ -221,7 +226,7 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> mfaAuthenticationMethods;
 
     /**
-     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD`.
      * 
      */
     public Output<Optional<List<String>>> mfaAuthenticationMethods() {
@@ -256,14 +261,14 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mfaPolicy);
     }
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the authentication policy; must be unique for the schema in which the authentication policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -312,14 +317,14 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityIntegrations);
     }
     /**
-     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      * 
      */
     @Export(name="showOutputs", refs={List.class,AuthenticationPolicyShowOutput.class}, tree="[0,1]")
     private Output<List<AuthenticationPolicyShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+     * @return Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given authentication policy.
      * 
      */
     public Output<List<AuthenticationPolicyShowOutput>> showOutputs() {

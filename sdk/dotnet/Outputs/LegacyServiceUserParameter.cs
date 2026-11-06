@@ -14,28 +14,35 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class LegacyServiceUserParameter
     {
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterAbortDetachedQuery> AbortDetachedQueries;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterActivePythonProfiler> ActivePythonProfilers;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterAutocommit> Autocommits;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterBinaryInputFormat> BinaryInputFormats;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterBinaryOutputFormat> BinaryOutputFormats;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameter> ClientEnableLogInfoStatementParameters;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientMemoryLimit> ClientMemoryLimits;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx> ClientMetadataRequestUseConnectionCtxes;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientMetadataUseSessionDatabase> ClientMetadataUseSessionDatabases;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientPrefetchThread> ClientPrefetchThreads;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientResultChunkSize> ClientResultChunkSizes;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive> ClientResultColumnCaseInsensitives;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency> ClientSessionKeepAliveHeartbeatFrequencies;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientSessionKeepAlife> ClientSessionKeepAlives;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterClientTimestampTypeMapping> ClientTimestampTypeMappings;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterCsvTimestampFormat> CsvTimestampFormats;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterDateInputFormat> DateInputFormats;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterDateOutputFormat> DateOutputFormats;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> EnableGetDdlUseDataTypeAliases;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> EnableUnloadPhysicalTypeOptimizations;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError> EnableUnredactedQuerySyntaxErrors;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterErrorOnNondeterministicMerge> ErrorOnNondeterministicMerges;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate> ErrorOnNondeterministicUpdates;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterGeographyOutputFormat> GeographyOutputFormats;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterGeometryOutputFormat> GeometryOutputFormats;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterHybridTableLockTimeout> HybridTableLockTimeouts;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt> JdbcTreatDecimalAsInts;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc> JdbcTreatTimestampNtzAsUtcs;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterJdbcUseSessionTimezone> JdbcUseSessionTimezones;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterJsTreatIntegerAsBigint> JsTreatIntegerAsBigints;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterJsonIndent> JsonIndents;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterLockTimeout> LockTimeouts;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterLogEventLevel> LogEventLevels;
@@ -45,6 +52,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterNoorderSequenceAsDefault> NoorderSequenceAsDefaults;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt> OdbcTreatDecimalAsInts;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterPreventUnloadToInternalStage> PreventUnloadToInternalStages;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterPythonProfilerModule> PythonProfilerModules;
+        public readonly ImmutableArray<Outputs.LegacyServiceUserParameterPythonProfilerTargetStage> PythonProfilerTargetStages;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterQueryTag> QueryTags;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase> QuotedIdentifiersIgnoreCases;
         public readonly ImmutableArray<Outputs.LegacyServiceUserParameterRowsPerResultset> RowsPerResultsets;
@@ -77,15 +86,21 @@ namespace Pulumi.Snowflake.Outputs
         private LegacyServiceUserParameter(
             ImmutableArray<Outputs.LegacyServiceUserParameterAbortDetachedQuery> abortDetachedQueries,
 
+            ImmutableArray<Outputs.LegacyServiceUserParameterActivePythonProfiler> activePythonProfilers,
+
             ImmutableArray<Outputs.LegacyServiceUserParameterAutocommit> autocommits,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterBinaryInputFormat> binaryInputFormats,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterBinaryOutputFormat> binaryOutputFormats,
 
+            ImmutableArray<Outputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters,
+
             ImmutableArray<Outputs.LegacyServiceUserParameterClientMemoryLimit> clientMemoryLimits,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes,
+
+            ImmutableArray<Outputs.LegacyServiceUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterClientPrefetchThread> clientPrefetchThreads,
 
@@ -99,9 +114,13 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.LegacyServiceUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings,
 
+            ImmutableArray<Outputs.LegacyServiceUserParameterCsvTimestampFormat> csvTimestampFormats,
+
             ImmutableArray<Outputs.LegacyServiceUserParameterDateInputFormat> dateInputFormats,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterDateOutputFormat> dateOutputFormats,
+
+            ImmutableArray<Outputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations,
 
@@ -115,11 +134,15 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.LegacyServiceUserParameterGeometryOutputFormat> geometryOutputFormats,
 
+            ImmutableArray<Outputs.LegacyServiceUserParameterHybridTableLockTimeout> hybridTableLockTimeouts,
+
             ImmutableArray<Outputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc> jdbcTreatTimestampNtzAsUtcs,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones,
+
+            ImmutableArray<Outputs.LegacyServiceUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterJsonIndent> jsonIndents,
 
@@ -138,6 +161,10 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt> odbcTreatDecimalAsInts,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages,
+
+            ImmutableArray<Outputs.LegacyServiceUserParameterPythonProfilerModule> pythonProfilerModules,
+
+            ImmutableArray<Outputs.LegacyServiceUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages,
 
             ImmutableArray<Outputs.LegacyServiceUserParameterQueryTag> queryTags,
 
@@ -194,28 +221,35 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.LegacyServiceUserParameterWeekStart> weekStarts)
         {
             AbortDetachedQueries = abortDetachedQueries;
+            ActivePythonProfilers = activePythonProfilers;
             Autocommits = autocommits;
             BinaryInputFormats = binaryInputFormats;
             BinaryOutputFormats = binaryOutputFormats;
+            ClientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
             ClientMemoryLimits = clientMemoryLimits;
             ClientMetadataRequestUseConnectionCtxes = clientMetadataRequestUseConnectionCtxes;
+            ClientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
             ClientPrefetchThreads = clientPrefetchThreads;
             ClientResultChunkSizes = clientResultChunkSizes;
             ClientResultColumnCaseInsensitives = clientResultColumnCaseInsensitives;
             ClientSessionKeepAliveHeartbeatFrequencies = clientSessionKeepAliveHeartbeatFrequencies;
             ClientSessionKeepAlives = clientSessionKeepAlives;
             ClientTimestampTypeMappings = clientTimestampTypeMappings;
+            CsvTimestampFormats = csvTimestampFormats;
             DateInputFormats = dateInputFormats;
             DateOutputFormats = dateOutputFormats;
+            EnableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
             EnableUnloadPhysicalTypeOptimizations = enableUnloadPhysicalTypeOptimizations;
             EnableUnredactedQuerySyntaxErrors = enableUnredactedQuerySyntaxErrors;
             ErrorOnNondeterministicMerges = errorOnNondeterministicMerges;
             ErrorOnNondeterministicUpdates = errorOnNondeterministicUpdates;
             GeographyOutputFormats = geographyOutputFormats;
             GeometryOutputFormats = geometryOutputFormats;
+            HybridTableLockTimeouts = hybridTableLockTimeouts;
             JdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
             JdbcTreatTimestampNtzAsUtcs = jdbcTreatTimestampNtzAsUtcs;
             JdbcUseSessionTimezones = jdbcUseSessionTimezones;
+            JsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
             JsonIndents = jsonIndents;
             LockTimeouts = lockTimeouts;
             LogEventLevels = logEventLevels;
@@ -225,6 +259,8 @@ namespace Pulumi.Snowflake.Outputs
             NoorderSequenceAsDefaults = noorderSequenceAsDefaults;
             OdbcTreatDecimalAsInts = odbcTreatDecimalAsInts;
             PreventUnloadToInternalStages = preventUnloadToInternalStages;
+            PythonProfilerModules = pythonProfilerModules;
+            PythonProfilerTargetStages = pythonProfilerTargetStages;
             QueryTags = queryTags;
             QuotedIdentifiersIgnoreCases = quotedIdentifiersIgnoreCases;
             RowsPerResultsets = rowsPerResultsets;

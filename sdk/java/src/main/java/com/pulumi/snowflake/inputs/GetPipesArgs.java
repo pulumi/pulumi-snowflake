@@ -5,9 +5,12 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetPipesInArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPipesArgs extends com.pulumi.resources.InvokeArgs {
@@ -15,40 +18,72 @@ public final class GetPipesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPipesArgs Empty = new GetPipesArgs();
 
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      * 
      */
-    @Import(name="database", required=true)
-    private Output<String> database;
+    @Import(name="in")
+    private @Nullable Output<GetPipesInArgs> in;
 
     /**
-     * @return The database from which to return the schemas from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public Output<String> database() {
-        return this.database;
+    public Optional<Output<GetPipesInArgs>> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * The schema from which to return the pipes from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="schema", required=true)
-    private Output<String> schema;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return The schema from which to return the pipes from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
+
+    /**
+     * @return (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    @Import(name="withParameters")
+    private @Nullable Output<Boolean> withParameters;
+
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     private GetPipesArgs() {}
 
     private GetPipesArgs(GetPipesArgs $) {
-        this.database = $.database;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.withDescribe = $.withDescribe;
+        this.withParameters = $.withParameters;
     }
 
     public static Builder builder() {
@@ -70,54 +105,90 @@ public final class GetPipesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(Output<String> database) {
-            $.database = database;
+        public Builder in(@Nullable Output<GetPipesInArgs> in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            return database(Output.of(database));
+        public Builder in(GetPipesInArgs in) {
+            return in(Output.of(in));
         }
 
         /**
-         * @param schema The schema from which to return the pipes from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(Output<String> schema) {
-            $.schema = schema;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the pipes from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            return schema(Output.of(schema));
+        public Builder like(String like) {
+            return like(Output.of(like));
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
+            return this;
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
+        }
+
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(@Nullable Output<Boolean> withParameters) {
+            $.withParameters = withParameters;
+            return this;
+        }
+
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(Boolean withParameters) {
+            return withParameters(Output.of(withParameters));
         }
 
         public GetPipesArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetPipesArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetPipesArgs", "schema");
-            }
             return $;
         }
     }

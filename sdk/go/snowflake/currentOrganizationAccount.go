@@ -44,12 +44,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewCurrentOrganizationAccount(ctx, "minimal", nil)
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewCurrentOrganizationAccount(ctx, "complete", &snowflake.CurrentOrganizationAccountArgs{
 //				AbortDetachedQuery:                                       pulumi.Bool(true),
 //				ActivePythonProfiler:                                     pulumi.String("LINE"),

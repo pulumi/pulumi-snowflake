@@ -6,28 +6,35 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.UserParameterAbortDetachedQueryArgs;
+import com.pulumi.snowflake.inputs.UserParameterActivePythonProfilerArgs;
 import com.pulumi.snowflake.inputs.UserParameterAutocommitArgs;
 import com.pulumi.snowflake.inputs.UserParameterBinaryInputFormatArgs;
 import com.pulumi.snowflake.inputs.UserParameterBinaryOutputFormatArgs;
+import com.pulumi.snowflake.inputs.UserParameterClientEnableLogInfoStatementParameterArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientMemoryLimitArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientMetadataRequestUseConnectionCtxArgs;
+import com.pulumi.snowflake.inputs.UserParameterClientMetadataUseSessionDatabaseArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientPrefetchThreadArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientResultChunkSizeArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientResultColumnCaseInsensitiveArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientSessionKeepAlifeArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs;
 import com.pulumi.snowflake.inputs.UserParameterClientTimestampTypeMappingArgs;
+import com.pulumi.snowflake.inputs.UserParameterCsvTimestampFormatArgs;
 import com.pulumi.snowflake.inputs.UserParameterDateInputFormatArgs;
 import com.pulumi.snowflake.inputs.UserParameterDateOutputFormatArgs;
+import com.pulumi.snowflake.inputs.UserParameterEnableGetDdlUseDataTypeAliasArgs;
 import com.pulumi.snowflake.inputs.UserParameterEnableUnloadPhysicalTypeOptimizationArgs;
 import com.pulumi.snowflake.inputs.UserParameterEnableUnredactedQuerySyntaxErrorArgs;
 import com.pulumi.snowflake.inputs.UserParameterErrorOnNondeterministicMergeArgs;
 import com.pulumi.snowflake.inputs.UserParameterErrorOnNondeterministicUpdateArgs;
 import com.pulumi.snowflake.inputs.UserParameterGeographyOutputFormatArgs;
 import com.pulumi.snowflake.inputs.UserParameterGeometryOutputFormatArgs;
+import com.pulumi.snowflake.inputs.UserParameterHybridTableLockTimeoutArgs;
 import com.pulumi.snowflake.inputs.UserParameterJdbcTreatDecimalAsIntArgs;
 import com.pulumi.snowflake.inputs.UserParameterJdbcTreatTimestampNtzAsUtcArgs;
 import com.pulumi.snowflake.inputs.UserParameterJdbcUseSessionTimezoneArgs;
+import com.pulumi.snowflake.inputs.UserParameterJsTreatIntegerAsBigintArgs;
 import com.pulumi.snowflake.inputs.UserParameterJsonIndentArgs;
 import com.pulumi.snowflake.inputs.UserParameterLockTimeoutArgs;
 import com.pulumi.snowflake.inputs.UserParameterLogEventLevelArgs;
@@ -37,6 +44,8 @@ import com.pulumi.snowflake.inputs.UserParameterNetworkPolicyArgs;
 import com.pulumi.snowflake.inputs.UserParameterNoorderSequenceAsDefaultArgs;
 import com.pulumi.snowflake.inputs.UserParameterOdbcTreatDecimalAsIntArgs;
 import com.pulumi.snowflake.inputs.UserParameterPreventUnloadToInternalStageArgs;
+import com.pulumi.snowflake.inputs.UserParameterPythonProfilerModuleArgs;
+import com.pulumi.snowflake.inputs.UserParameterPythonProfilerTargetStageArgs;
 import com.pulumi.snowflake.inputs.UserParameterQueryTagArgs;
 import com.pulumi.snowflake.inputs.UserParameterQuotedIdentifiersIgnoreCaseArgs;
 import com.pulumi.snowflake.inputs.UserParameterRowsPerResultsetArgs;
@@ -81,6 +90,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.abortDetachedQueries);
     }
 
+    @Import(name="activePythonProfilers")
+    private @Nullable Output<List<UserParameterActivePythonProfilerArgs>> activePythonProfilers;
+
+    public Optional<Output<List<UserParameterActivePythonProfilerArgs>>> activePythonProfilers() {
+        return Optional.ofNullable(this.activePythonProfilers);
+    }
+
     @Import(name="autocommits")
     private @Nullable Output<List<UserParameterAutocommitArgs>> autocommits;
 
@@ -102,6 +118,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.binaryOutputFormats);
     }
 
+    @Import(name="clientEnableLogInfoStatementParameters")
+    private @Nullable Output<List<UserParameterClientEnableLogInfoStatementParameterArgs>> clientEnableLogInfoStatementParameters;
+
+    public Optional<Output<List<UserParameterClientEnableLogInfoStatementParameterArgs>>> clientEnableLogInfoStatementParameters() {
+        return Optional.ofNullable(this.clientEnableLogInfoStatementParameters);
+    }
+
     @Import(name="clientMemoryLimits")
     private @Nullable Output<List<UserParameterClientMemoryLimitArgs>> clientMemoryLimits;
 
@@ -114,6 +137,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<UserParameterClientMetadataRequestUseConnectionCtxArgs>>> clientMetadataRequestUseConnectionCtxes() {
         return Optional.ofNullable(this.clientMetadataRequestUseConnectionCtxes);
+    }
+
+    @Import(name="clientMetadataUseSessionDatabases")
+    private @Nullable Output<List<UserParameterClientMetadataUseSessionDatabaseArgs>> clientMetadataUseSessionDatabases;
+
+    public Optional<Output<List<UserParameterClientMetadataUseSessionDatabaseArgs>>> clientMetadataUseSessionDatabases() {
+        return Optional.ofNullable(this.clientMetadataUseSessionDatabases);
     }
 
     @Import(name="clientPrefetchThreads")
@@ -158,6 +188,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.clientTimestampTypeMappings);
     }
 
+    @Import(name="csvTimestampFormats")
+    private @Nullable Output<List<UserParameterCsvTimestampFormatArgs>> csvTimestampFormats;
+
+    public Optional<Output<List<UserParameterCsvTimestampFormatArgs>>> csvTimestampFormats() {
+        return Optional.ofNullable(this.csvTimestampFormats);
+    }
+
     @Import(name="dateInputFormats")
     private @Nullable Output<List<UserParameterDateInputFormatArgs>> dateInputFormats;
 
@@ -170,6 +207,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<UserParameterDateOutputFormatArgs>>> dateOutputFormats() {
         return Optional.ofNullable(this.dateOutputFormats);
+    }
+
+    @Import(name="enableGetDdlUseDataTypeAliases")
+    private @Nullable Output<List<UserParameterEnableGetDdlUseDataTypeAliasArgs>> enableGetDdlUseDataTypeAliases;
+
+    public Optional<Output<List<UserParameterEnableGetDdlUseDataTypeAliasArgs>>> enableGetDdlUseDataTypeAliases() {
+        return Optional.ofNullable(this.enableGetDdlUseDataTypeAliases);
     }
 
     @Import(name="enableUnloadPhysicalTypeOptimizations")
@@ -214,6 +258,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.geometryOutputFormats);
     }
 
+    @Import(name="hybridTableLockTimeouts")
+    private @Nullable Output<List<UserParameterHybridTableLockTimeoutArgs>> hybridTableLockTimeouts;
+
+    public Optional<Output<List<UserParameterHybridTableLockTimeoutArgs>>> hybridTableLockTimeouts() {
+        return Optional.ofNullable(this.hybridTableLockTimeouts);
+    }
+
     @Import(name="jdbcTreatDecimalAsInts")
     private @Nullable Output<List<UserParameterJdbcTreatDecimalAsIntArgs>> jdbcTreatDecimalAsInts;
 
@@ -233,6 +284,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<UserParameterJdbcUseSessionTimezoneArgs>>> jdbcUseSessionTimezones() {
         return Optional.ofNullable(this.jdbcUseSessionTimezones);
+    }
+
+    @Import(name="jsTreatIntegerAsBigints")
+    private @Nullable Output<List<UserParameterJsTreatIntegerAsBigintArgs>> jsTreatIntegerAsBigints;
+
+    public Optional<Output<List<UserParameterJsTreatIntegerAsBigintArgs>>> jsTreatIntegerAsBigints() {
+        return Optional.ofNullable(this.jsTreatIntegerAsBigints);
     }
 
     @Import(name="jsonIndents")
@@ -296,6 +354,20 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<UserParameterPreventUnloadToInternalStageArgs>>> preventUnloadToInternalStages() {
         return Optional.ofNullable(this.preventUnloadToInternalStages);
+    }
+
+    @Import(name="pythonProfilerModules")
+    private @Nullable Output<List<UserParameterPythonProfilerModuleArgs>> pythonProfilerModules;
+
+    public Optional<Output<List<UserParameterPythonProfilerModuleArgs>>> pythonProfilerModules() {
+        return Optional.ofNullable(this.pythonProfilerModules);
+    }
+
+    @Import(name="pythonProfilerTargetStages")
+    private @Nullable Output<List<UserParameterPythonProfilerTargetStageArgs>> pythonProfilerTargetStages;
+
+    public Optional<Output<List<UserParameterPythonProfilerTargetStageArgs>>> pythonProfilerTargetStages() {
+        return Optional.ofNullable(this.pythonProfilerTargetStages);
     }
 
     @Import(name="queryTags")
@@ -491,28 +563,35 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     private UserParameterArgs(UserParameterArgs $) {
         this.abortDetachedQueries = $.abortDetachedQueries;
+        this.activePythonProfilers = $.activePythonProfilers;
         this.autocommits = $.autocommits;
         this.binaryInputFormats = $.binaryInputFormats;
         this.binaryOutputFormats = $.binaryOutputFormats;
+        this.clientEnableLogInfoStatementParameters = $.clientEnableLogInfoStatementParameters;
         this.clientMemoryLimits = $.clientMemoryLimits;
         this.clientMetadataRequestUseConnectionCtxes = $.clientMetadataRequestUseConnectionCtxes;
+        this.clientMetadataUseSessionDatabases = $.clientMetadataUseSessionDatabases;
         this.clientPrefetchThreads = $.clientPrefetchThreads;
         this.clientResultChunkSizes = $.clientResultChunkSizes;
         this.clientResultColumnCaseInsensitives = $.clientResultColumnCaseInsensitives;
         this.clientSessionKeepAliveHeartbeatFrequencies = $.clientSessionKeepAliveHeartbeatFrequencies;
         this.clientSessionKeepAlives = $.clientSessionKeepAlives;
         this.clientTimestampTypeMappings = $.clientTimestampTypeMappings;
+        this.csvTimestampFormats = $.csvTimestampFormats;
         this.dateInputFormats = $.dateInputFormats;
         this.dateOutputFormats = $.dateOutputFormats;
+        this.enableGetDdlUseDataTypeAliases = $.enableGetDdlUseDataTypeAliases;
         this.enableUnloadPhysicalTypeOptimizations = $.enableUnloadPhysicalTypeOptimizations;
         this.enableUnredactedQuerySyntaxErrors = $.enableUnredactedQuerySyntaxErrors;
         this.errorOnNondeterministicMerges = $.errorOnNondeterministicMerges;
         this.errorOnNondeterministicUpdates = $.errorOnNondeterministicUpdates;
         this.geographyOutputFormats = $.geographyOutputFormats;
         this.geometryOutputFormats = $.geometryOutputFormats;
+        this.hybridTableLockTimeouts = $.hybridTableLockTimeouts;
         this.jdbcTreatDecimalAsInts = $.jdbcTreatDecimalAsInts;
         this.jdbcTreatTimestampNtzAsUtcs = $.jdbcTreatTimestampNtzAsUtcs;
         this.jdbcUseSessionTimezones = $.jdbcUseSessionTimezones;
+        this.jsTreatIntegerAsBigints = $.jsTreatIntegerAsBigints;
         this.jsonIndents = $.jsonIndents;
         this.lockTimeouts = $.lockTimeouts;
         this.logEventLevels = $.logEventLevels;
@@ -522,6 +601,8 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.noorderSequenceAsDefaults = $.noorderSequenceAsDefaults;
         this.odbcTreatDecimalAsInts = $.odbcTreatDecimalAsInts;
         this.preventUnloadToInternalStages = $.preventUnloadToInternalStages;
+        this.pythonProfilerModules = $.pythonProfilerModules;
+        this.pythonProfilerTargetStages = $.pythonProfilerTargetStages;
         this.queryTags = $.queryTags;
         this.quotedIdentifiersIgnoreCases = $.quotedIdentifiersIgnoreCases;
         this.rowsPerResultsets = $.rowsPerResultsets;
@@ -582,6 +663,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
             return abortDetachedQueries(List.of(abortDetachedQueries));
         }
 
+        public Builder activePythonProfilers(@Nullable Output<List<UserParameterActivePythonProfilerArgs>> activePythonProfilers) {
+            $.activePythonProfilers = activePythonProfilers;
+            return this;
+        }
+
+        public Builder activePythonProfilers(List<UserParameterActivePythonProfilerArgs> activePythonProfilers) {
+            return activePythonProfilers(Output.of(activePythonProfilers));
+        }
+
+        public Builder activePythonProfilers(UserParameterActivePythonProfilerArgs... activePythonProfilers) {
+            return activePythonProfilers(List.of(activePythonProfilers));
+        }
+
         public Builder autocommits(@Nullable Output<List<UserParameterAutocommitArgs>> autocommits) {
             $.autocommits = autocommits;
             return this;
@@ -621,6 +715,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
             return binaryOutputFormats(List.of(binaryOutputFormats));
         }
 
+        public Builder clientEnableLogInfoStatementParameters(@Nullable Output<List<UserParameterClientEnableLogInfoStatementParameterArgs>> clientEnableLogInfoStatementParameters) {
+            $.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
+            return this;
+        }
+
+        public Builder clientEnableLogInfoStatementParameters(List<UserParameterClientEnableLogInfoStatementParameterArgs> clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(Output.of(clientEnableLogInfoStatementParameters));
+        }
+
+        public Builder clientEnableLogInfoStatementParameters(UserParameterClientEnableLogInfoStatementParameterArgs... clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(List.of(clientEnableLogInfoStatementParameters));
+        }
+
         public Builder clientMemoryLimits(@Nullable Output<List<UserParameterClientMemoryLimitArgs>> clientMemoryLimits) {
             $.clientMemoryLimits = clientMemoryLimits;
             return this;
@@ -645,6 +752,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder clientMetadataRequestUseConnectionCtxes(UserParameterClientMetadataRequestUseConnectionCtxArgs... clientMetadataRequestUseConnectionCtxes) {
             return clientMetadataRequestUseConnectionCtxes(List.of(clientMetadataRequestUseConnectionCtxes));
+        }
+
+        public Builder clientMetadataUseSessionDatabases(@Nullable Output<List<UserParameterClientMetadataUseSessionDatabaseArgs>> clientMetadataUseSessionDatabases) {
+            $.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
+            return this;
+        }
+
+        public Builder clientMetadataUseSessionDatabases(List<UserParameterClientMetadataUseSessionDatabaseArgs> clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(Output.of(clientMetadataUseSessionDatabases));
+        }
+
+        public Builder clientMetadataUseSessionDatabases(UserParameterClientMetadataUseSessionDatabaseArgs... clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(List.of(clientMetadataUseSessionDatabases));
         }
 
         public Builder clientPrefetchThreads(@Nullable Output<List<UserParameterClientPrefetchThreadArgs>> clientPrefetchThreads) {
@@ -725,6 +845,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
             return clientTimestampTypeMappings(List.of(clientTimestampTypeMappings));
         }
 
+        public Builder csvTimestampFormats(@Nullable Output<List<UserParameterCsvTimestampFormatArgs>> csvTimestampFormats) {
+            $.csvTimestampFormats = csvTimestampFormats;
+            return this;
+        }
+
+        public Builder csvTimestampFormats(List<UserParameterCsvTimestampFormatArgs> csvTimestampFormats) {
+            return csvTimestampFormats(Output.of(csvTimestampFormats));
+        }
+
+        public Builder csvTimestampFormats(UserParameterCsvTimestampFormatArgs... csvTimestampFormats) {
+            return csvTimestampFormats(List.of(csvTimestampFormats));
+        }
+
         public Builder dateInputFormats(@Nullable Output<List<UserParameterDateInputFormatArgs>> dateInputFormats) {
             $.dateInputFormats = dateInputFormats;
             return this;
@@ -749,6 +882,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder dateOutputFormats(UserParameterDateOutputFormatArgs... dateOutputFormats) {
             return dateOutputFormats(List.of(dateOutputFormats));
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(@Nullable Output<List<UserParameterEnableGetDdlUseDataTypeAliasArgs>> enableGetDdlUseDataTypeAliases) {
+            $.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
+            return this;
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(List<UserParameterEnableGetDdlUseDataTypeAliasArgs> enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(Output.of(enableGetDdlUseDataTypeAliases));
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(UserParameterEnableGetDdlUseDataTypeAliasArgs... enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(List.of(enableGetDdlUseDataTypeAliases));
         }
 
         public Builder enableUnloadPhysicalTypeOptimizations(@Nullable Output<List<UserParameterEnableUnloadPhysicalTypeOptimizationArgs>> enableUnloadPhysicalTypeOptimizations) {
@@ -829,6 +975,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
             return geometryOutputFormats(List.of(geometryOutputFormats));
         }
 
+        public Builder hybridTableLockTimeouts(@Nullable Output<List<UserParameterHybridTableLockTimeoutArgs>> hybridTableLockTimeouts) {
+            $.hybridTableLockTimeouts = hybridTableLockTimeouts;
+            return this;
+        }
+
+        public Builder hybridTableLockTimeouts(List<UserParameterHybridTableLockTimeoutArgs> hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(Output.of(hybridTableLockTimeouts));
+        }
+
+        public Builder hybridTableLockTimeouts(UserParameterHybridTableLockTimeoutArgs... hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(List.of(hybridTableLockTimeouts));
+        }
+
         public Builder jdbcTreatDecimalAsInts(@Nullable Output<List<UserParameterJdbcTreatDecimalAsIntArgs>> jdbcTreatDecimalAsInts) {
             $.jdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
             return this;
@@ -866,6 +1025,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder jdbcUseSessionTimezones(UserParameterJdbcUseSessionTimezoneArgs... jdbcUseSessionTimezones) {
             return jdbcUseSessionTimezones(List.of(jdbcUseSessionTimezones));
+        }
+
+        public Builder jsTreatIntegerAsBigints(@Nullable Output<List<UserParameterJsTreatIntegerAsBigintArgs>> jsTreatIntegerAsBigints) {
+            $.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
+            return this;
+        }
+
+        public Builder jsTreatIntegerAsBigints(List<UserParameterJsTreatIntegerAsBigintArgs> jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(Output.of(jsTreatIntegerAsBigints));
+        }
+
+        public Builder jsTreatIntegerAsBigints(UserParameterJsTreatIntegerAsBigintArgs... jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(List.of(jsTreatIntegerAsBigints));
         }
 
         public Builder jsonIndents(@Nullable Output<List<UserParameterJsonIndentArgs>> jsonIndents) {
@@ -983,6 +1155,32 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder preventUnloadToInternalStages(UserParameterPreventUnloadToInternalStageArgs... preventUnloadToInternalStages) {
             return preventUnloadToInternalStages(List.of(preventUnloadToInternalStages));
+        }
+
+        public Builder pythonProfilerModules(@Nullable Output<List<UserParameterPythonProfilerModuleArgs>> pythonProfilerModules) {
+            $.pythonProfilerModules = pythonProfilerModules;
+            return this;
+        }
+
+        public Builder pythonProfilerModules(List<UserParameterPythonProfilerModuleArgs> pythonProfilerModules) {
+            return pythonProfilerModules(Output.of(pythonProfilerModules));
+        }
+
+        public Builder pythonProfilerModules(UserParameterPythonProfilerModuleArgs... pythonProfilerModules) {
+            return pythonProfilerModules(List.of(pythonProfilerModules));
+        }
+
+        public Builder pythonProfilerTargetStages(@Nullable Output<List<UserParameterPythonProfilerTargetStageArgs>> pythonProfilerTargetStages) {
+            $.pythonProfilerTargetStages = pythonProfilerTargetStages;
+            return this;
+        }
+
+        public Builder pythonProfilerTargetStages(List<UserParameterPythonProfilerTargetStageArgs> pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(Output.of(pythonProfilerTargetStages));
+        }
+
+        public Builder pythonProfilerTargetStages(UserParameterPythonProfilerTargetStageArgs... pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(List.of(pythonProfilerTargetStages));
         }
 
         public Builder queryTags(@Nullable Output<List<UserParameterQueryTagArgs>> queryTags) {

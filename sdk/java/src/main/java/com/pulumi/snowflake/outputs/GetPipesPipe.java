@@ -5,32 +5,51 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetPipesPipeDescribeOutput;
+import com.pulumi.snowflake.outputs.GetPipesPipeParameter;
+import com.pulumi.snowflake.outputs.GetPipesPipeShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetPipesPipe {
-    private String comment;
-    private String database;
-    private String integration;
-    private String name;
-    private String schema;
+    /**
+     * @return Holds the output of DESCRIBE PIPE.
+     * 
+     */
+    private List<GetPipesPipeDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR PIPE.
+     * 
+     */
+    private List<GetPipesPipeParameter> parameters;
+    /**
+     * @return Holds the output of SHOW PIPES.
+     * 
+     */
+    private List<GetPipesPipeShowOutput> showOutputs;
 
     private GetPipesPipe() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE PIPE.
+     * 
+     */
+    public List<GetPipesPipeDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR PIPE.
+     * 
+     */
+    public List<GetPipesPipeParameter> parameters() {
+        return this.parameters;
     }
-    public String integration() {
-        return this.integration;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
+    /**
+     * @return Holds the output of SHOW PIPES.
+     * 
+     */
+    public List<GetPipesPipeShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +61,55 @@ public final class GetPipesPipe {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String integration;
-        private String name;
-        private String schema;
+        private List<GetPipesPipeDescribeOutput> describeOutputs;
+        private List<GetPipesPipeParameter> parameters;
+        private List<GetPipesPipeShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetPipesPipe defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.integration = defaults.integration;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetPipesPipe", "comment");
+        public Builder describeOutputs(List<GetPipesPipeDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetPipesPipe", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetPipesPipe", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetPipesPipeDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder integration(String integration) {
-            if (integration == null) {
-              throw new MissingRequiredPropertyException("GetPipesPipe", "integration");
+        public Builder parameters(List<GetPipesPipeParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetPipesPipe", "parameters");
             }
-            this.integration = integration;
+            this.parameters = parameters;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetPipesPipe", "name");
-            }
-            this.name = name;
-            return this;
+        public Builder parameters(GetPipesPipeParameter... parameters) {
+            return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetPipesPipe", "schema");
+        public Builder showOutputs(List<GetPipesPipeShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetPipesPipe", "showOutputs");
             }
-            this.schema = schema;
+            this.showOutputs = showOutputs;
             return this;
+        }
+        public Builder showOutputs(GetPipesPipeShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetPipesPipe build() {
             final var _resultValue = new GetPipesPipe();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.integration = integration;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

@@ -65,7 +65,7 @@ type LookupCurrentAccountResult struct {
 	Id string `pulumi:"id"`
 	// The Snowflake Region; as returned by CURRENT_REGION()
 	Region string `pulumi:"region"`
-	// The Snowflake URL.
+	// The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
 	Url string `pulumi:"url"`
 }
 
@@ -104,7 +104,7 @@ func (o LookupCurrentAccountResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Snowflake URL.
+// The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
 func (o LookupCurrentAccountResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Url }).(pulumi.StringOutput)
 }

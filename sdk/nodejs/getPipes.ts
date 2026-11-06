@@ -9,25 +9,16 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getPipes({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`like` and `in`, including `application` and `applicationPackage`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `pipes`.
  */
-export function getPipes(args: GetPipesArgs, opts?: pulumi.InvokeOptions): Promise<GetPipesResult> {
+export function getPipes(args?: GetPipesArgs, opts?: pulumi.InvokeOptions): Promise<GetPipesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getPipes:getPipes", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "withDescribe": args.withDescribe,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -36,13 +27,21 @@ export function getPipes(args: GetPipesArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetPipesArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: string;
+    in?: inputs.GetPipesIn;
     /**
-     * The schema from which to return the pipes from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: boolean;
 }
 
 /**
@@ -50,44 +49,43 @@ export interface GetPipesArgs {
  */
 export interface GetPipesResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The pipes in the schema
+     * IN clause to filter the list of objects
+     */
+    readonly in?: outputs.GetPipesIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Holds the aggregated output of all pipe details queries.
      */
     readonly pipes: outputs.GetPipesPipe[];
     /**
-     * The schema from which to return the pipes from.
+     * (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
      */
-    readonly schema: string;
+    readonly withDescribe?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    readonly withParameters?: boolean;
 }
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getPipes({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`like` and `in`, including `application` and `applicationPackage`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `pipes`.
  */
-export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipesResult> {
+export function getPipesOutput(args?: GetPipesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getPipes:getPipes", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "withDescribe": args.withDescribe,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -96,11 +94,19 @@ export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetPipesOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetPipesInArgs | undefined>;
     /**
-     * The schema from which to return the pipes from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: `true`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean | undefined>;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: pulumi.Input<boolean | undefined>;
 }

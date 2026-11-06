@@ -123,11 +123,11 @@ type Table struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the table.
+	// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+	// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -135,7 +135,7 @@ type Table struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
-	// The schema in which to create the table.
+	// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -192,11 +192,11 @@ type tableState struct {
 	Comment *string `pulumi:"comment"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the table.
+	// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+	// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner *string `pulumi:"owner"`
@@ -204,7 +204,7 @@ type tableState struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
-	// The schema in which to create the table.
+	// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -223,11 +223,11 @@ type TableState struct {
 	Comment pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// The database in which to create the table.
+	// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+	// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the table.
 	Owner pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type TableState struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
-	// The schema in which to create the table.
+	// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -264,15 +264,15 @@ type tableArgs struct {
 	Comment *string `pulumi:"comment"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the table.
+	// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+	// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Definitions of primary key constraint to create on table
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
-	// The schema in which to create the table.
+	// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -292,15 +292,15 @@ type TableArgs struct {
 	Comment pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// The database in which to create the table.
+	// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+	// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
-	// The schema in which to create the table.
+	// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -420,7 +420,7 @@ func (o TableOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }
 
-// The database in which to create the table.
+// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o TableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -430,7 +430,7 @@ func (o TableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -447,7 +447,7 @@ func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
 	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
 }
 
-// The schema in which to create the table.
+// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o TableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

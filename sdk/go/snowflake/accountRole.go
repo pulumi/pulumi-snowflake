@@ -29,14 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewAccountRole(ctx, "minimal", &snowflake.AccountRoleArgs{
 //				Name: pulumi.String("role_name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewAccountRole(ctx, "complete", &snowflake.AccountRoleArgs{
 //				Name:    pulumi.String("role_name"),
 //				Comment: pulumi.String("my account role"),

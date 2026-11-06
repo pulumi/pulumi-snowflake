@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-snowflake/provider/v2
 
-go 1.26.10
+go 1.27.3
 
 replace (
 	github.com/Snowflake-Labs/terraform-provider-snowflake => ../upstream
@@ -134,7 +134,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.24.0 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
-	github.com/hashicorp/terraform-json v0.28.0 // indirect
+	github.com/hashicorp/terraform-json v0.29.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.31.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect

@@ -23,6 +23,10 @@ __all__ = [
     'AlertAlertScheduleArgsDict',
     'AlertAlertScheduleCronArgs',
     'AlertAlertScheduleCronArgsDict',
+    'AlertDescribeOutputArgs',
+    'AlertDescribeOutputArgsDict',
+    'AlertShowOutputArgs',
+    'AlertShowOutputArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgs',
@@ -149,6 +153,12 @@ __all__ = [
     'AuthenticationPolicyShowOutputArgsDict',
     'AuthenticationPolicyWorkloadIdentityPolicyArgs',
     'AuthenticationPolicyWorkloadIdentityPolicyArgsDict',
+    'BackupPolicyDescribeOutputArgs',
+    'BackupPolicyDescribeOutputArgsDict',
+    'BackupPolicyScheduleArgs',
+    'BackupPolicyScheduleArgsDict',
+    'BackupPolicyShowOutputArgs',
+    'BackupPolicyShowOutputArgsDict',
     'CatalogIntegrationAwsGlueDescribeOutputArgs',
     'CatalogIntegrationAwsGlueDescribeOutputArgsDict',
     'CatalogIntegrationAwsGlueShowOutputArgs',
@@ -189,6 +199,10 @@ __all__ = [
     'CatalogIntegrationOpenCatalogRestConfigArgsDict',
     'CatalogIntegrationOpenCatalogShowOutputArgs',
     'CatalogIntegrationOpenCatalogShowOutputArgsDict',
+    'CodeBundleDescribeOutputArgs',
+    'CodeBundleDescribeOutputArgsDict',
+    'CodeBundleShowOutputArgs',
+    'CodeBundleShowOutputArgsDict',
     'ComputePoolDescribeOutputArgs',
     'ComputePoolDescribeOutputArgsDict',
     'ComputePoolShowOutputArgs',
@@ -207,6 +221,46 @@ __all__ = [
     'CortexSearchServiceDescribeOutputArgsDict',
     'CurrentOrganizationAccountShowOutputArgs',
     'CurrentOrganizationAccountShowOutputArgsDict',
+    'DatabaseParameterArgs',
+    'DatabaseParameterArgsDict',
+    'DatabaseParameterCatalogArgs',
+    'DatabaseParameterCatalogArgsDict',
+    'DatabaseParameterDataRetentionTimeInDayArgs',
+    'DatabaseParameterDataRetentionTimeInDayArgsDict',
+    'DatabaseParameterDefaultDdlCollationArgs',
+    'DatabaseParameterDefaultDdlCollationArgsDict',
+    'DatabaseParameterDefaultNotebookComputePoolCpusArgs',
+    'DatabaseParameterDefaultNotebookComputePoolCpusArgsDict',
+    'DatabaseParameterDefaultNotebookComputePoolGpusArgs',
+    'DatabaseParameterDefaultNotebookComputePoolGpusArgsDict',
+    'DatabaseParameterEnableConsoleOutputArgs',
+    'DatabaseParameterEnableConsoleOutputArgsDict',
+    'DatabaseParameterExternalVolumeArgs',
+    'DatabaseParameterExternalVolumeArgsDict',
+    'DatabaseParameterLogEventLevelArgs',
+    'DatabaseParameterLogEventLevelArgsDict',
+    'DatabaseParameterLogLevelArgs',
+    'DatabaseParameterLogLevelArgsDict',
+    'DatabaseParameterMaxDataExtensionTimeInDayArgs',
+    'DatabaseParameterMaxDataExtensionTimeInDayArgsDict',
+    'DatabaseParameterQuotedIdentifiersIgnoreCaseArgs',
+    'DatabaseParameterQuotedIdentifiersIgnoreCaseArgsDict',
+    'DatabaseParameterReplaceInvalidCharacterArgs',
+    'DatabaseParameterReplaceInvalidCharacterArgsDict',
+    'DatabaseParameterStorageSerializationPolicyArgs',
+    'DatabaseParameterStorageSerializationPolicyArgsDict',
+    'DatabaseParameterSuspendTaskAfterNumFailureArgs',
+    'DatabaseParameterSuspendTaskAfterNumFailureArgsDict',
+    'DatabaseParameterTaskAutoRetryAttemptArgs',
+    'DatabaseParameterTaskAutoRetryAttemptArgsDict',
+    'DatabaseParameterTraceLevelArgs',
+    'DatabaseParameterTraceLevelArgsDict',
+    'DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs',
+    'DatabaseParameterUserTaskManagedInitialWarehouseSizeArgsDict',
+    'DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs',
+    'DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgsDict',
+    'DatabaseParameterUserTaskTimeoutMArgs',
+    'DatabaseParameterUserTaskTimeoutMArgsDict',
     'DatabaseReplicationArgs',
     'DatabaseReplicationArgsDict',
     'DatabaseReplicationEnableToAccountArgs',
@@ -623,16 +677,22 @@ __all__ = [
     'LegacyServiceUserParameterArgsDict',
     'LegacyServiceUserParameterAbortDetachedQueryArgs',
     'LegacyServiceUserParameterAbortDetachedQueryArgsDict',
+    'LegacyServiceUserParameterActivePythonProfilerArgs',
+    'LegacyServiceUserParameterActivePythonProfilerArgsDict',
     'LegacyServiceUserParameterAutocommitArgs',
     'LegacyServiceUserParameterAutocommitArgsDict',
     'LegacyServiceUserParameterBinaryInputFormatArgs',
     'LegacyServiceUserParameterBinaryInputFormatArgsDict',
     'LegacyServiceUserParameterBinaryOutputFormatArgs',
     'LegacyServiceUserParameterBinaryOutputFormatArgsDict',
+    'LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs',
+    'LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgsDict',
     'LegacyServiceUserParameterClientMemoryLimitArgs',
     'LegacyServiceUserParameterClientMemoryLimitArgsDict',
     'LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs',
     'LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict',
+    'LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs',
+    'LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgsDict',
     'LegacyServiceUserParameterClientPrefetchThreadArgs',
     'LegacyServiceUserParameterClientPrefetchThreadArgsDict',
     'LegacyServiceUserParameterClientResultChunkSizeArgs',
@@ -645,10 +705,14 @@ __all__ = [
     'LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict',
     'LegacyServiceUserParameterClientTimestampTypeMappingArgs',
     'LegacyServiceUserParameterClientTimestampTypeMappingArgsDict',
+    'LegacyServiceUserParameterCsvTimestampFormatArgs',
+    'LegacyServiceUserParameterCsvTimestampFormatArgsDict',
     'LegacyServiceUserParameterDateInputFormatArgs',
     'LegacyServiceUserParameterDateInputFormatArgsDict',
     'LegacyServiceUserParameterDateOutputFormatArgs',
     'LegacyServiceUserParameterDateOutputFormatArgsDict',
+    'LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs',
+    'LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict',
     'LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs',
     'LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict',
     'LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs',
@@ -661,12 +725,16 @@ __all__ = [
     'LegacyServiceUserParameterGeographyOutputFormatArgsDict',
     'LegacyServiceUserParameterGeometryOutputFormatArgs',
     'LegacyServiceUserParameterGeometryOutputFormatArgsDict',
+    'LegacyServiceUserParameterHybridTableLockTimeoutArgs',
+    'LegacyServiceUserParameterHybridTableLockTimeoutArgsDict',
     'LegacyServiceUserParameterJdbcTreatDecimalAsIntArgs',
     'LegacyServiceUserParameterJdbcTreatDecimalAsIntArgsDict',
     'LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs',
     'LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict',
     'LegacyServiceUserParameterJdbcUseSessionTimezoneArgs',
     'LegacyServiceUserParameterJdbcUseSessionTimezoneArgsDict',
+    'LegacyServiceUserParameterJsTreatIntegerAsBigintArgs',
+    'LegacyServiceUserParameterJsTreatIntegerAsBigintArgsDict',
     'LegacyServiceUserParameterJsonIndentArgs',
     'LegacyServiceUserParameterJsonIndentArgsDict',
     'LegacyServiceUserParameterLockTimeoutArgs',
@@ -685,6 +753,10 @@ __all__ = [
     'LegacyServiceUserParameterOdbcTreatDecimalAsIntArgsDict',
     'LegacyServiceUserParameterPreventUnloadToInternalStageArgs',
     'LegacyServiceUserParameterPreventUnloadToInternalStageArgsDict',
+    'LegacyServiceUserParameterPythonProfilerModuleArgs',
+    'LegacyServiceUserParameterPythonProfilerModuleArgsDict',
+    'LegacyServiceUserParameterPythonProfilerTargetStageArgs',
+    'LegacyServiceUserParameterPythonProfilerTargetStageArgsDict',
     'LegacyServiceUserParameterQueryTagArgs',
     'LegacyServiceUserParameterQueryTagArgsDict',
     'LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgs',
@@ -895,10 +967,24 @@ __all__ = [
     'PasswordPolicyDescribeOutputArgsDict',
     'PasswordPolicyShowOutputArgs',
     'PasswordPolicyShowOutputArgsDict',
+    'PipeDescribeOutputArgs',
+    'PipeDescribeOutputArgsDict',
+    'PipeParameterArgs',
+    'PipeParameterArgsDict',
+    'PipeParameterLogEventLevelArgs',
+    'PipeParameterLogEventLevelArgsDict',
+    'PipeParameterPipeExecutionPausedArgs',
+    'PipeParameterPipeExecutionPausedArgsDict',
+    'PipeShowOutputArgs',
+    'PipeShowOutputArgsDict',
     'PostgresInstanceDescribeOutputArgs',
     'PostgresInstanceDescribeOutputArgsDict',
     'PostgresInstanceShowOutputArgs',
     'PostgresInstanceShowOutputArgsDict',
+    'PostgresMirrorDescribeOutputArgs',
+    'PostgresMirrorDescribeOutputArgsDict',
+    'PostgresMirrorRefreshIntervalArgs',
+    'PostgresMirrorRefreshIntervalArgsDict',
     'PrimaryConnectionShowOutputArgs',
     'PrimaryConnectionShowOutputArgsDict',
     'ProcedureJavaArgumentArgs',
@@ -997,8 +1083,16 @@ __all__ = [
     'ProcedureSqlParameterTraceLevelArgsDict',
     'ProcedureSqlShowOutputArgs',
     'ProcedureSqlShowOutputArgsDict',
+    'ProjectionPolicyDescribeOutputArgs',
+    'ProjectionPolicyDescribeOutputArgsDict',
+    'ProjectionPolicyShowOutputArgs',
+    'ProjectionPolicyShowOutputArgsDict',
     'ProviderTokenAccessorArgs',
     'ProviderTokenAccessorArgsDict',
+    'ReplicationGroupSecondaryShowOutputArgs',
+    'ReplicationGroupSecondaryShowOutputArgsDict',
+    'ReplicationGroupShowOutputArgs',
+    'ReplicationGroupShowOutputArgsDict',
     'ResourceMonitorShowOutputArgs',
     'ResourceMonitorShowOutputArgsDict',
     'RowAccessPolicyArgumentArgs',
@@ -1177,16 +1271,22 @@ __all__ = [
     'ServiceUserParameterArgsDict',
     'ServiceUserParameterAbortDetachedQueryArgs',
     'ServiceUserParameterAbortDetachedQueryArgsDict',
+    'ServiceUserParameterActivePythonProfilerArgs',
+    'ServiceUserParameterActivePythonProfilerArgsDict',
     'ServiceUserParameterAutocommitArgs',
     'ServiceUserParameterAutocommitArgsDict',
     'ServiceUserParameterBinaryInputFormatArgs',
     'ServiceUserParameterBinaryInputFormatArgsDict',
     'ServiceUserParameterBinaryOutputFormatArgs',
     'ServiceUserParameterBinaryOutputFormatArgsDict',
+    'ServiceUserParameterClientEnableLogInfoStatementParameterArgs',
+    'ServiceUserParameterClientEnableLogInfoStatementParameterArgsDict',
     'ServiceUserParameterClientMemoryLimitArgs',
     'ServiceUserParameterClientMemoryLimitArgsDict',
     'ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs',
     'ServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict',
+    'ServiceUserParameterClientMetadataUseSessionDatabaseArgs',
+    'ServiceUserParameterClientMetadataUseSessionDatabaseArgsDict',
     'ServiceUserParameterClientPrefetchThreadArgs',
     'ServiceUserParameterClientPrefetchThreadArgsDict',
     'ServiceUserParameterClientResultChunkSizeArgs',
@@ -1199,10 +1299,14 @@ __all__ = [
     'ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict',
     'ServiceUserParameterClientTimestampTypeMappingArgs',
     'ServiceUserParameterClientTimestampTypeMappingArgsDict',
+    'ServiceUserParameterCsvTimestampFormatArgs',
+    'ServiceUserParameterCsvTimestampFormatArgsDict',
     'ServiceUserParameterDateInputFormatArgs',
     'ServiceUserParameterDateInputFormatArgsDict',
     'ServiceUserParameterDateOutputFormatArgs',
     'ServiceUserParameterDateOutputFormatArgsDict',
+    'ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs',
+    'ServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict',
     'ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs',
     'ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict',
     'ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs',
@@ -1215,12 +1319,16 @@ __all__ = [
     'ServiceUserParameterGeographyOutputFormatArgsDict',
     'ServiceUserParameterGeometryOutputFormatArgs',
     'ServiceUserParameterGeometryOutputFormatArgsDict',
+    'ServiceUserParameterHybridTableLockTimeoutArgs',
+    'ServiceUserParameterHybridTableLockTimeoutArgsDict',
     'ServiceUserParameterJdbcTreatDecimalAsIntArgs',
     'ServiceUserParameterJdbcTreatDecimalAsIntArgsDict',
     'ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs',
     'ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict',
     'ServiceUserParameterJdbcUseSessionTimezoneArgs',
     'ServiceUserParameterJdbcUseSessionTimezoneArgsDict',
+    'ServiceUserParameterJsTreatIntegerAsBigintArgs',
+    'ServiceUserParameterJsTreatIntegerAsBigintArgsDict',
     'ServiceUserParameterJsonIndentArgs',
     'ServiceUserParameterJsonIndentArgsDict',
     'ServiceUserParameterLockTimeoutArgs',
@@ -1239,6 +1347,10 @@ __all__ = [
     'ServiceUserParameterOdbcTreatDecimalAsIntArgsDict',
     'ServiceUserParameterPreventUnloadToInternalStageArgs',
     'ServiceUserParameterPreventUnloadToInternalStageArgsDict',
+    'ServiceUserParameterPythonProfilerModuleArgs',
+    'ServiceUserParameterPythonProfilerModuleArgsDict',
+    'ServiceUserParameterPythonProfilerTargetStageArgs',
+    'ServiceUserParameterPythonProfilerTargetStageArgsDict',
     'ServiceUserParameterQueryTagArgs',
     'ServiceUserParameterQueryTagArgsDict',
     'ServiceUserParameterQuotedIdentifiersIgnoreCaseArgs',
@@ -1303,6 +1415,10 @@ __all__ = [
     'SessionPolicyDescribeOutputArgsDict',
     'SessionPolicyShowOutputArgs',
     'SessionPolicyShowOutputArgsDict',
+    'ShareDescribeOutputArgs',
+    'ShareDescribeOutputArgsDict',
+    'ShareShowOutputArgs',
+    'ShareShowOutputArgsDict',
     'StageExternalAzureCredentialsArgs',
     'StageExternalAzureCredentialsArgsDict',
     'StageExternalAzureDescribeOutputArgs',
@@ -1761,16 +1877,22 @@ __all__ = [
     'UserParameterArgsDict',
     'UserParameterAbortDetachedQueryArgs',
     'UserParameterAbortDetachedQueryArgsDict',
+    'UserParameterActivePythonProfilerArgs',
+    'UserParameterActivePythonProfilerArgsDict',
     'UserParameterAutocommitArgs',
     'UserParameterAutocommitArgsDict',
     'UserParameterBinaryInputFormatArgs',
     'UserParameterBinaryInputFormatArgsDict',
     'UserParameterBinaryOutputFormatArgs',
     'UserParameterBinaryOutputFormatArgsDict',
+    'UserParameterClientEnableLogInfoStatementParameterArgs',
+    'UserParameterClientEnableLogInfoStatementParameterArgsDict',
     'UserParameterClientMemoryLimitArgs',
     'UserParameterClientMemoryLimitArgsDict',
     'UserParameterClientMetadataRequestUseConnectionCtxArgs',
     'UserParameterClientMetadataRequestUseConnectionCtxArgsDict',
+    'UserParameterClientMetadataUseSessionDatabaseArgs',
+    'UserParameterClientMetadataUseSessionDatabaseArgsDict',
     'UserParameterClientPrefetchThreadArgs',
     'UserParameterClientPrefetchThreadArgsDict',
     'UserParameterClientResultChunkSizeArgs',
@@ -1783,10 +1905,14 @@ __all__ = [
     'UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict',
     'UserParameterClientTimestampTypeMappingArgs',
     'UserParameterClientTimestampTypeMappingArgsDict',
+    'UserParameterCsvTimestampFormatArgs',
+    'UserParameterCsvTimestampFormatArgsDict',
     'UserParameterDateInputFormatArgs',
     'UserParameterDateInputFormatArgsDict',
     'UserParameterDateOutputFormatArgs',
     'UserParameterDateOutputFormatArgsDict',
+    'UserParameterEnableGetDdlUseDataTypeAliasArgs',
+    'UserParameterEnableGetDdlUseDataTypeAliasArgsDict',
     'UserParameterEnableUnloadPhysicalTypeOptimizationArgs',
     'UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict',
     'UserParameterEnableUnredactedQuerySyntaxErrorArgs',
@@ -1799,12 +1925,16 @@ __all__ = [
     'UserParameterGeographyOutputFormatArgsDict',
     'UserParameterGeometryOutputFormatArgs',
     'UserParameterGeometryOutputFormatArgsDict',
+    'UserParameterHybridTableLockTimeoutArgs',
+    'UserParameterHybridTableLockTimeoutArgsDict',
     'UserParameterJdbcTreatDecimalAsIntArgs',
     'UserParameterJdbcTreatDecimalAsIntArgsDict',
     'UserParameterJdbcTreatTimestampNtzAsUtcArgs',
     'UserParameterJdbcTreatTimestampNtzAsUtcArgsDict',
     'UserParameterJdbcUseSessionTimezoneArgs',
     'UserParameterJdbcUseSessionTimezoneArgsDict',
+    'UserParameterJsTreatIntegerAsBigintArgs',
+    'UserParameterJsTreatIntegerAsBigintArgsDict',
     'UserParameterJsonIndentArgs',
     'UserParameterJsonIndentArgsDict',
     'UserParameterLockTimeoutArgs',
@@ -1823,6 +1953,10 @@ __all__ = [
     'UserParameterOdbcTreatDecimalAsIntArgsDict',
     'UserParameterPreventUnloadToInternalStageArgs',
     'UserParameterPreventUnloadToInternalStageArgsDict',
+    'UserParameterPythonProfilerModuleArgs',
+    'UserParameterPythonProfilerModuleArgsDict',
+    'UserParameterPythonProfilerTargetStageArgs',
+    'UserParameterPythonProfilerTargetStageArgsDict',
     'UserParameterQueryTagArgs',
     'UserParameterQueryTagArgsDict',
     'UserParameterQuotedIdentifiersIgnoreCaseArgs',
@@ -1929,12 +2063,22 @@ __all__ = [
     'WarehouseParameterStatementTimeoutInSecondArgsDict',
     'WarehouseShowOutputArgs',
     'WarehouseShowOutputArgsDict',
+    'GetAlertsInArgs',
+    'GetAlertsInArgsDict',
+    'GetAlertsLimitArgs',
+    'GetAlertsLimitArgsDict',
     'GetAuthenticationPoliciesInArgs',
     'GetAuthenticationPoliciesInArgsDict',
     'GetAuthenticationPoliciesLimitArgs',
     'GetAuthenticationPoliciesLimitArgsDict',
     'GetAuthenticationPoliciesOnArgs',
     'GetAuthenticationPoliciesOnArgsDict',
+    'GetBackupPoliciesInArgs',
+    'GetBackupPoliciesInArgsDict',
+    'GetBackupPoliciesLimitArgs',
+    'GetBackupPoliciesLimitArgsDict',
+    'GetCodeBundlesInArgs',
+    'GetCodeBundlesInArgsDict',
     'GetComputePoolsLimitArgs',
     'GetComputePoolsLimitArgsDict',
     'GetCortexAgentsInArgs',
@@ -2017,6 +2161,12 @@ __all__ = [
     'GetPasswordPoliciesLimitArgsDict',
     'GetPasswordPoliciesOnArgs',
     'GetPasswordPoliciesOnArgsDict',
+    'GetPipesInArgs',
+    'GetPipesInArgsDict',
+    'GetProjectionPoliciesInArgs',
+    'GetProjectionPoliciesInArgsDict',
+    'GetProjectionPoliciesLimitArgs',
+    'GetProjectionPoliciesLimitArgsDict',
     'GetRowAccessPoliciesInArgs',
     'GetRowAccessPoliciesInArgsDict',
     'GetRowAccessPoliciesLimitArgs',
@@ -2041,6 +2191,8 @@ __all__ = [
     'GetSessionPoliciesLimitArgsDict',
     'GetSessionPoliciesOnArgs',
     'GetSessionPoliciesOnArgsDict',
+    'GetSharesLimitArgs',
+    'GetSharesLimitArgsDict',
     'GetStagesInArgs',
     'GetStagesInArgsDict',
     'GetStorageLifecyclePoliciesInArgs',
@@ -2699,6 +2851,319 @@ class AlertAlertScheduleCronArgs:
     @time_zone.setter
     def time_zone(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "time_zone", value)
+
+
+class AlertDescribeOutputArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    warehouse: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class AlertDescribeOutputArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse", value)
+
+
+class AlertShowOutputArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    warehouse: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class AlertShowOutputArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse", value)
 
 
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict(TypedDict):
@@ -7250,7 +7715,7 @@ class ApiIntegrationGoogleCloudApiGatewayShowOutputArgs:
 class AuthenticationPolicyClientPolicyArgsDict(TypedDict):
     client_type: pulumi.Input[_builtins.str]
     """
-    The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+    The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
     """
     minimum_version: pulumi.Input[_builtins.str]
     """
@@ -7263,7 +7728,7 @@ class AuthenticationPolicyClientPolicyArgs:
                  client_type: pulumi.Input[_builtins.str],
                  minimum_version: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] client_type: The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+        :param pulumi.Input[_builtins.str] client_type: The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
         :param pulumi.Input[_builtins.str] minimum_version: Minimum allowed version for this client/driver type (e.g. '1.14.1').
         """
         pulumi.set(__self__, "client_type", client_type)
@@ -7273,7 +7738,7 @@ class AuthenticationPolicyClientPolicyArgs:
     @pulumi.getter(name="clientType")
     def client_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+        The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
         """
         return pulumi.get(self, "client_type")
 
@@ -7494,6 +7959,10 @@ class AuthenticationPolicyMfaPolicyArgs:
 
 
 class AuthenticationPolicyPatPolicyArgsDict(TypedDict):
+    blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+    """
     default_expiry_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the default expiration time (in days) for a programmatic access token.
@@ -7506,6 +7975,10 @@ class AuthenticationPolicyPatPolicyArgsDict(TypedDict):
     """
     Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
     """
+    require_role_restriction_for_person_users: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+    """
     require_role_restriction_for_service_users: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -7514,24 +7987,44 @@ class AuthenticationPolicyPatPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class AuthenticationPolicyPatPolicyArgs:
     def __init__(__self__, *,
+                 blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_expiry_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  max_expiry_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  network_policy_evaluation: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_role_restriction_for_person_users: pulumi.Input[Optional[_builtins.str]] = None,
                  require_role_restriction_for_service_users: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_roles_lists: Specifies the roles that cannot be used as the role restriction for a programmatic access token.
         :param pulumi.Input[_builtins.int] default_expiry_in_days: Specifies the default expiration time (in days) for a programmatic access token.
         :param pulumi.Input[_builtins.int] max_expiry_in_days: Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
         :param pulumi.Input[_builtins.str] network_policy_evaluation: Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
+        :param pulumi.Input[_builtins.str] require_role_restriction_for_person_users: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] require_role_restriction_for_service_users: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
+        if blocked_roles_lists is not None:
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if default_expiry_in_days is not None:
             pulumi.set(__self__, "default_expiry_in_days", default_expiry_in_days)
         if max_expiry_in_days is not None:
             pulumi.set(__self__, "max_expiry_in_days", max_expiry_in_days)
         if network_policy_evaluation is not None:
             pulumi.set(__self__, "network_policy_evaluation", network_policy_evaluation)
+        if require_role_restriction_for_person_users is not None:
+            pulumi.set(__self__, "require_role_restriction_for_person_users", require_role_restriction_for_person_users)
         if require_role_restriction_for_service_users is not None:
             pulumi.set(__self__, "require_role_restriction_for_service_users", require_role_restriction_for_service_users)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedRolesLists")
+    def blocked_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+        """
+        return pulumi.get(self, "blocked_roles_lists")
+
+    @blocked_roles_lists.setter
+    def blocked_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "blocked_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultExpiryInDays")
@@ -7568,6 +8061,18 @@ class AuthenticationPolicyPatPolicyArgs:
     @network_policy_evaluation.setter
     def network_policy_evaluation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_policy_evaluation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireRoleRestrictionForPersonUsers")
+    def require_role_restriction_for_person_users(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "require_role_restriction_for_person_users")
+
+    @require_role_restriction_for_person_users.setter
+    def require_role_restriction_for_person_users(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "require_role_restriction_for_person_users", value)
 
     @_builtins.property
     @pulumi.getter(name="requireRoleRestrictionForServiceUsers")
@@ -7806,6 +8311,349 @@ class AuthenticationPolicyWorkloadIdentityPolicyArgs:
     @allowed_providers.setter
     def allowed_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_providers", value)
+
+
+class BackupPolicyDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expire_after_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    has_retention_lock: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class BackupPolicyDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 has_retention_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if expire_after_days is not None:
+            pulumi.set(__self__, "expire_after_days", expire_after_days)
+        if has_retention_lock is not None:
+            pulumi.set(__self__, "has_retention_lock", has_retention_lock)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expireAfterDays")
+    def expire_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "expire_after_days")
+
+    @expire_after_days.setter
+    def expire_after_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "expire_after_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasRetentionLock")
+    def has_retention_lock(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "has_retention_lock")
+
+    @has_retention_lock.setter
+    def has_retention_lock(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "has_retention_lock", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+class BackupPolicyScheduleArgsDict(TypedDict):
+    hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `using_cron`)
+    """
+    minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `using_cron`)
+    """
+    using_cron: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+    """
+
+@pulumi.input_type
+class BackupPolicyScheduleArgs:
+    def __init__(__self__, *,
+                 hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 using_cron: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] hours: Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `using_cron`)
+        :param pulumi.Input[_builtins.int] minutes: Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `using_cron`)
+        :param pulumi.Input[_builtins.str] using_cron: Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if using_cron is not None:
+            pulumi.set(__self__, "using_cron", using_cron)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `using_cron`)
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "hours", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `using_cron`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usingCron")
+    def using_cron(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+        """
+        return pulumi.get(self, "using_cron")
+
+    @using_cron.setter
+    def using_cron(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "using_cron", value)
+
+
+class BackupPolicyShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expire_after_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    has_retention_lock: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class BackupPolicyShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 has_retention_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if expire_after_days is not None:
+            pulumi.set(__self__, "expire_after_days", expire_after_days)
+        if has_retention_lock is not None:
+            pulumi.set(__self__, "has_retention_lock", has_retention_lock)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expireAfterDays")
+    def expire_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "expire_after_days")
+
+    @expire_after_days.setter
+    def expire_after_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "expire_after_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasRetentionLock")
+    def has_retention_lock(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "has_retention_lock")
+
+    @has_retention_lock.setter
+    def has_retention_lock(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "has_retention_lock", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
 
 
 class CatalogIntegrationAwsGlueDescribeOutputArgsDict(TypedDict):
@@ -8491,7 +9339,7 @@ class CatalogIntegrationIcebergRestRestConfigArgsDict(TypedDict):
     """
     catalog_api_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+    Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
     """
     catalog_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -8513,7 +9361,7 @@ class CatalogIntegrationIcebergRestRestConfigArgs:
         """
         :param pulumi.Input[_builtins.str] catalog_uri: Specifies the endpoint URL for the catalog REST API.
         :param pulumi.Input[_builtins.str] access_delegation_mode: Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
-        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
         :param pulumi.Input[_builtins.str] catalog_name: Specifies the catalog or identifier to request from your remote catalog service.
         :param pulumi.Input[_builtins.str] prefix: Specifies an optional prefix appended to all API routes.
         """
@@ -8555,7 +9403,7 @@ class CatalogIntegrationIcebergRestRestConfigArgs:
     @pulumi.getter(name="catalogApiType")
     def catalog_api_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
         """
         return pulumi.get(self, "catalog_api_type")
 
@@ -9241,7 +10089,7 @@ class CatalogIntegrationOpenCatalogRestConfigArgsDict(TypedDict):
     """
     catalog_api_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+    Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
     """
 
 @pulumi.input_type
@@ -9255,7 +10103,7 @@ class CatalogIntegrationOpenCatalogRestConfigArgs:
         :param pulumi.Input[_builtins.str] catalog_name: Specifies the name of the catalog to use in Open Catalog.
         :param pulumi.Input[_builtins.str] catalog_uri: Specifies Open Catalog account URL.
         :param pulumi.Input[_builtins.str] access_delegation_mode: Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
-        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "catalog_uri", catalog_uri)
@@ -9304,7 +10152,7 @@ class CatalogIntegrationOpenCatalogRestConfigArgs:
     @pulumi.getter(name="catalogApiType")
     def catalog_api_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
         """
         return pulumi.get(self, "catalog_api_type")
 
@@ -9396,6 +10244,371 @@ class CatalogIntegrationOpenCatalogShowOutputArgs:
     @type.setter
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+
+class CodeBundleDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    container_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    container_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    container_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_git_commit_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_source_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_git_commit_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_source_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    live_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CodeBundleDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_git_commit_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_source_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_git_commit_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_source_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 live_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if container_database is not None:
+            pulumi.set(__self__, "container_database", container_database)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if container_schema is not None:
+            pulumi.set(__self__, "container_schema", container_schema)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", container_type)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if default_version_alias is not None:
+            pulumi.set(__self__, "default_version_alias", default_version_alias)
+        if default_version_git_commit_hash is not None:
+            pulumi.set(__self__, "default_version_git_commit_hash", default_version_git_commit_hash)
+        if default_version_location_uri is not None:
+            pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if default_version_source_location_uri is not None:
+            pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        if last_version_alias is not None:
+            pulumi.set(__self__, "last_version_alias", last_version_alias)
+        if last_version_git_commit_hash is not None:
+            pulumi.set(__self__, "last_version_git_commit_hash", last_version_git_commit_hash)
+        if last_version_location_uri is not None:
+            pulumi.set(__self__, "last_version_location_uri", last_version_location_uri)
+        if last_version_name is not None:
+            pulumi.set(__self__, "last_version_name", last_version_name)
+        if last_version_source_location_uri is not None:
+            pulumi.set(__self__, "last_version_source_location_uri", last_version_source_location_uri)
+        if live_version_location_uri is not None:
+            pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner_role is not None:
+            pulumi.set(__self__, "owner_role", owner_role)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerDatabase")
+    def container_database(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "container_database")
+
+    @container_database.setter
+    def container_database(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_database", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerSchema")
+    def container_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "container_schema")
+
+    @container_schema.setter
+    def container_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version")
+
+    @default_version.setter
+    def default_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_alias")
+
+    @default_version_alias.setter
+    def default_version_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionGitCommitHash")
+    def default_version_git_commit_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_git_commit_hash")
+
+    @default_version_git_commit_hash.setter
+    def default_version_git_commit_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @default_version_location_uri.setter
+    def default_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_name")
+
+    @default_version_name.setter
+    def default_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @default_version_source_location_uri.setter
+    def default_version_source_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionAlias")
+    def last_version_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_alias")
+
+    @last_version_alias.setter
+    def last_version_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionGitCommitHash")
+    def last_version_git_commit_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_git_commit_hash")
+
+    @last_version_git_commit_hash.setter
+    def last_version_git_commit_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionLocationUri")
+    def last_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_location_uri")
+
+    @last_version_location_uri.setter
+    def last_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionName")
+    def last_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_name")
+
+    @last_version_name.setter
+    def last_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionSourceLocationUri")
+    def last_version_source_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_source_location_uri")
+
+    @last_version_source_location_uri.setter
+    def last_version_source_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @live_version_location_uri.setter
+    def live_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRole")
+    def owner_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role")
+
+    @owner_role.setter
+    def owner_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+
+class CodeBundleShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CodeBundleShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
 
 
 class ComputePoolDescribeOutputArgsDict(TypedDict):
@@ -10938,6 +12151,1628 @@ class CurrentOrganizationAccountShowOutputArgs:
     @snowflake_region.setter
     def snowflake_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snowflake_region", value)
+
+
+class DatabaseParameterArgsDict(TypedDict):
+    catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterCatalogArgsDict']]]]]
+    data_retention_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDataRetentionTimeInDayArgsDict']]]]]
+    default_ddl_collations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultDdlCollationArgsDict']]]]]
+    default_notebook_compute_pool_cpus: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolCpusArgsDict']]]]]
+    default_notebook_compute_pool_gpus: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolGpusArgsDict']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterEnableConsoleOutputArgsDict']]]]]
+    external_volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterExternalVolumeArgsDict']]]]]
+    log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogEventLevelArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogLevelArgsDict']]]]]
+    max_data_extension_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterMaxDataExtensionTimeInDayArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    replace_invalid_characters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterReplaceInvalidCharacterArgsDict']]]]]
+    storage_serialization_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterStorageSerializationPolicyArgsDict']]]]]
+    suspend_task_after_num_failures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterSuspendTaskAfterNumFailureArgsDict']]]]]
+    task_auto_retry_attempts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTaskAutoRetryAttemptArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTraceLevelArgsDict']]]]]
+    user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskManagedInitialWarehouseSizeArgsDict']]]]]
+    user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgsDict']]]]]
+    user_task_timeout_ms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskTimeoutMArgsDict']]]]]
+
+@pulumi.input_type
+class DatabaseParameterArgs:
+    def __init__(__self__, *,
+                 catalogs: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterCatalogArgs']]]] = None,
+                 data_retention_time_in_days: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDataRetentionTimeInDayArgs']]]] = None,
+                 default_ddl_collations: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultDdlCollationArgs']]]] = None,
+                 default_notebook_compute_pool_cpus: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolCpusArgs']]]] = None,
+                 default_notebook_compute_pool_gpus: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolGpusArgs']]]] = None,
+                 enable_console_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterEnableConsoleOutputArgs']]]] = None,
+                 external_volumes: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterExternalVolumeArgs']]]] = None,
+                 log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogEventLevelArgs']]]] = None,
+                 log_levels: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogLevelArgs']]]] = None,
+                 max_data_extension_time_in_days: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterMaxDataExtensionTimeInDayArgs']]]] = None,
+                 quoted_identifiers_ignore_cases: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterReplaceInvalidCharacterArgs']]]] = None,
+                 storage_serialization_policies: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterStorageSerializationPolicyArgs']]]] = None,
+                 suspend_task_after_num_failures: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterSuspendTaskAfterNumFailureArgs']]]] = None,
+                 task_auto_retry_attempts: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTaskAutoRetryAttemptArgs']]]] = None,
+                 trace_levels: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTraceLevelArgs']]]] = None,
+                 user_task_managed_initial_warehouse_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs']]]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]] = None,
+                 user_task_timeout_ms: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskTimeoutMArgs']]]] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if data_retention_time_in_days is not None:
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        if default_ddl_collations is not None:
+            pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        if default_notebook_compute_pool_cpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        if default_notebook_compute_pool_gpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if max_data_extension_time_in_days is not None:
+            pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        if quoted_identifiers_ignore_cases is not None:
+            pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if storage_serialization_policies is not None:
+            pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        if suspend_task_after_num_failures is not None:
+            pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if task_auto_retry_attempts is not None:
+            pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+        if user_task_managed_initial_warehouse_sizes is not None:
+            pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        if user_task_minimum_trigger_interval_in_seconds is not None:
+            pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        if user_task_timeout_ms is not None:
+            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterCatalogArgs']]]]:
+        return pulumi.get(self, "catalogs")
+
+    @catalogs.setter
+    def catalogs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterCatalogArgs']]]]):
+        pulumi.set(self, "catalogs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDataRetentionTimeInDayArgs']]]]:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @data_retention_time_in_days.setter
+    def data_retention_time_in_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDataRetentionTimeInDayArgs']]]]):
+        pulumi.set(self, "data_retention_time_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultDdlCollationArgs']]]]:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @default_ddl_collations.setter
+    def default_ddl_collations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultDdlCollationArgs']]]]):
+        pulumi.set(self, "default_ddl_collations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolCpusArgs']]]]:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @default_notebook_compute_pool_cpus.setter
+    def default_notebook_compute_pool_cpus(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolCpusArgs']]]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolGpusArgs']]]]:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
+
+    @default_notebook_compute_pool_gpus.setter
+    def default_notebook_compute_pool_gpus(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterDefaultNotebookComputePoolGpusArgs']]]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterEnableConsoleOutputArgs']]]]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @enable_console_outputs.setter
+    def enable_console_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterEnableConsoleOutputArgs']]]]):
+        pulumi.set(self, "enable_console_outputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterExternalVolumeArgs']]]]:
+        return pulumi.get(self, "external_volumes")
+
+    @external_volumes.setter
+    def external_volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterExternalVolumeArgs']]]]):
+        pulumi.set(self, "external_volumes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogEventLevelArgs']]]]:
+        return pulumi.get(self, "log_event_levels")
+
+    @log_event_levels.setter
+    def log_event_levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogEventLevelArgs']]]]):
+        pulumi.set(self, "log_event_levels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogLevelArgs']]]]:
+        return pulumi.get(self, "log_levels")
+
+    @log_levels.setter
+    def log_levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterLogLevelArgs']]]]):
+        pulumi.set(self, "log_levels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterMaxDataExtensionTimeInDayArgs']]]]:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @max_data_extension_time_in_days.setter
+    def max_data_extension_time_in_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterMaxDataExtensionTimeInDayArgs']]]]):
+        pulumi.set(self, "max_data_extension_time_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterQuotedIdentifiersIgnoreCaseArgs']]]]:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @quoted_identifiers_ignore_cases.setter
+    def quoted_identifiers_ignore_cases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterQuotedIdentifiersIgnoreCaseArgs']]]]):
+        pulumi.set(self, "quoted_identifiers_ignore_cases", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterReplaceInvalidCharacterArgs']]]]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @replace_invalid_characters.setter
+    def replace_invalid_characters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterReplaceInvalidCharacterArgs']]]]):
+        pulumi.set(self, "replace_invalid_characters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterStorageSerializationPolicyArgs']]]]:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @storage_serialization_policies.setter
+    def storage_serialization_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterStorageSerializationPolicyArgs']]]]):
+        pulumi.set(self, "storage_serialization_policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterSuspendTaskAfterNumFailureArgs']]]]:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @suspend_task_after_num_failures.setter
+    def suspend_task_after_num_failures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterSuspendTaskAfterNumFailureArgs']]]]):
+        pulumi.set(self, "suspend_task_after_num_failures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTaskAutoRetryAttemptArgs']]]]:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @task_auto_retry_attempts.setter
+    def task_auto_retry_attempts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTaskAutoRetryAttemptArgs']]]]):
+        pulumi.set(self, "task_auto_retry_attempts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTraceLevelArgs']]]]:
+        return pulumi.get(self, "trace_levels")
+
+    @trace_levels.setter
+    def trace_levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterTraceLevelArgs']]]]):
+        pulumi.set(self, "trace_levels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs']]]]:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @user_task_managed_initial_warehouse_sizes.setter
+    def user_task_managed_initial_warehouse_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs']]]]):
+        pulumi.set(self, "user_task_managed_initial_warehouse_sizes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @user_task_minimum_trigger_interval_in_seconds.setter
+    def user_task_minimum_trigger_interval_in_seconds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]):
+        pulumi.set(self, "user_task_minimum_trigger_interval_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskTimeoutMArgs']]]]:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @user_task_timeout_ms.setter
+    def user_task_timeout_ms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseParameterUserTaskTimeoutMArgs']]]]):
+        pulumi.set(self, "user_task_timeout_ms", value)
+
+
+class DatabaseParameterCatalogArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterCatalogArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterDataRetentionTimeInDayArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterDataRetentionTimeInDayArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterDefaultDdlCollationArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterDefaultDdlCollationArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterDefaultNotebookComputePoolCpusArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterDefaultNotebookComputePoolCpusArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterDefaultNotebookComputePoolGpusArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterDefaultNotebookComputePoolGpusArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterEnableConsoleOutputArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterEnableConsoleOutputArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterExternalVolumeArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterExternalVolumeArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterLogEventLevelArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterLogEventLevelArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterLogLevelArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterLogLevelArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterMaxDataExtensionTimeInDayArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterMaxDataExtensionTimeInDayArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterQuotedIdentifiersIgnoreCaseArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterQuotedIdentifiersIgnoreCaseArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterReplaceInvalidCharacterArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterReplaceInvalidCharacterArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterStorageSerializationPolicyArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterStorageSerializationPolicyArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterSuspendTaskAfterNumFailureArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterSuspendTaskAfterNumFailureArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterTaskAutoRetryAttemptArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterTaskAutoRetryAttemptArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterTraceLevelArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterTraceLevelArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterUserTaskManagedInitialWarehouseSizeArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterUserTaskManagedInitialWarehouseSizeArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class DatabaseParameterUserTaskTimeoutMArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DatabaseParameterUserTaskTimeoutMArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class DatabaseReplicationArgsDict(TypedDict):
@@ -20252,7 +23087,7 @@ class GrantOwnershipOnFutureArgs:
 class GrantPrivilegesToAccountRoleOnAccountObjectArgsDict(TypedDict):
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+    Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20270,7 +23105,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
                  object_name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
         """
@@ -20285,7 +23120,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20357,7 +23192,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+    Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
     """
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20374,7 +23209,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
         """
         :param pulumi.Input[_builtins.str] all_schemas_in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] future_schemas_in_database: The fully qualified name of the database.
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -20414,7 +23249,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20495,7 +23330,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+    Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20517,7 +23352,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         """
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -20560,7 +23395,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20800,7 +23635,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+    Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
     """
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20817,7 +23652,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
         """
         :param pulumi.Input[_builtins.str] all_schemas_in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] future_schemas_in_database: The fully qualified name of the database.
-        :param pulumi.Input[_builtins.str] inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        :param pulumi.Input[_builtins.str] inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -20857,7 +23692,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20889,7 +23724,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+    Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20911,7 +23746,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         """
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -20954,7 +23789,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -30109,28 +32944,35 @@ class LegacyServiceUserDefaultWorkloadIdentityOidcArgs:
 
 class LegacyServiceUserParameterArgsDict(TypedDict):
     abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAbortDetachedQueryArgsDict']]]]]
+    active_python_profilers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterActivePythonProfilerArgsDict']]]]]
     autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAutocommitArgsDict']]]]]
     binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryInputFormatArgsDict']]]]]
     binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryOutputFormatArgsDict']]]]]
+    client_enable_log_info_statement_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgsDict']]]]]
     client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMemoryLimitArgsDict']]]]]
     client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_metadata_use_session_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgsDict']]]]]
     client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientPrefetchThreadArgsDict']]]]]
     client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultChunkSizeArgsDict']]]]]
     client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
     client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
     client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAlifeArgsDict']]]]]
     client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientTimestampTypeMappingArgsDict']]]]]
+    csv_timestamp_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterCsvTimestampFormatArgsDict']]]]]
     date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateInputFormatArgsDict']]]]]
     date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateOutputFormatArgsDict']]]]]
+    enable_get_ddl_use_data_type_aliases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict']]]]]
     enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
     enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
     error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicMergeArgsDict']]]]]
     error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
     geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeographyOutputFormatArgsDict']]]]]
     geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeometryOutputFormatArgsDict']]]]]
+    hybrid_table_lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterHybridTableLockTimeoutArgsDict']]]]]
     jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
     jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
     jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    js_treat_integer_as_bigints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsTreatIntegerAsBigintArgsDict']]]]]
     json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsonIndentArgsDict']]]]]
     lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLockTimeoutArgsDict']]]]]
     log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLogEventLevelArgsDict']]]]]
@@ -30140,6 +32982,8 @@ class LegacyServiceUserParameterArgsDict(TypedDict):
     noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNoorderSequenceAsDefaultArgsDict']]]]]
     odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
     prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    python_profiler_modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerModuleArgsDict']]]]]
+    python_profiler_target_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerTargetStageArgsDict']]]]]
     query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQueryTagArgsDict']]]]]
     quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
     rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterRowsPerResultsetArgsDict']]]]]
@@ -30172,28 +33016,35 @@ class LegacyServiceUserParameterArgsDict(TypedDict):
 class LegacyServiceUserParameterArgs:
     def __init__(__self__, *,
                  abort_detached_queries: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAbortDetachedQueryArgs']]]] = None,
+                 active_python_profilers: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterActivePythonProfilerArgs']]]] = None,
                  autocommits: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAutocommitArgs']]]] = None,
                  binary_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryInputFormatArgs']]]] = None,
                  binary_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryOutputFormatArgs']]]] = None,
+                 client_enable_log_info_statement_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]] = None,
                  client_memory_limits: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMemoryLimitArgs']]]] = None,
                  client_metadata_request_use_connection_ctxes: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]] = None,
+                 client_metadata_use_session_databases: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]] = None,
                  client_prefetch_threads: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientPrefetchThreadArgs']]]] = None,
                  client_result_chunk_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultChunkSizeArgs']]]] = None,
                  client_result_column_case_insensitives: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultColumnCaseInsensitiveArgs']]]] = None,
                  client_session_keep_alive_heartbeat_frequencies: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]] = None,
                  client_session_keep_alives: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAlifeArgs']]]] = None,
                  client_timestamp_type_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientTimestampTypeMappingArgs']]]] = None,
+                 csv_timestamp_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterCsvTimestampFormatArgs']]]] = None,
                  date_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateInputFormatArgs']]]] = None,
                  date_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateOutputFormatArgs']]]] = None,
+                 enable_get_ddl_use_data_type_aliases: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]] = None,
                  enable_unload_physical_type_optimizations: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]] = None,
                  enable_unredacted_query_syntax_errors: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs']]]] = None,
                  error_on_nondeterministic_merges: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicMergeArgs']]]] = None,
                  error_on_nondeterministic_updates: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicUpdateArgs']]]] = None,
                  geography_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeographyOutputFormatArgs']]]] = None,
                  geometry_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeometryOutputFormatArgs']]]] = None,
+                 hybrid_table_lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterHybridTableLockTimeoutArgs']]]] = None,
                  jdbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatDecimalAsIntArgs']]]] = None,
                  jdbc_treat_timestamp_ntz_as_utcs: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs']]]] = None,
                  jdbc_use_session_timezones: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcUseSessionTimezoneArgs']]]] = None,
+                 js_treat_integer_as_bigints: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsTreatIntegerAsBigintArgs']]]] = None,
                  json_indents: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsonIndentArgs']]]] = None,
                  lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLockTimeoutArgs']]]] = None,
                  log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLogEventLevelArgs']]]] = None,
@@ -30203,6 +33054,8 @@ class LegacyServiceUserParameterArgs:
                  noorder_sequence_as_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNoorderSequenceAsDefaultArgs']]]] = None,
                  odbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterOdbcTreatDecimalAsIntArgs']]]] = None,
                  prevent_unload_to_internal_stages: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPreventUnloadToInternalStageArgs']]]] = None,
+                 python_profiler_modules: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerModuleArgs']]]] = None,
+                 python_profiler_target_stages: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerTargetStageArgs']]]] = None,
                  query_tags: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQueryTagArgs']]]] = None,
                  quoted_identifiers_ignore_cases: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
                  rows_per_resultsets: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterRowsPerResultsetArgs']]]] = None,
@@ -30232,16 +33085,22 @@ class LegacyServiceUserParameterArgs:
                  week_starts: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterWeekStartArgs']]]] = None):
         if abort_detached_queries is not None:
             pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        if active_python_profilers is not None:
+            pulumi.set(__self__, "active_python_profilers", active_python_profilers)
         if autocommits is not None:
             pulumi.set(__self__, "autocommits", autocommits)
         if binary_input_formats is not None:
             pulumi.set(__self__, "binary_input_formats", binary_input_formats)
         if binary_output_formats is not None:
             pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        if client_enable_log_info_statement_parameters is not None:
+            pulumi.set(__self__, "client_enable_log_info_statement_parameters", client_enable_log_info_statement_parameters)
         if client_memory_limits is not None:
             pulumi.set(__self__, "client_memory_limits", client_memory_limits)
         if client_metadata_request_use_connection_ctxes is not None:
             pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        if client_metadata_use_session_databases is not None:
+            pulumi.set(__self__, "client_metadata_use_session_databases", client_metadata_use_session_databases)
         if client_prefetch_threads is not None:
             pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
         if client_result_chunk_sizes is not None:
@@ -30254,10 +33113,14 @@ class LegacyServiceUserParameterArgs:
             pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
         if client_timestamp_type_mappings is not None:
             pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        if csv_timestamp_formats is not None:
+            pulumi.set(__self__, "csv_timestamp_formats", csv_timestamp_formats)
         if date_input_formats is not None:
             pulumi.set(__self__, "date_input_formats", date_input_formats)
         if date_output_formats is not None:
             pulumi.set(__self__, "date_output_formats", date_output_formats)
+        if enable_get_ddl_use_data_type_aliases is not None:
+            pulumi.set(__self__, "enable_get_ddl_use_data_type_aliases", enable_get_ddl_use_data_type_aliases)
         if enable_unload_physical_type_optimizations is not None:
             pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
         if enable_unredacted_query_syntax_errors is not None:
@@ -30270,12 +33133,16 @@ class LegacyServiceUserParameterArgs:
             pulumi.set(__self__, "geography_output_formats", geography_output_formats)
         if geometry_output_formats is not None:
             pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        if hybrid_table_lock_timeouts is not None:
+            pulumi.set(__self__, "hybrid_table_lock_timeouts", hybrid_table_lock_timeouts)
         if jdbc_treat_decimal_as_ints is not None:
             pulumi.set(__self__, "jdbc_treat_decimal_as_ints", jdbc_treat_decimal_as_ints)
         if jdbc_treat_timestamp_ntz_as_utcs is not None:
             pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
         if jdbc_use_session_timezones is not None:
             pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        if js_treat_integer_as_bigints is not None:
+            pulumi.set(__self__, "js_treat_integer_as_bigints", js_treat_integer_as_bigints)
         if json_indents is not None:
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
@@ -30294,6 +33161,10 @@ class LegacyServiceUserParameterArgs:
             pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
         if prevent_unload_to_internal_stages is not None:
             pulumi.set(__self__, "prevent_unload_to_internal_stages", prevent_unload_to_internal_stages)
+        if python_profiler_modules is not None:
+            pulumi.set(__self__, "python_profiler_modules", python_profiler_modules)
+        if python_profiler_target_stages is not None:
+            pulumi.set(__self__, "python_profiler_target_stages", python_profiler_target_stages)
         if query_tags is not None:
             pulumi.set(__self__, "query_tags", query_tags)
         if quoted_identifiers_ignore_cases is not None:
@@ -30359,6 +33230,15 @@ class LegacyServiceUserParameterArgs:
         pulumi.set(self, "abort_detached_queries", value)
 
     @_builtins.property
+    @pulumi.getter(name="activePythonProfilers")
+    def active_python_profilers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterActivePythonProfilerArgs']]]]:
+        return pulumi.get(self, "active_python_profilers")
+
+    @active_python_profilers.setter
+    def active_python_profilers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterActivePythonProfilerArgs']]]]):
+        pulumi.set(self, "active_python_profilers", value)
+
+    @_builtins.property
     @pulumi.getter
     def autocommits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAutocommitArgs']]]]:
         return pulumi.get(self, "autocommits")
@@ -30386,6 +33266,15 @@ class LegacyServiceUserParameterArgs:
         pulumi.set(self, "binary_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="clientEnableLogInfoStatementParameters")
+    def client_enable_log_info_statement_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]]:
+        return pulumi.get(self, "client_enable_log_info_statement_parameters")
+
+    @client_enable_log_info_statement_parameters.setter
+    def client_enable_log_info_statement_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]]):
+        pulumi.set(self, "client_enable_log_info_statement_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="clientMemoryLimits")
     def client_memory_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMemoryLimitArgs']]]]:
         return pulumi.get(self, "client_memory_limits")
@@ -30402,6 +33291,15 @@ class LegacyServiceUserParameterArgs:
     @client_metadata_request_use_connection_ctxes.setter
     def client_metadata_request_use_connection_ctxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]]):
         pulumi.set(self, "client_metadata_request_use_connection_ctxes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientMetadataUseSessionDatabases")
+    def client_metadata_use_session_databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]]:
+        return pulumi.get(self, "client_metadata_use_session_databases")
+
+    @client_metadata_use_session_databases.setter
+    def client_metadata_use_session_databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]]):
+        pulumi.set(self, "client_metadata_use_session_databases", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPrefetchThreads")
@@ -30458,6 +33356,15 @@ class LegacyServiceUserParameterArgs:
         pulumi.set(self, "client_timestamp_type_mappings", value)
 
     @_builtins.property
+    @pulumi.getter(name="csvTimestampFormats")
+    def csv_timestamp_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterCsvTimestampFormatArgs']]]]:
+        return pulumi.get(self, "csv_timestamp_formats")
+
+    @csv_timestamp_formats.setter
+    def csv_timestamp_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterCsvTimestampFormatArgs']]]]):
+        pulumi.set(self, "csv_timestamp_formats", value)
+
+    @_builtins.property
     @pulumi.getter(name="dateInputFormats")
     def date_input_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateInputFormatArgs']]]]:
         return pulumi.get(self, "date_input_formats")
@@ -30474,6 +33381,15 @@ class LegacyServiceUserParameterArgs:
     @date_output_formats.setter
     def date_output_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateOutputFormatArgs']]]]):
         pulumi.set(self, "date_output_formats", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableGetDdlUseDataTypeAliases")
+    def enable_get_ddl_use_data_type_aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]]:
+        return pulumi.get(self, "enable_get_ddl_use_data_type_aliases")
+
+    @enable_get_ddl_use_data_type_aliases.setter
+    def enable_get_ddl_use_data_type_aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]]):
+        pulumi.set(self, "enable_get_ddl_use_data_type_aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
@@ -30530,6 +33446,15 @@ class LegacyServiceUserParameterArgs:
         pulumi.set(self, "geometry_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="hybridTableLockTimeouts")
+    def hybrid_table_lock_timeouts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterHybridTableLockTimeoutArgs']]]]:
+        return pulumi.get(self, "hybrid_table_lock_timeouts")
+
+    @hybrid_table_lock_timeouts.setter
+    def hybrid_table_lock_timeouts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterHybridTableLockTimeoutArgs']]]]):
+        pulumi.set(self, "hybrid_table_lock_timeouts", value)
+
+    @_builtins.property
     @pulumi.getter(name="jdbcTreatDecimalAsInts")
     def jdbc_treat_decimal_as_ints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatDecimalAsIntArgs']]]]:
         return pulumi.get(self, "jdbc_treat_decimal_as_ints")
@@ -30555,6 +33480,15 @@ class LegacyServiceUserParameterArgs:
     @jdbc_use_session_timezones.setter
     def jdbc_use_session_timezones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcUseSessionTimezoneArgs']]]]):
         pulumi.set(self, "jdbc_use_session_timezones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jsTreatIntegerAsBigints")
+    def js_treat_integer_as_bigints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsTreatIntegerAsBigintArgs']]]]:
+        return pulumi.get(self, "js_treat_integer_as_bigints")
+
+    @js_treat_integer_as_bigints.setter
+    def js_treat_integer_as_bigints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsTreatIntegerAsBigintArgs']]]]):
+        pulumi.set(self, "js_treat_integer_as_bigints", value)
 
     @_builtins.property
     @pulumi.getter(name="jsonIndents")
@@ -30636,6 +33570,24 @@ class LegacyServiceUserParameterArgs:
     @prevent_unload_to_internal_stages.setter
     def prevent_unload_to_internal_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPreventUnloadToInternalStageArgs']]]]):
         pulumi.set(self, "prevent_unload_to_internal_stages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerModules")
+    def python_profiler_modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerModuleArgs']]]]:
+        return pulumi.get(self, "python_profiler_modules")
+
+    @python_profiler_modules.setter
+    def python_profiler_modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerModuleArgs']]]]):
+        pulumi.set(self, "python_profiler_modules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerTargetStages")
+    def python_profiler_target_stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerTargetStageArgs']]]]:
+        return pulumi.get(self, "python_profiler_target_stages")
+
+    @python_profiler_target_stages.setter
+    def python_profiler_target_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPythonProfilerTargetStageArgs']]]]):
+        pulumi.set(self, "python_profiler_target_stages", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTags")
@@ -30953,6 +33905,78 @@ class LegacyServiceUserParameterAbortDetachedQueryArgs:
         pulumi.set(self, "value", value)
 
 
+class LegacyServiceUserParameterActivePythonProfilerArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterActivePythonProfilerArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class LegacyServiceUserParameterAutocommitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -31169,6 +34193,78 @@ class LegacyServiceUserParameterBinaryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterClientEnableLogInfoStatementParameterArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class LegacyServiceUserParameterClientMemoryLimitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -31250,6 +34346,78 @@ class LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict(Ty
 
 @pulumi.input_type
 class LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterClientMetadataUseSessionDatabaseArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31745,6 +34913,78 @@ class LegacyServiceUserParameterClientTimestampTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+class LegacyServiceUserParameterCsvTimestampFormatArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterCsvTimestampFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class LegacyServiceUserParameterDateInputFormatArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -31826,6 +35066,78 @@ class LegacyServiceUserParameterDateOutputFormatArgsDict(TypedDict):
 
 @pulumi.input_type
 class LegacyServiceUserParameterDateOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32321,6 +35633,78 @@ class LegacyServiceUserParameterGeometryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class LegacyServiceUserParameterHybridTableLockTimeoutArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterHybridTableLockTimeoutArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class LegacyServiceUserParameterJdbcTreatDecimalAsIntArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -32474,6 +35858,78 @@ class LegacyServiceUserParameterJdbcUseSessionTimezoneArgsDict(TypedDict):
 
 @pulumi.input_type
 class LegacyServiceUserParameterJdbcUseSessionTimezoneArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class LegacyServiceUserParameterJsTreatIntegerAsBigintArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterJsTreatIntegerAsBigintArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33122,6 +36578,150 @@ class LegacyServiceUserParameterPreventUnloadToInternalStageArgsDict(TypedDict):
 
 @pulumi.input_type
 class LegacyServiceUserParameterPreventUnloadToInternalStageArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class LegacyServiceUserParameterPythonProfilerModuleArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterPythonProfilerModuleArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class LegacyServiceUserParameterPythonProfilerTargetStageArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LegacyServiceUserParameterPythonProfilerTargetStageArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42725,6 +46325,561 @@ class PasswordPolicyShowOutputArgs:
         pulumi.set(self, "schema_name", value)
 
 
+class PipeDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    error_integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    invalid_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class PipeDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 invalid_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+        if invalid_reason is not None:
+            pulumi.set(__self__, "invalid_reason", invalid_reason)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notification_channel is not None:
+            pulumi.set(__self__, "notification_channel", notification_channel)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_integration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def integration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "integration")
+
+    @integration.setter
+    def integration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "integration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invalidReason")
+    def invalid_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "invalid_reason")
+
+    @invalid_reason.setter
+    def invalid_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "invalid_reason", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationChannel")
+    def notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "notification_channel")
+
+    @notification_channel.setter
+    def notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "notification_channel", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+class PipeParameterArgsDict(TypedDict):
+    log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterLogEventLevelArgsDict']]]]]
+    pipe_execution_pauseds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterPipeExecutionPausedArgsDict']]]]]
+
+@pulumi.input_type
+class PipeParameterArgs:
+    def __init__(__self__, *,
+                 log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterLogEventLevelArgs']]]] = None,
+                 pipe_execution_pauseds: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterPipeExecutionPausedArgs']]]] = None):
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
+        if pipe_execution_pauseds is not None:
+            pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterLogEventLevelArgs']]]]:
+        return pulumi.get(self, "log_event_levels")
+
+    @log_event_levels.setter
+    def log_event_levels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterLogEventLevelArgs']]]]):
+        pulumi.set(self, "log_event_levels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipeExecutionPauseds")
+    def pipe_execution_pauseds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterPipeExecutionPausedArgs']]]]:
+        return pulumi.get(self, "pipe_execution_pauseds")
+
+    @pipe_execution_pauseds.setter
+    def pipe_execution_pauseds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipeParameterPipeExecutionPausedArgs']]]]):
+        pulumi.set(self, "pipe_execution_pauseds", value)
+
+
+class PipeParameterLogEventLevelArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class PipeParameterLogEventLevelArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class PipeParameterPipeExecutionPausedArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class PipeParameterPipeExecutionPausedArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class PipeShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    error_integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    invalid_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class PipeShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 invalid_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+        if invalid_reason is not None:
+            pulumi.set(__self__, "invalid_reason", invalid_reason)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notification_channel is not None:
+            pulumi.set(__self__, "notification_channel", notification_channel)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_integration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def integration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "integration")
+
+    @integration.setter
+    def integration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "integration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invalidReason")
+    def invalid_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "invalid_reason")
+
+    @invalid_reason.setter
+    def invalid_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "invalid_reason", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationChannel")
+    def notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "notification_channel")
+
+    @notification_channel.setter
+    def notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "notification_channel", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
 class PostgresInstanceDescribeOutputArgsDict(TypedDict):
     authentication_authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -43244,6 +47399,394 @@ class PostgresInstanceShowOutputArgs:
     @updated_on.setter
     def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_on", value)
+
+
+class PostgresMirrorDescribeOutputArgsDict(TypedDict):
+    apply_lag_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    apply_lag_operations: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    apply_lag_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    catalog_integration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    error_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_volume: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    feed_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    last_applied_commit_lsn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_applied_commit_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_apply_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_operation_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    last_operation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    postgres_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    postgres_instance: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    postgres_schemas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    postgres_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    postgres_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    recent_query_durations: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_table_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    warehouse: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class PostgresMirrorDescribeOutputArgs:
+    def __init__(__self__, *,
+                 apply_lag_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 apply_lag_operations: pulumi.Input[Optional[_builtins.int]] = None,
+                 apply_lag_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 catalog_integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 feed_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_applied_commit_lsn: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_applied_commit_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_apply_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_operation_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_operation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgres_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgres_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgres_schemas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 postgres_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 postgres_tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recent_query_durations: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
+        if apply_lag_bytes is not None:
+            pulumi.set(__self__, "apply_lag_bytes", apply_lag_bytes)
+        if apply_lag_operations is not None:
+            pulumi.set(__self__, "apply_lag_operations", apply_lag_operations)
+        if apply_lag_seconds is not None:
+            pulumi.set(__self__, "apply_lag_seconds", apply_lag_seconds)
+        if catalog_integration_name is not None:
+            pulumi.set(__self__, "catalog_integration_name", catalog_integration_name)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if external_volume is not None:
+            pulumi.set(__self__, "external_volume", external_volume)
+        if feed_only is not None:
+            pulumi.set(__self__, "feed_only", feed_only)
+        if last_applied_commit_lsn is not None:
+            pulumi.set(__self__, "last_applied_commit_lsn", last_applied_commit_lsn)
+        if last_applied_commit_time is not None:
+            pulumi.set(__self__, "last_applied_commit_time", last_applied_commit_time)
+        if last_apply_time is not None:
+            pulumi.set(__self__, "last_apply_time", last_apply_time)
+        if last_operation_id is not None:
+            pulumi.set(__self__, "last_operation_id", last_operation_id)
+        if last_operation_time is not None:
+            pulumi.set(__self__, "last_operation_time", last_operation_time)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if postgres_database is not None:
+            pulumi.set(__self__, "postgres_database", postgres_database)
+        if postgres_instance is not None:
+            pulumi.set(__self__, "postgres_instance", postgres_instance)
+        if postgres_schemas is not None:
+            pulumi.set(__self__, "postgres_schemas", postgres_schemas)
+        if postgres_status is not None:
+            pulumi.set(__self__, "postgres_status", postgres_status)
+        if postgres_tables is not None:
+            pulumi.set(__self__, "postgres_tables", postgres_tables)
+        if recent_query_durations is not None:
+            pulumi.set(__self__, "recent_query_durations", recent_query_durations)
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_database is not None:
+            pulumi.set(__self__, "target_database", target_database)
+        if target_table_type is not None:
+            pulumi.set(__self__, "target_table_type", target_table_type)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @_builtins.property
+    @pulumi.getter(name="applyLagBytes")
+    def apply_lag_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "apply_lag_bytes")
+
+    @apply_lag_bytes.setter
+    def apply_lag_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "apply_lag_bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applyLagOperations")
+    def apply_lag_operations(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "apply_lag_operations")
+
+    @apply_lag_operations.setter
+    def apply_lag_operations(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "apply_lag_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applyLagSeconds")
+    def apply_lag_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "apply_lag_seconds")
+
+    @apply_lag_seconds.setter
+    def apply_lag_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "apply_lag_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogIntegrationName")
+    def catalog_integration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "catalog_integration_name")
+
+    @catalog_integration_name.setter
+    def catalog_integration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_integration_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolume")
+    def external_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "external_volume")
+
+    @external_volume.setter
+    def external_volume(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_volume", value)
+
+    @_builtins.property
+    @pulumi.getter(name="feedOnly")
+    def feed_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "feed_only")
+
+    @feed_only.setter
+    def feed_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "feed_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastAppliedCommitLsn")
+    def last_applied_commit_lsn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_applied_commit_lsn")
+
+    @last_applied_commit_lsn.setter
+    def last_applied_commit_lsn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_applied_commit_lsn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastAppliedCommitTime")
+    def last_applied_commit_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_applied_commit_time")
+
+    @last_applied_commit_time.setter
+    def last_applied_commit_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_applied_commit_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastApplyTime")
+    def last_apply_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_apply_time")
+
+    @last_apply_time.setter
+    def last_apply_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_apply_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastOperationId")
+    def last_operation_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "last_operation_id")
+
+    @last_operation_id.setter
+    def last_operation_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "last_operation_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastOperationTime")
+    def last_operation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_operation_time")
+
+    @last_operation_time.setter
+    def last_operation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_operation_time", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresDatabase")
+    def postgres_database(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "postgres_database")
+
+    @postgres_database.setter
+    def postgres_database(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postgres_database", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresInstance")
+    def postgres_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "postgres_instance")
+
+    @postgres_instance.setter
+    def postgres_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postgres_instance", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresSchemas")
+    def postgres_schemas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "postgres_schemas")
+
+    @postgres_schemas.setter
+    def postgres_schemas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "postgres_schemas", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresStatus")
+    def postgres_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "postgres_status")
+
+    @postgres_status.setter
+    def postgres_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "postgres_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresTables")
+    def postgres_tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "postgres_tables")
+
+    @postgres_tables.setter
+    def postgres_tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "postgres_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recentQueryDurations")
+    def recent_query_durations(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "recent_query_durations")
+
+    @recent_query_durations.setter
+    def recent_query_durations(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recent_query_durations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "refresh_interval")
+
+    @refresh_interval.setter
+    def refresh_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "refresh_interval", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetDatabase")
+    def target_database(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_database")
+
+    @target_database.setter
+    def target_database(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_database", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetTableType")
+    def target_table_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_table_type")
+
+    @target_table_type.setter
+    def target_table_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_table_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse", value)
+
+
+class PostgresMirrorRefreshIntervalArgsDict(TypedDict):
+    hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+    """
+    minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+    """
+    seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+    """
+
+@pulumi.input_type
+class PostgresMirrorRefreshIntervalArgs:
+    def __init__(__self__, *,
+                 hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] hours: Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+        :param pulumi.Input[_builtins.int] minutes: Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+        :param pulumi.Input[_builtins.int] seconds: Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "hours", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        return pulumi.get(self, "seconds")
+
+    @seconds.setter
+    def seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "seconds", value)
 
 
 class PrimaryConnectionShowOutputArgsDict(TypedDict):
@@ -47355,6 +51898,189 @@ class ProcedureSqlShowOutputArgs:
         pulumi.set(self, "valid_for_clustering", value)
 
 
+class ProjectionPolicyDescribeOutputArgsDict(TypedDict):
+    body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    return_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    signature: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ProjectionPolicyDescribeOutputArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature: pulumi.Input[Optional[_builtins.str]] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signature is not None:
+            pulumi.set(__self__, "signature", signature)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "return_type")
+
+    @return_type.setter
+    def return_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "return_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def signature(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "signature")
+
+    @signature.setter
+    def signature(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "signature", value)
+
+
+class ProjectionPolicyShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    options: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ProjectionPolicyShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "options", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
 class ProviderTokenAccessorArgsDict(TypedDict):
     client_id: pulumi.Input[_builtins.str]
     """
@@ -47376,6 +52102,10 @@ class ProviderTokenAccessorArgsDict(TypedDict):
     """
     The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
     """
+    min_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+    """
 
 @pulumi.input_type
 class ProviderTokenAccessorArgs:
@@ -47384,19 +52114,23 @@ class ProviderTokenAccessorArgs:
                  client_secret: pulumi.Input[_builtins.str],
                  redirect_uri: pulumi.Input[_builtins.str],
                  refresh_token: pulumi.Input[_builtins.str],
-                 token_endpoint: pulumi.Input[_builtins.str]):
+                 token_endpoint: pulumi.Input[_builtins.str],
+                 min_tls_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
         :param pulumi.Input[_builtins.str] client_secret: The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
         :param pulumi.Input[_builtins.str] redirect_uri: The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
         :param pulumi.Input[_builtins.str] refresh_token: The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] token_endpoint: The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+        :param pulumi.Input[_builtins.str] min_tls_version: Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "redirect_uri", redirect_uri)
         pulumi.set(__self__, "refresh_token", refresh_token)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -47457,6 +52191,500 @@ class ProviderTokenAccessorArgs:
     @token_endpoint.setter
     def token_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "token_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @min_tls_version.setter
+    def min_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "min_tls_version", value)
+
+
+class ReplicationGroupSecondaryShowOutputArgsDict(TypedDict):
+    account_locator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    allowed_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    is_listing_auto_fulfillment_group: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    is_primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    next_scheduled_refresh: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    region_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    replication_schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secondary_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    snowflake_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ReplicationGroupSecondaryShowOutputArgs:
+    def __init__(__self__, *,
+                 account_locator: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_listing_auto_fulfillment_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_scheduled_refresh: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        if account_locator is not None:
+            pulumi.set(__self__, "account_locator", account_locator)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if allowed_accounts is not None:
+            pulumi.set(__self__, "allowed_accounts", allowed_accounts)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if is_listing_auto_fulfillment_group is not None:
+            pulumi.set(__self__, "is_listing_auto_fulfillment_group", is_listing_auto_fulfillment_group)
+        if is_primary is not None:
+            pulumi.set(__self__, "is_primary", is_primary)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_scheduled_refresh is not None:
+            pulumi.set(__self__, "next_scheduled_refresh", next_scheduled_refresh)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if region_group is not None:
+            pulumi.set(__self__, "region_group", region_group)
+        if replication_schedule is not None:
+            pulumi.set(__self__, "replication_schedule", replication_schedule)
+        if secondary_state is not None:
+            pulumi.set(__self__, "secondary_state", secondary_state)
+        if snowflake_region is not None:
+            pulumi.set(__self__, "snowflake_region", snowflake_region)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "account_locator")
+
+    @account_locator.setter
+    def account_locator(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_locator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAccounts")
+    def allowed_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_accounts")
+
+    @allowed_accounts.setter
+    def allowed_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isListingAutoFulfillmentGroup")
+    def is_listing_auto_fulfillment_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_listing_auto_fulfillment_group")
+
+    @is_listing_auto_fulfillment_group.setter
+    def is_listing_auto_fulfillment_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_listing_auto_fulfillment_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_primary")
+
+    @is_primary.setter
+    def is_primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_primary", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nextScheduledRefresh")
+    def next_scheduled_refresh(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "next_scheduled_refresh")
+
+    @next_scheduled_refresh.setter
+    def next_scheduled_refresh(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "next_scheduled_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "primary", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="regionGroup")
+    def region_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "region_group")
+
+    @region_group.setter
+    def region_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "replication_schedule")
+
+    @replication_schedule.setter
+    def replication_schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replication_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryState")
+    def secondary_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "secondary_state")
+
+    @secondary_state.setter
+    def secondary_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secondary_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "snowflake_region")
+
+    @snowflake_region.setter
+    def snowflake_region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snowflake_region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class ReplicationGroupShowOutputArgsDict(TypedDict):
+    account_locator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    allowed_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    is_listing_auto_fulfillment_group: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    is_primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    next_scheduled_refresh: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    region_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    replication_schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secondary_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    snowflake_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ReplicationGroupShowOutputArgs:
+    def __init__(__self__, *,
+                 account_locator: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_listing_auto_fulfillment_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_scheduled_refresh: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        if account_locator is not None:
+            pulumi.set(__self__, "account_locator", account_locator)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if allowed_accounts is not None:
+            pulumi.set(__self__, "allowed_accounts", allowed_accounts)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if is_listing_auto_fulfillment_group is not None:
+            pulumi.set(__self__, "is_listing_auto_fulfillment_group", is_listing_auto_fulfillment_group)
+        if is_primary is not None:
+            pulumi.set(__self__, "is_primary", is_primary)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_scheduled_refresh is not None:
+            pulumi.set(__self__, "next_scheduled_refresh", next_scheduled_refresh)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if region_group is not None:
+            pulumi.set(__self__, "region_group", region_group)
+        if replication_schedule is not None:
+            pulumi.set(__self__, "replication_schedule", replication_schedule)
+        if secondary_state is not None:
+            pulumi.set(__self__, "secondary_state", secondary_state)
+        if snowflake_region is not None:
+            pulumi.set(__self__, "snowflake_region", snowflake_region)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "account_locator")
+
+    @account_locator.setter
+    def account_locator(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_locator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAccounts")
+    def allowed_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_accounts")
+
+    @allowed_accounts.setter
+    def allowed_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isListingAutoFulfillmentGroup")
+    def is_listing_auto_fulfillment_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_listing_auto_fulfillment_group")
+
+    @is_listing_auto_fulfillment_group.setter
+    def is_listing_auto_fulfillment_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_listing_auto_fulfillment_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_primary")
+
+    @is_primary.setter
+    def is_primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_primary", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nextScheduledRefresh")
+    def next_scheduled_refresh(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "next_scheduled_refresh")
+
+    @next_scheduled_refresh.setter
+    def next_scheduled_refresh(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "next_scheduled_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "primary", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="regionGroup")
+    def region_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "region_group")
+
+    @region_group.setter
+    def region_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "replication_schedule")
+
+    @replication_schedule.setter
+    def replication_schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replication_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryState")
+    def secondary_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "secondary_state")
+
+    @secondary_state.setter
+    def secondary_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secondary_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "snowflake_region")
+
+    @snowflake_region.setter
+    def snowflake_region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snowflake_region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class ResourceMonitorShowOutputArgsDict(TypedDict):
@@ -55207,28 +60435,35 @@ class ServiceUserDefaultWorkloadIdentityOidcArgs:
 
 class ServiceUserParameterArgsDict(TypedDict):
     abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAbortDetachedQueryArgsDict']]]]]
+    active_python_profilers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterActivePythonProfilerArgsDict']]]]]
     autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAutocommitArgsDict']]]]]
     binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryInputFormatArgsDict']]]]]
     binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryOutputFormatArgsDict']]]]]
+    client_enable_log_info_statement_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientEnableLogInfoStatementParameterArgsDict']]]]]
     client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMemoryLimitArgsDict']]]]]
     client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_metadata_use_session_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataUseSessionDatabaseArgsDict']]]]]
     client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientPrefetchThreadArgsDict']]]]]
     client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultChunkSizeArgsDict']]]]]
     client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
     client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
     client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAlifeArgsDict']]]]]
     client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientTimestampTypeMappingArgsDict']]]]]
+    csv_timestamp_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterCsvTimestampFormatArgsDict']]]]]
     date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateInputFormatArgsDict']]]]]
     date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateOutputFormatArgsDict']]]]]
+    enable_get_ddl_use_data_type_aliases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict']]]]]
     enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
     enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
     error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicMergeArgsDict']]]]]
     error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
     geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeographyOutputFormatArgsDict']]]]]
     geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeometryOutputFormatArgsDict']]]]]
+    hybrid_table_lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterHybridTableLockTimeoutArgsDict']]]]]
     jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
     jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
     jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    js_treat_integer_as_bigints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsTreatIntegerAsBigintArgsDict']]]]]
     json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsonIndentArgsDict']]]]]
     lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLockTimeoutArgsDict']]]]]
     log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLogEventLevelArgsDict']]]]]
@@ -55238,6 +60473,8 @@ class ServiceUserParameterArgsDict(TypedDict):
     noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNoorderSequenceAsDefaultArgsDict']]]]]
     odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
     prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    python_profiler_modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerModuleArgsDict']]]]]
+    python_profiler_target_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerTargetStageArgsDict']]]]]
     query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQueryTagArgsDict']]]]]
     quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
     rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterRowsPerResultsetArgsDict']]]]]
@@ -55270,28 +60507,35 @@ class ServiceUserParameterArgsDict(TypedDict):
 class ServiceUserParameterArgs:
     def __init__(__self__, *,
                  abort_detached_queries: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAbortDetachedQueryArgs']]]] = None,
+                 active_python_profilers: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterActivePythonProfilerArgs']]]] = None,
                  autocommits: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAutocommitArgs']]]] = None,
                  binary_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryInputFormatArgs']]]] = None,
                  binary_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryOutputFormatArgs']]]] = None,
+                 client_enable_log_info_statement_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]] = None,
                  client_memory_limits: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMemoryLimitArgs']]]] = None,
                  client_metadata_request_use_connection_ctxes: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]] = None,
+                 client_metadata_use_session_databases: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]] = None,
                  client_prefetch_threads: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientPrefetchThreadArgs']]]] = None,
                  client_result_chunk_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultChunkSizeArgs']]]] = None,
                  client_result_column_case_insensitives: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultColumnCaseInsensitiveArgs']]]] = None,
                  client_session_keep_alive_heartbeat_frequencies: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]] = None,
                  client_session_keep_alives: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAlifeArgs']]]] = None,
                  client_timestamp_type_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientTimestampTypeMappingArgs']]]] = None,
+                 csv_timestamp_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterCsvTimestampFormatArgs']]]] = None,
                  date_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateInputFormatArgs']]]] = None,
                  date_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateOutputFormatArgs']]]] = None,
+                 enable_get_ddl_use_data_type_aliases: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]] = None,
                  enable_unload_physical_type_optimizations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]] = None,
                  enable_unredacted_query_syntax_errors: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs']]]] = None,
                  error_on_nondeterministic_merges: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicMergeArgs']]]] = None,
                  error_on_nondeterministic_updates: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicUpdateArgs']]]] = None,
                  geography_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeographyOutputFormatArgs']]]] = None,
                  geometry_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeometryOutputFormatArgs']]]] = None,
+                 hybrid_table_lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterHybridTableLockTimeoutArgs']]]] = None,
                  jdbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatDecimalAsIntArgs']]]] = None,
                  jdbc_treat_timestamp_ntz_as_utcs: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs']]]] = None,
                  jdbc_use_session_timezones: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcUseSessionTimezoneArgs']]]] = None,
+                 js_treat_integer_as_bigints: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsTreatIntegerAsBigintArgs']]]] = None,
                  json_indents: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsonIndentArgs']]]] = None,
                  lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLockTimeoutArgs']]]] = None,
                  log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLogEventLevelArgs']]]] = None,
@@ -55301,6 +60545,8 @@ class ServiceUserParameterArgs:
                  noorder_sequence_as_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNoorderSequenceAsDefaultArgs']]]] = None,
                  odbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterOdbcTreatDecimalAsIntArgs']]]] = None,
                  prevent_unload_to_internal_stages: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPreventUnloadToInternalStageArgs']]]] = None,
+                 python_profiler_modules: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerModuleArgs']]]] = None,
+                 python_profiler_target_stages: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerTargetStageArgs']]]] = None,
                  query_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQueryTagArgs']]]] = None,
                  quoted_identifiers_ignore_cases: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
                  rows_per_resultsets: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterRowsPerResultsetArgs']]]] = None,
@@ -55330,16 +60576,22 @@ class ServiceUserParameterArgs:
                  week_starts: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterWeekStartArgs']]]] = None):
         if abort_detached_queries is not None:
             pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        if active_python_profilers is not None:
+            pulumi.set(__self__, "active_python_profilers", active_python_profilers)
         if autocommits is not None:
             pulumi.set(__self__, "autocommits", autocommits)
         if binary_input_formats is not None:
             pulumi.set(__self__, "binary_input_formats", binary_input_formats)
         if binary_output_formats is not None:
             pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        if client_enable_log_info_statement_parameters is not None:
+            pulumi.set(__self__, "client_enable_log_info_statement_parameters", client_enable_log_info_statement_parameters)
         if client_memory_limits is not None:
             pulumi.set(__self__, "client_memory_limits", client_memory_limits)
         if client_metadata_request_use_connection_ctxes is not None:
             pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        if client_metadata_use_session_databases is not None:
+            pulumi.set(__self__, "client_metadata_use_session_databases", client_metadata_use_session_databases)
         if client_prefetch_threads is not None:
             pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
         if client_result_chunk_sizes is not None:
@@ -55352,10 +60604,14 @@ class ServiceUserParameterArgs:
             pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
         if client_timestamp_type_mappings is not None:
             pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        if csv_timestamp_formats is not None:
+            pulumi.set(__self__, "csv_timestamp_formats", csv_timestamp_formats)
         if date_input_formats is not None:
             pulumi.set(__self__, "date_input_formats", date_input_formats)
         if date_output_formats is not None:
             pulumi.set(__self__, "date_output_formats", date_output_formats)
+        if enable_get_ddl_use_data_type_aliases is not None:
+            pulumi.set(__self__, "enable_get_ddl_use_data_type_aliases", enable_get_ddl_use_data_type_aliases)
         if enable_unload_physical_type_optimizations is not None:
             pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
         if enable_unredacted_query_syntax_errors is not None:
@@ -55368,12 +60624,16 @@ class ServiceUserParameterArgs:
             pulumi.set(__self__, "geography_output_formats", geography_output_formats)
         if geometry_output_formats is not None:
             pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        if hybrid_table_lock_timeouts is not None:
+            pulumi.set(__self__, "hybrid_table_lock_timeouts", hybrid_table_lock_timeouts)
         if jdbc_treat_decimal_as_ints is not None:
             pulumi.set(__self__, "jdbc_treat_decimal_as_ints", jdbc_treat_decimal_as_ints)
         if jdbc_treat_timestamp_ntz_as_utcs is not None:
             pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
         if jdbc_use_session_timezones is not None:
             pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        if js_treat_integer_as_bigints is not None:
+            pulumi.set(__self__, "js_treat_integer_as_bigints", js_treat_integer_as_bigints)
         if json_indents is not None:
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
@@ -55392,6 +60652,10 @@ class ServiceUserParameterArgs:
             pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
         if prevent_unload_to_internal_stages is not None:
             pulumi.set(__self__, "prevent_unload_to_internal_stages", prevent_unload_to_internal_stages)
+        if python_profiler_modules is not None:
+            pulumi.set(__self__, "python_profiler_modules", python_profiler_modules)
+        if python_profiler_target_stages is not None:
+            pulumi.set(__self__, "python_profiler_target_stages", python_profiler_target_stages)
         if query_tags is not None:
             pulumi.set(__self__, "query_tags", query_tags)
         if quoted_identifiers_ignore_cases is not None:
@@ -55457,6 +60721,15 @@ class ServiceUserParameterArgs:
         pulumi.set(self, "abort_detached_queries", value)
 
     @_builtins.property
+    @pulumi.getter(name="activePythonProfilers")
+    def active_python_profilers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterActivePythonProfilerArgs']]]]:
+        return pulumi.get(self, "active_python_profilers")
+
+    @active_python_profilers.setter
+    def active_python_profilers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterActivePythonProfilerArgs']]]]):
+        pulumi.set(self, "active_python_profilers", value)
+
+    @_builtins.property
     @pulumi.getter
     def autocommits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAutocommitArgs']]]]:
         return pulumi.get(self, "autocommits")
@@ -55484,6 +60757,15 @@ class ServiceUserParameterArgs:
         pulumi.set(self, "binary_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="clientEnableLogInfoStatementParameters")
+    def client_enable_log_info_statement_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]]:
+        return pulumi.get(self, "client_enable_log_info_statement_parameters")
+
+    @client_enable_log_info_statement_parameters.setter
+    def client_enable_log_info_statement_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientEnableLogInfoStatementParameterArgs']]]]):
+        pulumi.set(self, "client_enable_log_info_statement_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="clientMemoryLimits")
     def client_memory_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMemoryLimitArgs']]]]:
         return pulumi.get(self, "client_memory_limits")
@@ -55500,6 +60782,15 @@ class ServiceUserParameterArgs:
     @client_metadata_request_use_connection_ctxes.setter
     def client_metadata_request_use_connection_ctxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]]):
         pulumi.set(self, "client_metadata_request_use_connection_ctxes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientMetadataUseSessionDatabases")
+    def client_metadata_use_session_databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]]:
+        return pulumi.get(self, "client_metadata_use_session_databases")
+
+    @client_metadata_use_session_databases.setter
+    def client_metadata_use_session_databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataUseSessionDatabaseArgs']]]]):
+        pulumi.set(self, "client_metadata_use_session_databases", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPrefetchThreads")
@@ -55556,6 +60847,15 @@ class ServiceUserParameterArgs:
         pulumi.set(self, "client_timestamp_type_mappings", value)
 
     @_builtins.property
+    @pulumi.getter(name="csvTimestampFormats")
+    def csv_timestamp_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterCsvTimestampFormatArgs']]]]:
+        return pulumi.get(self, "csv_timestamp_formats")
+
+    @csv_timestamp_formats.setter
+    def csv_timestamp_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterCsvTimestampFormatArgs']]]]):
+        pulumi.set(self, "csv_timestamp_formats", value)
+
+    @_builtins.property
     @pulumi.getter(name="dateInputFormats")
     def date_input_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateInputFormatArgs']]]]:
         return pulumi.get(self, "date_input_formats")
@@ -55572,6 +60872,15 @@ class ServiceUserParameterArgs:
     @date_output_formats.setter
     def date_output_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateOutputFormatArgs']]]]):
         pulumi.set(self, "date_output_formats", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableGetDdlUseDataTypeAliases")
+    def enable_get_ddl_use_data_type_aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]]:
+        return pulumi.get(self, "enable_get_ddl_use_data_type_aliases")
+
+    @enable_get_ddl_use_data_type_aliases.setter
+    def enable_get_ddl_use_data_type_aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs']]]]):
+        pulumi.set(self, "enable_get_ddl_use_data_type_aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
@@ -55628,6 +60937,15 @@ class ServiceUserParameterArgs:
         pulumi.set(self, "geometry_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="hybridTableLockTimeouts")
+    def hybrid_table_lock_timeouts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterHybridTableLockTimeoutArgs']]]]:
+        return pulumi.get(self, "hybrid_table_lock_timeouts")
+
+    @hybrid_table_lock_timeouts.setter
+    def hybrid_table_lock_timeouts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterHybridTableLockTimeoutArgs']]]]):
+        pulumi.set(self, "hybrid_table_lock_timeouts", value)
+
+    @_builtins.property
     @pulumi.getter(name="jdbcTreatDecimalAsInts")
     def jdbc_treat_decimal_as_ints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatDecimalAsIntArgs']]]]:
         return pulumi.get(self, "jdbc_treat_decimal_as_ints")
@@ -55653,6 +60971,15 @@ class ServiceUserParameterArgs:
     @jdbc_use_session_timezones.setter
     def jdbc_use_session_timezones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcUseSessionTimezoneArgs']]]]):
         pulumi.set(self, "jdbc_use_session_timezones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jsTreatIntegerAsBigints")
+    def js_treat_integer_as_bigints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsTreatIntegerAsBigintArgs']]]]:
+        return pulumi.get(self, "js_treat_integer_as_bigints")
+
+    @js_treat_integer_as_bigints.setter
+    def js_treat_integer_as_bigints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsTreatIntegerAsBigintArgs']]]]):
+        pulumi.set(self, "js_treat_integer_as_bigints", value)
 
     @_builtins.property
     @pulumi.getter(name="jsonIndents")
@@ -55734,6 +61061,24 @@ class ServiceUserParameterArgs:
     @prevent_unload_to_internal_stages.setter
     def prevent_unload_to_internal_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPreventUnloadToInternalStageArgs']]]]):
         pulumi.set(self, "prevent_unload_to_internal_stages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerModules")
+    def python_profiler_modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerModuleArgs']]]]:
+        return pulumi.get(self, "python_profiler_modules")
+
+    @python_profiler_modules.setter
+    def python_profiler_modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerModuleArgs']]]]):
+        pulumi.set(self, "python_profiler_modules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerTargetStages")
+    def python_profiler_target_stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerTargetStageArgs']]]]:
+        return pulumi.get(self, "python_profiler_target_stages")
+
+    @python_profiler_target_stages.setter
+    def python_profiler_target_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPythonProfilerTargetStageArgs']]]]):
+        pulumi.set(self, "python_profiler_target_stages", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTags")
@@ -56051,6 +61396,78 @@ class ServiceUserParameterAbortDetachedQueryArgs:
         pulumi.set(self, "value", value)
 
 
+class ServiceUserParameterActivePythonProfilerArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterActivePythonProfilerArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class ServiceUserParameterAutocommitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -56267,6 +61684,78 @@ class ServiceUserParameterBinaryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class ServiceUserParameterClientEnableLogInfoStatementParameterArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterClientEnableLogInfoStatementParameterArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class ServiceUserParameterClientMemoryLimitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -56348,6 +61837,78 @@ class ServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict(TypedDic
 
 @pulumi.input_type
 class ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceUserParameterClientMetadataUseSessionDatabaseArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterClientMetadataUseSessionDatabaseArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -56843,6 +62404,78 @@ class ServiceUserParameterClientTimestampTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+class ServiceUserParameterCsvTimestampFormatArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterCsvTimestampFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class ServiceUserParameterDateInputFormatArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -56924,6 +62557,78 @@ class ServiceUserParameterDateOutputFormatArgsDict(TypedDict):
 
 @pulumi.input_type
 class ServiceUserParameterDateOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceUserParameterEnableGetDdlUseDataTypeAliasArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -57419,6 +63124,78 @@ class ServiceUserParameterGeometryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class ServiceUserParameterHybridTableLockTimeoutArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterHybridTableLockTimeoutArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class ServiceUserParameterJdbcTreatDecimalAsIntArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -57572,6 +63349,78 @@ class ServiceUserParameterJdbcUseSessionTimezoneArgsDict(TypedDict):
 
 @pulumi.input_type
 class ServiceUserParameterJdbcUseSessionTimezoneArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceUserParameterJsTreatIntegerAsBigintArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterJsTreatIntegerAsBigintArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -58220,6 +64069,150 @@ class ServiceUserParameterPreventUnloadToInternalStageArgsDict(TypedDict):
 
 @pulumi.input_type
 class ServiceUserParameterPreventUnloadToInternalStageArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceUserParameterPythonProfilerModuleArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterPythonProfilerModuleArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceUserParameterPythonProfilerTargetStageArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceUserParameterPythonProfilerTargetStageArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -60995,6 +66988,202 @@ class SessionPolicyShowOutputArgs:
     @target_scopes.setter
     def target_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_scopes", value)
+
+
+class ShareDescribeOutputArgsDict(TypedDict):
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    shared_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ShareDescribeOutputArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_on: pulumi.Input[Optional[_builtins.str]] = None):
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if shared_on is not None:
+            pulumi.set(__self__, "shared_on", shared_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sharedOn")
+    def shared_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "shared_on")
+
+    @shared_on.setter
+    def shared_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "shared_on", value)
+
+
+class ShareShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    listing_global_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secure_objects_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    to_total: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class ShareShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 listing_global_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_objects_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 to_total: pulumi.Input[Optional[_builtins.int]] = None,
+                 tos: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if listing_global_name is not None:
+            pulumi.set(__self__, "listing_global_name", listing_global_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_account is not None:
+            pulumi.set(__self__, "owner_account", owner_account)
+        if secure_objects_only is not None:
+            pulumi.set(__self__, "secure_objects_only", secure_objects_only)
+        if to_total is not None:
+            pulumi.set(__self__, "to_total", to_total)
+        if tos is not None:
+            pulumi.set(__self__, "tos", tos)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listingGlobalName")
+    def listing_global_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "listing_global_name")
+
+    @listing_global_name.setter
+    def listing_global_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "listing_global_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerAccount")
+    def owner_account(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_account")
+
+    @owner_account.setter
+    def owner_account(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_account", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secureObjectsOnly")
+    def secure_objects_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "secure_objects_only")
+
+    @secure_objects_only.setter
+    def secure_objects_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "secure_objects_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toTotal")
+    def to_total(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "to_total")
+
+    @to_total.setter
+    def to_total(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "to_total", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tos")
+
+    @tos.setter
+    def tos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tos", value)
 
 
 class StageExternalAzureCredentialsArgsDict(TypedDict):
@@ -86521,28 +92710,35 @@ class TaskTargetCompletionIntervalArgs:
 
 class UserParameterArgsDict(TypedDict):
     abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgsDict']]]]]
+    active_python_profilers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterActivePythonProfilerArgsDict']]]]]
     autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAutocommitArgsDict']]]]]
     binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryInputFormatArgsDict']]]]]
     binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryOutputFormatArgsDict']]]]]
+    client_enable_log_info_statement_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientEnableLogInfoStatementParameterArgsDict']]]]]
     client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgsDict']]]]]
     client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_metadata_use_session_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataUseSessionDatabaseArgsDict']]]]]
     client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientPrefetchThreadArgsDict']]]]]
     client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultChunkSizeArgsDict']]]]]
     client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
     client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
     client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAlifeArgsDict']]]]]
     client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientTimestampTypeMappingArgsDict']]]]]
+    csv_timestamp_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterCsvTimestampFormatArgsDict']]]]]
     date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateInputFormatArgsDict']]]]]
     date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateOutputFormatArgsDict']]]]]
+    enable_get_ddl_use_data_type_aliases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableGetDdlUseDataTypeAliasArgsDict']]]]]
     enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
     enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
     error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicMergeArgsDict']]]]]
     error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
     geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeographyOutputFormatArgsDict']]]]]
     geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeometryOutputFormatArgsDict']]]]]
+    hybrid_table_lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterHybridTableLockTimeoutArgsDict']]]]]
     jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
     jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
     jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    js_treat_integer_as_bigints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsTreatIntegerAsBigintArgsDict']]]]]
     json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsonIndentArgsDict']]]]]
     lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLockTimeoutArgsDict']]]]]
     log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLogEventLevelArgsDict']]]]]
@@ -86552,6 +92748,8 @@ class UserParameterArgsDict(TypedDict):
     noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNoorderSequenceAsDefaultArgsDict']]]]]
     odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
     prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    python_profiler_modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerModuleArgsDict']]]]]
+    python_profiler_target_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerTargetStageArgsDict']]]]]
     query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQueryTagArgsDict']]]]]
     quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
     rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterRowsPerResultsetArgsDict']]]]]
@@ -86584,28 +92782,35 @@ class UserParameterArgsDict(TypedDict):
 class UserParameterArgs:
     def __init__(__self__, *,
                  abort_detached_queries: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgs']]]] = None,
+                 active_python_profilers: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterActivePythonProfilerArgs']]]] = None,
                  autocommits: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAutocommitArgs']]]] = None,
                  binary_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryInputFormatArgs']]]] = None,
                  binary_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryOutputFormatArgs']]]] = None,
+                 client_enable_log_info_statement_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientEnableLogInfoStatementParameterArgs']]]] = None,
                  client_memory_limits: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgs']]]] = None,
                  client_metadata_request_use_connection_ctxes: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgs']]]] = None,
+                 client_metadata_use_session_databases: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataUseSessionDatabaseArgs']]]] = None,
                  client_prefetch_threads: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientPrefetchThreadArgs']]]] = None,
                  client_result_chunk_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultChunkSizeArgs']]]] = None,
                  client_result_column_case_insensitives: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultColumnCaseInsensitiveArgs']]]] = None,
                  client_session_keep_alive_heartbeat_frequencies: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]] = None,
                  client_session_keep_alives: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAlifeArgs']]]] = None,
                  client_timestamp_type_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientTimestampTypeMappingArgs']]]] = None,
+                 csv_timestamp_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterCsvTimestampFormatArgs']]]] = None,
                  date_input_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateInputFormatArgs']]]] = None,
                  date_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateOutputFormatArgs']]]] = None,
+                 enable_get_ddl_use_data_type_aliases: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableGetDdlUseDataTypeAliasArgs']]]] = None,
                  enable_unload_physical_type_optimizations: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]] = None,
                  enable_unredacted_query_syntax_errors: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnredactedQuerySyntaxErrorArgs']]]] = None,
                  error_on_nondeterministic_merges: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicMergeArgs']]]] = None,
                  error_on_nondeterministic_updates: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicUpdateArgs']]]] = None,
                  geography_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeographyOutputFormatArgs']]]] = None,
                  geometry_output_formats: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeometryOutputFormatArgs']]]] = None,
+                 hybrid_table_lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterHybridTableLockTimeoutArgs']]]] = None,
                  jdbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgs']]]] = None,
                  jdbc_treat_timestamp_ntz_as_utcs: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatTimestampNtzAsUtcArgs']]]] = None,
                  jdbc_use_session_timezones: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgs']]]] = None,
+                 js_treat_integer_as_bigints: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsTreatIntegerAsBigintArgs']]]] = None,
                  json_indents: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsonIndentArgs']]]] = None,
                  lock_timeouts: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLockTimeoutArgs']]]] = None,
                  log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLogEventLevelArgs']]]] = None,
@@ -86615,6 +92820,8 @@ class UserParameterArgs:
                  noorder_sequence_as_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNoorderSequenceAsDefaultArgs']]]] = None,
                  odbc_treat_decimal_as_ints: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterOdbcTreatDecimalAsIntArgs']]]] = None,
                  prevent_unload_to_internal_stages: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgs']]]] = None,
+                 python_profiler_modules: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerModuleArgs']]]] = None,
+                 python_profiler_target_stages: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerTargetStageArgs']]]] = None,
                  query_tags: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQueryTagArgs']]]] = None,
                  quoted_identifiers_ignore_cases: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
                  rows_per_resultsets: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterRowsPerResultsetArgs']]]] = None,
@@ -86644,16 +92851,22 @@ class UserParameterArgs:
                  week_starts: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterWeekStartArgs']]]] = None):
         if abort_detached_queries is not None:
             pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        if active_python_profilers is not None:
+            pulumi.set(__self__, "active_python_profilers", active_python_profilers)
         if autocommits is not None:
             pulumi.set(__self__, "autocommits", autocommits)
         if binary_input_formats is not None:
             pulumi.set(__self__, "binary_input_formats", binary_input_formats)
         if binary_output_formats is not None:
             pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        if client_enable_log_info_statement_parameters is not None:
+            pulumi.set(__self__, "client_enable_log_info_statement_parameters", client_enable_log_info_statement_parameters)
         if client_memory_limits is not None:
             pulumi.set(__self__, "client_memory_limits", client_memory_limits)
         if client_metadata_request_use_connection_ctxes is not None:
             pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        if client_metadata_use_session_databases is not None:
+            pulumi.set(__self__, "client_metadata_use_session_databases", client_metadata_use_session_databases)
         if client_prefetch_threads is not None:
             pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
         if client_result_chunk_sizes is not None:
@@ -86666,10 +92879,14 @@ class UserParameterArgs:
             pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
         if client_timestamp_type_mappings is not None:
             pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        if csv_timestamp_formats is not None:
+            pulumi.set(__self__, "csv_timestamp_formats", csv_timestamp_formats)
         if date_input_formats is not None:
             pulumi.set(__self__, "date_input_formats", date_input_formats)
         if date_output_formats is not None:
             pulumi.set(__self__, "date_output_formats", date_output_formats)
+        if enable_get_ddl_use_data_type_aliases is not None:
+            pulumi.set(__self__, "enable_get_ddl_use_data_type_aliases", enable_get_ddl_use_data_type_aliases)
         if enable_unload_physical_type_optimizations is not None:
             pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
         if enable_unredacted_query_syntax_errors is not None:
@@ -86682,12 +92899,16 @@ class UserParameterArgs:
             pulumi.set(__self__, "geography_output_formats", geography_output_formats)
         if geometry_output_formats is not None:
             pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        if hybrid_table_lock_timeouts is not None:
+            pulumi.set(__self__, "hybrid_table_lock_timeouts", hybrid_table_lock_timeouts)
         if jdbc_treat_decimal_as_ints is not None:
             pulumi.set(__self__, "jdbc_treat_decimal_as_ints", jdbc_treat_decimal_as_ints)
         if jdbc_treat_timestamp_ntz_as_utcs is not None:
             pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
         if jdbc_use_session_timezones is not None:
             pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        if js_treat_integer_as_bigints is not None:
+            pulumi.set(__self__, "js_treat_integer_as_bigints", js_treat_integer_as_bigints)
         if json_indents is not None:
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
@@ -86706,6 +92927,10 @@ class UserParameterArgs:
             pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
         if prevent_unload_to_internal_stages is not None:
             pulumi.set(__self__, "prevent_unload_to_internal_stages", prevent_unload_to_internal_stages)
+        if python_profiler_modules is not None:
+            pulumi.set(__self__, "python_profiler_modules", python_profiler_modules)
+        if python_profiler_target_stages is not None:
+            pulumi.set(__self__, "python_profiler_target_stages", python_profiler_target_stages)
         if query_tags is not None:
             pulumi.set(__self__, "query_tags", query_tags)
         if quoted_identifiers_ignore_cases is not None:
@@ -86771,6 +92996,15 @@ class UserParameterArgs:
         pulumi.set(self, "abort_detached_queries", value)
 
     @_builtins.property
+    @pulumi.getter(name="activePythonProfilers")
+    def active_python_profilers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterActivePythonProfilerArgs']]]]:
+        return pulumi.get(self, "active_python_profilers")
+
+    @active_python_profilers.setter
+    def active_python_profilers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterActivePythonProfilerArgs']]]]):
+        pulumi.set(self, "active_python_profilers", value)
+
+    @_builtins.property
     @pulumi.getter
     def autocommits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAutocommitArgs']]]]:
         return pulumi.get(self, "autocommits")
@@ -86798,6 +93032,15 @@ class UserParameterArgs:
         pulumi.set(self, "binary_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="clientEnableLogInfoStatementParameters")
+    def client_enable_log_info_statement_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientEnableLogInfoStatementParameterArgs']]]]:
+        return pulumi.get(self, "client_enable_log_info_statement_parameters")
+
+    @client_enable_log_info_statement_parameters.setter
+    def client_enable_log_info_statement_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientEnableLogInfoStatementParameterArgs']]]]):
+        pulumi.set(self, "client_enable_log_info_statement_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="clientMemoryLimits")
     def client_memory_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgs']]]]:
         return pulumi.get(self, "client_memory_limits")
@@ -86814,6 +93057,15 @@ class UserParameterArgs:
     @client_metadata_request_use_connection_ctxes.setter
     def client_metadata_request_use_connection_ctxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgs']]]]):
         pulumi.set(self, "client_metadata_request_use_connection_ctxes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientMetadataUseSessionDatabases")
+    def client_metadata_use_session_databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataUseSessionDatabaseArgs']]]]:
+        return pulumi.get(self, "client_metadata_use_session_databases")
+
+    @client_metadata_use_session_databases.setter
+    def client_metadata_use_session_databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataUseSessionDatabaseArgs']]]]):
+        pulumi.set(self, "client_metadata_use_session_databases", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPrefetchThreads")
@@ -86870,6 +93122,15 @@ class UserParameterArgs:
         pulumi.set(self, "client_timestamp_type_mappings", value)
 
     @_builtins.property
+    @pulumi.getter(name="csvTimestampFormats")
+    def csv_timestamp_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterCsvTimestampFormatArgs']]]]:
+        return pulumi.get(self, "csv_timestamp_formats")
+
+    @csv_timestamp_formats.setter
+    def csv_timestamp_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterCsvTimestampFormatArgs']]]]):
+        pulumi.set(self, "csv_timestamp_formats", value)
+
+    @_builtins.property
     @pulumi.getter(name="dateInputFormats")
     def date_input_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateInputFormatArgs']]]]:
         return pulumi.get(self, "date_input_formats")
@@ -86886,6 +93147,15 @@ class UserParameterArgs:
     @date_output_formats.setter
     def date_output_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateOutputFormatArgs']]]]):
         pulumi.set(self, "date_output_formats", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableGetDdlUseDataTypeAliases")
+    def enable_get_ddl_use_data_type_aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableGetDdlUseDataTypeAliasArgs']]]]:
+        return pulumi.get(self, "enable_get_ddl_use_data_type_aliases")
+
+    @enable_get_ddl_use_data_type_aliases.setter
+    def enable_get_ddl_use_data_type_aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableGetDdlUseDataTypeAliasArgs']]]]):
+        pulumi.set(self, "enable_get_ddl_use_data_type_aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
@@ -86942,6 +93212,15 @@ class UserParameterArgs:
         pulumi.set(self, "geometry_output_formats", value)
 
     @_builtins.property
+    @pulumi.getter(name="hybridTableLockTimeouts")
+    def hybrid_table_lock_timeouts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterHybridTableLockTimeoutArgs']]]]:
+        return pulumi.get(self, "hybrid_table_lock_timeouts")
+
+    @hybrid_table_lock_timeouts.setter
+    def hybrid_table_lock_timeouts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterHybridTableLockTimeoutArgs']]]]):
+        pulumi.set(self, "hybrid_table_lock_timeouts", value)
+
+    @_builtins.property
     @pulumi.getter(name="jdbcTreatDecimalAsInts")
     def jdbc_treat_decimal_as_ints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgs']]]]:
         return pulumi.get(self, "jdbc_treat_decimal_as_ints")
@@ -86967,6 +93246,15 @@ class UserParameterArgs:
     @jdbc_use_session_timezones.setter
     def jdbc_use_session_timezones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgs']]]]):
         pulumi.set(self, "jdbc_use_session_timezones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jsTreatIntegerAsBigints")
+    def js_treat_integer_as_bigints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsTreatIntegerAsBigintArgs']]]]:
+        return pulumi.get(self, "js_treat_integer_as_bigints")
+
+    @js_treat_integer_as_bigints.setter
+    def js_treat_integer_as_bigints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsTreatIntegerAsBigintArgs']]]]):
+        pulumi.set(self, "js_treat_integer_as_bigints", value)
 
     @_builtins.property
     @pulumi.getter(name="jsonIndents")
@@ -87048,6 +93336,24 @@ class UserParameterArgs:
     @prevent_unload_to_internal_stages.setter
     def prevent_unload_to_internal_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgs']]]]):
         pulumi.set(self, "prevent_unload_to_internal_stages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerModules")
+    def python_profiler_modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerModuleArgs']]]]:
+        return pulumi.get(self, "python_profiler_modules")
+
+    @python_profiler_modules.setter
+    def python_profiler_modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerModuleArgs']]]]):
+        pulumi.set(self, "python_profiler_modules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerTargetStages")
+    def python_profiler_target_stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerTargetStageArgs']]]]:
+        return pulumi.get(self, "python_profiler_target_stages")
+
+    @python_profiler_target_stages.setter
+    def python_profiler_target_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPythonProfilerTargetStageArgs']]]]):
+        pulumi.set(self, "python_profiler_target_stages", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTags")
@@ -87365,6 +93671,78 @@ class UserParameterAbortDetachedQueryArgs:
         pulumi.set(self, "value", value)
 
 
+class UserParameterActivePythonProfilerArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterActivePythonProfilerArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class UserParameterAutocommitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -87581,6 +93959,78 @@ class UserParameterBinaryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class UserParameterClientEnableLogInfoStatementParameterArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterClientEnableLogInfoStatementParameterArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class UserParameterClientMemoryLimitArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -87662,6 +94112,78 @@ class UserParameterClientMetadataRequestUseConnectionCtxArgsDict(TypedDict):
 
 @pulumi.input_type
 class UserParameterClientMetadataRequestUseConnectionCtxArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class UserParameterClientMetadataUseSessionDatabaseArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterClientMetadataUseSessionDatabaseArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -88157,6 +94679,78 @@ class UserParameterClientTimestampTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+class UserParameterCsvTimestampFormatArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterCsvTimestampFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class UserParameterDateInputFormatArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -88238,6 +94832,78 @@ class UserParameterDateOutputFormatArgsDict(TypedDict):
 
 @pulumi.input_type
 class UserParameterDateOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class UserParameterEnableGetDdlUseDataTypeAliasArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterEnableGetDdlUseDataTypeAliasArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -88733,6 +95399,78 @@ class UserParameterGeometryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+class UserParameterHybridTableLockTimeoutArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterHybridTableLockTimeoutArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
 class UserParameterJdbcTreatDecimalAsIntArgsDict(TypedDict):
     default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -88886,6 +95624,78 @@ class UserParameterJdbcUseSessionTimezoneArgsDict(TypedDict):
 
 @pulumi.input_type
 class UserParameterJdbcUseSessionTimezoneArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class UserParameterJsTreatIntegerAsBigintArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterJsTreatIntegerAsBigintArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -89534,6 +96344,150 @@ class UserParameterPreventUnloadToInternalStageArgsDict(TypedDict):
 
 @pulumi.input_type
 class UserParameterPreventUnloadToInternalStageArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class UserParameterPythonProfilerModuleArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterPythonProfilerModuleArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class UserParameterPythonProfilerTargetStageArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserParameterPythonProfilerTargetStageArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -94543,6 +101497,163 @@ class WarehouseShowOutputArgs:
         pulumi.set(self, "updated_on", value)
 
 
+class GetAlertsInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    application: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application.
+    """
+    application_package: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application package.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetAlertsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetAlertsLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetAlertsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
 class GetAuthenticationPoliciesInArgsDict(TypedDict):
     account: NotRequired[_builtins.bool]
     """
@@ -94747,6 +101858,232 @@ class GetAuthenticationPoliciesOnArgs:
     @user.setter
     def user(self, value: Optional[_builtins.str]):
         pulumi.set(self, "user", value)
+
+
+class GetBackupPoliciesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetBackupPoliciesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetBackupPoliciesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetBackupPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetCodeBundlesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    application: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application.
+    """
+    application_package: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application package.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetCodeBundlesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
 
 
 class GetComputePoolsLimitArgsDict(TypedDict):
@@ -97259,6 +104596,232 @@ class GetPasswordPoliciesOnArgs:
         pulumi.set(self, "user", value)
 
 
+class GetPipesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    application: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application.
+    """
+    application_package: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application package.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetPipesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetProjectionPoliciesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetProjectionPoliciesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetProjectionPoliciesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetProjectionPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
 class GetRowAccessPoliciesInArgsDict(TypedDict):
     account: NotRequired[_builtins.bool]
     """
@@ -98120,6 +105683,54 @@ class GetSessionPoliciesOnArgs:
     @user.setter
     def user(self, value: Optional[_builtins.str]):
         pulumi.set(self, "user", value)
+
+
+class GetSharesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetSharesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
 
 
 class GetStagesInArgsDict(TypedDict):

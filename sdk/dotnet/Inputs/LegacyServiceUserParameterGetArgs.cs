@@ -20,6 +20,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _abortDetachedQueries = value;
         }
 
+        [Input("activePythonProfilers")]
+        private InputList<Inputs.LegacyServiceUserParameterActivePythonProfilerGetArgs>? _activePythonProfilers;
+        public InputList<Inputs.LegacyServiceUserParameterActivePythonProfilerGetArgs> ActivePythonProfilers
+        {
+            get => _activePythonProfilers ?? (_activePythonProfilers = new InputList<Inputs.LegacyServiceUserParameterActivePythonProfilerGetArgs>());
+            set => _activePythonProfilers = value;
+        }
+
         [Input("autocommits")]
         private InputList<Inputs.LegacyServiceUserParameterAutocommitGetArgs>? _autocommits;
         public InputList<Inputs.LegacyServiceUserParameterAutocommitGetArgs> Autocommits
@@ -44,6 +52,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _binaryOutputFormats = value;
         }
 
+        [Input("clientEnableLogInfoStatementParameters")]
+        private InputList<Inputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameterGetArgs>? _clientEnableLogInfoStatementParameters;
+        public InputList<Inputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameterGetArgs> ClientEnableLogInfoStatementParameters
+        {
+            get => _clientEnableLogInfoStatementParameters ?? (_clientEnableLogInfoStatementParameters = new InputList<Inputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameterGetArgs>());
+            set => _clientEnableLogInfoStatementParameters = value;
+        }
+
         [Input("clientMemoryLimits")]
         private InputList<Inputs.LegacyServiceUserParameterClientMemoryLimitGetArgs>? _clientMemoryLimits;
         public InputList<Inputs.LegacyServiceUserParameterClientMemoryLimitGetArgs> ClientMemoryLimits
@@ -58,6 +74,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _clientMetadataRequestUseConnectionCtxes ?? (_clientMetadataRequestUseConnectionCtxes = new InputList<Inputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxGetArgs>());
             set => _clientMetadataRequestUseConnectionCtxes = value;
+        }
+
+        [Input("clientMetadataUseSessionDatabases")]
+        private InputList<Inputs.LegacyServiceUserParameterClientMetadataUseSessionDatabaseGetArgs>? _clientMetadataUseSessionDatabases;
+        public InputList<Inputs.LegacyServiceUserParameterClientMetadataUseSessionDatabaseGetArgs> ClientMetadataUseSessionDatabases
+        {
+            get => _clientMetadataUseSessionDatabases ?? (_clientMetadataUseSessionDatabases = new InputList<Inputs.LegacyServiceUserParameterClientMetadataUseSessionDatabaseGetArgs>());
+            set => _clientMetadataUseSessionDatabases = value;
         }
 
         [Input("clientPrefetchThreads")]
@@ -108,6 +132,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _clientTimestampTypeMappings = value;
         }
 
+        [Input("csvTimestampFormats")]
+        private InputList<Inputs.LegacyServiceUserParameterCsvTimestampFormatGetArgs>? _csvTimestampFormats;
+        public InputList<Inputs.LegacyServiceUserParameterCsvTimestampFormatGetArgs> CsvTimestampFormats
+        {
+            get => _csvTimestampFormats ?? (_csvTimestampFormats = new InputList<Inputs.LegacyServiceUserParameterCsvTimestampFormatGetArgs>());
+            set => _csvTimestampFormats = value;
+        }
+
         [Input("dateInputFormats")]
         private InputList<Inputs.LegacyServiceUserParameterDateInputFormatGetArgs>? _dateInputFormats;
         public InputList<Inputs.LegacyServiceUserParameterDateInputFormatGetArgs> DateInputFormats
@@ -122,6 +154,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _dateOutputFormats ?? (_dateOutputFormats = new InputList<Inputs.LegacyServiceUserParameterDateOutputFormatGetArgs>());
             set => _dateOutputFormats = value;
+        }
+
+        [Input("enableGetDdlUseDataTypeAliases")]
+        private InputList<Inputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasGetArgs>? _enableGetDdlUseDataTypeAliases;
+        public InputList<Inputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasGetArgs> EnableGetDdlUseDataTypeAliases
+        {
+            get => _enableGetDdlUseDataTypeAliases ?? (_enableGetDdlUseDataTypeAliases = new InputList<Inputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAliasGetArgs>());
+            set => _enableGetDdlUseDataTypeAliases = value;
         }
 
         [Input("enableUnloadPhysicalTypeOptimizations")]
@@ -172,6 +212,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _geometryOutputFormats = value;
         }
 
+        [Input("hybridTableLockTimeouts")]
+        private InputList<Inputs.LegacyServiceUserParameterHybridTableLockTimeoutGetArgs>? _hybridTableLockTimeouts;
+        public InputList<Inputs.LegacyServiceUserParameterHybridTableLockTimeoutGetArgs> HybridTableLockTimeouts
+        {
+            get => _hybridTableLockTimeouts ?? (_hybridTableLockTimeouts = new InputList<Inputs.LegacyServiceUserParameterHybridTableLockTimeoutGetArgs>());
+            set => _hybridTableLockTimeouts = value;
+        }
+
         [Input("jdbcTreatDecimalAsInts")]
         private InputList<Inputs.LegacyServiceUserParameterJdbcTreatDecimalAsIntGetArgs>? _jdbcTreatDecimalAsInts;
         public InputList<Inputs.LegacyServiceUserParameterJdbcTreatDecimalAsIntGetArgs> JdbcTreatDecimalAsInts
@@ -194,6 +242,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _jdbcUseSessionTimezones ?? (_jdbcUseSessionTimezones = new InputList<Inputs.LegacyServiceUserParameterJdbcUseSessionTimezoneGetArgs>());
             set => _jdbcUseSessionTimezones = value;
+        }
+
+        [Input("jsTreatIntegerAsBigints")]
+        private InputList<Inputs.LegacyServiceUserParameterJsTreatIntegerAsBigintGetArgs>? _jsTreatIntegerAsBigints;
+        public InputList<Inputs.LegacyServiceUserParameterJsTreatIntegerAsBigintGetArgs> JsTreatIntegerAsBigints
+        {
+            get => _jsTreatIntegerAsBigints ?? (_jsTreatIntegerAsBigints = new InputList<Inputs.LegacyServiceUserParameterJsTreatIntegerAsBigintGetArgs>());
+            set => _jsTreatIntegerAsBigints = value;
         }
 
         [Input("jsonIndents")]
@@ -266,6 +322,22 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _preventUnloadToInternalStages ?? (_preventUnloadToInternalStages = new InputList<Inputs.LegacyServiceUserParameterPreventUnloadToInternalStageGetArgs>());
             set => _preventUnloadToInternalStages = value;
+        }
+
+        [Input("pythonProfilerModules")]
+        private InputList<Inputs.LegacyServiceUserParameterPythonProfilerModuleGetArgs>? _pythonProfilerModules;
+        public InputList<Inputs.LegacyServiceUserParameterPythonProfilerModuleGetArgs> PythonProfilerModules
+        {
+            get => _pythonProfilerModules ?? (_pythonProfilerModules = new InputList<Inputs.LegacyServiceUserParameterPythonProfilerModuleGetArgs>());
+            set => _pythonProfilerModules = value;
+        }
+
+        [Input("pythonProfilerTargetStages")]
+        private InputList<Inputs.LegacyServiceUserParameterPythonProfilerTargetStageGetArgs>? _pythonProfilerTargetStages;
+        public InputList<Inputs.LegacyServiceUserParameterPythonProfilerTargetStageGetArgs> PythonProfilerTargetStages
+        {
+            get => _pythonProfilerTargetStages ?? (_pythonProfilerTargetStages = new InputList<Inputs.LegacyServiceUserParameterPythonProfilerTargetStageGetArgs>());
+            set => _pythonProfilerTargetStages = value;
         }
 
         [Input("queryTags")]

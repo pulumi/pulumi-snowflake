@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiIntegrationGoogleCloudApiGateway{}
 	case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
 		r = &AuthenticationPolicy{}
+	case "snowflake:index/backupPolicy:BackupPolicy":
+		r = &BackupPolicy{}
 	case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
 		r = &CatalogIntegrationAwsGlue{}
 	case "snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest":
@@ -71,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CatalogIntegrationObjectStorage{}
 	case "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog":
 		r = &CatalogIntegrationOpenCatalog{}
+	case "snowflake:index/codeBundle:CodeBundle":
+		r = &CodeBundle{}
 	case "snowflake:index/computePool:ComputePool":
 		r = &ComputePool{}
 	case "snowflake:index/cortexAgent:CortexAgent":
@@ -203,6 +207,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipe{}
 	case "snowflake:index/postgresInstance:PostgresInstance":
 		r = &PostgresInstance{}
+	case "snowflake:index/postgresMirror:PostgresMirror":
+		r = &PostgresMirror{}
 	case "snowflake:index/primaryConnection:PrimaryConnection":
 		r = &PrimaryConnection{}
 	case "snowflake:index/procedureJava:ProcedureJava":
@@ -215,6 +221,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProcedureScala{}
 	case "snowflake:index/procedureSql:ProcedureSql":
 		r = &ProcedureSql{}
+	case "snowflake:index/projectionPolicy:ProjectionPolicy":
+		r = &ProjectionPolicy{}
+	case "snowflake:index/replicationGroup:ReplicationGroup":
+		r = &ReplicationGroup{}
+	case "snowflake:index/replicationGroupSecondary:ReplicationGroupSecondary":
+		r = &ReplicationGroupSecondary{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
 		r = &ResourceMonitor{}
 	case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
@@ -455,6 +467,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/backupPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/catalogIntegrationAwsGlue",
 		&module{version},
 	)
@@ -471,6 +488,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/catalogIntegrationOpenCatalog",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/codeBundle",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -805,6 +827,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/postgresMirror",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/primaryConnection",
 		&module{version},
 	)
@@ -831,6 +858,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/procedureSql",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/projectionPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/replicationGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/replicationGroupSecondary",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

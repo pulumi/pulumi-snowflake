@@ -10,22 +10,24 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.PipeArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.PipeState;
+import com.pulumi.snowflake.outputs.PipeDescribeOutput;
+import com.pulumi.snowflake.outputs.PipeParameter;
+import com.pulumi.snowflake.outputs.PipeShowOutput;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  * 
- * &gt; **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
+ * Resource used to manage pipes. For more information, check [pipe documentation](https://docs.snowflake.com/en/sql-reference/sql/create-pipe).
  * 
  * ## Import
  * 
- * format is database name | schema name | pipe name
- * 
  * ```sh
- * $ pulumi import snowflake:index/pipe:Pipe example &#39;dbName|schemaName|pipeName&#39;
+ * $ pulumi import snowflake:index/pipe:Pipe example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;pipe_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -88,18 +90,32 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.copyStatement;
     }
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the pipe.
+     * @return The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,PipeDescribeOutput.class}, tree="[0,1]")
+    private Output<List<PipeDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE PIPE` for the given pipe.
+     * 
+     */
+    public Output<List<PipeDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
      * Specifies the name of the notification integration used for error notifications.
@@ -144,14 +160,28 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integration);
     }
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Export(name="logEventLevel", refs={String.class}, tree="[0]")
+    private Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Output<String> logEventLevel() {
+        return this.logEventLevel;
+    }
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * @return Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -160,7 +190,10 @@ public class Pipe extends com.pulumi.resources.CustomResource {
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.notification_channel`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     @Export(name="notificationChannel", refs={String.class}, tree="[0]")
     private Output<String> notificationChannel;
 
@@ -174,7 +207,10 @@ public class Pipe extends com.pulumi.resources.CustomResource {
     /**
      * Name of the role that owns the pipe.
      * 
+     * @deprecated Use the `showOutput` field instead (`show_output.0.owner`). It will be removed in the next major version.
+     * 
      */
+    @Deprecated
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
@@ -186,18 +222,60 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.owner;
     }
     /**
-     * The schema in which to create the pipe.
+     * Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     * 
+     */
+    @Export(name="parameters", refs={List.class,PipeParameter.class}, tree="[0,1]")
+    private Output<List<PipeParameter>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN PIPE` for the given pipe.
+     * 
+     */
+    public Output<List<PipeParameter>> parameters() {
+        return this.parameters;
+    }
+    /**
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    @Export(name="pipeExecutionPaused", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> pipeExecutionPaused;
+
+    /**
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    public Output<Boolean> pipeExecutionPaused() {
+        return this.pipeExecutionPaused;
+    }
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the pipe.
+     * @return The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
         return this.schema;
+    }
+    /**
+     * Outputs the result of `SHOW PIPES` for the given pipe.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,PipeShowOutput.class}, tree="[0,1]")
+    private Output<List<PipeShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW PIPES` for the given pipe.
+     * 
+     */
+    public Output<List<PipeShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

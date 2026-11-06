@@ -6,28 +6,35 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterAbortDetachedQuery;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterActivePythonProfiler;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterAutocommit;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterBinaryInputFormat;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterBinaryOutputFormat;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterClientEnableLogInfoStatementParameter;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientMemoryLimit;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientMetadataRequestUseConnectionCtx;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterClientMetadataUseSessionDatabase;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientPrefetchThread;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientResultChunkSize;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientResultColumnCaseInsensitive;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientSessionKeepAlife;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterClientTimestampTypeMapping;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterCsvTimestampFormat;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterDateInputFormat;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterDateOutputFormat;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterEnableGetDdlUseDataTypeAlias;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterEnableUnloadPhysicalTypeOptimization;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterEnableUnredactedQuerySyntaxError;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterErrorOnNondeterministicMerge;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterErrorOnNondeterministicUpdate;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterGeographyOutputFormat;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterGeometryOutputFormat;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterHybridTableLockTimeout;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJdbcTreatDecimalAsInt;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJdbcTreatTimestampNtzAsUtc;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJdbcUseSessionTimezone;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterJsTreatIntegerAsBigint;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJsonIndent;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterLockTimeout;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterLogEventLevel;
@@ -37,6 +44,8 @@ import com.pulumi.snowflake.outputs.GetUsersUserParameterNetworkPolicy;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterNoorderSequenceAsDefault;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterOdbcTreatDecimalAsInt;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterPreventUnloadToInternalStage;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterPythonProfilerModule;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterPythonProfilerTargetStage;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterQueryTag;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterQuotedIdentifiersIgnoreCase;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterRowsPerResultset;
@@ -70,28 +79,35 @@ import java.util.Objects;
 @CustomType
 public final class GetUsersUserParameter {
     private List<GetUsersUserParameterAbortDetachedQuery> abortDetachedQueries;
+    private List<GetUsersUserParameterActivePythonProfiler> activePythonProfilers;
     private List<GetUsersUserParameterAutocommit> autocommits;
     private List<GetUsersUserParameterBinaryInputFormat> binaryInputFormats;
     private List<GetUsersUserParameterBinaryOutputFormat> binaryOutputFormats;
+    private List<GetUsersUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters;
     private List<GetUsersUserParameterClientMemoryLimit> clientMemoryLimits;
     private List<GetUsersUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes;
+    private List<GetUsersUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases;
     private List<GetUsersUserParameterClientPrefetchThread> clientPrefetchThreads;
     private List<GetUsersUserParameterClientResultChunkSize> clientResultChunkSizes;
     private List<GetUsersUserParameterClientResultColumnCaseInsensitive> clientResultColumnCaseInsensitives;
     private List<GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency> clientSessionKeepAliveHeartbeatFrequencies;
     private List<GetUsersUserParameterClientSessionKeepAlife> clientSessionKeepAlives;
     private List<GetUsersUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings;
+    private List<GetUsersUserParameterCsvTimestampFormat> csvTimestampFormats;
     private List<GetUsersUserParameterDateInputFormat> dateInputFormats;
     private List<GetUsersUserParameterDateOutputFormat> dateOutputFormats;
+    private List<GetUsersUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases;
     private List<GetUsersUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations;
     private List<GetUsersUserParameterEnableUnredactedQuerySyntaxError> enableUnredactedQuerySyntaxErrors;
     private List<GetUsersUserParameterErrorOnNondeterministicMerge> errorOnNondeterministicMerges;
     private List<GetUsersUserParameterErrorOnNondeterministicUpdate> errorOnNondeterministicUpdates;
     private List<GetUsersUserParameterGeographyOutputFormat> geographyOutputFormats;
     private List<GetUsersUserParameterGeometryOutputFormat> geometryOutputFormats;
+    private List<GetUsersUserParameterHybridTableLockTimeout> hybridTableLockTimeouts;
     private List<GetUsersUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts;
     private List<GetUsersUserParameterJdbcTreatTimestampNtzAsUtc> jdbcTreatTimestampNtzAsUtcs;
     private List<GetUsersUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
+    private List<GetUsersUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints;
     private List<GetUsersUserParameterJsonIndent> jsonIndents;
     private List<GetUsersUserParameterLockTimeout> lockTimeouts;
     private List<GetUsersUserParameterLogEventLevel> logEventLevels;
@@ -101,6 +117,8 @@ public final class GetUsersUserParameter {
     private List<GetUsersUserParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
     private List<GetUsersUserParameterOdbcTreatDecimalAsInt> odbcTreatDecimalAsInts;
     private List<GetUsersUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages;
+    private List<GetUsersUserParameterPythonProfilerModule> pythonProfilerModules;
+    private List<GetUsersUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages;
     private List<GetUsersUserParameterQueryTag> queryTags;
     private List<GetUsersUserParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
     private List<GetUsersUserParameterRowsPerResultset> rowsPerResultsets;
@@ -133,6 +151,9 @@ public final class GetUsersUserParameter {
     public List<GetUsersUserParameterAbortDetachedQuery> abortDetachedQueries() {
         return this.abortDetachedQueries;
     }
+    public List<GetUsersUserParameterActivePythonProfiler> activePythonProfilers() {
+        return this.activePythonProfilers;
+    }
     public List<GetUsersUserParameterAutocommit> autocommits() {
         return this.autocommits;
     }
@@ -142,11 +163,17 @@ public final class GetUsersUserParameter {
     public List<GetUsersUserParameterBinaryOutputFormat> binaryOutputFormats() {
         return this.binaryOutputFormats;
     }
+    public List<GetUsersUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters() {
+        return this.clientEnableLogInfoStatementParameters;
+    }
     public List<GetUsersUserParameterClientMemoryLimit> clientMemoryLimits() {
         return this.clientMemoryLimits;
     }
     public List<GetUsersUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes() {
         return this.clientMetadataRequestUseConnectionCtxes;
+    }
+    public List<GetUsersUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases() {
+        return this.clientMetadataUseSessionDatabases;
     }
     public List<GetUsersUserParameterClientPrefetchThread> clientPrefetchThreads() {
         return this.clientPrefetchThreads;
@@ -166,11 +193,17 @@ public final class GetUsersUserParameter {
     public List<GetUsersUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings() {
         return this.clientTimestampTypeMappings;
     }
+    public List<GetUsersUserParameterCsvTimestampFormat> csvTimestampFormats() {
+        return this.csvTimestampFormats;
+    }
     public List<GetUsersUserParameterDateInputFormat> dateInputFormats() {
         return this.dateInputFormats;
     }
     public List<GetUsersUserParameterDateOutputFormat> dateOutputFormats() {
         return this.dateOutputFormats;
+    }
+    public List<GetUsersUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases() {
+        return this.enableGetDdlUseDataTypeAliases;
     }
     public List<GetUsersUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations() {
         return this.enableUnloadPhysicalTypeOptimizations;
@@ -190,6 +223,9 @@ public final class GetUsersUserParameter {
     public List<GetUsersUserParameterGeometryOutputFormat> geometryOutputFormats() {
         return this.geometryOutputFormats;
     }
+    public List<GetUsersUserParameterHybridTableLockTimeout> hybridTableLockTimeouts() {
+        return this.hybridTableLockTimeouts;
+    }
     public List<GetUsersUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts() {
         return this.jdbcTreatDecimalAsInts;
     }
@@ -198,6 +234,9 @@ public final class GetUsersUserParameter {
     }
     public List<GetUsersUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones() {
         return this.jdbcUseSessionTimezones;
+    }
+    public List<GetUsersUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints() {
+        return this.jsTreatIntegerAsBigints;
     }
     public List<GetUsersUserParameterJsonIndent> jsonIndents() {
         return this.jsonIndents;
@@ -225,6 +264,12 @@ public final class GetUsersUserParameter {
     }
     public List<GetUsersUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages() {
         return this.preventUnloadToInternalStages;
+    }
+    public List<GetUsersUserParameterPythonProfilerModule> pythonProfilerModules() {
+        return this.pythonProfilerModules;
+    }
+    public List<GetUsersUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages() {
+        return this.pythonProfilerTargetStages;
     }
     public List<GetUsersUserParameterQueryTag> queryTags() {
         return this.queryTags;
@@ -318,28 +363,35 @@ public final class GetUsersUserParameter {
     @CustomType.Builder
     public static final class Builder {
         private List<GetUsersUserParameterAbortDetachedQuery> abortDetachedQueries;
+        private List<GetUsersUserParameterActivePythonProfiler> activePythonProfilers;
         private List<GetUsersUserParameterAutocommit> autocommits;
         private List<GetUsersUserParameterBinaryInputFormat> binaryInputFormats;
         private List<GetUsersUserParameterBinaryOutputFormat> binaryOutputFormats;
+        private List<GetUsersUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters;
         private List<GetUsersUserParameterClientMemoryLimit> clientMemoryLimits;
         private List<GetUsersUserParameterClientMetadataRequestUseConnectionCtx> clientMetadataRequestUseConnectionCtxes;
+        private List<GetUsersUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases;
         private List<GetUsersUserParameterClientPrefetchThread> clientPrefetchThreads;
         private List<GetUsersUserParameterClientResultChunkSize> clientResultChunkSizes;
         private List<GetUsersUserParameterClientResultColumnCaseInsensitive> clientResultColumnCaseInsensitives;
         private List<GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency> clientSessionKeepAliveHeartbeatFrequencies;
         private List<GetUsersUserParameterClientSessionKeepAlife> clientSessionKeepAlives;
         private List<GetUsersUserParameterClientTimestampTypeMapping> clientTimestampTypeMappings;
+        private List<GetUsersUserParameterCsvTimestampFormat> csvTimestampFormats;
         private List<GetUsersUserParameterDateInputFormat> dateInputFormats;
         private List<GetUsersUserParameterDateOutputFormat> dateOutputFormats;
+        private List<GetUsersUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases;
         private List<GetUsersUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations;
         private List<GetUsersUserParameterEnableUnredactedQuerySyntaxError> enableUnredactedQuerySyntaxErrors;
         private List<GetUsersUserParameterErrorOnNondeterministicMerge> errorOnNondeterministicMerges;
         private List<GetUsersUserParameterErrorOnNondeterministicUpdate> errorOnNondeterministicUpdates;
         private List<GetUsersUserParameterGeographyOutputFormat> geographyOutputFormats;
         private List<GetUsersUserParameterGeometryOutputFormat> geometryOutputFormats;
+        private List<GetUsersUserParameterHybridTableLockTimeout> hybridTableLockTimeouts;
         private List<GetUsersUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts;
         private List<GetUsersUserParameterJdbcTreatTimestampNtzAsUtc> jdbcTreatTimestampNtzAsUtcs;
         private List<GetUsersUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
+        private List<GetUsersUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints;
         private List<GetUsersUserParameterJsonIndent> jsonIndents;
         private List<GetUsersUserParameterLockTimeout> lockTimeouts;
         private List<GetUsersUserParameterLogEventLevel> logEventLevels;
@@ -349,6 +401,8 @@ public final class GetUsersUserParameter {
         private List<GetUsersUserParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
         private List<GetUsersUserParameterOdbcTreatDecimalAsInt> odbcTreatDecimalAsInts;
         private List<GetUsersUserParameterPreventUnloadToInternalStage> preventUnloadToInternalStages;
+        private List<GetUsersUserParameterPythonProfilerModule> pythonProfilerModules;
+        private List<GetUsersUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages;
         private List<GetUsersUserParameterQueryTag> queryTags;
         private List<GetUsersUserParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
         private List<GetUsersUserParameterRowsPerResultset> rowsPerResultsets;
@@ -380,28 +434,35 @@ public final class GetUsersUserParameter {
         public Builder(GetUsersUserParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.abortDetachedQueries = defaults.abortDetachedQueries;
+    	      this.activePythonProfilers = defaults.activePythonProfilers;
     	      this.autocommits = defaults.autocommits;
     	      this.binaryInputFormats = defaults.binaryInputFormats;
     	      this.binaryOutputFormats = defaults.binaryOutputFormats;
+    	      this.clientEnableLogInfoStatementParameters = defaults.clientEnableLogInfoStatementParameters;
     	      this.clientMemoryLimits = defaults.clientMemoryLimits;
     	      this.clientMetadataRequestUseConnectionCtxes = defaults.clientMetadataRequestUseConnectionCtxes;
+    	      this.clientMetadataUseSessionDatabases = defaults.clientMetadataUseSessionDatabases;
     	      this.clientPrefetchThreads = defaults.clientPrefetchThreads;
     	      this.clientResultChunkSizes = defaults.clientResultChunkSizes;
     	      this.clientResultColumnCaseInsensitives = defaults.clientResultColumnCaseInsensitives;
     	      this.clientSessionKeepAliveHeartbeatFrequencies = defaults.clientSessionKeepAliveHeartbeatFrequencies;
     	      this.clientSessionKeepAlives = defaults.clientSessionKeepAlives;
     	      this.clientTimestampTypeMappings = defaults.clientTimestampTypeMappings;
+    	      this.csvTimestampFormats = defaults.csvTimestampFormats;
     	      this.dateInputFormats = defaults.dateInputFormats;
     	      this.dateOutputFormats = defaults.dateOutputFormats;
+    	      this.enableGetDdlUseDataTypeAliases = defaults.enableGetDdlUseDataTypeAliases;
     	      this.enableUnloadPhysicalTypeOptimizations = defaults.enableUnloadPhysicalTypeOptimizations;
     	      this.enableUnredactedQuerySyntaxErrors = defaults.enableUnredactedQuerySyntaxErrors;
     	      this.errorOnNondeterministicMerges = defaults.errorOnNondeterministicMerges;
     	      this.errorOnNondeterministicUpdates = defaults.errorOnNondeterministicUpdates;
     	      this.geographyOutputFormats = defaults.geographyOutputFormats;
     	      this.geometryOutputFormats = defaults.geometryOutputFormats;
+    	      this.hybridTableLockTimeouts = defaults.hybridTableLockTimeouts;
     	      this.jdbcTreatDecimalAsInts = defaults.jdbcTreatDecimalAsInts;
     	      this.jdbcTreatTimestampNtzAsUtcs = defaults.jdbcTreatTimestampNtzAsUtcs;
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
+    	      this.jsTreatIntegerAsBigints = defaults.jsTreatIntegerAsBigints;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
     	      this.logEventLevels = defaults.logEventLevels;
@@ -411,6 +472,8 @@ public final class GetUsersUserParameter {
     	      this.noorderSequenceAsDefaults = defaults.noorderSequenceAsDefaults;
     	      this.odbcTreatDecimalAsInts = defaults.odbcTreatDecimalAsInts;
     	      this.preventUnloadToInternalStages = defaults.preventUnloadToInternalStages;
+    	      this.pythonProfilerModules = defaults.pythonProfilerModules;
+    	      this.pythonProfilerTargetStages = defaults.pythonProfilerTargetStages;
     	      this.queryTags = defaults.queryTags;
     	      this.quotedIdentifiersIgnoreCases = defaults.quotedIdentifiersIgnoreCases;
     	      this.rowsPerResultsets = defaults.rowsPerResultsets;
@@ -452,6 +515,17 @@ public final class GetUsersUserParameter {
             return abortDetachedQueries(List.of(abortDetachedQueries));
         }
         @CustomType.Setter
+        public Builder activePythonProfilers(List<GetUsersUserParameterActivePythonProfiler> activePythonProfilers) {
+            if (activePythonProfilers == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "activePythonProfilers");
+            }
+            this.activePythonProfilers = activePythonProfilers;
+            return this;
+        }
+        public Builder activePythonProfilers(GetUsersUserParameterActivePythonProfiler... activePythonProfilers) {
+            return activePythonProfilers(List.of(activePythonProfilers));
+        }
+        @CustomType.Setter
         public Builder autocommits(List<GetUsersUserParameterAutocommit> autocommits) {
             if (autocommits == null) {
               throw new MissingRequiredPropertyException("GetUsersUserParameter", "autocommits");
@@ -485,6 +559,17 @@ public final class GetUsersUserParameter {
             return binaryOutputFormats(List.of(binaryOutputFormats));
         }
         @CustomType.Setter
+        public Builder clientEnableLogInfoStatementParameters(List<GetUsersUserParameterClientEnableLogInfoStatementParameter> clientEnableLogInfoStatementParameters) {
+            if (clientEnableLogInfoStatementParameters == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "clientEnableLogInfoStatementParameters");
+            }
+            this.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
+            return this;
+        }
+        public Builder clientEnableLogInfoStatementParameters(GetUsersUserParameterClientEnableLogInfoStatementParameter... clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(List.of(clientEnableLogInfoStatementParameters));
+        }
+        @CustomType.Setter
         public Builder clientMemoryLimits(List<GetUsersUserParameterClientMemoryLimit> clientMemoryLimits) {
             if (clientMemoryLimits == null) {
               throw new MissingRequiredPropertyException("GetUsersUserParameter", "clientMemoryLimits");
@@ -505,6 +590,17 @@ public final class GetUsersUserParameter {
         }
         public Builder clientMetadataRequestUseConnectionCtxes(GetUsersUserParameterClientMetadataRequestUseConnectionCtx... clientMetadataRequestUseConnectionCtxes) {
             return clientMetadataRequestUseConnectionCtxes(List.of(clientMetadataRequestUseConnectionCtxes));
+        }
+        @CustomType.Setter
+        public Builder clientMetadataUseSessionDatabases(List<GetUsersUserParameterClientMetadataUseSessionDatabase> clientMetadataUseSessionDatabases) {
+            if (clientMetadataUseSessionDatabases == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "clientMetadataUseSessionDatabases");
+            }
+            this.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
+            return this;
+        }
+        public Builder clientMetadataUseSessionDatabases(GetUsersUserParameterClientMetadataUseSessionDatabase... clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(List.of(clientMetadataUseSessionDatabases));
         }
         @CustomType.Setter
         public Builder clientPrefetchThreads(List<GetUsersUserParameterClientPrefetchThread> clientPrefetchThreads) {
@@ -573,6 +669,17 @@ public final class GetUsersUserParameter {
             return clientTimestampTypeMappings(List.of(clientTimestampTypeMappings));
         }
         @CustomType.Setter
+        public Builder csvTimestampFormats(List<GetUsersUserParameterCsvTimestampFormat> csvTimestampFormats) {
+            if (csvTimestampFormats == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "csvTimestampFormats");
+            }
+            this.csvTimestampFormats = csvTimestampFormats;
+            return this;
+        }
+        public Builder csvTimestampFormats(GetUsersUserParameterCsvTimestampFormat... csvTimestampFormats) {
+            return csvTimestampFormats(List.of(csvTimestampFormats));
+        }
+        @CustomType.Setter
         public Builder dateInputFormats(List<GetUsersUserParameterDateInputFormat> dateInputFormats) {
             if (dateInputFormats == null) {
               throw new MissingRequiredPropertyException("GetUsersUserParameter", "dateInputFormats");
@@ -593,6 +700,17 @@ public final class GetUsersUserParameter {
         }
         public Builder dateOutputFormats(GetUsersUserParameterDateOutputFormat... dateOutputFormats) {
             return dateOutputFormats(List.of(dateOutputFormats));
+        }
+        @CustomType.Setter
+        public Builder enableGetDdlUseDataTypeAliases(List<GetUsersUserParameterEnableGetDdlUseDataTypeAlias> enableGetDdlUseDataTypeAliases) {
+            if (enableGetDdlUseDataTypeAliases == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "enableGetDdlUseDataTypeAliases");
+            }
+            this.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
+            return this;
+        }
+        public Builder enableGetDdlUseDataTypeAliases(GetUsersUserParameterEnableGetDdlUseDataTypeAlias... enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(List.of(enableGetDdlUseDataTypeAliases));
         }
         @CustomType.Setter
         public Builder enableUnloadPhysicalTypeOptimizations(List<GetUsersUserParameterEnableUnloadPhysicalTypeOptimization> enableUnloadPhysicalTypeOptimizations) {
@@ -661,6 +779,17 @@ public final class GetUsersUserParameter {
             return geometryOutputFormats(List.of(geometryOutputFormats));
         }
         @CustomType.Setter
+        public Builder hybridTableLockTimeouts(List<GetUsersUserParameterHybridTableLockTimeout> hybridTableLockTimeouts) {
+            if (hybridTableLockTimeouts == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "hybridTableLockTimeouts");
+            }
+            this.hybridTableLockTimeouts = hybridTableLockTimeouts;
+            return this;
+        }
+        public Builder hybridTableLockTimeouts(GetUsersUserParameterHybridTableLockTimeout... hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(List.of(hybridTableLockTimeouts));
+        }
+        @CustomType.Setter
         public Builder jdbcTreatDecimalAsInts(List<GetUsersUserParameterJdbcTreatDecimalAsInt> jdbcTreatDecimalAsInts) {
             if (jdbcTreatDecimalAsInts == null) {
               throw new MissingRequiredPropertyException("GetUsersUserParameter", "jdbcTreatDecimalAsInts");
@@ -692,6 +821,17 @@ public final class GetUsersUserParameter {
         }
         public Builder jdbcUseSessionTimezones(GetUsersUserParameterJdbcUseSessionTimezone... jdbcUseSessionTimezones) {
             return jdbcUseSessionTimezones(List.of(jdbcUseSessionTimezones));
+        }
+        @CustomType.Setter
+        public Builder jsTreatIntegerAsBigints(List<GetUsersUserParameterJsTreatIntegerAsBigint> jsTreatIntegerAsBigints) {
+            if (jsTreatIntegerAsBigints == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "jsTreatIntegerAsBigints");
+            }
+            this.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
+            return this;
+        }
+        public Builder jsTreatIntegerAsBigints(GetUsersUserParameterJsTreatIntegerAsBigint... jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(List.of(jsTreatIntegerAsBigints));
         }
         @CustomType.Setter
         public Builder jsonIndents(List<GetUsersUserParameterJsonIndent> jsonIndents) {
@@ -791,6 +931,28 @@ public final class GetUsersUserParameter {
         }
         public Builder preventUnloadToInternalStages(GetUsersUserParameterPreventUnloadToInternalStage... preventUnloadToInternalStages) {
             return preventUnloadToInternalStages(List.of(preventUnloadToInternalStages));
+        }
+        @CustomType.Setter
+        public Builder pythonProfilerModules(List<GetUsersUserParameterPythonProfilerModule> pythonProfilerModules) {
+            if (pythonProfilerModules == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "pythonProfilerModules");
+            }
+            this.pythonProfilerModules = pythonProfilerModules;
+            return this;
+        }
+        public Builder pythonProfilerModules(GetUsersUserParameterPythonProfilerModule... pythonProfilerModules) {
+            return pythonProfilerModules(List.of(pythonProfilerModules));
+        }
+        @CustomType.Setter
+        public Builder pythonProfilerTargetStages(List<GetUsersUserParameterPythonProfilerTargetStage> pythonProfilerTargetStages) {
+            if (pythonProfilerTargetStages == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "pythonProfilerTargetStages");
+            }
+            this.pythonProfilerTargetStages = pythonProfilerTargetStages;
+            return this;
+        }
+        public Builder pythonProfilerTargetStages(GetUsersUserParameterPythonProfilerTargetStage... pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(List.of(pythonProfilerTargetStages));
         }
         @CustomType.Setter
         public Builder queryTags(List<GetUsersUserParameterQueryTag> queryTags) {
@@ -1092,28 +1254,35 @@ public final class GetUsersUserParameter {
         public GetUsersUserParameter build() {
             final var _resultValue = new GetUsersUserParameter();
             _resultValue.abortDetachedQueries = abortDetachedQueries;
+            _resultValue.activePythonProfilers = activePythonProfilers;
             _resultValue.autocommits = autocommits;
             _resultValue.binaryInputFormats = binaryInputFormats;
             _resultValue.binaryOutputFormats = binaryOutputFormats;
+            _resultValue.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
             _resultValue.clientMemoryLimits = clientMemoryLimits;
             _resultValue.clientMetadataRequestUseConnectionCtxes = clientMetadataRequestUseConnectionCtxes;
+            _resultValue.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
             _resultValue.clientPrefetchThreads = clientPrefetchThreads;
             _resultValue.clientResultChunkSizes = clientResultChunkSizes;
             _resultValue.clientResultColumnCaseInsensitives = clientResultColumnCaseInsensitives;
             _resultValue.clientSessionKeepAliveHeartbeatFrequencies = clientSessionKeepAliveHeartbeatFrequencies;
             _resultValue.clientSessionKeepAlives = clientSessionKeepAlives;
             _resultValue.clientTimestampTypeMappings = clientTimestampTypeMappings;
+            _resultValue.csvTimestampFormats = csvTimestampFormats;
             _resultValue.dateInputFormats = dateInputFormats;
             _resultValue.dateOutputFormats = dateOutputFormats;
+            _resultValue.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
             _resultValue.enableUnloadPhysicalTypeOptimizations = enableUnloadPhysicalTypeOptimizations;
             _resultValue.enableUnredactedQuerySyntaxErrors = enableUnredactedQuerySyntaxErrors;
             _resultValue.errorOnNondeterministicMerges = errorOnNondeterministicMerges;
             _resultValue.errorOnNondeterministicUpdates = errorOnNondeterministicUpdates;
             _resultValue.geographyOutputFormats = geographyOutputFormats;
             _resultValue.geometryOutputFormats = geometryOutputFormats;
+            _resultValue.hybridTableLockTimeouts = hybridTableLockTimeouts;
             _resultValue.jdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
             _resultValue.jdbcTreatTimestampNtzAsUtcs = jdbcTreatTimestampNtzAsUtcs;
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
+            _resultValue.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
             _resultValue.logEventLevels = logEventLevels;
@@ -1123,6 +1292,8 @@ public final class GetUsersUserParameter {
             _resultValue.noorderSequenceAsDefaults = noorderSequenceAsDefaults;
             _resultValue.odbcTreatDecimalAsInts = odbcTreatDecimalAsInts;
             _resultValue.preventUnloadToInternalStages = preventUnloadToInternalStages;
+            _resultValue.pythonProfilerModules = pythonProfilerModules;
+            _resultValue.pythonProfilerTargetStages = pythonProfilerTargetStages;
             _resultValue.queryTags = queryTags;
             _resultValue.quotedIdentifiersIgnoreCases = quotedIdentifiersIgnoreCases;
             _resultValue.rowsPerResultsets = rowsPerResultsets;

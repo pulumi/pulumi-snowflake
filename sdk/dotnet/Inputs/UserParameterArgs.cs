@@ -20,6 +20,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _abortDetachedQueries = value;
         }
 
+        [Input("activePythonProfilers")]
+        private InputList<Inputs.UserParameterActivePythonProfilerArgs>? _activePythonProfilers;
+        public InputList<Inputs.UserParameterActivePythonProfilerArgs> ActivePythonProfilers
+        {
+            get => _activePythonProfilers ?? (_activePythonProfilers = new InputList<Inputs.UserParameterActivePythonProfilerArgs>());
+            set => _activePythonProfilers = value;
+        }
+
         [Input("autocommits")]
         private InputList<Inputs.UserParameterAutocommitArgs>? _autocommits;
         public InputList<Inputs.UserParameterAutocommitArgs> Autocommits
@@ -44,6 +52,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _binaryOutputFormats = value;
         }
 
+        [Input("clientEnableLogInfoStatementParameters")]
+        private InputList<Inputs.UserParameterClientEnableLogInfoStatementParameterArgs>? _clientEnableLogInfoStatementParameters;
+        public InputList<Inputs.UserParameterClientEnableLogInfoStatementParameterArgs> ClientEnableLogInfoStatementParameters
+        {
+            get => _clientEnableLogInfoStatementParameters ?? (_clientEnableLogInfoStatementParameters = new InputList<Inputs.UserParameterClientEnableLogInfoStatementParameterArgs>());
+            set => _clientEnableLogInfoStatementParameters = value;
+        }
+
         [Input("clientMemoryLimits")]
         private InputList<Inputs.UserParameterClientMemoryLimitArgs>? _clientMemoryLimits;
         public InputList<Inputs.UserParameterClientMemoryLimitArgs> ClientMemoryLimits
@@ -58,6 +74,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _clientMetadataRequestUseConnectionCtxes ?? (_clientMetadataRequestUseConnectionCtxes = new InputList<Inputs.UserParameterClientMetadataRequestUseConnectionCtxArgs>());
             set => _clientMetadataRequestUseConnectionCtxes = value;
+        }
+
+        [Input("clientMetadataUseSessionDatabases")]
+        private InputList<Inputs.UserParameterClientMetadataUseSessionDatabaseArgs>? _clientMetadataUseSessionDatabases;
+        public InputList<Inputs.UserParameterClientMetadataUseSessionDatabaseArgs> ClientMetadataUseSessionDatabases
+        {
+            get => _clientMetadataUseSessionDatabases ?? (_clientMetadataUseSessionDatabases = new InputList<Inputs.UserParameterClientMetadataUseSessionDatabaseArgs>());
+            set => _clientMetadataUseSessionDatabases = value;
         }
 
         [Input("clientPrefetchThreads")]
@@ -108,6 +132,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _clientTimestampTypeMappings = value;
         }
 
+        [Input("csvTimestampFormats")]
+        private InputList<Inputs.UserParameterCsvTimestampFormatArgs>? _csvTimestampFormats;
+        public InputList<Inputs.UserParameterCsvTimestampFormatArgs> CsvTimestampFormats
+        {
+            get => _csvTimestampFormats ?? (_csvTimestampFormats = new InputList<Inputs.UserParameterCsvTimestampFormatArgs>());
+            set => _csvTimestampFormats = value;
+        }
+
         [Input("dateInputFormats")]
         private InputList<Inputs.UserParameterDateInputFormatArgs>? _dateInputFormats;
         public InputList<Inputs.UserParameterDateInputFormatArgs> DateInputFormats
@@ -122,6 +154,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _dateOutputFormats ?? (_dateOutputFormats = new InputList<Inputs.UserParameterDateOutputFormatArgs>());
             set => _dateOutputFormats = value;
+        }
+
+        [Input("enableGetDdlUseDataTypeAliases")]
+        private InputList<Inputs.UserParameterEnableGetDdlUseDataTypeAliasArgs>? _enableGetDdlUseDataTypeAliases;
+        public InputList<Inputs.UserParameterEnableGetDdlUseDataTypeAliasArgs> EnableGetDdlUseDataTypeAliases
+        {
+            get => _enableGetDdlUseDataTypeAliases ?? (_enableGetDdlUseDataTypeAliases = new InputList<Inputs.UserParameterEnableGetDdlUseDataTypeAliasArgs>());
+            set => _enableGetDdlUseDataTypeAliases = value;
         }
 
         [Input("enableUnloadPhysicalTypeOptimizations")]
@@ -172,6 +212,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _geometryOutputFormats = value;
         }
 
+        [Input("hybridTableLockTimeouts")]
+        private InputList<Inputs.UserParameterHybridTableLockTimeoutArgs>? _hybridTableLockTimeouts;
+        public InputList<Inputs.UserParameterHybridTableLockTimeoutArgs> HybridTableLockTimeouts
+        {
+            get => _hybridTableLockTimeouts ?? (_hybridTableLockTimeouts = new InputList<Inputs.UserParameterHybridTableLockTimeoutArgs>());
+            set => _hybridTableLockTimeouts = value;
+        }
+
         [Input("jdbcTreatDecimalAsInts")]
         private InputList<Inputs.UserParameterJdbcTreatDecimalAsIntArgs>? _jdbcTreatDecimalAsInts;
         public InputList<Inputs.UserParameterJdbcTreatDecimalAsIntArgs> JdbcTreatDecimalAsInts
@@ -194,6 +242,14 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _jdbcUseSessionTimezones ?? (_jdbcUseSessionTimezones = new InputList<Inputs.UserParameterJdbcUseSessionTimezoneArgs>());
             set => _jdbcUseSessionTimezones = value;
+        }
+
+        [Input("jsTreatIntegerAsBigints")]
+        private InputList<Inputs.UserParameterJsTreatIntegerAsBigintArgs>? _jsTreatIntegerAsBigints;
+        public InputList<Inputs.UserParameterJsTreatIntegerAsBigintArgs> JsTreatIntegerAsBigints
+        {
+            get => _jsTreatIntegerAsBigints ?? (_jsTreatIntegerAsBigints = new InputList<Inputs.UserParameterJsTreatIntegerAsBigintArgs>());
+            set => _jsTreatIntegerAsBigints = value;
         }
 
         [Input("jsonIndents")]
@@ -266,6 +322,22 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _preventUnloadToInternalStages ?? (_preventUnloadToInternalStages = new InputList<Inputs.UserParameterPreventUnloadToInternalStageArgs>());
             set => _preventUnloadToInternalStages = value;
+        }
+
+        [Input("pythonProfilerModules")]
+        private InputList<Inputs.UserParameterPythonProfilerModuleArgs>? _pythonProfilerModules;
+        public InputList<Inputs.UserParameterPythonProfilerModuleArgs> PythonProfilerModules
+        {
+            get => _pythonProfilerModules ?? (_pythonProfilerModules = new InputList<Inputs.UserParameterPythonProfilerModuleArgs>());
+            set => _pythonProfilerModules = value;
+        }
+
+        [Input("pythonProfilerTargetStages")]
+        private InputList<Inputs.UserParameterPythonProfilerTargetStageArgs>? _pythonProfilerTargetStages;
+        public InputList<Inputs.UserParameterPythonProfilerTargetStageArgs> PythonProfilerTargetStages
+        {
+            get => _pythonProfilerTargetStages ?? (_pythonProfilerTargetStages = new InputList<Inputs.UserParameterPythonProfilerTargetStageArgs>());
+            set => _pythonProfilerTargetStages = value;
         }
 
         [Input("queryTags")]

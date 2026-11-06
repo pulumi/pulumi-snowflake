@@ -78,14 +78,14 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the pipe.
+     * The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the pipe.
+     * @return The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -123,14 +123,29 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Import(name="logEventLevel")
+    private @Nullable Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Optional<Output<String>> logEventLevel() {
+        return Optional.ofNullable(this.logEventLevel);
+    }
+
+    /**
+     * Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+     * @return Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,14 +153,29 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the pipe.
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    @Import(name="pipeExecutionPaused")
+    private @Nullable Output<Boolean> pipeExecutionPaused;
+
+    /**
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    public Optional<Output<Boolean>> pipeExecutionPaused() {
+        return Optional.ofNullable(this.pipeExecutionPaused);
+    }
+
+    /**
+     * The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the pipe.
+     * @return The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -162,7 +192,9 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         this.database = $.database;
         this.errorIntegration = $.errorIntegration;
         this.integration = $.integration;
+        this.logEventLevel = $.logEventLevel;
         this.name = $.name;
+        this.pipeExecutionPaused = $.pipeExecutionPaused;
         this.schema = $.schema;
     }
 
@@ -269,7 +301,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the pipe.
+         * @param database The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -280,7 +312,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the pipe.
+         * @param database The database in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -332,7 +364,28 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(@Nullable Output<String> logEventLevel) {
+            $.logEventLevel = logEventLevel;
+            return this;
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(String logEventLevel) {
+            return logEventLevel(Output.of(logEventLevel));
+        }
+
+        /**
+         * @param name Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -343,7 +396,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
+         * @param name Specifies the identifier for the pipe; must be unique for the schema in which the pipe is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -353,7 +406,28 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the pipe.
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeExecutionPaused(@Nullable Output<Boolean> pipeExecutionPaused) {
+            $.pipeExecutionPaused = pipeExecutionPaused;
+            return this;
+        }
+
+        /**
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeExecutionPaused(Boolean pipeExecutionPaused) {
+            return pipeExecutionPaused(Output.of(pipeExecutionPaused));
+        }
+
+        /**
+         * @param schema The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -364,7 +438,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the pipe.
+         * @param schema The schema in which to create the pipe. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

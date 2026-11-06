@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string DatabaseName;
         public readonly string DroppedOn;
         public readonly bool EnableSchemaEvolution;
+        public readonly bool IsDynamic;
         public readonly bool IsEvent;
         public readonly bool IsExternal;
         public readonly string Kind;
@@ -58,6 +59,8 @@ namespace Pulumi.Snowflake.Outputs
 
             bool enableSchemaEvolution,
 
+            bool isDynamic,
+
             bool isEvent,
 
             bool isExternal,
@@ -92,6 +95,7 @@ namespace Pulumi.Snowflake.Outputs
             DatabaseName = databaseName;
             DroppedOn = droppedOn;
             EnableSchemaEvolution = enableSchemaEvolution;
+            IsDynamic = isDynamic;
             IsEvent = isEvent;
             IsExternal = isExternal;
             Kind = kind;

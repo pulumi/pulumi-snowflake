@@ -5,10 +5,12 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.DatabaseParameterArgs;
 import com.pulumi.snowflake.inputs.DatabaseReplicationArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -244,6 +246,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<List<DatabaseParameterArgs>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     * 
+     */
+    public Optional<Output<List<DatabaseParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
@@ -411,6 +428,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.logLevel = $.logLevel;
         this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
         this.name = $.name;
+        this.parameters = $.parameters;
         this.quotedIdentifiersIgnoreCase = $.quotedIdentifiersIgnoreCase;
         this.replaceInvalidCharacters = $.replaceInvalidCharacters;
         this.replication = $.replication;
@@ -754,6 +772,37 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<List<DatabaseParameterArgs>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(List<DatabaseParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(DatabaseParameterArgs... parameters) {
+            return parameters(List.of(parameters));
         }
 
         /**

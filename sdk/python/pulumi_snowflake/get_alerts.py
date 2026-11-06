@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetAlertsResult',
@@ -27,38 +28,36 @@ class GetAlertsResult:
     """
     A collection of values returned by getAlerts.
     """
-    def __init__(__self__, alerts=None, database=None, id=None, pattern=None, schema=None):
+    def __init__(__self__, alerts=None, id=None, in_=None, like=None, limit=None, starts_with=None, with_describe=None):
         if alerts and not isinstance(alerts, list):
             raise TypeError("Expected argument 'alerts' to be a list")
         pulumi.set(__self__, "alerts", alerts)
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pattern and not isinstance(pattern, str):
-            raise TypeError("Expected argument 'pattern' to be a str")
-        pulumi.set(__self__, "pattern", pattern)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if limit and not isinstance(limit, dict):
+            raise TypeError("Expected argument 'limit' to be a dict")
+        pulumi.set(__self__, "limit", limit)
+        if starts_with and not isinstance(starts_with, str):
+            raise TypeError("Expected argument 'starts_with' to be a str")
+        pulumi.set(__self__, "starts_with", starts_with)
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @_builtins.property
     @pulumi.getter
     def alerts(self) -> Sequence['outputs.GetAlertsAlertResult']:
         """
-        Lists alerts for the current/specified database or schema, or across the entire account.
+        Holds the aggregated output of all alert details queries.
         """
         return pulumi.get(self, "alerts")
-
-    @_builtins.property
-    @pulumi.getter
-    def database(self) -> Optional[_builtins.str]:
-        """
-        The database from which to return the alerts from.
-        """
-        return pulumi.get(self, "database")
 
     @_builtins.property
     @pulumi.getter
@@ -69,20 +68,44 @@ class GetAlertsResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter
-    def pattern(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetAlertsInResult']:
         """
-        Filters the command output by object name.
+        IN clause to filter the list of objects
         """
-        return pulumi.get(self, "pattern")
+        return pulumi.get(self, "in_")
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[_builtins.str]:
+    def like(self) -> Optional[_builtins.str]:
         """
-        The schema from which to return the alerts from.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "like")
+
+    @_builtins.property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.GetAlertsLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
+        return pulumi.get(self, "limit")
+
+    @_builtins.property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[_builtins.str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
+        return pulumi.get(self, "starts_with")
+
+    @_builtins.property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describe_output field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetAlertsResult(GetAlertsResult):
@@ -92,82 +115,80 @@ class AwaitableGetAlertsResult(GetAlertsResult):
             yield self
         return GetAlertsResult(
             alerts=self.alerts,
-            database=self.database,
             id=self.id,
-            pattern=self.pattern,
-            schema=self.schema)
+            in_=self.in_,
+            like=self.like,
+            limit=self.limit,
+            starts_with=self.starts_with,
+            with_describe=self.with_describe)
 
 
-def get_alerts(database: Optional[_builtins.str] = None,
-               pattern: Optional[_builtins.str] = None,
-               schema: Optional[_builtins.str] = None,
+def get_alerts(in_: Optional[Union['GetAlertsInArgs', 'GetAlertsInArgsDict', 'outputs.GetAlertsInResult']] = None,
+               like: Optional[_builtins.str] = None,
+               limit: Optional[Union['GetAlertsLimitArgs', 'GetAlertsLimitArgsDict', 'outputs.GetAlertsLimitResult']] = None,
+               starts_with: Optional[_builtins.str] = None,
+               with_describe: Optional[_builtins.bool] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertsResult:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_alerts(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `alerts`.
 
 
-    :param _builtins.str database: The database from which to return the alerts from.
-    :param _builtins.str pattern: Filters the command output by object name.
-    :param _builtins.str schema: The schema from which to return the alerts from.
+    :param Union['GetAlertsInArgs', 'GetAlertsInArgsDict', 'outputs.GetAlertsInResult'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetAlertsLimitArgs', 'GetAlertsLimitArgsDict', 'outputs.GetAlertsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['pattern'] = pattern
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getAlerts:getAlerts', __args__, opts=opts, typ=GetAlertsResult).value
 
     return AwaitableGetAlertsResult(
         alerts=pulumi.get(__ret__, 'alerts'),
-        database=pulumi.get(__ret__, 'database'),
         id=pulumi.get(__ret__, 'id'),
-        pattern=pulumi.get(__ret__, 'pattern'),
-        schema=pulumi.get(__ret__, 'schema'))
-def get_alerts_output(database: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      schema: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
+        limit=pulumi.get(__ret__, 'limit'),
+        starts_with=pulumi.get(__ret__, 'starts_with'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_alerts_output(in_: pulumi.Input[Optional[Optional[Union['GetAlertsInArgs', 'GetAlertsInArgsDict', 'outputs.GetAlertsInResult']]]] = None,
+                      like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      limit: pulumi.Input[Optional[Optional[Union['GetAlertsLimitArgs', 'GetAlertsLimitArgsDict', 'outputs.GetAlertsLimitResult']]]] = None,
+                      starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsResult]:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_alerts(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered alerts. Filtering is aligned with the current possibilities for [SHOW ALERTS](https://docs.snowflake.com/en/sql-reference/sql/show-alerts) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `alerts`.
 
 
-    :param _builtins.str database: The database from which to return the alerts from.
-    :param _builtins.str pattern: Filters the command output by object name.
-    :param _builtins.str schema: The schema from which to return the alerts from.
+    :param Union['GetAlertsInArgs', 'GetAlertsInArgsDict', 'outputs.GetAlertsInResult'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetAlertsLimitArgs', 'GetAlertsLimitArgsDict', 'outputs.GetAlertsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC ALERT for each alert returned by SHOW ALERTS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['pattern'] = pattern
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAlerts:getAlerts', __args__, opts=opts, typ=GetAlertsResult)
     return __ret__.apply(lambda __response__: GetAlertsResult(
         alerts=pulumi.get(__response__, 'alerts'),
-        database=pulumi.get(__response__, 'database'),
         id=pulumi.get(__response__, 'id'),
-        pattern=pulumi.get(__response__, 'pattern'),
-        schema=pulumi.get(__response__, 'schema')))
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

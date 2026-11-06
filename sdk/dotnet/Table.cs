@@ -142,7 +142,7 @@ namespace Pulumi.Snowflake
         public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the table.
+        /// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        /// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TablePrimaryKey?> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the table.
+        /// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the table.
+        /// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        /// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TablePrimaryKeyArgs>? PrimaryKey { get; set; }
 
         /// <summary>
-        /// The schema in which to create the table.
+        /// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the table.
+        /// The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        /// Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TablePrimaryKeyGetArgs>? PrimaryKey { get; set; }
 
         /// <summary>
-        /// The schema in which to create the table.
+        /// The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

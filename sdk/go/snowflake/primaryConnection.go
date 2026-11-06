@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewPrimaryConnection(ctx, "basic", &snowflake.PrimaryConnectionArgs{
 //				Name: pulumi.String("connection_name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewPrimaryConnection(ctx, "complete", &snowflake.PrimaryConnectionArgs{
 //				Name:    pulumi.String("connection_name"),
 //				Comment: pulumi.String("my complete connection"),

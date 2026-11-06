@@ -27,10 +27,12 @@ from .api_integration_git_repository_private_link import *
 from .api_integration_git_repository_token import *
 from .api_integration_google_cloud_api_gateway import *
 from .authentication_policy import *
+from .backup_policy import *
 from .catalog_integration_aws_glue import *
 from .catalog_integration_iceberg_rest import *
 from .catalog_integration_object_storage import *
 from .catalog_integration_open_catalog import *
+from .code_bundle import *
 from .compute_pool import *
 from .cortex_agent import *
 from .cortex_search_service import *
@@ -64,7 +66,9 @@ from .get_accounts import *
 from .get_alerts import *
 from .get_api_integrations import *
 from .get_authentication_policies import *
+from .get_backup_policies import *
 from .get_catalog_integrations import *
+from .get_code_bundles import *
 from .get_compute_pools import *
 from .get_connections import *
 from .get_cortex_agents import *
@@ -102,7 +106,10 @@ from .get_openflow_runtimes import *
 from .get_parameters import *
 from .get_password_policies import *
 from .get_pipes import *
+from .get_postgres_mirrors import *
 from .get_procedures import *
+from .get_projection_policies import *
+from .get_replication_groups import *
 from .get_resource_monitors import *
 from .get_row_access_policies import *
 from .get_schemas import *
@@ -167,13 +174,17 @@ from .openflow_runtime import *
 from .password_policy import *
 from .pipe import *
 from .postgres_instance import *
+from .postgres_mirror import *
 from .primary_connection import *
 from .procedure_java import *
 from .procedure_javascript import *
 from .procedure_python import *
 from .procedure_scala import *
 from .procedure_sql import *
+from .projection_policy import *
 from .provider import *
+from .replication_group import *
+from .replication_group_secondary import *
 from .resource_monitor import *
 from .row_access_policy import *
 from .saml2_integration import *
@@ -408,6 +419,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/backupPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/backupPolicy:BackupPolicy": "BackupPolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/catalogIntegrationAwsGlue",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -436,6 +455,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog": "CatalogIntegrationOpenCatalog"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/codeBundle",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/codeBundle:CodeBundle": "CodeBundle"
   }
  },
  {
@@ -968,6 +995,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/postgresMirror",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/postgresMirror:PostgresMirror": "PostgresMirror"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/primaryConnection",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -1012,6 +1047,30 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/procedureSql:ProcedureSql": "ProcedureSql"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/projectionPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/projectionPolicy:ProjectionPolicy": "ProjectionPolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/replicationGroup",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/replicationGroup:ReplicationGroup": "ReplicationGroup"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/replicationGroupSecondary",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/replicationGroupSecondary:ReplicationGroupSecondary": "ReplicationGroupSecondary"
   }
  },
  {

@@ -94,7 +94,7 @@ export class CatalogIntegrationAwsGlue extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly catalogSource: pulumi.Output<string>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +122,7 @@ export class CatalogIntegrationAwsGlue extends pulumi.CustomResource {
      */
     declare public readonly glueRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class CatalogIntegrationAwsGlue extends pulumi.CustomResource {
      */
     declare public readonly refreshIntervalSeconds: pulumi.Output<number | undefined>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.CatalogIntegrationAwsGlueShowOutput[]>;
 
@@ -201,7 +201,7 @@ export interface CatalogIntegrationAwsGlueState {
      */
     catalogSource?: pulumi.Input<string | undefined>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface CatalogIntegrationAwsGlueState {
      */
     glueRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface CatalogIntegrationAwsGlueState {
      */
     refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration aws glue.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationAwsGlueShowOutput>[] | undefined>;
 }
@@ -251,7 +251,7 @@ export interface CatalogIntegrationAwsGlueArgs {
      */
     catalogNamespace?: pulumi.Input<string | undefined>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface CatalogIntegrationAwsGlueArgs {
      */
     glueRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration aws glue; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

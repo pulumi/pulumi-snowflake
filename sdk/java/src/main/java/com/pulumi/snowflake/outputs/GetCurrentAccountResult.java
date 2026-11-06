@@ -26,7 +26,7 @@ public final class GetCurrentAccountResult {
      */
     private String region;
     /**
-     * @return The Snowflake URL.
+     * @return The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
      * 
      */
     private String url;
@@ -54,7 +54,7 @@ public final class GetCurrentAccountResult {
         return this.region;
     }
     /**
-     * @return The Snowflake URL.
+     * @return The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
      * 
      */
     public String url() {

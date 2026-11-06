@@ -14,80 +14,23 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetPipes.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`Like` and `In`, including `Application` and `ApplicationPackage`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `Pipes`.
         /// </summary>
-        public static Task<GetPipesResult> InvokeAsync(GetPipesArgs args, InvokeOptions? options = null)
+        public static Task<GetPipesResult> InvokeAsync(GetPipesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipesResult>("snowflake:index/getPipes:getPipes", args ?? new GetPipesArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetPipes.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`Like` and `In`, including `Application` and `ApplicationPackage`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `Pipes`.
         /// </summary>
-        public static Output<GetPipesResult> Invoke(GetPipesInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetPipesResult> Invoke(GetPipesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipesResult>("snowflake:index/getPipes:getPipes", args ?? new GetPipesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetPipes.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered pipes. Filtering is aligned with the current possibilities for [SHOW PIPES](https://docs.snowflake.com/en/sql-reference/sql/show-pipes) query (`Like` and `In`, including `Application` and `ApplicationPackage`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `Pipes`.
         /// </summary>
         public static Output<GetPipesResult> Invoke(GetPipesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipesResult>("snowflake:index/getPipes:getPipes", args ?? new GetPipesInvokeArgs(), options.WithDefaults());
@@ -97,16 +40,28 @@ namespace Pulumi.Snowflake
     public sealed class GetPipesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetPipesInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the pipes from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public bool? WithParameters { get; set; }
 
         public GetPipesArgs()
         {
@@ -117,16 +72,28 @@ namespace Pulumi.Snowflake
     public sealed class GetPipesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetPipesInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the pipes from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public Input<bool>? WithParameters { get; set; }
 
         public GetPipesInvokeArgs()
         {
@@ -139,36 +106,50 @@ namespace Pulumi.Snowflake
     public sealed class GetPipesResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The pipes in the schema
+        /// IN clause to filter the list of objects
+        /// </summary>
+        public readonly Outputs.GetPipesInResult? In;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all pipe details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPipesPipeResult> Pipes;
         /// <summary>
-        /// The schema from which to return the pipes from.
+        /// (Default: `True`) Runs DESC PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
         /// </summary>
-        public readonly string Schema;
+        public readonly bool? WithDescribe;
+        /// <summary>
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR PIPE for each pipe returned by SHOW PIPES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithParameters;
 
         [OutputConstructor]
         private GetPipesResult(
-            string database,
-
             string id,
+
+            Outputs.GetPipesInResult? @in,
+
+            string? like,
 
             ImmutableArray<Outputs.GetPipesPipeResult> pipes,
 
-            string schema)
+            bool? withDescribe,
+
+            bool? withParameters)
         {
-            Database = database;
             Id = id;
+            In = @in;
+            Like = like;
             Pipes = pipes;
-            Schema = schema;
+            WithDescribe = withDescribe;
+            WithParameters = withParameters;
         }
     }
 }

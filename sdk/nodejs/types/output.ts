@@ -73,6 +73,35 @@ export interface AlertAlertScheduleCron {
     timeZone: string;
 }
 
+export interface AlertDescribeOutput {
+    action: string;
+    comment: string;
+    condition: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schedule: string;
+    schemaName: string;
+    state: string;
+    warehouse: string;
+}
+
+export interface AlertShowOutput {
+    action: string;
+    comment: string;
+    condition: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
+    state: string;
+    warehouse: string;
+}
+
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput {
     authTypes: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType[];
     comments: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment[];
@@ -565,7 +594,7 @@ export interface ApiIntegrationGoogleCloudApiGatewayShowOutput {
 
 export interface AuthenticationPolicyClientPolicy {
     /**
-     * The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+     * The client or driver type. Valid values are (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
      */
     clientType: string;
     /**
@@ -601,6 +630,10 @@ export interface AuthenticationPolicyMfaPolicy {
 
 export interface AuthenticationPolicyPatPolicy {
     /**
+     * Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     */
+    blockedRolesLists?: string[];
+    /**
      * Specifies the default expiration time (in days) for a programmatic access token.
      */
     defaultExpiryInDays?: number;
@@ -612,6 +645,10 @@ export interface AuthenticationPolicyPatPolicy {
      * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      */
     networkPolicyEvaluation?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    requireRoleRestrictionForPersonUsers?: string;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
@@ -648,6 +685,47 @@ export interface AuthenticationPolicyWorkloadIdentityPolicy {
      * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedProviders?: string[];
+}
+
+export interface BackupPolicyDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    expireAfterDays: number;
+    hasRetentionLock: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
+}
+
+export interface BackupPolicySchedule {
+    /**
+     * Specifies an interval (in hours) of wait time inserted between backups. Accepts positive integers. (conflicts with `minutes` and `usingCron`)
+     */
+    hours?: number;
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between backups. Accepts integers of at least 60. (conflicts with `hours` and `usingCron`)
+     */
+    minutes?: number;
+    /**
+     * Specifies a cron expression and time zone for creating backups. Supports a subset of standard cron utility syntax. (conflicts with `hours` and `minutes`)
+     */
+    usingCron?: string;
+}
+
+export interface BackupPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    expireAfterDays: number;
+    hasRetentionLock: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
 }
 
 export interface CatalogIntegrationAwsGlueDescribeOutput {
@@ -742,7 +820,7 @@ export interface CatalogIntegrationIcebergRestRestConfig {
      */
     accessDelegationMode?: string;
     /**
-     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      */
     catalogApiType?: string;
     /**
@@ -851,7 +929,7 @@ export interface CatalogIntegrationOpenCatalogRestConfig {
      */
     accessDelegationMode?: string;
     /**
-     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
      */
     catalogApiType?: string;
     /**
@@ -871,6 +949,39 @@ export interface CatalogIntegrationOpenCatalogShowOutput {
     enabled: boolean;
     name: string;
     type: string;
+}
+
+export interface CodeBundleDescribeOutput {
+    comment: string;
+    containerDatabase: string;
+    containerName: string;
+    containerSchema: string;
+    containerType: string;
+    createdOn: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    name: string;
+    ownerRole: string;
+    ownerRoleType: string;
+}
+
+export interface CodeBundleShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
 }
 
 export interface ComputePoolDescribeOutput {
@@ -1019,6 +1130,180 @@ export interface CurrentOrganizationAccountShowOutput {
     organizationOldUrlLastUsed: string;
     organizationOldUrlSavedOn: string;
     snowflakeRegion: string;
+}
+
+export interface DatabaseParameter {
+    catalogs: outputs.DatabaseParameterCatalog[];
+    dataRetentionTimeInDays: outputs.DatabaseParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.DatabaseParameterDefaultDdlCollation[];
+    defaultNotebookComputePoolCpus: outputs.DatabaseParameterDefaultNotebookComputePoolCpus[];
+    defaultNotebookComputePoolGpus: outputs.DatabaseParameterDefaultNotebookComputePoolGpus[];
+    enableConsoleOutputs: outputs.DatabaseParameterEnableConsoleOutput[];
+    externalVolumes: outputs.DatabaseParameterExternalVolume[];
+    logEventLevels: outputs.DatabaseParameterLogEventLevel[];
+    logLevels: outputs.DatabaseParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.DatabaseParameterMaxDataExtensionTimeInDay[];
+    quotedIdentifiersIgnoreCases: outputs.DatabaseParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.DatabaseParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.DatabaseParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.DatabaseParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.DatabaseParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.DatabaseParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.DatabaseParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.DatabaseParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.DatabaseParameterUserTaskTimeoutM[];
+}
+
+export interface DatabaseParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterDefaultNotebookComputePoolCpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterDefaultNotebookComputePoolGpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterLogEventLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface DatabaseParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
 }
 
 export interface DatabaseReplication {
@@ -3487,33 +3772,76 @@ export interface GetAccountsAccountShowOutput {
 
 export interface GetAlertsAlert {
     /**
-     * The text of the SQL statement that should be executed when the alert is triggered.
+     * Holds the output of DESCRIBE ALERT.
      */
+    describeOutputs: outputs.GetAlertsAlertDescribeOutput[];
+    /**
+     * Holds the output of SHOW ALERTS.
+     */
+    showOutputs: outputs.GetAlertsAlertShowOutput[];
+}
+
+export interface GetAlertsAlertDescribeOutput {
     action: string;
-    /**
-     * Comment for the alert.
-     */
     comment: string;
-    /**
-     * The text of the SQL statement that serves as the condition when the alert should be triggered.
-     */
     condition: string;
-    /**
-     * Database in which the alert is stored.
-     */
+    createdOn: string;
     databaseName: string;
-    /**
-     * Name of the alert.
-     */
     name: string;
-    /**
-     * Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-     */
     owner: string;
-    /**
-     * Schema in which the alert is stored.
-     */
+    schedule: string;
     schemaName: string;
+    state: string;
+    warehouse: string;
+}
+
+export interface GetAlertsAlertShowOutput {
+    action: string;
+    comment: string;
+    condition: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
+    state: string;
+    warehouse: string;
+}
+
+export interface GetAlertsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetAlertsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetApiIntegrationsApiIntegration {
@@ -3652,6 +3980,69 @@ export interface GetAuthenticationPoliciesOn {
     user?: string;
 }
 
+export interface GetBackupPoliciesBackupPolicy {
+    /**
+     * Holds the output of DESCRIBE BACKUP POLICY.
+     */
+    describeOutputs: outputs.GetBackupPoliciesBackupPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW BACKUP POLICIES.
+     */
+    showOutputs: outputs.GetBackupPoliciesBackupPolicyShowOutput[];
+}
+
+export interface GetBackupPoliciesBackupPolicyDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    expireAfterDays: number;
+    hasRetentionLock: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
+}
+
+export interface GetBackupPoliciesBackupPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    expireAfterDays: number;
+    hasRetentionLock: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schedule: string;
+    schemaName: string;
+}
+
+export interface GetBackupPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetBackupPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetCatalogIntegrationsCatalogIntegration {
     /**
      * Holds the output of DESCRIBE CATALOG INTEGRATION.
@@ -3711,6 +4102,73 @@ export interface GetCatalogIntegrationsCatalogIntegrationShowOutput {
     enabled: boolean;
     name: string;
     type: string;
+}
+
+export interface GetCodeBundlesCodeBundle {
+    /**
+     * Holds the output of DESCRIBE CODE BUNDLE.
+     */
+    describeOutputs: outputs.GetCodeBundlesCodeBundleDescribeOutput[];
+    /**
+     * Holds the output of SHOW CODE BUNDLES.
+     */
+    showOutputs: outputs.GetCodeBundlesCodeBundleShowOutput[];
+}
+
+export interface GetCodeBundlesCodeBundleDescribeOutput {
+    comment: string;
+    containerDatabase: string;
+    containerName: string;
+    containerSchema: string;
+    containerType: string;
+    createdOn: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    name: string;
+    ownerRole: string;
+    ownerRoleType: string;
+}
+
+export interface GetCodeBundlesCodeBundleShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
+}
+
+export interface GetCodeBundlesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
 }
 
 export interface GetComputePoolsComputePool {
@@ -5872,12 +6330,149 @@ export interface GetPasswordPoliciesPasswordPolicyShowOutput {
     schemaName: string;
 }
 
+export interface GetPipesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
 export interface GetPipesPipe {
+    /**
+     * Holds the output of DESCRIBE PIPE.
+     */
+    describeOutputs: outputs.GetPipesPipeDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR PIPE.
+     */
+    parameters: outputs.GetPipesPipeParameter[];
+    /**
+     * Holds the output of SHOW PIPES.
+     */
+    showOutputs: outputs.GetPipesPipeShowOutput[];
+}
+
+export interface GetPipesPipeDescribeOutput {
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
     integration: string;
+    invalidReason: string;
+    kind: string;
     name: string;
-    schema: string;
+    notificationChannel: string;
+    owner: string;
+    ownerRoleType: string;
+    pattern: string;
+    schemaName: string;
+}
+
+export interface GetPipesPipeParameter {
+    logEventLevels: outputs.GetPipesPipeParameterLogEventLevel[];
+    pipeExecutionPauseds: outputs.GetPipesPipeParameterPipeExecutionPaused[];
+}
+
+export interface GetPipesPipeParameterLogEventLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetPipesPipeParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetPipesPipeShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
+    integration: string;
+    invalidReason: string;
+    kind: string;
+    name: string;
+    notificationChannel: string;
+    owner: string;
+    ownerRoleType: string;
+    pattern: string;
+    schemaName: string;
+}
+
+export interface GetPostgresMirrorsPostgresMirror {
+    /**
+     * Holds the output of DESCRIBE_MIRROR.
+     */
+    describeOutputs: outputs.GetPostgresMirrorsPostgresMirrorDescribeOutput[];
+    /**
+     * Holds the output of LIST_MIRRORS.
+     */
+    showOutputs: outputs.GetPostgresMirrorsPostgresMirrorShowOutput[];
+}
+
+export interface GetPostgresMirrorsPostgresMirrorDescribeOutput {
+    applyLagBytes: number;
+    applyLagOperations: number;
+    applyLagSeconds: number;
+    catalogIntegrationName: string;
+    errorMessage: string;
+    externalVolume: string;
+    feedOnly: boolean;
+    lastAppliedCommitLsn: string;
+    lastAppliedCommitTime: string;
+    lastApplyTime: string;
+    lastOperationId: number;
+    lastOperationTime: string;
+    name: string;
+    postgresDatabase: string;
+    postgresInstance: string;
+    postgresSchemas: string[];
+    postgresStatus: string;
+    postgresTables: string[];
+    recentQueryDurations: string;
+    refreshInterval: string;
+    status: string;
+    targetDatabase: string;
+    targetTableType: string;
+    warehouse: string;
+}
+
+export interface GetPostgresMirrorsPostgresMirrorShowOutput {
+    errorMessage: string;
+    initialSnapshotTablesRemaining: number;
+    lastApplyTime: string;
+    lastOperationTime: string;
+    name: string;
+    postgresDatabase: string;
+    postgresInstance: string;
+    refreshInterval: string;
+    status: string;
+    tableCount: number;
+    targetDatabase: string;
 }
 
 export interface GetProceduresProcedure {
@@ -5887,6 +6482,90 @@ export interface GetProceduresProcedure {
     name: string;
     returnType: string;
     schema: string;
+}
+
+export interface GetProjectionPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetProjectionPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetProjectionPoliciesProjectionPolicy {
+    /**
+     * Holds the output of DESCRIBE PROJECTION POLICY.
+     */
+    describeOutputs: outputs.GetProjectionPoliciesProjectionPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW PROJECTION POLICIES.
+     */
+    showOutputs: outputs.GetProjectionPoliciesProjectionPolicyShowOutput[];
+}
+
+export interface GetProjectionPoliciesProjectionPolicyDescribeOutput {
+    body: string;
+    name: string;
+    returnType: string;
+    signature: string;
+}
+
+export interface GetProjectionPoliciesProjectionPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GetReplicationGroupsReplicationGroup {
+    /**
+     * Holds the output of SHOW REPLICATION GROUPS.
+     */
+    showOutputs: outputs.GetReplicationGroupsReplicationGroupShowOutput[];
+}
+
+export interface GetReplicationGroupsReplicationGroupShowOutput {
+    accountLocator: string;
+    accountName: string;
+    allowedAccounts: string[];
+    comment: string;
+    createdOn: string;
+    isListingAutoFulfillmentGroup: boolean;
+    isPrimary: boolean;
+    name: string;
+    nextScheduledRefresh: string;
+    organizationName: string;
+    owner: string;
+    primary: string;
+    readOnly: boolean;
+    regionGroup: string;
+    replicationSchedule: string;
+    secondaryState: string;
+    snowflakeRegion: string;
+    type: string;
 }
 
 export interface GetResourceMonitorsResourceMonitor {
@@ -6972,27 +7651,46 @@ export interface GetSessionPoliciesSessionPolicyShowOutput {
     targetScopes: string[];
 }
 
+export interface GetSharesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetSharesShare {
     /**
-     * The comment on the share.
+     * Holds the output of DESCRIBE SHARE: a row for every object granted to the share, including the system objects that Snowflake adds to the shared database. A share that cannot be described (for example because of missing privileges) is reported with a warning and has an empty output.
      */
-    comment: string;
+    describeOutputs: outputs.GetSharesShareDescribeOutput[];
     /**
-     * The kind of the share.
+     * Holds the output of SHOW SHARES. SHOW SHARES lists at most three accounts of an outbound share, so for a share with more accounts the full list of `to` is read from `SNOWFLAKE.ACCOUNT_USAGE.SHARES` (it needs `SELECT` on that view and a warehouse in the connection, and the view can be up to 3 hours behind). If that fails, a warning is reported and `to` holds the accounts listed by SHOW SHARES. `toTotal` is the number of accounts reported by SHOW SHARES.
      */
+    showOutputs: outputs.GetSharesShareShowOutput[];
+}
+
+export interface GetSharesShareDescribeOutput {
     kind: string;
-    /**
-     * Identifier for the share.
-     */
     name: string;
-    /**
-     * The owner of the share.
-     */
+    sharedOn: string;
+}
+
+export interface GetSharesShareShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    listingGlobalName: string;
+    name: string;
     owner: string;
-    /**
-     * For the OUTBOUND share, list of consumers.
-     */
-    tos: any[];
+    ownerAccount: string;
+    secureObjectsOnly: boolean;
+    toTotal: number;
+    tos: string[];
 }
 
 export interface GetStagesIn {
@@ -7475,6 +8173,7 @@ export interface GetTablesTableShowOutput {
     databaseName: string;
     droppedOn: string;
     enableSchemaEvolution: boolean;
+    isDynamic: boolean;
     isEvent: boolean;
     isExternal: boolean;
     kind: string;
@@ -8253,28 +8952,35 @@ export interface GetUsersUserDescribeOutput {
 
 export interface GetUsersUserParameter {
     abortDetachedQueries: outputs.GetUsersUserParameterAbortDetachedQuery[];
+    activePythonProfilers: outputs.GetUsersUserParameterActivePythonProfiler[];
     autocommits: outputs.GetUsersUserParameterAutocommit[];
     binaryInputFormats: outputs.GetUsersUserParameterBinaryInputFormat[];
     binaryOutputFormats: outputs.GetUsersUserParameterBinaryOutputFormat[];
+    clientEnableLogInfoStatementParameters: outputs.GetUsersUserParameterClientEnableLogInfoStatementParameter[];
     clientMemoryLimits: outputs.GetUsersUserParameterClientMemoryLimit[];
     clientMetadataRequestUseConnectionCtxes: outputs.GetUsersUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientMetadataUseSessionDatabases: outputs.GetUsersUserParameterClientMetadataUseSessionDatabase[];
     clientPrefetchThreads: outputs.GetUsersUserParameterClientPrefetchThread[];
     clientResultChunkSizes: outputs.GetUsersUserParameterClientResultChunkSize[];
     clientResultColumnCaseInsensitives: outputs.GetUsersUserParameterClientResultColumnCaseInsensitive[];
     clientSessionKeepAliveHeartbeatFrequencies: outputs.GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency[];
     clientSessionKeepAlives: outputs.GetUsersUserParameterClientSessionKeepAlife[];
     clientTimestampTypeMappings: outputs.GetUsersUserParameterClientTimestampTypeMapping[];
+    csvTimestampFormats: outputs.GetUsersUserParameterCsvTimestampFormat[];
     dateInputFormats: outputs.GetUsersUserParameterDateInputFormat[];
     dateOutputFormats: outputs.GetUsersUserParameterDateOutputFormat[];
+    enableGetDdlUseDataTypeAliases: outputs.GetUsersUserParameterEnableGetDdlUseDataTypeAlias[];
     enableUnloadPhysicalTypeOptimizations: outputs.GetUsersUserParameterEnableUnloadPhysicalTypeOptimization[];
     enableUnredactedQuerySyntaxErrors: outputs.GetUsersUserParameterEnableUnredactedQuerySyntaxError[];
     errorOnNondeterministicMerges: outputs.GetUsersUserParameterErrorOnNondeterministicMerge[];
     errorOnNondeterministicUpdates: outputs.GetUsersUserParameterErrorOnNondeterministicUpdate[];
     geographyOutputFormats: outputs.GetUsersUserParameterGeographyOutputFormat[];
     geometryOutputFormats: outputs.GetUsersUserParameterGeometryOutputFormat[];
+    hybridTableLockTimeouts: outputs.GetUsersUserParameterHybridTableLockTimeout[];
     jdbcTreatDecimalAsInts: outputs.GetUsersUserParameterJdbcTreatDecimalAsInt[];
     jdbcTreatTimestampNtzAsUtcs: outputs.GetUsersUserParameterJdbcTreatTimestampNtzAsUtc[];
     jdbcUseSessionTimezones: outputs.GetUsersUserParameterJdbcUseSessionTimezone[];
+    jsTreatIntegerAsBigints: outputs.GetUsersUserParameterJsTreatIntegerAsBigint[];
     jsonIndents: outputs.GetUsersUserParameterJsonIndent[];
     lockTimeouts: outputs.GetUsersUserParameterLockTimeout[];
     logEventLevels: outputs.GetUsersUserParameterLogEventLevel[];
@@ -8284,6 +8990,8 @@ export interface GetUsersUserParameter {
     noorderSequenceAsDefaults: outputs.GetUsersUserParameterNoorderSequenceAsDefault[];
     odbcTreatDecimalAsInts: outputs.GetUsersUserParameterOdbcTreatDecimalAsInt[];
     preventUnloadToInternalStages: outputs.GetUsersUserParameterPreventUnloadToInternalStage[];
+    pythonProfilerModules: outputs.GetUsersUserParameterPythonProfilerModule[];
+    pythonProfilerTargetStages: outputs.GetUsersUserParameterPythonProfilerTargetStage[];
     queryTags: outputs.GetUsersUserParameterQueryTag[];
     quotedIdentifiersIgnoreCases: outputs.GetUsersUserParameterQuotedIdentifiersIgnoreCase[];
     rowsPerResultsets: outputs.GetUsersUserParameterRowsPerResultset[];
@@ -8321,6 +9029,14 @@ export interface GetUsersUserParameterAbortDetachedQuery {
     value: string;
 }
 
+export interface GetUsersUserParameterActivePythonProfiler {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface GetUsersUserParameterAutocommit {
     default: string;
     description: string;
@@ -8345,6 +9061,14 @@ export interface GetUsersUserParameterBinaryOutputFormat {
     value: string;
 }
 
+export interface GetUsersUserParameterClientEnableLogInfoStatementParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface GetUsersUserParameterClientMemoryLimit {
     default: string;
     description: string;
@@ -8354,6 +9078,14 @@ export interface GetUsersUserParameterClientMemoryLimit {
 }
 
 export interface GetUsersUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientMetadataUseSessionDatabase {
     default: string;
     description: string;
     key: string;
@@ -8409,6 +9141,14 @@ export interface GetUsersUserParameterClientTimestampTypeMapping {
     value: string;
 }
 
+export interface GetUsersUserParameterCsvTimestampFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface GetUsersUserParameterDateInputFormat {
     default: string;
     description: string;
@@ -8418,6 +9158,14 @@ export interface GetUsersUserParameterDateInputFormat {
 }
 
 export interface GetUsersUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterEnableGetDdlUseDataTypeAlias {
     default: string;
     description: string;
     key: string;
@@ -8473,6 +9221,14 @@ export interface GetUsersUserParameterGeometryOutputFormat {
     value: string;
 }
 
+export interface GetUsersUserParameterHybridTableLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface GetUsersUserParameterJdbcTreatDecimalAsInt {
     default: string;
     description: string;
@@ -8490,6 +9246,14 @@ export interface GetUsersUserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface GetUsersUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterJsTreatIntegerAsBigint {
     default: string;
     description: string;
     key: string;
@@ -8562,6 +9326,22 @@ export interface GetUsersUserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface GetUsersUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterPythonProfilerModule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterPythonProfilerTargetStage {
     default: string;
     description: string;
     key: string;
@@ -9059,7 +9839,7 @@ export interface GrantOwnershipOnFuture {
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
-     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited;
     /**
@@ -9089,7 +9869,7 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: string;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaInherited;
     /**
@@ -9119,7 +9899,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited;
     /**
@@ -9179,7 +9959,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      */
     futureSchemasInDatabase?: string;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: string;
     /**
@@ -9198,7 +9978,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be promoted in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited;
     /**
@@ -10415,28 +11195,35 @@ export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
 
 export interface LegacyServiceUserParameter {
     abortDetachedQueries: outputs.LegacyServiceUserParameterAbortDetachedQuery[];
+    activePythonProfilers: outputs.LegacyServiceUserParameterActivePythonProfiler[];
     autocommits: outputs.LegacyServiceUserParameterAutocommit[];
     binaryInputFormats: outputs.LegacyServiceUserParameterBinaryInputFormat[];
     binaryOutputFormats: outputs.LegacyServiceUserParameterBinaryOutputFormat[];
+    clientEnableLogInfoStatementParameters: outputs.LegacyServiceUserParameterClientEnableLogInfoStatementParameter[];
     clientMemoryLimits: outputs.LegacyServiceUserParameterClientMemoryLimit[];
     clientMetadataRequestUseConnectionCtxes: outputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientMetadataUseSessionDatabases: outputs.LegacyServiceUserParameterClientMetadataUseSessionDatabase[];
     clientPrefetchThreads: outputs.LegacyServiceUserParameterClientPrefetchThread[];
     clientResultChunkSizes: outputs.LegacyServiceUserParameterClientResultChunkSize[];
     clientResultColumnCaseInsensitives: outputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive[];
     clientSessionKeepAliveHeartbeatFrequencies: outputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency[];
     clientSessionKeepAlives: outputs.LegacyServiceUserParameterClientSessionKeepAlife[];
     clientTimestampTypeMappings: outputs.LegacyServiceUserParameterClientTimestampTypeMapping[];
+    csvTimestampFormats: outputs.LegacyServiceUserParameterCsvTimestampFormat[];
     dateInputFormats: outputs.LegacyServiceUserParameterDateInputFormat[];
     dateOutputFormats: outputs.LegacyServiceUserParameterDateOutputFormat[];
+    enableGetDdlUseDataTypeAliases: outputs.LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias[];
     enableUnloadPhysicalTypeOptimizations: outputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization[];
     enableUnredactedQuerySyntaxErrors: outputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError[];
     errorOnNondeterministicMerges: outputs.LegacyServiceUserParameterErrorOnNondeterministicMerge[];
     errorOnNondeterministicUpdates: outputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate[];
     geographyOutputFormats: outputs.LegacyServiceUserParameterGeographyOutputFormat[];
     geometryOutputFormats: outputs.LegacyServiceUserParameterGeometryOutputFormat[];
+    hybridTableLockTimeouts: outputs.LegacyServiceUserParameterHybridTableLockTimeout[];
     jdbcTreatDecimalAsInts: outputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt[];
     jdbcTreatTimestampNtzAsUtcs: outputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc[];
     jdbcUseSessionTimezones: outputs.LegacyServiceUserParameterJdbcUseSessionTimezone[];
+    jsTreatIntegerAsBigints: outputs.LegacyServiceUserParameterJsTreatIntegerAsBigint[];
     jsonIndents: outputs.LegacyServiceUserParameterJsonIndent[];
     lockTimeouts: outputs.LegacyServiceUserParameterLockTimeout[];
     logEventLevels: outputs.LegacyServiceUserParameterLogEventLevel[];
@@ -10446,6 +11233,8 @@ export interface LegacyServiceUserParameter {
     noorderSequenceAsDefaults: outputs.LegacyServiceUserParameterNoorderSequenceAsDefault[];
     odbcTreatDecimalAsInts: outputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt[];
     preventUnloadToInternalStages: outputs.LegacyServiceUserParameterPreventUnloadToInternalStage[];
+    pythonProfilerModules: outputs.LegacyServiceUserParameterPythonProfilerModule[];
+    pythonProfilerTargetStages: outputs.LegacyServiceUserParameterPythonProfilerTargetStage[];
     queryTags: outputs.LegacyServiceUserParameterQueryTag[];
     quotedIdentifiersIgnoreCases: outputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase[];
     rowsPerResultsets: outputs.LegacyServiceUserParameterRowsPerResultset[];
@@ -10483,6 +11272,14 @@ export interface LegacyServiceUserParameterAbortDetachedQuery {
     value: string;
 }
 
+export interface LegacyServiceUserParameterActivePythonProfiler {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface LegacyServiceUserParameterAutocommit {
     default: string;
     description: string;
@@ -10507,6 +11304,14 @@ export interface LegacyServiceUserParameterBinaryOutputFormat {
     value: string;
 }
 
+export interface LegacyServiceUserParameterClientEnableLogInfoStatementParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface LegacyServiceUserParameterClientMemoryLimit {
     default: string;
     description: string;
@@ -10516,6 +11321,14 @@ export interface LegacyServiceUserParameterClientMemoryLimit {
 }
 
 export interface LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientMetadataUseSessionDatabase {
     default: string;
     description: string;
     key: string;
@@ -10571,6 +11384,14 @@ export interface LegacyServiceUserParameterClientTimestampTypeMapping {
     value: string;
 }
 
+export interface LegacyServiceUserParameterCsvTimestampFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface LegacyServiceUserParameterDateInputFormat {
     default: string;
     description: string;
@@ -10580,6 +11401,14 @@ export interface LegacyServiceUserParameterDateInputFormat {
 }
 
 export interface LegacyServiceUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterEnableGetDdlUseDataTypeAlias {
     default: string;
     description: string;
     key: string;
@@ -10635,6 +11464,14 @@ export interface LegacyServiceUserParameterGeometryOutputFormat {
     value: string;
 }
 
+export interface LegacyServiceUserParameterHybridTableLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface LegacyServiceUserParameterJdbcTreatDecimalAsInt {
     default: string;
     description: string;
@@ -10652,6 +11489,14 @@ export interface LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface LegacyServiceUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterJsTreatIntegerAsBigint {
     default: string;
     description: string;
     key: string;
@@ -10724,6 +11569,22 @@ export interface LegacyServiceUserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface LegacyServiceUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterPythonProfilerModule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterPythonProfilerTargetStage {
     default: string;
     description: string;
     key: string;
@@ -11772,6 +12633,61 @@ export interface PasswordPolicyShowOutput {
     schemaName: string;
 }
 
+export interface PipeDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
+    integration: string;
+    invalidReason: string;
+    kind: string;
+    name: string;
+    notificationChannel: string;
+    owner: string;
+    ownerRoleType: string;
+    pattern: string;
+    schemaName: string;
+}
+
+export interface PipeParameter {
+    logEventLevels: outputs.PipeParameterLogEventLevel[];
+    pipeExecutionPauseds: outputs.PipeParameterPipeExecutionPaused[];
+}
+
+export interface PipeParameterLogEventLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface PipeParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface PipeShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
+    integration: string;
+    invalidReason: string;
+    kind: string;
+    name: string;
+    notificationChannel: string;
+    owner: string;
+    ownerRoleType: string;
+    pattern: string;
+    schemaName: string;
+}
+
 export interface PostgresInstanceDescribeOutput {
     authenticationAuthority: string;
     comment: string;
@@ -11815,6 +12731,48 @@ export interface PostgresInstanceShowOutput {
     storageSize: number;
     type: string;
     updatedOn: string;
+}
+
+export interface PostgresMirrorDescribeOutput {
+    applyLagBytes: number;
+    applyLagOperations: number;
+    applyLagSeconds: number;
+    catalogIntegrationName: string;
+    errorMessage: string;
+    externalVolume: string;
+    feedOnly: boolean;
+    lastAppliedCommitLsn: string;
+    lastAppliedCommitTime: string;
+    lastApplyTime: string;
+    lastOperationId: number;
+    lastOperationTime: string;
+    name: string;
+    postgresDatabase: string;
+    postgresInstance: string;
+    postgresSchemas: string[];
+    postgresStatus: string;
+    postgresTables: string[];
+    recentQueryDurations: string;
+    refreshInterval: string;
+    status: string;
+    targetDatabase: string;
+    targetTableType: string;
+    warehouse: string;
+}
+
+export interface PostgresMirrorRefreshInterval {
+    /**
+     * Specifies the refresh interval in hours. (conflicts with `minutes` and `seconds`)
+     */
+    hours?: number;
+    /**
+     * Specifies the refresh interval in minutes. (conflicts with `hours` and `seconds`)
+     */
+    minutes?: number;
+    /**
+     * Specifies the refresh interval in seconds. (conflicts with `hours` and `minutes`)
+     */
+    seconds?: number;
 }
 
 export interface PrimaryConnectionShowOutput {
@@ -12328,6 +13286,67 @@ export interface ProcedureSqlShowOutput {
     schemaName: string;
     secrets: string;
     validForClustering: boolean;
+}
+
+export interface ProjectionPolicyDescribeOutput {
+    body: string;
+    name: string;
+    returnType: string;
+    signature: string;
+}
+
+export interface ProjectionPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface ReplicationGroupSecondaryShowOutput {
+    accountLocator: string;
+    accountName: string;
+    allowedAccounts: string[];
+    comment: string;
+    createdOn: string;
+    isListingAutoFulfillmentGroup: boolean;
+    isPrimary: boolean;
+    name: string;
+    nextScheduledRefresh: string;
+    organizationName: string;
+    owner: string;
+    primary: string;
+    readOnly: boolean;
+    regionGroup: string;
+    replicationSchedule: string;
+    secondaryState: string;
+    snowflakeRegion: string;
+    type: string;
+}
+
+export interface ReplicationGroupShowOutput {
+    accountLocator: string;
+    accountName: string;
+    allowedAccounts: string[];
+    comment: string;
+    createdOn: string;
+    isListingAutoFulfillmentGroup: boolean;
+    isPrimary: boolean;
+    name: string;
+    nextScheduledRefresh: string;
+    organizationName: string;
+    owner: string;
+    primary: string;
+    readOnly: boolean;
+    regionGroup: string;
+    replicationSchedule: string;
+    secondaryState: string;
+    snowflakeRegion: string;
+    type: string;
 }
 
 export interface ResourceMonitorShowOutput {
@@ -13296,28 +14315,35 @@ export interface ServiceUserDefaultWorkloadIdentityOidc {
 
 export interface ServiceUserParameter {
     abortDetachedQueries: outputs.ServiceUserParameterAbortDetachedQuery[];
+    activePythonProfilers: outputs.ServiceUserParameterActivePythonProfiler[];
     autocommits: outputs.ServiceUserParameterAutocommit[];
     binaryInputFormats: outputs.ServiceUserParameterBinaryInputFormat[];
     binaryOutputFormats: outputs.ServiceUserParameterBinaryOutputFormat[];
+    clientEnableLogInfoStatementParameters: outputs.ServiceUserParameterClientEnableLogInfoStatementParameter[];
     clientMemoryLimits: outputs.ServiceUserParameterClientMemoryLimit[];
     clientMetadataRequestUseConnectionCtxes: outputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientMetadataUseSessionDatabases: outputs.ServiceUserParameterClientMetadataUseSessionDatabase[];
     clientPrefetchThreads: outputs.ServiceUserParameterClientPrefetchThread[];
     clientResultChunkSizes: outputs.ServiceUserParameterClientResultChunkSize[];
     clientResultColumnCaseInsensitives: outputs.ServiceUserParameterClientResultColumnCaseInsensitive[];
     clientSessionKeepAliveHeartbeatFrequencies: outputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency[];
     clientSessionKeepAlives: outputs.ServiceUserParameterClientSessionKeepAlife[];
     clientTimestampTypeMappings: outputs.ServiceUserParameterClientTimestampTypeMapping[];
+    csvTimestampFormats: outputs.ServiceUserParameterCsvTimestampFormat[];
     dateInputFormats: outputs.ServiceUserParameterDateInputFormat[];
     dateOutputFormats: outputs.ServiceUserParameterDateOutputFormat[];
+    enableGetDdlUseDataTypeAliases: outputs.ServiceUserParameterEnableGetDdlUseDataTypeAlias[];
     enableUnloadPhysicalTypeOptimizations: outputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization[];
     enableUnredactedQuerySyntaxErrors: outputs.ServiceUserParameterEnableUnredactedQuerySyntaxError[];
     errorOnNondeterministicMerges: outputs.ServiceUserParameterErrorOnNondeterministicMerge[];
     errorOnNondeterministicUpdates: outputs.ServiceUserParameterErrorOnNondeterministicUpdate[];
     geographyOutputFormats: outputs.ServiceUserParameterGeographyOutputFormat[];
     geometryOutputFormats: outputs.ServiceUserParameterGeometryOutputFormat[];
+    hybridTableLockTimeouts: outputs.ServiceUserParameterHybridTableLockTimeout[];
     jdbcTreatDecimalAsInts: outputs.ServiceUserParameterJdbcTreatDecimalAsInt[];
     jdbcTreatTimestampNtzAsUtcs: outputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc[];
     jdbcUseSessionTimezones: outputs.ServiceUserParameterJdbcUseSessionTimezone[];
+    jsTreatIntegerAsBigints: outputs.ServiceUserParameterJsTreatIntegerAsBigint[];
     jsonIndents: outputs.ServiceUserParameterJsonIndent[];
     lockTimeouts: outputs.ServiceUserParameterLockTimeout[];
     logEventLevels: outputs.ServiceUserParameterLogEventLevel[];
@@ -13327,6 +14353,8 @@ export interface ServiceUserParameter {
     noorderSequenceAsDefaults: outputs.ServiceUserParameterNoorderSequenceAsDefault[];
     odbcTreatDecimalAsInts: outputs.ServiceUserParameterOdbcTreatDecimalAsInt[];
     preventUnloadToInternalStages: outputs.ServiceUserParameterPreventUnloadToInternalStage[];
+    pythonProfilerModules: outputs.ServiceUserParameterPythonProfilerModule[];
+    pythonProfilerTargetStages: outputs.ServiceUserParameterPythonProfilerTargetStage[];
     queryTags: outputs.ServiceUserParameterQueryTag[];
     quotedIdentifiersIgnoreCases: outputs.ServiceUserParameterQuotedIdentifiersIgnoreCase[];
     rowsPerResultsets: outputs.ServiceUserParameterRowsPerResultset[];
@@ -13364,6 +14392,14 @@ export interface ServiceUserParameterAbortDetachedQuery {
     value: string;
 }
 
+export interface ServiceUserParameterActivePythonProfiler {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface ServiceUserParameterAutocommit {
     default: string;
     description: string;
@@ -13388,6 +14424,14 @@ export interface ServiceUserParameterBinaryOutputFormat {
     value: string;
 }
 
+export interface ServiceUserParameterClientEnableLogInfoStatementParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface ServiceUserParameterClientMemoryLimit {
     default: string;
     description: string;
@@ -13397,6 +14441,14 @@ export interface ServiceUserParameterClientMemoryLimit {
 }
 
 export interface ServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientMetadataUseSessionDatabase {
     default: string;
     description: string;
     key: string;
@@ -13452,6 +14504,14 @@ export interface ServiceUserParameterClientTimestampTypeMapping {
     value: string;
 }
 
+export interface ServiceUserParameterCsvTimestampFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface ServiceUserParameterDateInputFormat {
     default: string;
     description: string;
@@ -13461,6 +14521,14 @@ export interface ServiceUserParameterDateInputFormat {
 }
 
 export interface ServiceUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterEnableGetDdlUseDataTypeAlias {
     default: string;
     description: string;
     key: string;
@@ -13516,6 +14584,14 @@ export interface ServiceUserParameterGeometryOutputFormat {
     value: string;
 }
 
+export interface ServiceUserParameterHybridTableLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface ServiceUserParameterJdbcTreatDecimalAsInt {
     default: string;
     description: string;
@@ -13533,6 +14609,14 @@ export interface ServiceUserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface ServiceUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterJsTreatIntegerAsBigint {
     default: string;
     description: string;
     key: string;
@@ -13605,6 +14689,22 @@ export interface ServiceUserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface ServiceUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterPythonProfilerModule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterPythonProfilerTargetStage {
     default: string;
     description: string;
     key: string;
@@ -13912,6 +15012,26 @@ export interface SessionPolicyShowOutput {
     ownerRoleType: string;
     schemaName: string;
     targetScopes: string[];
+}
+
+export interface ShareDescribeOutput {
+    kind: string;
+    name: string;
+    sharedOn: string;
+}
+
+export interface ShareShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    listingGlobalName: string;
+    name: string;
+    owner: string;
+    ownerAccount: string;
+    secureObjectsOnly: boolean;
+    toTotal: number;
+    tos: string[];
 }
 
 export interface StageExternalAzureCredentials {
@@ -17494,28 +18614,35 @@ export interface TaskTargetCompletionInterval {
 
 export interface UserParameter {
     abortDetachedQueries: outputs.UserParameterAbortDetachedQuery[];
+    activePythonProfilers: outputs.UserParameterActivePythonProfiler[];
     autocommits: outputs.UserParameterAutocommit[];
     binaryInputFormats: outputs.UserParameterBinaryInputFormat[];
     binaryOutputFormats: outputs.UserParameterBinaryOutputFormat[];
+    clientEnableLogInfoStatementParameters: outputs.UserParameterClientEnableLogInfoStatementParameter[];
     clientMemoryLimits: outputs.UserParameterClientMemoryLimit[];
     clientMetadataRequestUseConnectionCtxes: outputs.UserParameterClientMetadataRequestUseConnectionCtx[];
+    clientMetadataUseSessionDatabases: outputs.UserParameterClientMetadataUseSessionDatabase[];
     clientPrefetchThreads: outputs.UserParameterClientPrefetchThread[];
     clientResultChunkSizes: outputs.UserParameterClientResultChunkSize[];
     clientResultColumnCaseInsensitives: outputs.UserParameterClientResultColumnCaseInsensitive[];
     clientSessionKeepAliveHeartbeatFrequencies: outputs.UserParameterClientSessionKeepAliveHeartbeatFrequency[];
     clientSessionKeepAlives: outputs.UserParameterClientSessionKeepAlife[];
     clientTimestampTypeMappings: outputs.UserParameterClientTimestampTypeMapping[];
+    csvTimestampFormats: outputs.UserParameterCsvTimestampFormat[];
     dateInputFormats: outputs.UserParameterDateInputFormat[];
     dateOutputFormats: outputs.UserParameterDateOutputFormat[];
+    enableGetDdlUseDataTypeAliases: outputs.UserParameterEnableGetDdlUseDataTypeAlias[];
     enableUnloadPhysicalTypeOptimizations: outputs.UserParameterEnableUnloadPhysicalTypeOptimization[];
     enableUnredactedQuerySyntaxErrors: outputs.UserParameterEnableUnredactedQuerySyntaxError[];
     errorOnNondeterministicMerges: outputs.UserParameterErrorOnNondeterministicMerge[];
     errorOnNondeterministicUpdates: outputs.UserParameterErrorOnNondeterministicUpdate[];
     geographyOutputFormats: outputs.UserParameterGeographyOutputFormat[];
     geometryOutputFormats: outputs.UserParameterGeometryOutputFormat[];
+    hybridTableLockTimeouts: outputs.UserParameterHybridTableLockTimeout[];
     jdbcTreatDecimalAsInts: outputs.UserParameterJdbcTreatDecimalAsInt[];
     jdbcTreatTimestampNtzAsUtcs: outputs.UserParameterJdbcTreatTimestampNtzAsUtc[];
     jdbcUseSessionTimezones: outputs.UserParameterJdbcUseSessionTimezone[];
+    jsTreatIntegerAsBigints: outputs.UserParameterJsTreatIntegerAsBigint[];
     jsonIndents: outputs.UserParameterJsonIndent[];
     lockTimeouts: outputs.UserParameterLockTimeout[];
     logEventLevels: outputs.UserParameterLogEventLevel[];
@@ -17525,6 +18652,8 @@ export interface UserParameter {
     noorderSequenceAsDefaults: outputs.UserParameterNoorderSequenceAsDefault[];
     odbcTreatDecimalAsInts: outputs.UserParameterOdbcTreatDecimalAsInt[];
     preventUnloadToInternalStages: outputs.UserParameterPreventUnloadToInternalStage[];
+    pythonProfilerModules: outputs.UserParameterPythonProfilerModule[];
+    pythonProfilerTargetStages: outputs.UserParameterPythonProfilerTargetStage[];
     queryTags: outputs.UserParameterQueryTag[];
     quotedIdentifiersIgnoreCases: outputs.UserParameterQuotedIdentifiersIgnoreCase[];
     rowsPerResultsets: outputs.UserParameterRowsPerResultset[];
@@ -17562,6 +18691,14 @@ export interface UserParameterAbortDetachedQuery {
     value: string;
 }
 
+export interface UserParameterActivePythonProfiler {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface UserParameterAutocommit {
     default: string;
     description: string;
@@ -17586,6 +18723,14 @@ export interface UserParameterBinaryOutputFormat {
     value: string;
 }
 
+export interface UserParameterClientEnableLogInfoStatementParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface UserParameterClientMemoryLimit {
     default: string;
     description: string;
@@ -17595,6 +18740,14 @@ export interface UserParameterClientMemoryLimit {
 }
 
 export interface UserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientMetadataUseSessionDatabase {
     default: string;
     description: string;
     key: string;
@@ -17650,6 +18803,14 @@ export interface UserParameterClientTimestampTypeMapping {
     value: string;
 }
 
+export interface UserParameterCsvTimestampFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface UserParameterDateInputFormat {
     default: string;
     description: string;
@@ -17659,6 +18820,14 @@ export interface UserParameterDateInputFormat {
 }
 
 export interface UserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterEnableGetDdlUseDataTypeAlias {
     default: string;
     description: string;
     key: string;
@@ -17714,6 +18883,14 @@ export interface UserParameterGeometryOutputFormat {
     value: string;
 }
 
+export interface UserParameterHybridTableLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface UserParameterJdbcTreatDecimalAsInt {
     default: string;
     description: string;
@@ -17731,6 +18908,14 @@ export interface UserParameterJdbcTreatTimestampNtzAsUtc {
 }
 
 export interface UserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterJsTreatIntegerAsBigint {
     default: string;
     description: string;
     key: string;
@@ -17803,6 +18988,22 @@ export interface UserParameterOdbcTreatDecimalAsInt {
 }
 
 export interface UserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterPythonProfilerModule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterPythonProfilerTargetStage {
     default: string;
     description: string;
     key: string;
@@ -18365,6 +19566,10 @@ export namespace config {
          * The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
          */
         clientSecret: string;
+        /**
+         * Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+         */
+        minTlsVersion?: string;
         /**
          * The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
          */

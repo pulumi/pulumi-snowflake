@@ -19,15 +19,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
  * &gt; **Note** Every mutating statement is asynchronous and the provider waits for the connector to settle before returning, so applies take minutes rather than seconds. If you encounter timeout errors, use a `timeouts` block to set higher limits for your environment.
  * 
  * &gt; **Note** `from` is create-only and is not read back. Snowflake resolves a connector definition whichever source the connector was created from, so a value read from `SHOW` could not be told apart from a configured one; `show_output.connector_definition` reports what Snowflake resolved. External changes to the block are therefore not detected, and after `pulumi import` the block is absent from state, so the first plan asks to replace the connector.
  * 
- * &gt; **Note** Starting, stopping and version management are operational actions rather than desired state, so they are not exposed here. The connector&#39;s current status is reported in `showOutput`.
+ * &gt; **Note** Starting and stopping are operational actions rather than desired state, so they are not exposed here, although the provider may execute such commands when altering the object. The connector&#39;s current status is reported in `showOutput`.
  * 
- * Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting, stopping and version management are operational actions and are not exposed here; the connector&#39;s state is reported in `showOutput`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
+ * Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting and stopping are operational actions and are not exposed here, although the provider may execute such commands when altering the object; the connector&#39;s state is reported in `showOutput`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
  * 
  * ## Example Usage
  * 
@@ -85,6 +83,7 @@ import javax.annotation.Nullable;
  *                 .stage(exampleSnowflakeStage.get("fullyQualifiedName"))
  *                 .path("connectors/postgres")
  *                 .build())
+ *             .versionTrigger("1")
  *             .build());
  * 
  *         // uploading the bundle yourself, then creating the connector from it. Snowflake reads config.json from the
@@ -325,6 +324,20 @@ public class OpenflowConnector extends com.pulumi.resources.CustomResource {
      */
     public Output<List<OpenflowConnectorShowOutput>> showOutputs() {
         return this.showOutputs;
+    }
+    /**
+     * An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+     * 
+     */
+    @Export(name="versionTrigger", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> versionTrigger;
+
+    /**
+     * @return An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+     * 
+     */
+    public Output<Optional<String>> versionTrigger() {
+        return Codegen.optional(this.versionTrigger);
     }
 
     /**

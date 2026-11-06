@@ -131,14 +131,14 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+     * @return Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
      * 
      */
     public Output<String> mode() {

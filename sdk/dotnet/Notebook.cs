@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version of the provider. It manages [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks), and Snowflake is [disabling the creation of new Legacy Notebooks](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-disable-legacy-notebooks) in a rollout that started on September 1, 2026. On accounts where the change is rolled out, creating this resource fails. Snowflake plans to stop the execution and editing of existing Legacy Notebooks in November 2026. [Code Bundles replace Legacy Notebook objects](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks-in-workspaces/notebooks-in-workspaces-migrate), so migrate to the `snowflake.CodeBundle` resource.
+    /// 
     /// &gt; **Note** Due to Snowflake limitations, external changes to `From` are not currently detected.
     /// 
     /// &gt; **Note** `Secrets` is currently not supported. It will be supported in the following versions of the provider which may still affect this resource.

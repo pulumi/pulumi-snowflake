@@ -13,29 +13,30 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetPipesPipeResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Integration;
-        public readonly string Name;
-        public readonly string Schema;
+        /// <summary>
+        /// Holds the output of DESCRIBE PIPE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPipesPipeDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW PARAMETERS FOR PIPE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPipesPipeParameterResult> Parameters;
+        /// <summary>
+        /// Holds the output of SHOW PIPES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPipesPipeShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetPipesPipeResult(
-            string comment,
+            ImmutableArray<Outputs.GetPipesPipeDescribeOutputResult> describeOutputs,
 
-            string database,
+            ImmutableArray<Outputs.GetPipesPipeParameterResult> parameters,
 
-            string integration,
-
-            string name,
-
-            string schema)
+            ImmutableArray<Outputs.GetPipesPipeShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Integration = integration;
-            Name = name;
-            Schema = schema;
+            DescribeOutputs = describeOutputs;
+            Parameters = parameters;
+            ShowOutputs = showOutputs;
         }
     }
 }

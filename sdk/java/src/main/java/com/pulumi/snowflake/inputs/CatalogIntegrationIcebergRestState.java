@@ -70,14 +70,14 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
     }
 
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the catalog integration.
+     * @return Specifies a comment for the catalog integration.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -130,14 +130,14 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * @return Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -190,14 +190,14 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
     }
 
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<CatalogIntegrationIcebergRestShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      * 
      */
     public Optional<Output<List<CatalogIntegrationIcebergRestShowOutputArgs>>> showOutputs() {
@@ -319,7 +319,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the catalog integration.
+         * @param comment Specifies a comment for the catalog integration.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the catalog integration.
+         * @param comment Specifies a comment for the catalog integration.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+         * @param name Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+         * @param name Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class CatalogIntegrationIcebergRestState extends com.pulumi.resourc
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+         * @param showOutputs Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
          * 
          * @return builder
          * 

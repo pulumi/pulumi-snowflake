@@ -131,7 +131,7 @@ type CatalogIntegrationIcebergRest struct {
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationIcebergRestDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -139,7 +139,7 @@ type CatalogIntegrationIcebergRest struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	OauthRestAuthentication CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput `pulumi:"oauthRestAuthentication"`
@@ -147,7 +147,7 @@ type CatalogIntegrationIcebergRest struct {
 	RefreshIntervalSeconds pulumi.IntPtrOutput `pulumi:"refreshIntervalSeconds"`
 	// Specifies information about REST configuration.
 	RestConfig CatalogIntegrationIcebergRestRestConfigOutput `pulumi:"restConfig"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
 	ShowOutputs CatalogIntegrationIcebergRestShowOutputArrayOutput `pulumi:"showOutputs"`
 	// Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	Sigv4RestAuthentication CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput `pulumi:"sigv4RestAuthentication"`
@@ -195,7 +195,7 @@ type catalogIntegrationIcebergRestState struct {
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource *string `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs []CatalogIntegrationIcebergRestDescribeOutput `pulumi:"describeOutputs"`
@@ -203,7 +203,7 @@ type catalogIntegrationIcebergRestState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	OauthRestAuthentication *CatalogIntegrationIcebergRestOauthRestAuthentication `pulumi:"oauthRestAuthentication"`
@@ -211,7 +211,7 @@ type catalogIntegrationIcebergRestState struct {
 	RefreshIntervalSeconds *int `pulumi:"refreshIntervalSeconds"`
 	// Specifies information about REST configuration.
 	RestConfig *CatalogIntegrationIcebergRestRestConfig `pulumi:"restConfig"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
 	ShowOutputs []CatalogIntegrationIcebergRestShowOutput `pulumi:"showOutputs"`
 	// Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	Sigv4RestAuthentication *CatalogIntegrationIcebergRestSigv4RestAuthentication `pulumi:"sigv4RestAuthentication"`
@@ -224,7 +224,7 @@ type CatalogIntegrationIcebergRestState struct {
 	CatalogNamespace pulumi.StringPtrInput
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationIcebergRestDescribeOutputArrayInput
@@ -232,7 +232,7 @@ type CatalogIntegrationIcebergRestState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	OauthRestAuthentication CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput
@@ -240,7 +240,7 @@ type CatalogIntegrationIcebergRestState struct {
 	RefreshIntervalSeconds pulumi.IntPtrInput
 	// Specifies information about REST configuration.
 	RestConfig CatalogIntegrationIcebergRestRestConfigPtrInput
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
 	ShowOutputs CatalogIntegrationIcebergRestShowOutputArrayInput
 	// Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	Sigv4RestAuthentication CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput
@@ -261,11 +261,11 @@ type catalogIntegrationIcebergRestArgs struct {
 	BearerRestAuthentication *CatalogIntegrationIcebergRestBearerRestAuthentication `pulumi:"bearerRestAuthentication"`
 	// Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	OauthRestAuthentication *CatalogIntegrationIcebergRestOauthRestAuthentication `pulumi:"oauthRestAuthentication"`
@@ -283,11 +283,11 @@ type CatalogIntegrationIcebergRestArgs struct {
 	BearerRestAuthentication CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput
 	// Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	OauthRestAuthentication CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput
@@ -403,7 +403,7 @@ func (o CatalogIntegrationIcebergRestOutput) CatalogSource() pulumi.StringOutput
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
-// (Default: “) Specifies a comment for the catalog integration.
+// Specifies a comment for the catalog integration.
 func (o CatalogIntegrationIcebergRestOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -425,7 +425,7 @@ func (o CatalogIntegrationIcebergRestOutput) FullyQualifiedName() pulumi.StringO
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+// Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o CatalogIntegrationIcebergRestOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -449,7 +449,7 @@ func (o CatalogIntegrationIcebergRestOutput) RestConfig() CatalogIntegrationIceb
 	}).(CatalogIntegrationIcebergRestRestConfigOutput)
 }
 
-// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
 func (o CatalogIntegrationIcebergRestOutput) ShowOutputs() CatalogIntegrationIcebergRestShowOutputArrayOutput {
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) CatalogIntegrationIcebergRestShowOutputArrayOutput {
 		return v.ShowOutputs

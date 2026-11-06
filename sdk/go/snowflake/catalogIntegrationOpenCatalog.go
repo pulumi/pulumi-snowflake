@@ -97,7 +97,7 @@ type CatalogIntegrationOpenCatalog struct {
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationOpenCatalogDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -105,7 +105,7 @@ type CatalogIntegrationOpenCatalog struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrOutput `pulumi:"refreshIntervalSeconds"`
@@ -113,7 +113,7 @@ type CatalogIntegrationOpenCatalog struct {
 	RestAuthentication CatalogIntegrationOpenCatalogRestAuthenticationOutput `pulumi:"restAuthentication"`
 	// Specifies information about the Open Catalog account and catalog name.
 	RestConfig CatalogIntegrationOpenCatalogRestConfigOutput `pulumi:"restConfig"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
 	ShowOutputs CatalogIntegrationOpenCatalogShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
@@ -160,7 +160,7 @@ type catalogIntegrationOpenCatalogState struct {
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource *string `pulumi:"catalogSource"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs []CatalogIntegrationOpenCatalogDescribeOutput `pulumi:"describeOutputs"`
@@ -168,7 +168,7 @@ type catalogIntegrationOpenCatalogState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds *int `pulumi:"refreshIntervalSeconds"`
@@ -176,7 +176,7 @@ type catalogIntegrationOpenCatalogState struct {
 	RestAuthentication *CatalogIntegrationOpenCatalogRestAuthentication `pulumi:"restAuthentication"`
 	// Specifies information about the Open Catalog account and catalog name.
 	RestConfig *CatalogIntegrationOpenCatalogRestConfig `pulumi:"restConfig"`
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
 	ShowOutputs []CatalogIntegrationOpenCatalogShowOutput `pulumi:"showOutputs"`
 }
 
@@ -185,7 +185,7 @@ type CatalogIntegrationOpenCatalogState struct {
 	CatalogNamespace pulumi.StringPtrInput
 	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
 	CatalogSource pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
 	DescribeOutputs CatalogIntegrationOpenCatalogDescribeOutputArrayInput
@@ -193,7 +193,7 @@ type CatalogIntegrationOpenCatalogState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrInput
@@ -201,7 +201,7 @@ type CatalogIntegrationOpenCatalogState struct {
 	RestAuthentication CatalogIntegrationOpenCatalogRestAuthenticationPtrInput
 	// Specifies information about the Open Catalog account and catalog name.
 	RestConfig CatalogIntegrationOpenCatalogRestConfigPtrInput
-	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+	// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
 	ShowOutputs CatalogIntegrationOpenCatalogShowOutputArrayInput
 }
 
@@ -218,11 +218,11 @@ func CatalogIntegrationOpenCatalogExists(ctx *pulumi.Context,
 type catalogIntegrationOpenCatalogArgs struct {
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds *int `pulumi:"refreshIntervalSeconds"`
@@ -236,11 +236,11 @@ type catalogIntegrationOpenCatalogArgs struct {
 type CatalogIntegrationOpenCatalogArgs struct {
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
-	// (Default: ``) Specifies a comment for the catalog integration.
+	// Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+	// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
 	RefreshIntervalSeconds pulumi.IntPtrInput
@@ -347,7 +347,7 @@ func (o CatalogIntegrationOpenCatalogOutput) CatalogSource() pulumi.StringOutput
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
-// (Default: “) Specifies a comment for the catalog integration.
+// Specifies a comment for the catalog integration.
 func (o CatalogIntegrationOpenCatalogOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -369,7 +369,7 @@ func (o CatalogIntegrationOpenCatalogOutput) FullyQualifiedName() pulumi.StringO
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+// Specifies the identifier for the catalog integration open catalog; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o CatalogIntegrationOpenCatalogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -393,7 +393,7 @@ func (o CatalogIntegrationOpenCatalogOutput) RestConfig() CatalogIntegrationOpen
 	}).(CatalogIntegrationOpenCatalogRestConfigOutput)
 }
 
-// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+// Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration open catalog.
 func (o CatalogIntegrationOpenCatalogOutput) ShowOutputs() CatalogIntegrationOpenCatalogShowOutputArrayOutput {
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) CatalogIntegrationOpenCatalogShowOutputArrayOutput {
 		return v.ShowOutputs

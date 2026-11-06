@@ -182,14 +182,14 @@ public class CatalogIntegrationIcebergRest extends com.pulumi.resources.CustomRe
         return this.catalogSource;
     }
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the catalog integration.
+     * @return Specifies a comment for the catalog integration.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -238,14 +238,14 @@ public class CatalogIntegrationIcebergRest extends com.pulumi.resources.CustomRe
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * @return Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -294,14 +294,14 @@ public class CatalogIntegrationIcebergRest extends com.pulumi.resources.CustomRe
         return this.restConfig;
     }
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      * 
      */
     @Export(name="showOutputs", refs={List.class,CatalogIntegrationIcebergRestShowOutput.class}, tree="[0,1]")
     private Output<List<CatalogIntegrationIcebergRestShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * @return Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      * 
      */
     public Output<List<CatalogIntegrationIcebergRestShowOutput>> showOutputs() {

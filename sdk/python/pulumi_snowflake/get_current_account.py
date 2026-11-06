@@ -68,7 +68,7 @@ class GetCurrentAccountResult:
     @pulumi.getter
     def url(self) -> _builtins.str:
         """
-        The Snowflake URL.
+        The Snowflake account URL. This value supports only the snowflakecomputing.com and snowflakecomputing.cn domains. Build a URL for any other domain from the region attribute.
         """
         return pulumi.get(self, "url")
 

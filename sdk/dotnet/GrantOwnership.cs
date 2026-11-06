@@ -17,6 +17,147 @@ namespace Pulumi.Snowflake
     /// &gt; **Note** Changes introduced in [202501 Snowflake BCR Bundle](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_01/bcr-1870) alter how future ownership grant hierarchy works. After the change schema-level future ownership grant(s) will override those defined on the database-level. Previously, the database-level ones took the precedence.
     /// 
     /// &gt; **Warning** Be careful when using this resource on managed schema or any object within it, as in Snowflake managed schemas follow different ownership and privilege model. For more details, please visit [Schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema#optional-parameters) (scroll to `WITH MANAGED ACCESS` option).
+    /// 
+    /// ## Granting ownership on pipes
+    /// 
+    /// Snowflake transfers ownership only of a paused pipe. For every pipe (a single pipe, or each pipe when ownership is granted on all pipes in a database or schema), the provider:
+    /// 1. Checks the pipe status with [`SYSTEM$PIPE_STATUS`](https://docs.snowflake.com/en/sql-reference/functions/system_pipe_status), and pauses a running pipe with `ALTER PIPE ... SET PIPE_EXECUTION_PAUSED = TRUE`. This needs either OWNERSHIP, or OPERATE and MONITOR on the pipe. Without them, the provider tries the transfer as is, and Snowflake rejects it for a running pipe.
+    /// 2. Transfers the ownership.
+    /// 3. Resumes the pipe with [`SYSTEM$PIPE_FORCE_RESUME`](https://docs.snowflake.com/en/sql-reference/functions/system_pipe_force_resume), but only when the pipe was running, the current role has OPERATE on the pipe, and `OutboundPrivileges = "COPY"` keeps that privilege after the transfer. If the pipe inherited [`PIPE_EXECUTION_PAUSED`](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused) from its schema or account before, the provider unsets it again, so the pipe ends as it started.
+    /// 
+    /// Otherwise, the pipe stays paused, with `PIPE_EXECUTION_PAUSED = TRUE` set on the pipe. Being the owner of the pipe before the transfer is not enough to resume it, because the current role has no privileges on the pipe after the transfer.
+    /// 
+    /// To keep a running pipe running, grant OPERATE and MONITOR on the pipe to the role used by the provider before the transfer, and set `OutboundPrivileges = "COPY"`:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipeOperate = new Snowflake.GrantPrivilegesToAccountRole("pipe_operate", new()
+    ///     {
+    ///         AccountRoleName = "&lt;role used by the provider&gt;",
+    ///         Privileges = new[]
+    ///         {
+    ///             "OPERATE",
+    ///             "MONITOR",
+    ///         },
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToAccountRoleOnSchemaObjectArgs
+    ///         {
+    ///             ObjectType = "PIPE",
+    ///             ObjectName = example.FullyQualifiedName,
+    ///         },
+    ///     });
+    /// 
+    ///     var pipe = new Snowflake.GrantOwnership("pipe", new()
+    ///     {
+    ///         AccountRoleName = newOwner.Name,
+    ///         OutboundPrivileges = "COPY",
+    ///         On = new Snowflake.Inputs.GrantOwnershipOnArgs
+    ///         {
+    ///             ObjectType = "PIPE",
+    ///             ObjectName = example.FullyQualifiedName,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             pipeOperate,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// A paused pipe is transferred without a pause and a resume, and it stays paused after the transfer.
+    /// 
+    /// If the pipe is managed by the `snowflake.Pipe` resource:
+    /// - With `PipeExecutionPaused` not set, or set to `False`, the pipe keeps running when the privileges above are granted. Without them, the pipe stays paused after the transfer, and `snowflake.Pipe` reports a difference for `PipeExecutionPaused`.
+    /// - With `PipeExecutionPaused = true`, the pipe stays paused, and no additional privileges are needed.
+    /// - Setting `PipeExecutionPaused = false` after the transfer does not resume a pipe that was paused during the transfer, because Snowflake resumes it this way only if its ownership did not change while it was paused. Resume it with [`SYSTEM$PIPE_FORCE_RESUME`](https://docs.snowflake.com/en/sql-reference/functions/system_pipe_force_resume) instead.
+    /// 
+    /// ## Granting ownership on task
+    /// 
+    /// Granting ownership on single task requires:
+    /// - Either OWNERSHIP or OPERATE privilege to suspend the task (and its root)
+    /// - Role that will be granted ownership has to have USAGE granted on the warehouse assigned to the task, as well as EXECUTE TASK granted globally
+    /// - The outbound privileges set to `OutboundPrivileges = "COPY"` if you want to move grants automatically to the owner (also enables the provider to resume the task automatically)
+    ///   If originally the first owner won't be granted with OPERATE, USAGE (on the warehouse), EXECUTE TASK (on the account), and outbound privileges won't be set to `COPY`, then you have to resume suspended tasks manually.
+    /// 
+    /// ## Granting ownership on all tasks in database/schema
+    /// 
+    /// Granting ownership on all tasks requires less privileges than granting ownership on one task, because it does a little bit less and requires additional work to be done after.
+    /// The only thing you have to take care of is to resume tasks after grant ownership transfer. If all of your tasks are managed by the Snowflake Terraform Plugin, this should
+    /// be as simple as running `pulumi up` second time (assuming the currently used role is privileged enough to be able to resume the tasks).
+    /// If your tasks are not managed by the Snowflake Terraform Plugin, you should resume them yourself manually.
+    /// 
+    /// ## Granting ownership on external tables
+    /// 
+    /// Transferring ownership on an external table or its parent database blocks automatic refreshes of the table metadata by setting the `AUTO_REFRESH` property to `FALSE`.
+    /// Right now, there's no way to check the `AUTO_REFRESH` state of the external table and because of that, a manual step is required after ownership transfer.
+    /// To set the `AUTO_REFRESH` property back to `TRUE` (after you transfer ownership), use the [ALTER EXTERNAL TABLE](https://docs.snowflake.com/en/sql-reference/sql/alter-external-table) command.
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
+    /// ## Import
+    /// 
+    /// &gt; **Note** All the ..._name parts should be fully qualified names (where every part is quoted), e.g. for schema object it is `"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;object_name&gt;"`
+    /// 
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|&lt;grant_type&gt;|&lt;grant_data&gt;'`
+    /// 
+    /// where:
+    /// - RoleType - string - type of granted role (either ToAccountRole or ToDatabaseRole)
+    /// - RoleName - string - fully qualified identifier for either account role or database role (depending on the role_type)
+    /// - OutboundPrivilegesBehavior - string - behavior specified for existing roles (can be either COPY or REVOKE)
+    /// - GrantType - enum
+    /// - GrantData - data dependent on GrantType
+    /// 
+    /// It has varying number of parts, depending on grant_type. All the possible types are:
+    /// 
+    /// ### OnObject
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|OnObject|&lt;object_type&gt;|&lt;object_name&gt;'`
+    /// 
+    /// ### OnAll (contains inner types: InDatabase | InSchema)
+    /// 
+    /// #### InDatabase
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|OnAll|&lt;object_type_plural&gt;|InDatabase|&lt;database_name&gt;'`
+    /// 
+    /// #### InSchema
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|OnAll|&lt;object_type_plural&gt;|InSchema|&lt;schema_name&gt;'`
+    /// 
+    /// ### OnFuture (contains inner types: InDatabase | InSchema)
+    /// 
+    /// #### InDatabase
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|OnFuture|&lt;object_type_plural&gt;|InDatabase|&lt;database_name&gt;'`
+    /// 
+    /// #### InSchema
+    /// `terraform import snowflake_grant_ownership.example '&lt;role_type&gt;|&lt;role_identifier&gt;|&lt;outbound_privileges_behavior&gt;|OnFuture|&lt;object_type_plural&gt;|InSchema|&lt;schema_name&gt;'`
+    /// 
+    /// ### Import examples
+    /// 
+    /// #### OnObject on Schema ToAccountRole
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"|COPY|OnObject|SCHEMA|"DatabaseName"."SchemaName"'`
+    /// 
+    /// #### OnObject on Schema ToDatabaseRole
+    /// `terraform import snowflake_grant_ownership.example 'ToDatabaseRole|"DatabaseName"."DatabaseRoleName"|COPY|OnObject|SCHEMA|"DatabaseName"."SchemaName"'`
+    /// 
+    /// #### OnObject on Table
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"|COPY|OnObject|TABLE|"DatabaseName"."SchemaName"."TableName"'`
+    /// 
+    /// #### OnAll InDatabase
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"|REVOKE|OnAll|TABLES|InDatabase|"DatabaseName"'`
+    /// 
+    /// #### OnAll InSchema
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"||OnAll|TABLES|InSchema|"DatabaseName"."SchemaName"'`
+    /// 
+    /// #### OnFuture InDatabase
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"||OnFuture|TABLES|InDatabase|"DatabaseName"'`
+    /// 
+    /// #### OnFuture InSchema
+    /// `terraform import snowflake_grant_ownership.example 'ToAccountRole|"AccountRole"|COPY|OnFuture|TABLES|InSchema|"DatabaseName"."SchemaName"'`
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantOwnership:GrantOwnership")]
     public partial class GrantOwnership : global::Pulumi.CustomResource

@@ -91,7 +91,7 @@ export class WarehouseAdaptive extends pulumi.CustomResource {
      */
     declare public readonly maxQueryPerformanceLevel: pulumi.Output<string | undefined>;
     /**
-     * Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface WarehouseAdaptiveState {
      */
     maxQueryPerformanceLevel?: pulumi.Input<string | undefined>;
     /**
-     * Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface WarehouseAdaptiveArgs {
      */
     maxQueryPerformanceLevel?: pulumi.Input<string | undefined>;
     /**
-     * Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse adaptive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

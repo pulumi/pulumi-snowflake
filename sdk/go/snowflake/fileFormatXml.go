@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewFileFormatXml(ctx, "basic", &snowflake.FileFormatXmlArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewFileFormatXml(ctx, "complete", &snowflake.FileFormatXmlArgs{
 //				Database:                 pulumi.String("database_name"),
 //				Schema:                   pulumi.String("schema_name"),

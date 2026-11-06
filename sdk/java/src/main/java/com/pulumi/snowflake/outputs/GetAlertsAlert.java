@@ -5,96 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetAlertsAlertDescribeOutput;
+import com.pulumi.snowflake.outputs.GetAlertsAlertShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetAlertsAlert {
     /**
-     * @return The text of the SQL statement that should be executed when the alert is triggered.
+     * @return Holds the output of DESCRIBE ALERT.
      * 
      */
-    private String action;
+    private List<GetAlertsAlertDescribeOutput> describeOutputs;
     /**
-     * @return Comment for the alert.
+     * @return Holds the output of SHOW ALERTS.
      * 
      */
-    private String comment;
-    /**
-     * @return The text of the SQL statement that serves as the condition when the alert should be triggered.
-     * 
-     */
-    private String condition;
-    /**
-     * @return Database in which the alert is stored.
-     * 
-     */
-    private String databaseName;
-    /**
-     * @return Name of the alert.
-     * 
-     */
-    private String name;
-    /**
-     * @return Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-     * 
-     */
-    private String owner;
-    /**
-     * @return Schema in which the alert is stored.
-     * 
-     */
-    private String schemaName;
+    private List<GetAlertsAlertShowOutput> showOutputs;
 
     private GetAlertsAlert() {}
     /**
-     * @return The text of the SQL statement that should be executed when the alert is triggered.
+     * @return Holds the output of DESCRIBE ALERT.
      * 
      */
-    public String action() {
-        return this.action;
+    public List<GetAlertsAlertDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
-     * @return Comment for the alert.
+     * @return Holds the output of SHOW ALERTS.
      * 
      */
-    public String comment() {
-        return this.comment;
-    }
-    /**
-     * @return The text of the SQL statement that serves as the condition when the alert should be triggered.
-     * 
-     */
-    public String condition() {
-        return this.condition;
-    }
-    /**
-     * @return Database in which the alert is stored.
-     * 
-     */
-    public String databaseName() {
-        return this.databaseName;
-    }
-    /**
-     * @return Name of the alert.
-     * 
-     */
-    public String name() {
-        return this.name;
-    }
-    /**
-     * @return Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-     * 
-     */
-    public String owner() {
-        return this.owner;
-    }
-    /**
-     * @return Schema in which the alert is stored.
-     * 
-     */
-    public String schemaName() {
-        return this.schemaName;
+    public List<GetAlertsAlertShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -106,90 +48,41 @@ public final class GetAlertsAlert {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String action;
-        private String comment;
-        private String condition;
-        private String databaseName;
-        private String name;
-        private String owner;
-        private String schemaName;
+        private List<GetAlertsAlertDescribeOutput> describeOutputs;
+        private List<GetAlertsAlertShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetAlertsAlert defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.action = defaults.action;
-    	      this.comment = defaults.comment;
-    	      this.condition = defaults.condition;
-    	      this.databaseName = defaults.databaseName;
-    	      this.name = defaults.name;
-    	      this.owner = defaults.owner;
-    	      this.schemaName = defaults.schemaName;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder action(String action) {
-            if (action == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "action");
+        public Builder describeOutputs(List<GetAlertsAlertDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetAlertsAlert", "describeOutputs");
             }
-            this.action = action;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "comment");
-            }
-            this.comment = comment;
-            return this;
+        public Builder describeOutputs(GetAlertsAlertDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder condition(String condition) {
-            if (condition == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "condition");
+        public Builder showOutputs(List<GetAlertsAlertShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetAlertsAlert", "showOutputs");
             }
-            this.condition = condition;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder databaseName(String databaseName) {
-            if (databaseName == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "databaseName");
-            }
-            this.databaseName = databaseName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder owner(String owner) {
-            if (owner == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "owner");
-            }
-            this.owner = owner;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder schemaName(String schemaName) {
-            if (schemaName == null) {
-              throw new MissingRequiredPropertyException("GetAlertsAlert", "schemaName");
-            }
-            this.schemaName = schemaName;
-            return this;
+        public Builder showOutputs(GetAlertsAlertShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetAlertsAlert build() {
             final var _resultValue = new GetAlertsAlert();
-            _resultValue.action = action;
-            _resultValue.comment = comment;
-            _resultValue.condition = condition;
-            _resultValue.databaseName = databaseName;
-            _resultValue.name = name;
-            _resultValue.owner = owner;
-            _resultValue.schemaName = schemaName;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

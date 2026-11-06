@@ -6,28 +6,35 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.ServiceUserParameterAbortDetachedQueryArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterActivePythonProfilerArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterAutocommitArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterBinaryInputFormatArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterBinaryOutputFormatArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterClientEnableLogInfoStatementParameterArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientMemoryLimitArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterClientMetadataUseSessionDatabaseArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientPrefetchThreadArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientResultChunkSizeArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientResultColumnCaseInsensitiveArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientSessionKeepAlifeArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterClientTimestampTypeMappingArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterCsvTimestampFormatArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterDateInputFormatArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterDateOutputFormatArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterErrorOnNondeterministicMergeArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterErrorOnNondeterministicUpdateArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterGeographyOutputFormatArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterGeometryOutputFormatArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterHybridTableLockTimeoutArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterJdbcTreatDecimalAsIntArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterJdbcUseSessionTimezoneArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterJsTreatIntegerAsBigintArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterJsonIndentArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterLockTimeoutArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterLogEventLevelArgs;
@@ -37,6 +44,8 @@ import com.pulumi.snowflake.inputs.ServiceUserParameterNetworkPolicyArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterNoorderSequenceAsDefaultArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterOdbcTreatDecimalAsIntArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterPreventUnloadToInternalStageArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterPythonProfilerModuleArgs;
+import com.pulumi.snowflake.inputs.ServiceUserParameterPythonProfilerTargetStageArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterQueryTagArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterQuotedIdentifiersIgnoreCaseArgs;
 import com.pulumi.snowflake.inputs.ServiceUserParameterRowsPerResultsetArgs;
@@ -81,6 +90,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.abortDetachedQueries);
     }
 
+    @Import(name="activePythonProfilers")
+    private @Nullable Output<List<ServiceUserParameterActivePythonProfilerArgs>> activePythonProfilers;
+
+    public Optional<Output<List<ServiceUserParameterActivePythonProfilerArgs>>> activePythonProfilers() {
+        return Optional.ofNullable(this.activePythonProfilers);
+    }
+
     @Import(name="autocommits")
     private @Nullable Output<List<ServiceUserParameterAutocommitArgs>> autocommits;
 
@@ -102,6 +118,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.binaryOutputFormats);
     }
 
+    @Import(name="clientEnableLogInfoStatementParameters")
+    private @Nullable Output<List<ServiceUserParameterClientEnableLogInfoStatementParameterArgs>> clientEnableLogInfoStatementParameters;
+
+    public Optional<Output<List<ServiceUserParameterClientEnableLogInfoStatementParameterArgs>>> clientEnableLogInfoStatementParameters() {
+        return Optional.ofNullable(this.clientEnableLogInfoStatementParameters);
+    }
+
     @Import(name="clientMemoryLimits")
     private @Nullable Output<List<ServiceUserParameterClientMemoryLimitArgs>> clientMemoryLimits;
 
@@ -114,6 +137,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
     public Optional<Output<List<ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs>>> clientMetadataRequestUseConnectionCtxes() {
         return Optional.ofNullable(this.clientMetadataRequestUseConnectionCtxes);
+    }
+
+    @Import(name="clientMetadataUseSessionDatabases")
+    private @Nullable Output<List<ServiceUserParameterClientMetadataUseSessionDatabaseArgs>> clientMetadataUseSessionDatabases;
+
+    public Optional<Output<List<ServiceUserParameterClientMetadataUseSessionDatabaseArgs>>> clientMetadataUseSessionDatabases() {
+        return Optional.ofNullable(this.clientMetadataUseSessionDatabases);
     }
 
     @Import(name="clientPrefetchThreads")
@@ -158,6 +188,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.clientTimestampTypeMappings);
     }
 
+    @Import(name="csvTimestampFormats")
+    private @Nullable Output<List<ServiceUserParameterCsvTimestampFormatArgs>> csvTimestampFormats;
+
+    public Optional<Output<List<ServiceUserParameterCsvTimestampFormatArgs>>> csvTimestampFormats() {
+        return Optional.ofNullable(this.csvTimestampFormats);
+    }
+
     @Import(name="dateInputFormats")
     private @Nullable Output<List<ServiceUserParameterDateInputFormatArgs>> dateInputFormats;
 
@@ -170,6 +207,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
     public Optional<Output<List<ServiceUserParameterDateOutputFormatArgs>>> dateOutputFormats() {
         return Optional.ofNullable(this.dateOutputFormats);
+    }
+
+    @Import(name="enableGetDdlUseDataTypeAliases")
+    private @Nullable Output<List<ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs>> enableGetDdlUseDataTypeAliases;
+
+    public Optional<Output<List<ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs>>> enableGetDdlUseDataTypeAliases() {
+        return Optional.ofNullable(this.enableGetDdlUseDataTypeAliases);
     }
 
     @Import(name="enableUnloadPhysicalTypeOptimizations")
@@ -214,6 +258,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.geometryOutputFormats);
     }
 
+    @Import(name="hybridTableLockTimeouts")
+    private @Nullable Output<List<ServiceUserParameterHybridTableLockTimeoutArgs>> hybridTableLockTimeouts;
+
+    public Optional<Output<List<ServiceUserParameterHybridTableLockTimeoutArgs>>> hybridTableLockTimeouts() {
+        return Optional.ofNullable(this.hybridTableLockTimeouts);
+    }
+
     @Import(name="jdbcTreatDecimalAsInts")
     private @Nullable Output<List<ServiceUserParameterJdbcTreatDecimalAsIntArgs>> jdbcTreatDecimalAsInts;
 
@@ -233,6 +284,13 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
     public Optional<Output<List<ServiceUserParameterJdbcUseSessionTimezoneArgs>>> jdbcUseSessionTimezones() {
         return Optional.ofNullable(this.jdbcUseSessionTimezones);
+    }
+
+    @Import(name="jsTreatIntegerAsBigints")
+    private @Nullable Output<List<ServiceUserParameterJsTreatIntegerAsBigintArgs>> jsTreatIntegerAsBigints;
+
+    public Optional<Output<List<ServiceUserParameterJsTreatIntegerAsBigintArgs>>> jsTreatIntegerAsBigints() {
+        return Optional.ofNullable(this.jsTreatIntegerAsBigints);
     }
 
     @Import(name="jsonIndents")
@@ -296,6 +354,20 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
     public Optional<Output<List<ServiceUserParameterPreventUnloadToInternalStageArgs>>> preventUnloadToInternalStages() {
         return Optional.ofNullable(this.preventUnloadToInternalStages);
+    }
+
+    @Import(name="pythonProfilerModules")
+    private @Nullable Output<List<ServiceUserParameterPythonProfilerModuleArgs>> pythonProfilerModules;
+
+    public Optional<Output<List<ServiceUserParameterPythonProfilerModuleArgs>>> pythonProfilerModules() {
+        return Optional.ofNullable(this.pythonProfilerModules);
+    }
+
+    @Import(name="pythonProfilerTargetStages")
+    private @Nullable Output<List<ServiceUserParameterPythonProfilerTargetStageArgs>> pythonProfilerTargetStages;
+
+    public Optional<Output<List<ServiceUserParameterPythonProfilerTargetStageArgs>>> pythonProfilerTargetStages() {
+        return Optional.ofNullable(this.pythonProfilerTargetStages);
     }
 
     @Import(name="queryTags")
@@ -491,28 +563,35 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
     private ServiceUserParameterArgs(ServiceUserParameterArgs $) {
         this.abortDetachedQueries = $.abortDetachedQueries;
+        this.activePythonProfilers = $.activePythonProfilers;
         this.autocommits = $.autocommits;
         this.binaryInputFormats = $.binaryInputFormats;
         this.binaryOutputFormats = $.binaryOutputFormats;
+        this.clientEnableLogInfoStatementParameters = $.clientEnableLogInfoStatementParameters;
         this.clientMemoryLimits = $.clientMemoryLimits;
         this.clientMetadataRequestUseConnectionCtxes = $.clientMetadataRequestUseConnectionCtxes;
+        this.clientMetadataUseSessionDatabases = $.clientMetadataUseSessionDatabases;
         this.clientPrefetchThreads = $.clientPrefetchThreads;
         this.clientResultChunkSizes = $.clientResultChunkSizes;
         this.clientResultColumnCaseInsensitives = $.clientResultColumnCaseInsensitives;
         this.clientSessionKeepAliveHeartbeatFrequencies = $.clientSessionKeepAliveHeartbeatFrequencies;
         this.clientSessionKeepAlives = $.clientSessionKeepAlives;
         this.clientTimestampTypeMappings = $.clientTimestampTypeMappings;
+        this.csvTimestampFormats = $.csvTimestampFormats;
         this.dateInputFormats = $.dateInputFormats;
         this.dateOutputFormats = $.dateOutputFormats;
+        this.enableGetDdlUseDataTypeAliases = $.enableGetDdlUseDataTypeAliases;
         this.enableUnloadPhysicalTypeOptimizations = $.enableUnloadPhysicalTypeOptimizations;
         this.enableUnredactedQuerySyntaxErrors = $.enableUnredactedQuerySyntaxErrors;
         this.errorOnNondeterministicMerges = $.errorOnNondeterministicMerges;
         this.errorOnNondeterministicUpdates = $.errorOnNondeterministicUpdates;
         this.geographyOutputFormats = $.geographyOutputFormats;
         this.geometryOutputFormats = $.geometryOutputFormats;
+        this.hybridTableLockTimeouts = $.hybridTableLockTimeouts;
         this.jdbcTreatDecimalAsInts = $.jdbcTreatDecimalAsInts;
         this.jdbcTreatTimestampNtzAsUtcs = $.jdbcTreatTimestampNtzAsUtcs;
         this.jdbcUseSessionTimezones = $.jdbcUseSessionTimezones;
+        this.jsTreatIntegerAsBigints = $.jsTreatIntegerAsBigints;
         this.jsonIndents = $.jsonIndents;
         this.lockTimeouts = $.lockTimeouts;
         this.logEventLevels = $.logEventLevels;
@@ -522,6 +601,8 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
         this.noorderSequenceAsDefaults = $.noorderSequenceAsDefaults;
         this.odbcTreatDecimalAsInts = $.odbcTreatDecimalAsInts;
         this.preventUnloadToInternalStages = $.preventUnloadToInternalStages;
+        this.pythonProfilerModules = $.pythonProfilerModules;
+        this.pythonProfilerTargetStages = $.pythonProfilerTargetStages;
         this.queryTags = $.queryTags;
         this.quotedIdentifiersIgnoreCases = $.quotedIdentifiersIgnoreCases;
         this.rowsPerResultsets = $.rowsPerResultsets;
@@ -582,6 +663,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
             return abortDetachedQueries(List.of(abortDetachedQueries));
         }
 
+        public Builder activePythonProfilers(@Nullable Output<List<ServiceUserParameterActivePythonProfilerArgs>> activePythonProfilers) {
+            $.activePythonProfilers = activePythonProfilers;
+            return this;
+        }
+
+        public Builder activePythonProfilers(List<ServiceUserParameterActivePythonProfilerArgs> activePythonProfilers) {
+            return activePythonProfilers(Output.of(activePythonProfilers));
+        }
+
+        public Builder activePythonProfilers(ServiceUserParameterActivePythonProfilerArgs... activePythonProfilers) {
+            return activePythonProfilers(List.of(activePythonProfilers));
+        }
+
         public Builder autocommits(@Nullable Output<List<ServiceUserParameterAutocommitArgs>> autocommits) {
             $.autocommits = autocommits;
             return this;
@@ -621,6 +715,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
             return binaryOutputFormats(List.of(binaryOutputFormats));
         }
 
+        public Builder clientEnableLogInfoStatementParameters(@Nullable Output<List<ServiceUserParameterClientEnableLogInfoStatementParameterArgs>> clientEnableLogInfoStatementParameters) {
+            $.clientEnableLogInfoStatementParameters = clientEnableLogInfoStatementParameters;
+            return this;
+        }
+
+        public Builder clientEnableLogInfoStatementParameters(List<ServiceUserParameterClientEnableLogInfoStatementParameterArgs> clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(Output.of(clientEnableLogInfoStatementParameters));
+        }
+
+        public Builder clientEnableLogInfoStatementParameters(ServiceUserParameterClientEnableLogInfoStatementParameterArgs... clientEnableLogInfoStatementParameters) {
+            return clientEnableLogInfoStatementParameters(List.of(clientEnableLogInfoStatementParameters));
+        }
+
         public Builder clientMemoryLimits(@Nullable Output<List<ServiceUserParameterClientMemoryLimitArgs>> clientMemoryLimits) {
             $.clientMemoryLimits = clientMemoryLimits;
             return this;
@@ -645,6 +752,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
         public Builder clientMetadataRequestUseConnectionCtxes(ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs... clientMetadataRequestUseConnectionCtxes) {
             return clientMetadataRequestUseConnectionCtxes(List.of(clientMetadataRequestUseConnectionCtxes));
+        }
+
+        public Builder clientMetadataUseSessionDatabases(@Nullable Output<List<ServiceUserParameterClientMetadataUseSessionDatabaseArgs>> clientMetadataUseSessionDatabases) {
+            $.clientMetadataUseSessionDatabases = clientMetadataUseSessionDatabases;
+            return this;
+        }
+
+        public Builder clientMetadataUseSessionDatabases(List<ServiceUserParameterClientMetadataUseSessionDatabaseArgs> clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(Output.of(clientMetadataUseSessionDatabases));
+        }
+
+        public Builder clientMetadataUseSessionDatabases(ServiceUserParameterClientMetadataUseSessionDatabaseArgs... clientMetadataUseSessionDatabases) {
+            return clientMetadataUseSessionDatabases(List.of(clientMetadataUseSessionDatabases));
         }
 
         public Builder clientPrefetchThreads(@Nullable Output<List<ServiceUserParameterClientPrefetchThreadArgs>> clientPrefetchThreads) {
@@ -725,6 +845,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
             return clientTimestampTypeMappings(List.of(clientTimestampTypeMappings));
         }
 
+        public Builder csvTimestampFormats(@Nullable Output<List<ServiceUserParameterCsvTimestampFormatArgs>> csvTimestampFormats) {
+            $.csvTimestampFormats = csvTimestampFormats;
+            return this;
+        }
+
+        public Builder csvTimestampFormats(List<ServiceUserParameterCsvTimestampFormatArgs> csvTimestampFormats) {
+            return csvTimestampFormats(Output.of(csvTimestampFormats));
+        }
+
+        public Builder csvTimestampFormats(ServiceUserParameterCsvTimestampFormatArgs... csvTimestampFormats) {
+            return csvTimestampFormats(List.of(csvTimestampFormats));
+        }
+
         public Builder dateInputFormats(@Nullable Output<List<ServiceUserParameterDateInputFormatArgs>> dateInputFormats) {
             $.dateInputFormats = dateInputFormats;
             return this;
@@ -749,6 +882,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
         public Builder dateOutputFormats(ServiceUserParameterDateOutputFormatArgs... dateOutputFormats) {
             return dateOutputFormats(List.of(dateOutputFormats));
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(@Nullable Output<List<ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs>> enableGetDdlUseDataTypeAliases) {
+            $.enableGetDdlUseDataTypeAliases = enableGetDdlUseDataTypeAliases;
+            return this;
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(List<ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs> enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(Output.of(enableGetDdlUseDataTypeAliases));
+        }
+
+        public Builder enableGetDdlUseDataTypeAliases(ServiceUserParameterEnableGetDdlUseDataTypeAliasArgs... enableGetDdlUseDataTypeAliases) {
+            return enableGetDdlUseDataTypeAliases(List.of(enableGetDdlUseDataTypeAliases));
         }
 
         public Builder enableUnloadPhysicalTypeOptimizations(@Nullable Output<List<ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs>> enableUnloadPhysicalTypeOptimizations) {
@@ -829,6 +975,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
             return geometryOutputFormats(List.of(geometryOutputFormats));
         }
 
+        public Builder hybridTableLockTimeouts(@Nullable Output<List<ServiceUserParameterHybridTableLockTimeoutArgs>> hybridTableLockTimeouts) {
+            $.hybridTableLockTimeouts = hybridTableLockTimeouts;
+            return this;
+        }
+
+        public Builder hybridTableLockTimeouts(List<ServiceUserParameterHybridTableLockTimeoutArgs> hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(Output.of(hybridTableLockTimeouts));
+        }
+
+        public Builder hybridTableLockTimeouts(ServiceUserParameterHybridTableLockTimeoutArgs... hybridTableLockTimeouts) {
+            return hybridTableLockTimeouts(List.of(hybridTableLockTimeouts));
+        }
+
         public Builder jdbcTreatDecimalAsInts(@Nullable Output<List<ServiceUserParameterJdbcTreatDecimalAsIntArgs>> jdbcTreatDecimalAsInts) {
             $.jdbcTreatDecimalAsInts = jdbcTreatDecimalAsInts;
             return this;
@@ -866,6 +1025,19 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
         public Builder jdbcUseSessionTimezones(ServiceUserParameterJdbcUseSessionTimezoneArgs... jdbcUseSessionTimezones) {
             return jdbcUseSessionTimezones(List.of(jdbcUseSessionTimezones));
+        }
+
+        public Builder jsTreatIntegerAsBigints(@Nullable Output<List<ServiceUserParameterJsTreatIntegerAsBigintArgs>> jsTreatIntegerAsBigints) {
+            $.jsTreatIntegerAsBigints = jsTreatIntegerAsBigints;
+            return this;
+        }
+
+        public Builder jsTreatIntegerAsBigints(List<ServiceUserParameterJsTreatIntegerAsBigintArgs> jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(Output.of(jsTreatIntegerAsBigints));
+        }
+
+        public Builder jsTreatIntegerAsBigints(ServiceUserParameterJsTreatIntegerAsBigintArgs... jsTreatIntegerAsBigints) {
+            return jsTreatIntegerAsBigints(List.of(jsTreatIntegerAsBigints));
         }
 
         public Builder jsonIndents(@Nullable Output<List<ServiceUserParameterJsonIndentArgs>> jsonIndents) {
@@ -983,6 +1155,32 @@ public final class ServiceUserParameterArgs extends com.pulumi.resources.Resourc
 
         public Builder preventUnloadToInternalStages(ServiceUserParameterPreventUnloadToInternalStageArgs... preventUnloadToInternalStages) {
             return preventUnloadToInternalStages(List.of(preventUnloadToInternalStages));
+        }
+
+        public Builder pythonProfilerModules(@Nullable Output<List<ServiceUserParameterPythonProfilerModuleArgs>> pythonProfilerModules) {
+            $.pythonProfilerModules = pythonProfilerModules;
+            return this;
+        }
+
+        public Builder pythonProfilerModules(List<ServiceUserParameterPythonProfilerModuleArgs> pythonProfilerModules) {
+            return pythonProfilerModules(Output.of(pythonProfilerModules));
+        }
+
+        public Builder pythonProfilerModules(ServiceUserParameterPythonProfilerModuleArgs... pythonProfilerModules) {
+            return pythonProfilerModules(List.of(pythonProfilerModules));
+        }
+
+        public Builder pythonProfilerTargetStages(@Nullable Output<List<ServiceUserParameterPythonProfilerTargetStageArgs>> pythonProfilerTargetStages) {
+            $.pythonProfilerTargetStages = pythonProfilerTargetStages;
+            return this;
+        }
+
+        public Builder pythonProfilerTargetStages(List<ServiceUserParameterPythonProfilerTargetStageArgs> pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(Output.of(pythonProfilerTargetStages));
+        }
+
+        public Builder pythonProfilerTargetStages(ServiceUserParameterPythonProfilerTargetStageArgs... pythonProfilerTargetStages) {
+            return pythonProfilerTargetStages(List.of(pythonProfilerTargetStages));
         }
 
         public Builder queryTags(@Nullable Output<List<ServiceUserParameterQueryTagArgs>> queryTags) {

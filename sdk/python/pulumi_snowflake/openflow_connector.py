@@ -27,7 +27,8 @@ class OpenflowConnectorArgs:
                  schema: pulumi.Input[_builtins.str],
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_trigger: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OpenflowConnector resource.
 
@@ -38,6 +39,7 @@ class OpenflowConnectorArgs:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow connector.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the connector. Shown in the Openflow UI in place of the connector's identifier when set.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow connector; must be unique for the schema in which the connector is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] version_trigger: An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "from_", from_)
@@ -49,6 +51,8 @@ class OpenflowConnectorArgs:
             pulumi.set(__self__, "display_name", display_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if version_trigger is not None:
+            pulumi.set(__self__, "version_trigger", version_trigger)
 
     @_builtins.property
     @pulumi.getter
@@ -134,6 +138,18 @@ class OpenflowConnectorArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="versionTrigger")
+    def version_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
+        """
+        return pulumi.get(self, "version_trigger")
+
+    @version_trigger.setter
+    def version_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_trigger", value)
+
 
 @pulumi.input_type
 class _OpenflowConnectorState:
@@ -147,7 +163,8 @@ class _OpenflowConnectorState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowConnectorShowOutputArgs']]]] = None):
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowConnectorShowOutputArgs']]]] = None,
+                 version_trigger: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenflowConnector resources.
 
@@ -161,6 +178,7 @@ class _OpenflowConnectorState:
         :param pulumi.Input[_builtins.str] runtime: Specifies the fully qualified name of the Openflow runtime the connector runs in. The connector is created in the runtime's schema, so `database` and `schema` must match it. Snowflake has no ALTER for it, so changing it recreates the connector.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['OpenflowConnectorShowOutputArgs']]] show_outputs: Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
+        :param pulumi.Input[_builtins.str] version_trigger: An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -182,6 +200,8 @@ class _OpenflowConnectorState:
             pulumi.set(__self__, "schema", schema)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
+        if version_trigger is not None:
+            pulumi.set(__self__, "version_trigger", version_trigger)
 
     @_builtins.property
     @pulumi.getter
@@ -303,6 +323,18 @@ class _OpenflowConnectorState:
     def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowConnectorShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
+    @_builtins.property
+    @pulumi.getter(name="versionTrigger")
+    def version_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
+        """
+        return pulumi.get(self, "version_trigger")
+
+    @version_trigger.setter
+    def version_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_trigger", value)
+
 
 @pulumi.type_token("snowflake:index/openflowConnector:OpenflowConnector")
 class OpenflowConnector(pulumi.CustomResource):
@@ -317,17 +349,16 @@ class OpenflowConnector(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_trigger: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** Every mutating statement is asynchronous and the provider waits for the connector to settle before returning, so applies take minutes rather than seconds. If you encounter timeout errors, use a `timeouts` block to set higher limits for your environment.
 
         > **Note** `from` is create-only and is not read back. Snowflake resolves a connector definition whichever source the connector was created from, so a value read from `SHOW` could not be told apart from a configured one; `show_output.connector_definition` reports what Snowflake resolved. External changes to the block are therefore not detected, and after `pulumi import` the block is absent from state, so the first plan asks to replace the connector.
 
-        > **Note** Starting, stopping and version management are operational actions rather than desired state, so they are not exposed here. The connector's current status is reported in `show_output`.
+        > **Note** Starting and stopping are operational actions rather than desired state, so they are not exposed here, although the provider may execute such commands when altering the object. The connector's current status is reported in `show_output`.
 
-        Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting, stopping and version management are operational actions and are not exposed here; the connector's state is reported in `show_output`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
+        Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting and stopping are operational actions and are not exposed here, although the provider may execute such commands when altering the object; the connector's state is reported in `show_output`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
 
         ## Example Usage
 
@@ -358,7 +389,8 @@ class OpenflowConnector(pulumi.CustomResource):
             from_={
                 "stage": example_snowflake_stage["fullyQualifiedName"],
                 "path": "connectors/postgres",
-            })
+            },
+            version_trigger="1")
         # uploading the bundle yourself, then creating the connector from it. Snowflake reads config.json from the
         # location and checks that the connector definition it names matches, so that file has to be there; the same
         # PUT pattern uploads anything else the bundle needs, such as a driver jar.
@@ -450,6 +482,7 @@ class OpenflowConnector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow connector; must be unique for the schema in which the connector is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] runtime: Specifies the fully qualified name of the Openflow runtime the connector runs in. The connector is created in the runtime's schema, so `database` and `schema` must match it. Snowflake has no ALTER for it, so changing it recreates the connector.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] version_trigger: An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
         """
         ...
     @overload
@@ -458,15 +491,13 @@ class OpenflowConnector(pulumi.CustomResource):
                  args: OpenflowConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** Every mutating statement is asynchronous and the provider waits for the connector to settle before returning, so applies take minutes rather than seconds. If you encounter timeout errors, use a `timeouts` block to set higher limits for your environment.
 
         > **Note** `from` is create-only and is not read back. Snowflake resolves a connector definition whichever source the connector was created from, so a value read from `SHOW` could not be told apart from a configured one; `show_output.connector_definition` reports what Snowflake resolved. External changes to the block are therefore not detected, and after `pulumi import` the block is absent from state, so the first plan asks to replace the connector.
 
-        > **Note** Starting, stopping and version management are operational actions rather than desired state, so they are not exposed here. The connector's current status is reported in `show_output`.
+        > **Note** Starting and stopping are operational actions rather than desired state, so they are not exposed here, although the provider may execute such commands when altering the object. The connector's current status is reported in `show_output`.
 
-        Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting, stopping and version management are operational actions and are not exposed here; the connector's state is reported in `show_output`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
+        Resource used to manage Openflow connectors, which run inside an Openflow runtime. Every mutating statement is asynchronous, so create and update return once the connector settles. Starting and stopping are operational actions and are not exposed here, although the provider may execute such commands when altering the object; the connector's state is reported in `show_output`. For more information, check [Openflow connector documentation](https://docs.snowflake.com/en/sql-reference/sql/create-openflow-connector).
 
         ## Example Usage
 
@@ -497,7 +528,8 @@ class OpenflowConnector(pulumi.CustomResource):
             from_={
                 "stage": example_snowflake_stage["fullyQualifiedName"],
                 "path": "connectors/postgres",
-            })
+            },
+            version_trigger="1")
         # uploading the bundle yourself, then creating the connector from it. Snowflake reads config.json from the
         # location and checks that the connector definition it names matches, so that file has to be there; the same
         # PUT pattern uploads anything else the bundle needs, such as a driver jar.
@@ -602,6 +634,7 @@ class OpenflowConnector(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_trigger: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -626,6 +659,7 @@ class OpenflowConnector(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["version_trigger"] = version_trigger
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
@@ -648,7 +682,8 @@ class OpenflowConnector(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             runtime: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None) -> 'OpenflowConnector':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None,
+            version_trigger: pulumi.Input[Optional[_builtins.str]] = None) -> 'OpenflowConnector':
         """
         Get an existing OpenflowConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -666,6 +701,7 @@ class OpenflowConnector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime: Specifies the fully qualified name of the Openflow runtime the connector runs in. The connector is created in the runtime's schema, so `database` and `schema` must match it. Snowflake has no ALTER for it, so changing it recreates the connector.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]] show_outputs: Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
+        :param pulumi.Input[_builtins.str] version_trigger: An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -681,6 +717,7 @@ class OpenflowConnector(pulumi.CustomResource):
         __props__.__dict__["runtime"] = runtime
         __props__.__dict__["schema"] = schema
         __props__.__dict__["show_outputs"] = show_outputs
+        __props__.__dict__["version_trigger"] = version_trigger
         return OpenflowConnector(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -695,7 +732,8 @@ class OpenflowConnector(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             runtime: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None) -> pulumi.Output[bool]:
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None,
+            version_trigger: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["comment"] = comment
         __props__["database"] = database
@@ -707,6 +745,7 @@ class OpenflowConnector(pulumi.CustomResource):
         __props__["runtime"] = runtime
         __props__["schema"] = schema
         __props__["showOutputs"] = show_outputs
+        __props__["versionTrigger"] = version_trigger
         return pulumi.runtime.exists_resource(None, 'snowflake:index/openflowConnector:OpenflowConnector', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
@@ -788,4 +827,12 @@ class OpenflowConnector(pulumi.CustomResource):
         Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
         """
         return pulumi.get(self, "show_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="versionTrigger")
+    def version_trigger(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        An arbitrary value, such as a hash of the bundle's files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `show_output` and `describe_output` are marked as computed. Only for a connector created from a stage.
+        """
+        return pulumi.get(self, "version_trigger")
 

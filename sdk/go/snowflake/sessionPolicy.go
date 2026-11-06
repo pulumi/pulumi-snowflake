@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewSessionPolicy(ctx, "basic", &snowflake.SessionPolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),
@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewSessionPolicy(ctx, "complete", &snowflake.SessionPolicyArgs{
 //				Database:                 pulumi.String("database_name"),
 //				Schema:                   pulumi.String("schema_name"),
@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Secondary roles using all / none
+//			//# Secondary roles using all / none
 //			_, err = snowflake.NewSessionPolicy(ctx, "secondary_roles_all_none", &snowflake.SessionPolicyArgs{
 //				Database: pulumi.String("database_name"),
 //				Schema:   pulumi.String("schema_name"),

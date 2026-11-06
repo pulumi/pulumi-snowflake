@@ -22,6 +22,7 @@ public final class GetTablesTableShowOutput {
     private String databaseName;
     private String droppedOn;
     private Boolean enableSchemaEvolution;
+    private Boolean isDynamic;
     private Boolean isEvent;
     private Boolean isExternal;
     private String kind;
@@ -65,6 +66,9 @@ public final class GetTablesTableShowOutput {
     }
     public Boolean enableSchemaEvolution() {
         return this.enableSchemaEvolution;
+    }
+    public Boolean isDynamic() {
+        return this.isDynamic;
     }
     public Boolean isEvent() {
         return this.isEvent;
@@ -122,6 +126,7 @@ public final class GetTablesTableShowOutput {
         private String databaseName;
         private String droppedOn;
         private Boolean enableSchemaEvolution;
+        private Boolean isDynamic;
         private Boolean isEvent;
         private Boolean isExternal;
         private String kind;
@@ -147,6 +152,7 @@ public final class GetTablesTableShowOutput {
     	      this.databaseName = defaults.databaseName;
     	      this.droppedOn = defaults.droppedOn;
     	      this.enableSchemaEvolution = defaults.enableSchemaEvolution;
+    	      this.isDynamic = defaults.isDynamic;
     	      this.isEvent = defaults.isEvent;
     	      this.isExternal = defaults.isExternal;
     	      this.kind = defaults.kind;
@@ -239,6 +245,14 @@ public final class GetTablesTableShowOutput {
               throw new MissingRequiredPropertyException("GetTablesTableShowOutput", "enableSchemaEvolution");
             }
             this.enableSchemaEvolution = enableSchemaEvolution;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isDynamic(Boolean isDynamic) {
+            if (isDynamic == null) {
+              throw new MissingRequiredPropertyException("GetTablesTableShowOutput", "isDynamic");
+            }
+            this.isDynamic = isDynamic;
             return this;
         }
         @CustomType.Setter
@@ -349,6 +363,7 @@ public final class GetTablesTableShowOutput {
             _resultValue.databaseName = databaseName;
             _resultValue.droppedOn = droppedOn;
             _resultValue.enableSchemaEvolution = enableSchemaEvolution;
+            _resultValue.isDynamic = isDynamic;
             _resultValue.isEvent = isEvent;
             _resultValue.isExternal = isExternal;
             _resultValue.kind = kind;

@@ -37,8 +37,8 @@ class CatalogIntegrationIcebergRestArgs:
         :param pulumi.Input['CatalogIntegrationIcebergRestRestConfigArgs'] rest_config: Specifies information about REST configuration.
         :param pulumi.Input['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs'] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs'] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         :param pulumi.Input['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs'] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
@@ -112,7 +112,7 @@ class CatalogIntegrationIcebergRestArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -124,7 +124,7 @@ class CatalogIntegrationIcebergRestArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -191,15 +191,15 @@ class _CatalogIntegrationIcebergRestState:
         :param pulumi.Input['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs'] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs'] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         :param pulumi.Input['CatalogIntegrationIcebergRestRestConfigArgs'] rest_config: Specifies information about REST configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
         :param pulumi.Input['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs'] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         """
         if bearer_rest_authentication is not None:
@@ -269,7 +269,7 @@ class _CatalogIntegrationIcebergRestState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -317,7 +317,7 @@ class _CatalogIntegrationIcebergRestState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -365,7 +365,7 @@ class _CatalogIntegrationIcebergRestState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -487,9 +487,9 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']] rest_config: Specifies information about REST configuration.
@@ -665,15 +665,15 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
-        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']] rest_config: Specifies information about REST configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -755,7 +755,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``) Specifies a comment for the catalog integration.
+        Specifies a comment for the catalog integration.
         """
         return pulumi.get(self, "comment")
 
@@ -787,7 +787,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+        Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -819,7 +819,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.CatalogIntegrationIcebergRestShowOutput']]:
         """
-        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
         """
         return pulumi.get(self, "show_outputs")
 

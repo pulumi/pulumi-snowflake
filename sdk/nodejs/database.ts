@@ -122,6 +122,10 @@ export class Database extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     */
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.DatabaseParameter[]>;
+    /**
      * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
     declare public readonly quotedIdentifiersIgnoreCase: pulumi.Output<boolean>;
@@ -190,6 +194,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["maxDataExtensionTimeInDays"] = state?.maxDataExtensionTimeInDays;
             resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
             resourceInputs["quotedIdentifiersIgnoreCase"] = state?.quotedIdentifiersIgnoreCase;
             resourceInputs["replaceInvalidCharacters"] = state?.replaceInvalidCharacters;
             resourceInputs["replication"] = state?.replication;
@@ -227,6 +232,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args?.userTaskMinimumTriggerIntervalInSeconds;
             resourceInputs["userTaskTimeoutMs"] = args?.userTaskTimeoutMs;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -297,6 +303,10 @@ export interface DatabaseState {
      * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Outputs the result of `SHOW PARAMETERS IN DATABASE` for the given object.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.DatabaseParameter>[] | undefined>;
     /**
      * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */

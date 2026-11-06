@@ -143,7 +143,7 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly dataRetentionTimeInDays: pulumi.Output<number | undefined>;
     /**
-     * The database in which to create the table.
+     * The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly database: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export class Table extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly primaryKey: pulumi.Output<outputs.TablePrimaryKey | undefined>;
     /**
-     * The schema in which to create the table.
+     * The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly schema: pulumi.Output<string>;
     /**
@@ -254,7 +254,7 @@ export interface TableState {
      */
     dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
-     * The database in which to create the table.
+     * The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface TableState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -276,7 +276,7 @@ export interface TableState {
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey | undefined>;
     /**
-     * The schema in which to create the table.
+     * The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string | undefined>;
     /**
@@ -312,11 +312,11 @@ export interface TableArgs {
      */
     dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
-     * The database in which to create the table.
+     * The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+     * Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -326,7 +326,7 @@ export interface TableArgs {
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey | undefined>;
     /**
-     * The schema in which to create the table.
+     * The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     /**

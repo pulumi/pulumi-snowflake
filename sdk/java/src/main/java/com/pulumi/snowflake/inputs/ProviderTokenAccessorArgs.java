@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ProviderTokenAccessorArgs extends com.pulumi.resources.ResourceArgs {
@@ -42,6 +44,21 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
      */
     public Output<String> clientSecret() {
         return this.clientSecret;
+    }
+
+    /**
+     * Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+     * 
+     */
+    @Import(name="minTlsVersion")
+    private @Nullable Output<String> minTlsVersion;
+
+    /**
+     * @return Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+     * 
+     */
+    public Optional<Output<String>> minTlsVersion() {
+        return Optional.ofNullable(this.minTlsVersion);
     }
 
     /**
@@ -94,6 +111,7 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
     private ProviderTokenAccessorArgs(ProviderTokenAccessorArgs $) {
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.minTlsVersion = $.minTlsVersion;
         this.redirectUri = $.redirectUri;
         this.refreshToken = $.refreshToken;
         this.tokenEndpoint = $.tokenEndpoint;
@@ -157,6 +175,27 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param minTlsVersion Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minTlsVersion(@Nullable Output<String> minTlsVersion) {
+            $.minTlsVersion = minTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minTlsVersion Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minTlsVersion(String minTlsVersion) {
+            return minTlsVersion(Output.of(minTlsVersion));
         }
 
         /**

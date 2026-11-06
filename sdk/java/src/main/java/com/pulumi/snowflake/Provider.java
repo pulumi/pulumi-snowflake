@@ -545,6 +545,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.token);
     }
     /**
+     * Path to a file containing the token for OAuth, programmatic access token, and OIDC workload identity authentication. The driver re-reads this file on every new connection. Cannot be set together with `token`, including when `token` comes from a TOML profile. AWS, GCP, and Azure workload identity do not read this file. Can also be sourced from the `SNOWFLAKE_TOKEN_FILE_PATH` environment variable.
+     * 
+     */
+    @Export(name="tokenFilePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tokenFilePath;
+
+    /**
+     * @return Path to a file containing the token for OAuth, programmatic access token, and OIDC workload identity authentication. The driver re-reads this file on every new connection. Cannot be set together with `token`, including when `token` comes from a TOML profile. AWS, GCP, and Azure workload identity do not read this file. Can also be sourced from the `SNOWFLAKE_TOKEN_FILE_PATH` environment variable.
+     * 
+     */
+    public Output<Optional<String>> tokenFilePath() {
+        return Codegen.optional(this.tokenFilePath);
+    }
+    /**
      * Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
      * 
      */

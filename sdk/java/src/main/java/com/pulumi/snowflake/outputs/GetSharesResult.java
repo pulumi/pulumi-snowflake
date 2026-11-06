@@ -5,7 +5,9 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetSharesLimit;
 import com.pulumi.snowflake.outputs.GetSharesShare;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,15 +22,30 @@ public final class GetSharesResult {
      */
     private String id;
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable String like;
     /**
-     * @return List of all the shares available in the system.
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    private @Nullable GetSharesLimit limit;
+    /**
+     * @return Holds the aggregated output of all shares details queries.
      * 
      */
     private List<GetSharesShare> shares;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
 
     private GetSharesResult() {}
     /**
@@ -39,18 +56,39 @@ public final class GetSharesResult {
         return this.id;
     }
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
     }
     /**
-     * @return List of all the shares available in the system.
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     * 
+     */
+    public Optional<GetSharesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Holds the aggregated output of all shares details queries.
      * 
      */
     public List<GetSharesShare> shares() {
         return this.shares;
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return (Default: `true`) Runs DESC SHARE for each share returned by SHOW SHARES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -63,14 +101,20 @@ public final class GetSharesResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable String pattern;
+        private @Nullable String like;
+        private @Nullable GetSharesLimit limit;
         private List<GetSharesShare> shares;
+        private @Nullable String startsWith;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetSharesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
     	      this.shares = defaults.shares;
+    	      this.startsWith = defaults.startsWith;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
         @CustomType.Setter
@@ -82,9 +126,15 @@ public final class GetSharesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(@Nullable String pattern) {
+        public Builder like(@Nullable String like) {
 
-            this.pattern = pattern;
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetSharesLimit limit) {
+
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
@@ -98,11 +148,26 @@ public final class GetSharesResult {
         public Builder shares(GetSharesShare... shares) {
             return shares(List.of(shares));
         }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+
+            this.startsWith = startsWith;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
         public GetSharesResult build() {
             final var _resultValue = new GetSharesResult();
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
             _resultValue.shares = shares;
+            _resultValue.startsWith = startsWith;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

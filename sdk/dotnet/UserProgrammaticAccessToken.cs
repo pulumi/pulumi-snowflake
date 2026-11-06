@@ -137,7 +137,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. A positive value greater than the existing token's remaining lifetime is capped at that lifetime, rounded down to a whole hour. When less than one hour remains, a positive value is omitted so the existing secret keeps its current expiry. You can set this to a value of 0 to expire the current token secret immediately.
         /// </summary>
         [Output("expireRotatedTokenAfterHours")]
         public Output<int?> ExpireRotatedTokenAfterHours { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Disabled { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. A positive value greater than the existing token's remaining lifetime is capped at that lifetime, rounded down to a whole hour. When less than one hour remains, a positive value is omitted so the existing secret keeps its current expiry. You can set this to a value of 0 to expire the current token secret immediately.
         /// </summary>
         [Input("expireRotatedTokenAfterHours")]
         public Input<int>? ExpireRotatedTokenAfterHours { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Disabled { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `Keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. A positive value greater than the existing token's remaining lifetime is capped at that lifetime, rounded down to a whole hour. When less than one hour remains, a positive value is omitted so the existing secret keeps its current expiry. You can set this to a value of 0 to expire the current token secret immediately.
         /// </summary>
         [Input("expireRotatedTokenAfterHours")]
         public Input<int>? ExpireRotatedTokenAfterHours { get; set; }

@@ -138,7 +138,7 @@ export class WarehouseInteractive extends pulumi.CustomResource {
      */
     declare public readonly minClusterCount: pulumi.Output<number | undefined>;
     /**
-     * Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -272,7 +272,7 @@ export interface WarehouseInteractiveState {
      */
     minClusterCount?: pulumi.Input<number | undefined>;
     /**
-     * Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -346,7 +346,7 @@ export interface WarehouseInteractiveArgs {
      */
     minClusterCount?: pulumi.Input<number | undefined>;
     /**
-     * Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the warehouse interactive; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

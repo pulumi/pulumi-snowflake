@@ -35,13 +35,13 @@ class TableArgs:
         The set of arguments for constructing a Table resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
-        :param pulumi.Input[_builtins.str] database: The database in which to create the table.
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -85,7 +85,7 @@ class TableArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database in which to create the table.
+        The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -97,7 +97,7 @@ class TableArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema in which to create the table.
+        The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -157,7 +157,7 @@ class TableArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -215,12 +215,12 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[_builtins.str] database: The database in which to create the table.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if change_tracking is not None:
@@ -318,7 +318,7 @@ class _TableState:
     @pulumi.getter
     def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The database in which to create the table.
+        The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -342,7 +342,7 @@ class _TableState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -379,7 +379,7 @@ class _TableState:
     @pulumi.getter
     def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The schema in which to create the table.
+        The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -500,10 +500,10 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[_builtins.str] database: The database in which to create the table.
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict', 'outputs.TablePrimaryKey']] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict', 'outputs.TableTag']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -673,12 +673,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[_builtins.str] database: The database in which to create the table.
+        :param pulumi.Input[_builtins.str] database: The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        :param pulumi.Input[_builtins.str] name: Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] owner: Name of the role that owns the table.
         :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict', 'outputs.TablePrimaryKey']] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table.
+        :param pulumi.Input[_builtins.str] schema: The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict', 'outputs.TableTag']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -773,7 +773,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[_builtins.str]:
         """
-        The database in which to create the table.
+        The database in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -789,7 +789,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
+        Specifies the identifier for the table; must be unique for the schema in which the table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -814,7 +814,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[_builtins.str]:
         """
-        The schema in which to create the table.
+        The schema in which to create the table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 

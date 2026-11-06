@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
+//			//# Minimal
 //			_, err := snowflake.NewSecondaryConnection(ctx, "basic", &snowflake.SecondaryConnectionArgs{
 //				Name:        pulumi.String("connection_name"),
 //				AsReplicaOf: pulumi.String("\"<organization_name>\".\"<account_name>\".\"<connection_name>\""),
@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Complete (with every optional set)
+//			//# Complete (with every optional set)
 //			_, err = snowflake.NewSecondaryConnection(ctx, "complete", &snowflake.SecondaryConnectionArgs{
 //				Name:        pulumi.String("connection_name"),
 //				AsReplicaOf: pulumi.String("\"<organization_name>\".\"<account_name>\".\"<connection_name>\""),

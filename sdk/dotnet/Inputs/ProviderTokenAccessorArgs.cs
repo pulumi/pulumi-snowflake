@@ -44,6 +44,12 @@ namespace Pulumi.Snowflake.Inputs
             }
         }
 
+        /// <summary>
+        /// Specifies the minimum TLS version for the HTTP client this block uses to exchange a refresh token. The Snowflake driver connection uses `SNOWFLAKE_MIN_TLS_VERSION`, which the driver reads itself. Valid options are: `1.2` | `1.3`. The value is case-insensitive. This does not handle driver connections. If you want to set a minimum TLS version for the Snowflake driver connection, read the [driver documentation](https://pkg.go.dev/github.com/snowflakedb/gosnowflake/v2). Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_MIN_TLS_VERSION` environment variable.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
+
         [Input("redirectUri", required: true)]
         private Input<string>? _redirectUri;
 

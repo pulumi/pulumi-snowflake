@@ -69,7 +69,7 @@ type NetworkRule struct {
 	DescribeOutputs NetworkRuleDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -136,7 +136,7 @@ type networkRuleState struct {
 	DescribeOutputs []NetworkRuleDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 	Mode *string `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name *string `pulumi:"name"`
@@ -159,7 +159,7 @@ type NetworkRuleState struct {
 	DescribeOutputs NetworkRuleDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 	Mode pulumi.StringPtrInput
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type networkRuleArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database string `pulumi:"database"`
-	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 	Mode string `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name *string `pulumi:"name"`
@@ -206,7 +206,7 @@ type NetworkRuleArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the network rule.
 	Database pulumi.StringInput
-	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+	// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 	Mode pulumi.StringInput
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringPtrInput
@@ -325,7 +325,7 @@ func (o NetworkRuleOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
+// Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `SNOWFLAKE_MANAGED_STORAGE_VOLUME` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS` | `DATA_CONNECTIVITY_PROXY_EGRESS`.
 func (o NetworkRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }

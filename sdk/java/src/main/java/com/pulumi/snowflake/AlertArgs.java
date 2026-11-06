@@ -34,14 +34,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schedule for periodically running an alert.
+     * The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     @Import(name="alertSchedule")
     private @Nullable Output<AlertAlertScheduleArgs> alertSchedule;
 
     /**
-     * @return The schedule for periodically running an alert.
+     * @return The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
      * 
      */
     public Optional<Output<AlertAlertScheduleArgs>> alertSchedule() {
@@ -79,14 +79,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the alert.
+     * The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the alert.
+     * @return The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -94,14 +94,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -109,14 +109,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+     * @return Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the alert.
+     * The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the alert.
+     * @return The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -139,18 +139,18 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The warehouse the alert will use.
+     * The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
-    @Import(name="warehouse", required=true)
-    private Output<String> warehouse;
+    @Import(name="warehouse")
+    private @Nullable Output<String> warehouse;
 
     /**
-     * @return The warehouse the alert will use.
+     * @return The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
      * 
      */
-    public Output<String> warehouse() {
-        return this.warehouse;
+    public Optional<Output<String>> warehouse() {
+        return Optional.ofNullable(this.warehouse);
     }
 
     private AlertArgs() {}
@@ -207,7 +207,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertSchedule The schedule for periodically running an alert.
+         * @param alertSchedule The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertSchedule The schedule for periodically running an alert.
+         * @param alertSchedule The schedule for periodically running an alert. Without it, the alert runs when new rows arrive in the tables of the condition. Adding or removing the schedule recreates the alert.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the alert.
+         * @param database The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the alert.
+         * @param database The database in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+         * @param name Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
+         * @param name Specifies the identifier for the alert; must be unique for the schema in which the alert is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the alert.
+         * @param schema The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the alert.
+         * @param schema The schema in which to create the alert. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -354,18 +354,18 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse The warehouse the alert will use.
+         * @param warehouse The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
          * 
          * @return builder
          * 
          */
-        public Builder warehouse(Output<String> warehouse) {
+        public Builder warehouse(@Nullable Output<String> warehouse) {
             $.warehouse = warehouse;
             return this;
         }
 
         /**
-         * @param warehouse The warehouse the alert will use.
+         * @param warehouse The warehouse the alert will use. When not set, the alert uses serverless compute resources. Creating, resuming, or switching to a serverless alert requires the EXECUTE MANAGED ALERT privilege; using a named warehouse requires its USAGE privilege.
          * 
          * @return builder
          * 
@@ -386,9 +386,6 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.schema == null) {
                 throw new MissingRequiredPropertyException("AlertArgs", "schema");
-            }
-            if ($.warehouse == null) {
-                throw new MissingRequiredPropertyException("AlertArgs", "warehouse");
             }
             return $;
         }

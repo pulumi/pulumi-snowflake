@@ -142,7 +142,7 @@ export class CatalogIntegrationIcebergRest extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly catalogSource: pulumi.Output<string>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export class CatalogIntegrationIcebergRest extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -174,7 +174,7 @@ export class CatalogIntegrationIcebergRest extends pulumi.CustomResource {
      */
     declare public readonly restConfig: pulumi.Output<outputs.CatalogIntegrationIcebergRestRestConfig>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.CatalogIntegrationIcebergRestShowOutput[]>;
     /**
@@ -252,7 +252,7 @@ export interface CatalogIntegrationIcebergRestState {
      */
     catalogSource?: pulumi.Input<string | undefined>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -268,7 +268,7 @@ export interface CatalogIntegrationIcebergRestState {
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface CatalogIntegrationIcebergRestState {
      */
     restConfig?: pulumi.Input<inputs.CatalogIntegrationIcebergRestRestConfig | undefined>;
     /**
-     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+     * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration iceberg rest.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestShowOutput>[] | undefined>;
     /**
@@ -306,7 +306,7 @@ export interface CatalogIntegrationIcebergRestArgs {
      */
     catalogNamespace?: pulumi.Input<string | undefined>;
     /**
-     * (Default: ``) Specifies a comment for the catalog integration.
+     * Specifies a comment for the catalog integration.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface CatalogIntegrationIcebergRestArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
+     * Specifies the identifier for the catalog integration iceberg rest; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string | undefined>;
     /**

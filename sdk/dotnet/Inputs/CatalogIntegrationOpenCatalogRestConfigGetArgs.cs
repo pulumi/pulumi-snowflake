@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? AccessDelegationMode { get; set; }
 
         /// <summary>
-        /// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        /// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE` | `AWS_S3TABLES` | `AWS_PRIVATE_S3TABLES`.
         /// </summary>
         [Input("catalogApiType")]
         public Input<string>? CatalogApiType { get; set; }

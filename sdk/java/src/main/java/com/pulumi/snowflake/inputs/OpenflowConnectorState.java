@@ -169,6 +169,21 @@ public final class OpenflowConnectorState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.showOutputs);
     }
 
+    /**
+     * An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+     * 
+     */
+    @Import(name="versionTrigger")
+    private @Nullable Output<String> versionTrigger;
+
+    /**
+     * @return An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+     * 
+     */
+    public Optional<Output<String>> versionTrigger() {
+        return Optional.ofNullable(this.versionTrigger);
+    }
+
     private OpenflowConnectorState() {}
 
     private OpenflowConnectorState(OpenflowConnectorState $) {
@@ -182,6 +197,7 @@ public final class OpenflowConnectorState extends com.pulumi.resources.ResourceA
         this.runtime = $.runtime;
         this.schema = $.schema;
         this.showOutputs = $.showOutputs;
+        this.versionTrigger = $.versionTrigger;
     }
 
     public static Builder builder() {
@@ -430,6 +446,27 @@ public final class OpenflowConnectorState extends com.pulumi.resources.ResourceA
          */
         public Builder showOutputs(OpenflowConnectorShowOutputArgs... showOutputs) {
             return showOutputs(List.of(showOutputs));
+        }
+
+        /**
+         * @param versionTrigger An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionTrigger(@Nullable Output<String> versionTrigger) {
+            $.versionTrigger = versionTrigger;
+            return this;
+        }
+
+        /**
+         * @param versionTrigger An arbitrary value, such as a hash of the bundle&#39;s files, that, if and only if changed from a non-empty to a different non-empty value (or known after apply), loads the bundle at `from` again as a new configuration version of the same connector, rather than recreating it. When you add this field to the configuration, or remove it, nothing is loaded, so add it before the bundle changes. A running connector is stopped for the load and started again afterwards; a stopped one stays stopped. When a version is loaded, `showOutput` and `describeOutput` are marked as computed. Only for a connector created from a stage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionTrigger(String versionTrigger) {
+            return versionTrigger(Output.of(versionTrigger));
         }
 
         public OpenflowConnectorState build() {

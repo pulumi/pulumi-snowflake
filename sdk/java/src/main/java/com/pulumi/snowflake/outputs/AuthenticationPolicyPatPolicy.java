@@ -6,12 +6,18 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class AuthenticationPolicyPatPolicy {
+    /**
+     * @return Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     * 
+     */
+    private @Nullable List<String> blockedRolesLists;
     /**
      * @return Specifies the default expiration time (in days) for a programmatic access token.
      * 
@@ -28,12 +34,24 @@ public final class AuthenticationPolicyPatPolicy {
      */
     private @Nullable String networkPolicyEvaluation;
     /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    private @Nullable String requireRoleRestrictionForPersonUsers;
+    /**
      * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     private @Nullable String requireRoleRestrictionForServiceUsers;
 
     private AuthenticationPolicyPatPolicy() {}
+    /**
+     * @return Specifies the roles that cannot be used as the role restriction for a programmatic access token.
+     * 
+     */
+    public List<String> blockedRolesLists() {
+        return this.blockedRolesLists == null ? List.of() : this.blockedRolesLists;
+    }
     /**
      * @return Specifies the default expiration time (in days) for a programmatic access token.
      * 
@@ -56,6 +74,13 @@ public final class AuthenticationPolicyPatPolicy {
         return Optional.ofNullable(this.networkPolicyEvaluation);
     }
     /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a person user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<String> requireRoleRestrictionForPersonUsers() {
+        return Optional.ofNullable(this.requireRoleRestrictionForPersonUsers);
+    }
+    /**
      * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
@@ -72,19 +97,32 @@ public final class AuthenticationPolicyPatPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> blockedRolesLists;
         private @Nullable Integer defaultExpiryInDays;
         private @Nullable Integer maxExpiryInDays;
         private @Nullable String networkPolicyEvaluation;
+        private @Nullable String requireRoleRestrictionForPersonUsers;
         private @Nullable String requireRoleRestrictionForServiceUsers;
         public Builder() {}
         public Builder(AuthenticationPolicyPatPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.blockedRolesLists = defaults.blockedRolesLists;
     	      this.defaultExpiryInDays = defaults.defaultExpiryInDays;
     	      this.maxExpiryInDays = defaults.maxExpiryInDays;
     	      this.networkPolicyEvaluation = defaults.networkPolicyEvaluation;
+    	      this.requireRoleRestrictionForPersonUsers = defaults.requireRoleRestrictionForPersonUsers;
     	      this.requireRoleRestrictionForServiceUsers = defaults.requireRoleRestrictionForServiceUsers;
         }
 
+        @CustomType.Setter
+        public Builder blockedRolesLists(@Nullable List<String> blockedRolesLists) {
+
+            this.blockedRolesLists = blockedRolesLists;
+            return this;
+        }
+        public Builder blockedRolesLists(String... blockedRolesLists) {
+            return blockedRolesLists(List.of(blockedRolesLists));
+        }
         @CustomType.Setter
         public Builder defaultExpiryInDays(@Nullable Integer defaultExpiryInDays) {
 
@@ -104,6 +142,12 @@ public final class AuthenticationPolicyPatPolicy {
             return this;
         }
         @CustomType.Setter
+        public Builder requireRoleRestrictionForPersonUsers(@Nullable String requireRoleRestrictionForPersonUsers) {
+
+            this.requireRoleRestrictionForPersonUsers = requireRoleRestrictionForPersonUsers;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requireRoleRestrictionForServiceUsers(@Nullable String requireRoleRestrictionForServiceUsers) {
 
             this.requireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
@@ -111,9 +155,11 @@ public final class AuthenticationPolicyPatPolicy {
         }
         public AuthenticationPolicyPatPolicy build() {
             final var _resultValue = new AuthenticationPolicyPatPolicy();
+            _resultValue.blockedRolesLists = blockedRolesLists;
             _resultValue.defaultExpiryInDays = defaultExpiryInDays;
             _resultValue.maxExpiryInDays = maxExpiryInDays;
             _resultValue.networkPolicyEvaluation = networkPolicyEvaluation;
+            _resultValue.requireRoleRestrictionForPersonUsers = requireRoleRestrictionForPersonUsers;
             _resultValue.requireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
             return _resultValue;
         }
