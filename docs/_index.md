@@ -587,7 +587,7 @@ Provider uses an established hierarchy of sources. The current behavior is that 
 2. Check if it is present in the environment variables. If yes, use this value. If not, go to step 3.
 3. Check if it is present in the TOML config file (specifically, use the profile name configured in one of the steps above). If yes, use this value. If not, the value is considered empty.
 
-> **Note** Currently `privateKey` and `privateKeyPassphrase` are coupled and must be set in one source (both on Pulumi side or both in TOML config, see <https://github.com/snowflakedb/pulumi-provider-snowflake/issues/3332)>. This will be fixed in the future.
+> **Note** Currently `privateKey` and `privateKeyPassphrase` are coupled and must be set in one source (both on Pulumi side or both in TOML config, see <https://github.com/snowflakedb/terraform-provider-snowflake/issues/3332>). This will be fixed in the future.
 
 > **Note** Currently both legacy and new formats are supported. The new format can be enabled with setting `useLegacyTomlFile = false` in the provider configuration. We encourage using the new format for now, as it will be a default one in v2 version of the provider. The differences between these formats are:
 - The keys in the provider contain an underscore (`_`) as a separator, but the TOML schema has fields without any separator.
@@ -2421,7 +2421,7 @@ With this experiment, covered parameters are parsed with the same rules as the t
 
 Covered today: account-level (`onAccount = true`) parameters and Database, Schema, Warehouse, User, Task, Service, Hybrid Table, and Iceberg Table. Account-level parameters already parse values this way. A parameter or object type that is not covered yet keeps the previous behavior, including Function and Procedure, because this resource does not capture argument types. An enum value the catalog does not recognize is logged and also keeps the previous behavior.
 
-See the migration guide for a detailed view: <https://github.com/snowflakedb/pulumi-provider-snowflake/blob/dev/MIGRATION_GUIDE.md#opt-in-experiment-parse-snowflake_object_parameter-values-on-set>.
+See the migration guide for a detailed view: <https://github.com/snowflakedb/terraform-provider-snowflake/blob/dev/MIGRATION_GUIDE.md#new-feature-opt-in-experiment-parse-snowflake_object_parameter-values-on-set>.
 #### AUTHENTICATOR_EXPLICIT_ONLY
 Removes implicit authenticator derivation from other provider configuration fields.
 
@@ -2439,7 +2439,7 @@ Changes how `snowflake.AccountParameter` builds the SQL it sends for the `value`
 
 String-typed parameter values no longer need to be manually wrapped in single quotes within `value` — quoting is now handled internally. Identifier-typed parameters (e.g. referencing a network policy by name) require no `value` change, but are now sent as a quoted identifier instead of a single-quoted string literal.
 
-This experiment is also the first step toward forward-compatible parameter support (new Snowflake parameters usable without a provider upgrade); for now it only changes how existing parameters are written. See the migration guide for a detailed, before/after view of the configuration changes: <https://github.com/snowflakedb/pulumi-provider-snowflake/blob/dev/MIGRATION_GUIDE.md#opt-in-experiment-internal-quoting-for-snowflake_account_parameter>.
+This experiment is also the first step toward forward-compatible parameter support (new Snowflake parameters usable without a provider upgrade); for now it only changes how existing parameters are written. See the migration guide for a detailed, before/after view of the configuration changes: <https://github.com/snowflakedb/terraform-provider-snowflake/blob/dev/MIGRATION_GUIDE.md#new-feature-opt-in-experiment-internal-quoting-for-snowflake_account_parameter>.
 #### WRITE_ONLY_ATTRIBUTES
 Enables write-only attributes. Their values are never saved in the pulumi preview or state, so they can be set from an ephemeral resource. They require Pulumi 1.11 or later.
 
