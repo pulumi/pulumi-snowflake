@@ -168,8 +168,9 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 		removeSupportedArchitectures,
 		fixExample,
 		removeMainTf,
+		fixUpstreamLinks,
 	}
-	return slices.Concat(edits, defaults, fixInvalidEdits)
+	return slices.Concat(edits, defaults, fixInvalidEdits, []info.DocsEdit{restoreUpstreamRepoURLs})
 }
 
 func removeLiteralFromIndex(s string) info.DocsEdit {
@@ -240,6 +241,36 @@ var removeSupportedArchitectures = info.DocsEdit{
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return headerText == "Supported architectures"
 		})
+	},
+}
+
+// Upstream index.md links to migration guide anchors that omit the heading's
+// "(new feature)" prefix, so the links land at the top of the guide.
+var fixUpstreamLinks = info.DocsEdit{
+	Path: indexPath,
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return []byte(strings.NewReplacer(
+			"MIGRATION_GUIDE.md#opt-in-experiment-parse-snowflake_object_parameter-values-on-set",
+			"MIGRATION_GUIDE.md#new-feature-opt-in-experiment-parse-snowflake_object_parameter-values-on-set",
+			"MIGRATION_GUIDE.md#opt-in-experiment-internal-quoting-for-snowflake_account_parameter",
+			"MIGRATION_GUIDE.md#new-feature-opt-in-experiment-internal-quoting-for-snowflake_account_parameter",
+		).Replace(string(content))), nil
+	},
+}
+
+// The bridge's Terraform-to-Pulumi word replacement rewrites links to the upstream
+// repository into links to a repository that doesn't exist. The bridge also wraps a
+// bare URL in angle brackets, and upstream follows one with ")", which ends up inside them.
+var restoreUpstreamRepoURLs = info.DocsEdit{
+	Path:  indexPath,
+	Phase: info.PostCodeTranslation,
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return []byte(strings.NewReplacer(
+			"github.com/snowflakedb/pulumi-provider-snowflake",
+			"github.com/snowflakedb/terraform-provider-snowflake",
+			"/issues/3332)>",
+			"/issues/3332>)",
+		).Replace(string(content))), nil
 	},
 }
 
